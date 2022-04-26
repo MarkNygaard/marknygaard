@@ -1,5 +1,5 @@
 import Layout from 'components/Layout';
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import {
   getAllPostsWithSlug,
@@ -8,16 +8,13 @@ import {
   getAllPages,
 } from '../../lib/api';
 import ErrorPage from 'next/error';
-import { StructuredText } from 'react-datocms';
+import { StructuredText, Image } from 'react-datocms';
 import { BlurImage } from 'components/BlurImage';
 import { format } from 'date-fns';
-import Image from 'next/image';
-import cn from 'classnames';
-import { StringifyOptions } from 'querystring';
+import type { FileField, ImageBlockRecord } from 'lib/api';
 
 export default function Page({ post, allPosts, allPages }) {
   const router = useRouter();
-  const [isLoading, setLoading] = useState(true);
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -35,37 +32,36 @@ export default function Page({ post, allPosts, allPages }) {
               {post.title}
             </div>
             <div className="col-span-2 relative h-60 lg:h-96 border-[1px] border-pine-300 dark:border-gray-800">
-              <BlurImage details={post.coverImage} />
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image
+                data={{
+                  ...post.coverImage.responsiveImage,
+                  title: post.coverImage.responsiveImage.title || undefined,
+                  base64: post.coverImage.responsiveImage.base64 || undefined,
+                  bgColor: post.coverImage.responsiveImage.bgColor || undefined,
+                  alt: `Cover Image for ${post.title}`,
+                }}
+              />
             </div>
           </div>
           <div className="flex">
             <div className="w-full lg:w-9/12">
-              <div className="prose dark:prose-invert dark:prose-pre:bg-gray-900 dark:prose-pre:text-gray-300 prose-pre:bg-gray-100 prose-pre:border-l-8 prose-pre:border-accent prose-pre:text-gray-700 prose-pre:text-xs">
+              <div className="prose prose-img:m-0 dark:prose-invert dark:prose-pre:bg-gray-900 dark:prose-pre:text-gray-300 prose-pre:bg-gray-100 prose-pre:border-l-8 prose-pre:border-accent prose-pre:text-gray-700 prose-pre:text-xs">
                 <StructuredText
                   data={post.content}
                   renderBlock={({ record }) => {
-                    if (record.__typename === 'ImageRecord') {
-                      interface record {
-                        url: string;
-                        width: string;
-                        height: number;
-                      }
-
+                    if (
+                      record.__typename === 'ImageRecord' &&
+                      (record as ImageBlockRecord).image &&
+                      (record as ImageBlockRecord).image?.responsiveImage
+                    ) {
                       return (
                         <div className="flex justify-center">
+                          {/* eslint-disable-next-line jsx-a11y/alt-text */}
                           <Image
-                            alt=""
-                            src={(record.image as any)?.url}
-                            width={(record.image as any)?.width}
-                            height={(record.image as any)?.height}
-                            quality={100}
-                            className={cn(
-                              'duration-700 ease-in-out dark:opacity-50',
-                              isLoading
-                                ? 'scale-110 blur-2xl grayscale'
-                                : 'scale-100 blur-0 grayscale-0'
-                            )}
-                            onLoadingComplete={() => setLoading(false)}
+                            data={
+                              (record.image as FileField).responsiveImage as any
+                            }
                           />
                         </div>
                       );

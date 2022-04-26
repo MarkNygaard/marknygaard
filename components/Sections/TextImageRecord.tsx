@@ -1,10 +1,6 @@
 import React from 'react';
-import { StructuredText } from 'react-datocms';
-import { BlurImage } from 'components/BlurImage';
-
-function cn(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+import { StructuredText, Image } from 'react-datocms';
+import type { FileField } from 'lib/api';
 
 export default function TextImageRecord({ details }) {
   if (details.imageLocation === 'RIGHT') {
@@ -16,15 +12,24 @@ export default function TextImageRecord({ details }) {
         <div className="mx-auto md:mb-auto">
           {details.imageStyle === 'Round' ? (
             <div className="relative aspect-square h-44 lg:h-72 w-full overflow-hidden rounded-full">
-              <BlurImage details={details.image} />
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image
+                data={(details.image as FileField).responsiveImage as any}
+              />
             </div>
           ) : details.imageStyle === 'Square' ? (
             <div className="relative aspect-square h-44 lg:h-72 w-full overflow-hidden">
-              <BlurImage details={details.image} />
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image
+                data={(details.image as FileField).responsiveImage as any}
+              />
             </div>
           ) : details.imageStyle === 'Rounded Corners' ? (
             <div className="relative aspect-square h-44 lg:h-72 w-full overflow-hidden">
-              <BlurImage details={details.image} />
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image
+                data={(details.image as FileField).responsiveImage as any}
+              />
             </div>
           ) : null}
         </div>
@@ -36,15 +41,24 @@ export default function TextImageRecord({ details }) {
         <div className="mx-auto md:mb-auto">
           {details.imageStyle === 'Round' ? (
             <div className="relative aspect-square h-44 lg:h-72 w-full overflow-hidden rounded-full">
-              <BlurImage details={details.image} />
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image
+                data={(details.image as FileField).responsiveImage as any}
+              />
             </div>
           ) : details.imageStyle === 'Square' ? (
             <div className="relative aspect-square h-44 lg:h-72 w-full overflow-hidden">
-              <BlurImage details={details.image} />
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image
+                data={(details.image as FileField).responsiveImage as any}
+              />
             </div>
           ) : details.imageStyle === 'Rounded Corners' ? (
             <div className="relative aspect-square h-44 lg:h-72 w-full overflow-hidden">
-              <BlurImage details={details.image} />
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image
+                data={(details.image as FileField).responsiveImage as any}
+              />
             </div>
           ) : null}
         </div>
