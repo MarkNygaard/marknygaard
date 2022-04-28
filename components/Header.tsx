@@ -6,6 +6,7 @@ import NextLink from 'next/link';
 import cn from 'classnames';
 import Icon from './Icon';
 import { renderMetaTags } from 'react-datocms';
+import MobileMenu from './MobileMenu';
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -38,8 +39,10 @@ export default function Header({ allPages }) {
     <div className="px-2 container mx-auto">
       <div className="py-6 max-w-5xl mx-auto">
         {/* <Head>{renderMetaTags(metaTags)}</Head> */}
+
         <div className="flex">
           <div className="flex flex-1 -ml-3">
+            <MobileMenu allPages={allPages} />
             {allPages?.map((page) => {
               return (
                 <NavItem

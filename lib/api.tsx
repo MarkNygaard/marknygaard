@@ -181,6 +181,20 @@ export async function getAllPages() {
           ... on ImageRecord {
             __typename
             id
+            image {
+              responsiveImage(imgixParams: { fit: crop, w: 288, h: 288, auto: format }) {
+                srcSet
+                webpSrcSet
+                sizes
+                src
+                width
+                height
+                aspectRatio
+                alt
+                title
+                base64
+              }
+            }
           }
           ... on TextRecord {
             __typename
@@ -246,6 +260,20 @@ export async function getPage(slug) {
         ... on ImageRecord {
           __typename
           id
+          image {
+            responsiveImage(imgixParams: { fit: crop, w: 288, h: 288, auto: format }) {
+              srcSet
+              webpSrcSet
+              sizes
+              src
+              width
+              height
+              aspectRatio
+              alt
+              title
+              base64
+            }
+          }
         }
         ... on TextRecord {
           __typename
@@ -286,6 +314,40 @@ export async function getPage(slug) {
           __typename
           id
           imageBoolean
+        }
+        ... on GridRecord {
+          __typename
+          id
+          title
+          columns
+          gap
+          sections {
+            ... on ImageRecord {
+              __typename
+              id
+              image {
+                responsiveImage(imgixParams: { fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format }) {
+                  srcSet
+                  webpSrcSet
+                  sizes
+                  src
+                  width
+                  height
+                  aspectRatio
+                  alt
+                  title
+                  base64
+                }
+              }
+            }
+            ... on TextRecord {
+              __typename
+              id
+              structuredText {
+                value
+              }
+            }
+          }
         }
       }
       seo: _seoMetaTags {
@@ -328,7 +390,18 @@ export async function getAllPosts() {
         author {
           name
           picture {
-            url
+            responsiveImage(imgixParams: { fit: crop, w: 48, h: 48, auto: format, mask: ellipse }) {
+              srcSet
+              webpSrcSet
+              sizes
+              src
+              width
+              height
+              aspectRatio
+              alt
+              title
+              base64
+            }
           }
         }
         category {
@@ -392,7 +465,18 @@ export async function getPost(slug) {
       author {
         name
         picture {
-          url
+          responsiveImage(imgixParams: { fit: crop, w: 48, h: 48, auto: format, mask: ellipse }) {
+            srcSet
+            webpSrcSet
+            sizes
+            src
+            width
+            height
+            aspectRatio
+            alt
+            title
+            base64
+          }
         }
       }
       category {

@@ -10,7 +10,7 @@ export default function FeaturedRecord({ details, posts }) {
   return (
     <div className="space-y-8 py-4 pt-10">
       <div className="text-3xl font-bold">Featured Posts</div>
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-10">
         {featuredPosts?.map((post) => {
           return (
             <div

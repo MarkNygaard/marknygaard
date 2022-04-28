@@ -11,7 +11,7 @@ export default function TextImageRecord({ details }) {
         </article>
         <div className="mx-auto md:mb-auto">
           {details.imageStyle === 'Round' ? (
-            <div className="relative aspect-square h-44 lg:h-72 w-full overflow-hidden rounded-full">
+            <div className="relative aspect-square h-44 mb-4 md:mb-0 lg:h-72 w-full overflow-hidden rounded-full">
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image
                 data={(details.image as FileField).responsiveImage as any}

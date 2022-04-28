@@ -1,16 +1,14 @@
 import React from 'react';
-import { BlurImage } from '../BlurImage';
-
-export function cn(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+import type { FileField } from 'lib/api';
+import { Image } from 'react-datocms';
 
 export default function ImageRecord({ details }) {
   return (
     <div className="py-20 px-10">
       <div className="flex justify-center">
         <div className="relative aspect-square h-32 w-full overflow-hidden rounded-lg">
-          <BlurImage details={details.image} />
+          {/* eslint-disable-next-line jsx-a11y/alt-text */}
+          <Image data={(details.image as FileField).responsiveImage as any} />
         </div>
       </div>
     </div>

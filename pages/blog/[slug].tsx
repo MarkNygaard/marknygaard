@@ -77,9 +77,13 @@ export default function Page({ post, allPosts, allPages }) {
               <div className="space-y-2 py-5 pl-2">
                 <div className="font-semibold">Author</div>
                 <div className="flex">
-                  <div className="relative aspect-square h-12 w-12 overflow-hidden rounded-full">
-                    <BlurImage details={post.author.picture} />1
-                  </div>
+                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                  <Image
+                    data={
+                      (post.author.picture as FileField).responsiveImage as any
+                    }
+                  />
+
                   <div className="my-auto px-4 font-light">
                     {post.author.name}
                   </div>
