@@ -9,7 +9,6 @@ import {
 } from '../../lib/api';
 import ErrorPage from 'next/error';
 import { StructuredText, Image } from 'react-datocms';
-import { BlurImage } from 'components/BlurImage';
 import { format } from 'date-fns';
 import type { FileField, ImageBlockRecord } from 'lib/api';
 
