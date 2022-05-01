@@ -1,6 +1,6 @@
 import React from 'react';
 import { StructuredText, Image } from 'react-datocms';
-import type { FileField } from 'lib/api';
+import type { FileField } from 'lib/graphql';
 import classNames from 'classnames';
 
 export default function TextImageRecord({ details }) {
@@ -17,20 +17,24 @@ export default function TextImageRecord({ details }) {
       <article className="grow prose dark:prose-invert pr-4 prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400">
         <StructuredText data={details.structuredText} />
       </article>
-      <div className="mx-auto md:mb-auto">
-        <div
-          className={classNames(
-            'relative aspect-square h-44 mb-4 md:mb-0 lg:h-72 w-full overflow-hidden',
-            {
-              'rounded-full': details.imageStyle === 'Round',
-              'rounded-xl': details.imageStyle === 'Rounded Corners',
-            }
-          )}
-        >
-          {/* eslint-disable-next-line jsx-a11y/alt-text */}
-          <Image data={(details.image as FileField).responsiveImage as any} />
+      {((details.image as FileField)?.responsiveImage as any) ? (
+        <div className="mx-auto md:mb-auto">
+          <div
+            className={classNames(
+              'relative aspect-square h-44 mb-4 md:mb-0 lg:h-72 w-full overflow-hidden',
+              {
+                'rounded-full': details.imageStyle === 'Round',
+                'rounded-xl': details.imageStyle === 'Rounded Corners',
+              }
+            )}
+          >
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
+            <Image
+              data={(details.image as FileField)?.responsiveImage as any}
+            />
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }

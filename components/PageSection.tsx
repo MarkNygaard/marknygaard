@@ -16,7 +16,7 @@ export default function PageSection({ details, posts }) {
   } else if (details.__typename === 'BlogRecord') {
     return <BlogRecord details={details} posts={posts} />;
   } else if (details.__typename === 'FeaturedRecord') {
-    return <FeaturedRecord details={details} posts={posts} />;
+    return <FeaturedRecord details={details} />;
   } else if (details.__typename === 'GridRecord') {
     return <GridRecord details={details} />;
   }

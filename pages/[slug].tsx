@@ -1,5 +1,7 @@
 import Layout from 'components/Layout';
 import React from 'react';
+import Head from 'next/head';
+import { renderMetaTags } from 'react-datocms';
 import { useRouter } from 'next/router';
 import {
   getAllPages,
@@ -10,7 +12,7 @@ import {
 import ErrorPage from 'next/error';
 import PageSection from 'components/PageSection';
 
-export default function Page({ allPages, page, allPosts }) {
+export default function Page({ allPages, page, allPosts, site }) {
   const router = useRouter();
 
   if (!router.isFallback && !page?.slug) {
@@ -43,6 +45,9 @@ export async function getStaticProps({ params }) {
     props: {
       page: {
         ...data?.page,
+      },
+      site: {
+        ...data?.site,
       },
       allPages,
       allPosts,

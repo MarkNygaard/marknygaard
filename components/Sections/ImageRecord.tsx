@@ -1,5 +1,5 @@
 import React from 'react';
-import type { FileField } from 'lib/api';
+import type { FileField } from 'lib/graphql';
 import { Image } from 'react-datocms';
 
 export default function ImageRecord({ details }) {
