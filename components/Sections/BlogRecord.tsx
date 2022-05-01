@@ -13,9 +13,10 @@ export default function BlogRecord({ details, posts }) {
               return (
                 <NextLink key={post.id} href={`/blog/${post.slug}`}>
                   <a className="group my-4 border-[1px] hover:bg-pine-300 bg-pine-50 dark:bg-gray-900 dark:border-gray-800 dark:hover:bg-gray-800 duration-500 border-pine-200 shadow-sm grid grid-cols-5 rounded-lg overflow-hidden">
-                    <div className="col-span-2 h-44 w-full overflow-hidden">
+                    <div className="flex col-span-2 h-44 w-full overflow-hidden">
                       {/* eslint-disable-next-line jsx-a11y/alt-text */}
                       <Image
+                        pictureClassName="object-cover"
                         data={{
                           ...post.coverImage.responsiveImage,
                           title:

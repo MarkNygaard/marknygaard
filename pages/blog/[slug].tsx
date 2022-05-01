@@ -26,11 +26,11 @@ export default function Page({ post, allPosts, allPages }) {
         </h1>
       ) : (
         <article>
-          <div className="grid grid-cols-3 gap-2 pb-4">
-            <div className="flex text-2xl md:text-3xl lg:text-4xl font-light p-5 bg-pine-300 dark:bg-gray-800 dark:border-gray-800 h-full border-[1px] border-pine-300 items-center">
+          <div className="sm:grid sm:grid-rows-1 sm:grid-cols-3 sm:gap-2 pb-4">
+            <div className="text-2xl md:text-3xl lg:text-4xl font-light p-5 bg-pine-300 dark:bg-gray-800 dark:border-gray-800 h-full border-[1px] border-pine-300 items-center">
               {post.title}
             </div>
-            <div className="col-span-2 relative h-60 lg:h-96 border-[1px] border-pine-300 dark:border-gray-800">
+            <div className="flex sm:col-span-2 relative h-36 sm:h-60 lg:h-96 border-[1px] border-pine-300 dark:border-gray-800">
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image
                 data={{
@@ -40,6 +40,8 @@ export default function Page({ post, allPosts, allPages }) {
                   bgColor: post.coverImage.responsiveImage.bgColor || undefined,
                   alt: `Cover Image for ${post.title}`,
                 }}
+                className="object-cover"
+                pictureClassName="object-cover"
               />
             </div>
           </div>

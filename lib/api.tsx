@@ -235,6 +235,42 @@ export async function getAllPages() {
             id
             imageBoolean
           }
+          ... on GridRecord {
+            __typename
+            id
+            title
+            columns
+            gap
+            fullWidth
+            height
+            sections {
+              ... on ImageRecord {
+                __typename
+                id
+                image {
+                  responsiveImage(imgixParams: { fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format }) {
+                    srcSet
+                    webpSrcSet
+                    sizes
+                    src
+                    width
+                    height
+                    aspectRatio
+                    alt
+                    title
+                    base64
+                  }
+                }
+              }
+              ... on TextRecord {
+                __typename
+                id
+                structuredText {
+                  value
+                }
+              }
+            }
+          }
         }
         seo: _seoMetaTags {
           attributes
@@ -321,6 +357,8 @@ export async function getPage(slug) {
           title
           columns
           gap
+          fullWidth
+          height
           sections {
             ... on ImageRecord {
               __typename
