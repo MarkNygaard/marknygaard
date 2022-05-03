@@ -43,13 +43,6 @@ export async function getMainSeo() {
           tag
         }
       }
-      page {
-        seo: _seoMetaTags {
-          attributes
-          content
-          tag
-        }
-      }
     }
   `);
   return data;

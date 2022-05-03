@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
 import cn from 'classnames';
 import Icon from './Icon';
-import { renderMetaTags } from 'react-datocms';
 import MobileMenu from './MobileMenu';
 
 function NavItem({ href, text }) {
@@ -31,7 +29,6 @@ function NavItem({ href, text }) {
 export default function Header({ allPages }) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-  // const metaTags = allPages.seo.concat(site.favicon);
 
   useEffect(() => setMounted(true), []);
 

@@ -9,18 +9,18 @@ export default function Home({ allPages, allPosts, site }) {
   return (
     <Layout allPages={allPages}>
       {allPages?.map((page) => {
+        const metaTags = page.seo.concat(site.favicon);
         return (
           <div key={page.id}>
+            <Head>{renderMetaTags(metaTags)}</Head>
             {page.name === 'Home' ? (
-              <>
-                <div>
-                  {page?.content.map((content, i) => {
-                    return (
-                      <PageSection key={i} details={content} posts={allPosts} />
-                    );
-                  })}
-                </div>
-              </>
+              <div>
+                {page?.content.map((content, i) => {
+                  return (
+                    <PageSection key={i} details={content} posts={allPosts} />
+                  );
+                })}
+              </div>
             ) : null}
           </div>
         );
