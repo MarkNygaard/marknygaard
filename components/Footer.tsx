@@ -17,7 +17,6 @@ export default function Footer() {
               className="hover:text-pine-600"
             >
               <Icon symbol="linkedin" />
-              <span className="hidden">LinkedIn</span>
             </a>
           </li>
           <li className="px-2">
@@ -28,7 +27,6 @@ export default function Footer() {
               className="hover:text-pine-600"
             >
               <Icon symbol="facebook" />
-              <span className="hidden">Facebook</span>
             </a>
           </li>
           <li className="px-2">
@@ -39,7 +37,6 @@ export default function Footer() {
               className="hover:text-pine-600"
             >
               <Icon symbol="github" />
-              <span className="hidden">Github</span>
             </a>
           </li>
           <li className="px-2">
@@ -50,7 +47,6 @@ export default function Footer() {
               className="hover:text-pine-600"
             >
               <Icon symbol="mail" />
-              <span className="hidden">Mail</span>
             </a>
           </li>
         </ul>
