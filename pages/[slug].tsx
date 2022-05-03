@@ -14,18 +14,26 @@ import PageSection from 'components/PageSection';
 
 export default function Page({ allPages, page, allPosts, site }) {
   const router = useRouter();
-  const metaTags = page.seo.concat(site.favicon);
+  const metaTags = page?.seo.concat(site.favicon);
 
   if (!router.isFallback && !page?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
     <Layout allPages={allPages}>
-      <Head>{renderMetaTags(metaTags)}</Head>
-      <div className="text-4xl font-light pb-5">{page.name}</div>
-      {page?.content.map((content, i) => {
-        return <PageSection key={i} details={content} posts={allPosts} />;
-      })}
+      {router.isFallback ? (
+        <h1 className="m-12 text-center text-6xl font-semibold leading-tight tracking-tighter dark:text-gray-300 md:text-left md:text-7xl md:leading-none lg:text-8xl">
+          Loading…
+        </h1>
+      ) : (
+        <>
+          <Head>{renderMetaTags(metaTags)}</Head>
+          <div className="text-4xl font-light pb-5">{page.name}</div>
+          {page?.content.map((content, i) => {
+            return <PageSection key={i} details={content} posts={allPosts} />;
+          })}
+        </>
+      )}
     </Layout>
   );
 }
