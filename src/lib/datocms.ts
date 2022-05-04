@@ -14,7 +14,7 @@ import { getSdk } from 'lib/graphql';
 export const DATOCMS_ENDPOINT = 'https://graphql.datocms.com';
 
 export const DATOCMS_HEADERS = {
-  Authorization: process.env.NEXT_DATOCMS_API_TOKEN!,
+  Authorization: process.env.DATOCMS_API_TOKEN!,
 };
 
 export const client = new GraphQLClient(DATOCMS_ENDPOINT, {
