@@ -1,0 +1,5 @@
+query AllPostsSlugs {
+  allPosts(filter: { slug: { neq: "" } }) {
+    slug
+  }
+}

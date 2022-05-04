@@ -1,21 +1,27 @@
-import Layout from 'components/Layout';
 import React from 'react';
 import Head from 'next/head';
-import { renderMetaTags } from 'react-datocms';
+import { GetStaticPaths, GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
-import {
-  getAllPostsWithSlug,
-  getPost,
-  getAllPosts,
-  getAllPages,
-} from '../../lib/api';
 import ErrorPage from 'next/error';
-import { StructuredText, Image } from 'react-datocms';
-import { format } from 'date-fns';
-import type { FileField, ImageBlockRecord } from 'lib/graphql';
 
-export default function Page({ post, allPosts, allPages, site }) {
+import Layout from 'components/Layout';
+
+import { sdk } from 'lib/datocms';
+import { PostBySlugDocument } from 'lib/graphql';
+import type { FileField, ImageRecord } from 'lib/graphql';
+import {
+  QueryListenerOptions,
+  renderMetaTags,
+  useQuerySubscription,
+  StructuredText,
+  Image,
+} from 'react-datocms';
+import { format } from 'date-fns';
+
+export default function Page({ subscription }) {
   const router = useRouter();
+  const { data } = useQuerySubscription(subscription);
+  const { site, post, allPages } = data;
   const metaTags = post?.seo.concat(site.favicon);
 
   if (!router.isFallback && !post?.slug) {
@@ -59,8 +65,8 @@ export default function Page({ post, allPosts, allPages, site }) {
                     renderBlock={({ record }) => {
                       if (
                         record.__typename === 'ImageRecord' &&
-                        (record as ImageBlockRecord).image &&
-                        (record as ImageBlockRecord).image?.responsiveImage
+                        (record as ImageRecord).image &&
+                        (record as ImageRecord).image?.responsiveImage
                       ) {
                         return (
                           <div className="flex justify-center">
@@ -110,29 +116,34 @@ export default function Page({ post, allPosts, allPages, site }) {
   );
 }
 
-export async function getStaticProps({ params }) {
-  const data = await getPost(params.slug);
-  const allPosts = (await getAllPosts()) || [];
-  const allPages = (await getAllPages()) || [];
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: await sdk
+      .AllPostsSlugs()
+      .then((data) => data.allPosts.map((post: any) => `/blog/${post.slug}`)),
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({
+  params,
+}: GetStaticPropsContext<{ slug: string }>) => {
+  const graphqlRequest = {
+    query: PostBySlugDocument.loc?.source.body!,
+    initialData: await sdk.PostBySlug({ slug: params?.slug ?? '' }),
+    variables: {
+      slug: params?.slug,
+    },
+  };
+
+  const subscription: QueryListenerOptions<any, any> = {
+    ...graphqlRequest,
+    enabled: false,
+  };
 
   return {
     props: {
-      post: {
-        ...data?.post,
-      },
-      site: {
-        ...data?.site,
-      },
-      allPosts,
-      allPages,
+      subscription,
     },
   };
-}
-
-export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
-  return {
-    paths: allPosts?.map((post) => `/blog/${post.slug}`) || [],
-    fallback: true,
-  };
-}
+};

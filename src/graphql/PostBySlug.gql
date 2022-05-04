@@ -1,0 +1,63 @@
+query PostBySlug($slug: String) {
+  site: _site {
+    favicon: faviconMetaTags {
+      ...metaTagsFragment
+    }
+  }
+  post(filter: { slug: { eq: $slug } }) {
+    seo: _seoMetaTags {
+      ...metaTagsFragment
+    }
+    id
+    title
+    slug
+    date
+    excerpt
+    author {
+      name
+      picture {
+        responsiveImage(
+          imgixParams: {
+            fit: crop
+            w: 48
+            h: 48
+            auto: format
+            mask: "ellipse"
+          }
+        ) {
+          ...responsiveImageFragment
+        }
+      }
+    }
+    category {
+      name
+      slug
+    }
+    coverImage {
+      responsiveImage(
+        imgixParams: { fit: max, w: 2000, h: 1000, auto: format }
+      ) {
+        ...responsiveImageFragment
+      }
+    }
+    content {
+      value
+      blocks {
+        __typename
+        ... on ImageRecord {
+          id
+          image {
+            responsiveImage(imgixParams: { fit: clip, auto: format }) {
+              ...responsiveImageFragment
+            }
+          }
+        }
+      }
+    }
+  }
+  allPages {
+    id
+    name
+    slug
+  }
+}
