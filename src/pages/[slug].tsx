@@ -1,5 +1,9 @@
 import React from 'react';
-import { GetStaticPaths, GetStaticPropsContext } from 'next';
+import {
+  GetStaticPaths,
+  GetStaticPropsContext,
+  InferGetStaticPropsType,
+} from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
@@ -15,7 +19,9 @@ import {
   useQuerySubscription,
 } from 'react-datocms';
 
-export default function Page({ subscription }) {
+export default function Page({
+  subscription,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { data } = useQuerySubscription(subscription);
   const { site, page, allPages, allPosts } = data;
@@ -34,7 +40,7 @@ export default function Page({ subscription }) {
         <>
           <Head>{renderMetaTags(metaTags)}</Head>
           <div className="text-4xl font-light pb-5">{page.name}</div>
-          {page?.content.map((content, i) => {
+          {page?.content.map((content: any, i: any) => {
             return <PageSection key={i} details={content} posts={allPosts} />;
           })}
         </>

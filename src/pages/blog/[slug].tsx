@@ -5,9 +5,11 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
 import Layout from 'components/Layout';
+import SyntaxHighlight from 'components/SyntaxHighlight';
 
 import { sdk } from 'lib/datocms';
 import { PostBySlugDocument } from 'lib/graphql';
+import type { InferGetStaticPropsType } from 'next';
 import type { FileField, ImageRecord } from 'lib/graphql';
 import {
   QueryListenerOptions,
@@ -15,10 +17,14 @@ import {
   useQuerySubscription,
   StructuredText,
   Image,
+  renderNodeRule,
 } from 'react-datocms';
+import { isCode } from 'datocms-structured-text-utils';
 import { format } from 'date-fns';
 
-export default function Page({ subscription }) {
+export default function Page({
+  subscription,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { data } = useQuerySubscription(subscription);
   const { site, post, allPages } = data;
@@ -58,8 +64,8 @@ export default function Page({ subscription }) {
               </div>
             </div>
             <div className="flex">
-              <div className="w-full lg:w-9/12">
-                <div className="prose prose-img:m-0 dark:prose-invert dark:prose-pre:bg-gray-900 dark:prose-pre:text-gray-300 prose-pre:bg-gray-100 prose-pre:border-l-8 prose-pre:border-accent prose-pre:text-gray-700 prose-pre:text-xs pb-4">
+              <div className="w-full lg:w-9/12 pr-3">
+                <div className="prose prose-img:m-0 dark:prose-invert prose-pre:text-xs max-w-none pb-4">
                   <StructuredText
                     data={post.content}
                     renderBlock={({ record }) => {
@@ -81,6 +87,19 @@ export default function Page({ subscription }) {
                         );
                       }
                     }}
+                    customNodeRules={[
+                      renderNodeRule(isCode, ({ node, key }) => {
+                        return (
+                          <SyntaxHighlight
+                            key={key}
+                            code={node.code}
+                            language={node.language || 'unknown'}
+                            highlightLines={node.highlight}
+                            showLineNumbers={node.code.split(/\n/).length > 10}
+                          />
+                        );
+                      }),
+                    ]}
                   />
                 </div>
               </div>

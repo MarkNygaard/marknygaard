@@ -24,7 +24,7 @@ export default function Home({
   return (
     <Layout allPages={allPages}>
       <Head>{renderMetaTags(metaTags)}</Head>
-      {page?.content.map((content, i) => {
+      {page?.content.map((content: any, i: any) => {
         return <PageSection key={i} details={content} posts={allPosts} />;
       })}
     </Layout>
