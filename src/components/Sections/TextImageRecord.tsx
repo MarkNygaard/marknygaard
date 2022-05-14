@@ -31,6 +31,14 @@ export default function TextImageRecord({ details }) {
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
               data={(details.image as FileField)?.responsiveImage as any}
+              className={classNames({
+                'rounded-full': details.imageStyle === 'Round',
+                'rounded-xl': details.imageStyle === 'Rounded Corners',
+              })}
+              pictureClassName={classNames({
+                'rounded-full': details.imageStyle === 'Round',
+                'rounded-xl': details.imageStyle === 'Rounded Corners',
+              })}
             />
           </div>
         </div>
