@@ -21,6 +21,7 @@ import {
 } from 'react-datocms';
 import { isCode } from 'datocms-structured-text-utils';
 import { format } from 'date-fns';
+import MainHeading from 'components/MainHeading';
 
 export default function Page({
   subscription,
@@ -85,6 +86,8 @@ export default function Page({
                             />
                           </div>
                         );
+                      } else if (record.__typename === 'MainHeadingRecord') {
+                        return <MainHeading record={record}></MainHeading>;
                       }
                     }}
                     customNodeRules={[

@@ -2,6 +2,7 @@ import React from 'react';
 import { StructuredText, Image } from 'react-datocms';
 import type { FileField } from 'lib/graphql';
 import classNames from 'classnames';
+import MainHeading from 'components/MainHeading';
 
 export default function TextImageRecord({ details }) {
   return (
@@ -15,7 +16,15 @@ export default function TextImageRecord({ details }) {
       )}
     >
       <article className="grow prose dark:prose-invert pr-4 prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400">
-        <StructuredText data={details.structuredText} />
+        <StructuredText
+          data={details.structuredText}
+          renderBlock={({ record }) => {
+            if (record.__typename === 'MainHeadingRecord') {
+              return <MainHeading record={record}></MainHeading>;
+            }
+            return null;
+          }}
+        />
       </article>
       {((details.image as FileField)?.responsiveImage as any) ? (
         <div className="mx-auto md:mb-auto">

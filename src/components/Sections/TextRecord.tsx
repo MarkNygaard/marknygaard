@@ -2,6 +2,7 @@ import React from 'react';
 import { StructuredText, renderNodeRule } from 'react-datocms';
 import { isCode } from 'datocms-structured-text-utils';
 import SyntaxHighlight from 'components/SyntaxHighlight';
+import MainHeading from 'components/MainHeading';
 
 export default function TextRecord({ details }) {
   return (
@@ -25,6 +26,12 @@ export default function TextRecord({ details }) {
               );
             }),
           ]}
+          renderBlock={({ record }) => {
+            if (record.__typename === 'MainHeadingRecord') {
+              return <MainHeading record={record}></MainHeading>;
+            }
+            return null;
+          }}
         />
       </div>
     </div>

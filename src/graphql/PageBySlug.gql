@@ -28,6 +28,14 @@ query PageBySlug($slug: String) {
         id
         structuredText {
           value
+          blocks {
+            __typename
+            ... on MainHeadingRecord {
+              id
+              title
+              subtitle(markdown: true)
+            }
+          }
         }
       }
       ... on TextImageRecord {
@@ -35,6 +43,14 @@ query PageBySlug($slug: String) {
         id
         structuredText {
           value
+          blocks {
+            __typename
+            ... on MainHeadingRecord {
+              id
+              title
+              subtitle(markdown: true)
+            }
+          }
         }
         imageLocation
         imageStyle
