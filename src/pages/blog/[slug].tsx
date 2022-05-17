@@ -5,7 +5,9 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
 import Layout from 'components/Layout';
+import MainHeading from 'components/MainHeading';
 import SyntaxHighlight from 'components/SyntaxHighlight';
+import ViewCounter from 'components/view-counter';
 
 import { sdk } from 'lib/datocms';
 import { PostBySlugDocument } from 'lib/graphql';
@@ -21,7 +23,7 @@ import {
 } from 'react-datocms';
 import { isCode } from 'datocms-structured-text-utils';
 import { format } from 'date-fns';
-import MainHeading from 'components/MainHeading';
+import { Utterances } from 'utterances-react-component';
 
 export default function Page({
   subscription,
@@ -105,6 +107,13 @@ export default function Page({
                     ]}
                   />
                 </div>
+                <div>
+                  <Utterances
+                    repo="MarkNygaard/comments-marknygaard.dk"
+                    theme="github-light"
+                    issueTerm="pathname"
+                  />
+                </div>
               </div>
               <aside className="divide-y space-y-2 hidden lg:block w-3/12">
                 <div className="text-gray-500 text-sm py-5 pl-2">
@@ -127,7 +136,13 @@ export default function Page({
                 </div>
                 <div className="space-y-2 py-5 pl-2">
                   <div className="font-semibold">Category</div>
-                  <div>{post.category.name}</div>
+                  <div className="my-auto font-light">{post.category.name}</div>
+                </div>
+                <div className="space-y-2 py-5 pl-2">
+                  <div className="font-semibold">View Counter</div>
+                  <div className="my-auto font-light">
+                    <ViewCounter slug={post.slug} />
+                  </div>
                 </div>
               </aside>
             </div>
