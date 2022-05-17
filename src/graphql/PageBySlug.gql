@@ -125,7 +125,7 @@ query PageBySlug($slug: String) {
     name
     slug
   }
-  allPosts {
+  allPosts(orderBy: date_DESC) {
     id
     slug
     title

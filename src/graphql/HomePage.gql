@@ -125,7 +125,7 @@ query HomePage {
     name
     slug
   }
-  allPosts {
+  allPosts(orderBy: date_DESC) {
     id
     slug
     title
