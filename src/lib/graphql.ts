@@ -2961,7 +2961,7 @@ export const AllPagesSlugsDocument = /*#__PURE__*/ gql`
     `;
 export const AllPostsSlugsDocument = /*#__PURE__*/ gql`
     query AllPostsSlugs {
-  allPosts(filter: {slug: {neq: ""}}) {
+  allPosts(orderBy: date_DESC, filter: {slug: {neq: ""}}) {
     slug
   }
 }
@@ -3084,7 +3084,7 @@ export const HomePageDocument = /*#__PURE__*/ gql`
     name
     slug
   }
-  allPosts {
+  allPosts(orderBy: date_DESC) {
     id
     slug
     title
@@ -3217,7 +3217,7 @@ export const PageBySlugDocument = /*#__PURE__*/ gql`
     name
     slug
   }
-  allPosts {
+  allPosts(orderBy: date_DESC) {
     id
     slug
     title

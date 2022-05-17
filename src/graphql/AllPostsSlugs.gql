@@ -1,5 +1,5 @@
 query AllPostsSlugs {
-  allPosts(filter: { slug: { neq: "" } }) {
+  allPosts(orderBy: date_DESC, filter: { slug: { neq: "" } }) {
     slug
   }
 }
