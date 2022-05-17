@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { GetStaticPaths, GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
+import { useTheme } from 'next-themes';
 
 import Layout from 'components/Layout';
 import MainHeading from 'components/MainHeading';
@@ -32,6 +33,12 @@ export default function Page({
   const { data } = useQuerySubscription(subscription);
   const { site, post, allPages } = data;
   const metaTags = post?.seo.concat(site.favicon);
+
+  const { theme } = useTheme();
+  const mapTheme = {
+    light: 'github-light',
+    dark: 'github-dark',
+  };
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -110,7 +117,7 @@ export default function Page({
                 <div>
                   <Utterances
                     repo="MarkNygaard/comments-marknygaard.dk"
-                    theme="github-light"
+                    theme={mapTheme[theme]}
                     issueTerm="pathname"
                   />
                 </div>
