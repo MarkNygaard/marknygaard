@@ -1,0 +1,5 @@
+fragment BlogFragment on BlogRecord {
+  __typename
+  id
+  imageBoolean
+}

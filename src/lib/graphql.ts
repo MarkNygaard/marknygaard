@@ -2931,11 +2931,22 @@ export type focalPoint = {
   y?: Maybe<Scalars['FloatType']>;
 };
 
-export const metaTagsFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment metaTagsFragment on Tag {
-  attributes
-  content
-  tag
+export const BlogFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment BlogFragment on BlogRecord {
+  __typename
+  id
+  imageBoolean
+}
+    `;
+export const FeaturedFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment FeaturedFragment on FeaturedRecord {
+  __typename
+  id
+  posts {
+    id
+    title
+    slug
+  }
 }
     `;
 export const responsiveImageFragmentFragmentDoc = /*#__PURE__*/ gql`
@@ -2950,6 +2961,103 @@ export const responsiveImageFragmentFragmentDoc = /*#__PURE__*/ gql`
   alt
   title
   base64
+}
+    `;
+export const GridFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment GridFragment on GridRecord {
+  __typename
+  id
+  title
+  mobileColumns
+  tabletColumns
+  desktopColumns
+  gap
+  height
+  sections {
+    ... on GridImageRecord {
+      __typename
+      id
+      mobilePosition
+      tabletPosition
+      desktopPosition
+      image {
+        responsiveImage(
+          imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
+        ) {
+          ...responsiveImageFragment
+        }
+      }
+    }
+    ... on GridTextRecord {
+      __typename
+      id
+      mobilePosition
+      tabletPosition
+      desktopPosition
+      structuredText {
+        value
+      }
+    }
+  }
+}
+    `;
+export const ImageFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment ImageFragment on ImageRecord {
+  __typename
+  id
+  image {
+    responsiveImage(imgixParams: {fit: crop, w: 288, h: 288, auto: format}) {
+      ...responsiveImageFragment
+    }
+  }
+}
+    `;
+export const TextFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment TextFragment on TextRecord {
+  __typename
+  id
+  structuredText {
+    value
+    blocks {
+      __typename
+      ... on MainHeadingRecord {
+        id
+        title
+        subtitle(markdown: true)
+      }
+    }
+  }
+}
+    `;
+export const TextImageFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment TextImageFragment on TextImageRecord {
+  __typename
+  id
+  structuredText {
+    value
+    blocks {
+      __typename
+      ... on MainHeadingRecord {
+        id
+        title
+        subtitle(markdown: true)
+      }
+    }
+  }
+  imageLocation
+  imageStyle
+  image {
+    responsiveImage(imgixParams: {fit: crop, w: 288, h: 288, auto: format}) {
+      ...responsiveImageFragment
+    }
+  }
+}
+    `;
+export const metaTagsFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment metaTagsFragment on Tag {
+  attributes
+  content
+  tag
 }
     `;
 export const AllPagesSlugsDocument = /*#__PURE__*/ gql`
@@ -2982,100 +3090,22 @@ export const HomePageDocument = /*#__PURE__*/ gql`
     slug
     content {
       ... on ImageRecord {
-        __typename
-        id
-        image {
-          responsiveImage(imgixParams: {fit: crop, w: 288, h: 288, auto: format}) {
-            ...responsiveImageFragment
-          }
-        }
+        ...ImageFragment
       }
       ... on TextRecord {
-        __typename
-        id
-        structuredText {
-          value
-          blocks {
-            __typename
-            ... on MainHeadingRecord {
-              id
-              title
-              subtitle(markdown: true)
-            }
-          }
-        }
+        ...TextFragment
       }
       ... on TextImageRecord {
-        __typename
-        id
-        structuredText {
-          value
-          blocks {
-            __typename
-            ... on MainHeadingRecord {
-              id
-              title
-              subtitle(markdown: true)
-            }
-          }
-        }
-        imageLocation
-        imageStyle
-        image {
-          responsiveImage(imgixParams: {fit: crop, w: 288, h: 288, auto: format}) {
-            ...responsiveImageFragment
-          }
-        }
+        ...TextImageFragment
       }
       ... on FeaturedRecord {
-        __typename
-        id
-        posts {
-          id
-          title
-          slug
-        }
+        ...FeaturedFragment
       }
       ... on BlogRecord {
-        __typename
-        id
-        imageBoolean
+        ...BlogFragment
       }
       ... on GridRecord {
-        __typename
-        id
-        title
-        mobileColumns
-        tabletColumns
-        desktopColumns
-        gap
-        height
-        sections {
-          ... on GridImageRecord {
-            __typename
-            id
-            mobilePosition
-            tabletPosition
-            desktopPosition
-            image {
-              responsiveImage(
-                imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
-              ) {
-                ...responsiveImageFragment
-              }
-            }
-          }
-          ... on GridTextRecord {
-            __typename
-            id
-            mobilePosition
-            tabletPosition
-            desktopPosition
-            structuredText {
-              value
-            }
-          }
-        }
+        ...GridFragment
       }
     }
   }
@@ -3098,7 +3128,13 @@ export const HomePageDocument = /*#__PURE__*/ gql`
   }
 }
     ${metaTagsFragmentFragmentDoc}
-${responsiveImageFragmentFragmentDoc}`;
+${ImageFragmentFragmentDoc}
+${responsiveImageFragmentFragmentDoc}
+${TextFragmentFragmentDoc}
+${TextImageFragmentFragmentDoc}
+${FeaturedFragmentFragmentDoc}
+${BlogFragmentFragmentDoc}
+${GridFragmentFragmentDoc}`;
 export const PageBySlugDocument = /*#__PURE__*/ gql`
     query PageBySlug($slug: String) {
   site: _site {
@@ -3316,6 +3352,18 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
+export type BlogFragmentFragment = { __typename: 'BlogRecord', id: any, imageBoolean?: any | null };
+
+export type FeaturedFragmentFragment = { __typename: 'FeaturedRecord', id: any, posts: Array<{ __typename?: 'PostRecord', id: any, title?: string | null, slug?: string | null }> };
+
+export type GridFragmentFragment = { __typename: 'GridRecord', id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, structuredText?: { __typename?: 'GridTextModelStructuredTextField', value: any } | null }> };
+
+export type ImageFragmentFragment = { __typename: 'ImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
+
+export type TextFragmentFragment = { __typename: 'TextRecord', id: any, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null };
+
+export type TextImageFragmentFragment = { __typename: 'TextImageRecord', id: any, imageLocation?: string | null, imageStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
+
 export type AllPagesSlugsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3325,6 +3373,10 @@ export type AllPostsSlugsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AllPostsSlugsQuery = { __typename?: 'Query', allPosts: Array<{ __typename?: 'PostRecord', slug?: string | null }> };
+
+export type metaTagsFragmentFragment = { __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string };
+
+export type responsiveImageFragmentFragment = { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null };
 
 export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3344,7 +3396,3 @@ export type PostBySlugQueryVariables = Exact<{
 
 
 export type PostBySlugQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, post?: { __typename?: 'PostRecord', id: any, title?: string | null, slug?: string | null, date?: any | null, excerpt?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, author?: { __typename?: 'AuthorRecord', name?: string | null, picture?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | null, category?: { __typename?: 'CategoryRecord', name?: string | null, slug?: string | null } | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, content?: { __typename?: 'PostModelContentField', value: any, blocks: Array<{ __typename: 'ImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null } | null, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }> };
-
-export type metaTagsFragmentFragment = { __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string };
-
-export type responsiveImageFragmentFragment = { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null };

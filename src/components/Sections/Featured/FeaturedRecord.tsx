@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function FeaturedRecord({ details }) {
   return (
@@ -10,14 +11,18 @@ export default function FeaturedRecord({ details }) {
         {details.posts?.map((post) => {
           return (
             <Link key={post.id} href={`/blog/${post.slug}`}>
-              <a
-                className={classNames(
-                  'transform hover:scale-[1.01] transition-all rounded-xl w-full p-1'
-                )}
-              >
-                <div className="flex flex-col justify-between h-full bg-pine-300 dark:bg-gray-900 rounded-lg p-4 font-light">
-                  {post.title}
-                </div>
+              <a>
+                <motion.div
+                  whileHover={{
+                    y: -5,
+                    boxShadow: '0 5px 10px -1px rgb(0 0 0 / 0.1)',
+                  }}
+                  className={classNames('rounded-xl w-full')}
+                >
+                  <div className="flex flex-col justify-between h-full bg-pine-300 dark:bg-gray-900 rounded-lg p-4 font-light">
+                    {post.title}
+                  </div>
+                </motion.div>
               </a>
             </Link>
           );

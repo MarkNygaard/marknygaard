@@ -1,0 +1,15 @@
+fragment TextFragment on TextRecord {
+  __typename
+  id
+  structuredText {
+    value
+    blocks {
+      __typename
+      ... on MainHeadingRecord {
+        id
+        title
+        subtitle(markdown: true)
+      }
+    }
+  }
+}

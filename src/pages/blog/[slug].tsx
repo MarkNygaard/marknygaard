@@ -8,7 +8,7 @@ import { useTheme } from 'next-themes';
 import Layout from 'components/Layout';
 import MainHeading from 'components/MainHeading';
 import SyntaxHighlight from 'components/SyntaxHighlight';
-import ViewCounter from 'components/view-counter';
+import ViewCounter from 'components/ViewCounter';
 
 import { sdk } from 'lib/datocms';
 import { PostBySlugDocument } from 'lib/graphql';

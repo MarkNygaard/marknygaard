@@ -1,10 +1,10 @@
 import React from 'react';
-import BlogRecord from './Sections/BlogRecord';
-import FeaturedRecord from './Sections/FeaturedRecord';
-import GridRecord from './Sections/GridRecord';
-import ImageRecord from './Sections/ImageRecord';
-import TextImageRecord from './Sections/TextImageRecord';
-import TextRecord from './Sections/TextRecord';
+import BlogRecord from './Sections/Blog/BlogRecord';
+import FeaturedRecord from './Sections/Featured/FeaturedRecord';
+import GridRecord from './Sections/Grid/GridRecord';
+import ImageRecord from './Sections/Image/ImageRecord';
+import TextImageRecord from './Sections/TextImage/TextImageRecord';
+import TextRecord from './Sections/Text/TextRecord';
 
 export default function PageSection({ details, posts }) {
   if (details.__typename === 'TextImageRecord') {

@@ -1,0 +1,42 @@
+fragment GridFragment on GridRecord {
+  __typename
+  id
+  title
+  mobileColumns
+  tabletColumns
+  desktopColumns
+  gap
+  height
+  sections {
+    ... on GridImageRecord {
+      __typename
+      id
+      mobilePosition
+      tabletPosition
+      desktopPosition
+      image {
+        responsiveImage(
+          imgixParams: {
+            fit: crop
+            crop: focalpoint
+            ar: "1:1"
+            minH: 384
+            auto: format
+          }
+        ) {
+          ...responsiveImageFragment
+        }
+      }
+    }
+    ... on GridTextRecord {
+      __typename
+      id
+      mobilePosition
+      tabletPosition
+      desktopPosition
+      structuredText {
+        value
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@ const MoonIcon = () => (
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    fill="#91a3b0"
+    fill="currentColor"
     stroke="none"
     strokeWidth="2"
     strokeLinecap="round"

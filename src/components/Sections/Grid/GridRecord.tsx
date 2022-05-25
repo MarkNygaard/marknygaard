@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import type { FileField } from 'lib/graphql';
 import { Image } from 'react-datocms';
-import TextRecord from './TextRecord';
+import TextRecord from '../Text/TextRecord';
 
 export default function GridRecord({ details }) {
   return (

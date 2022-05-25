@@ -8,7 +8,7 @@ module.exports = {
       },
     },
   },
-  documents: 'src/graphql/**/*.gql',
+  documents: 'src/**/**/*.gql',
   extensions: {
     codegen: {
       overwrite: true,

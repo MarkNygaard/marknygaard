@@ -13,110 +13,22 @@ query HomePage {
     slug
     content {
       ... on ImageRecord {
-        __typename
-        id
-        image {
-          responsiveImage(
-            imgixParams: { fit: crop, w: 288, h: 288, auto: format }
-          ) {
-            ...responsiveImageFragment
-          }
-        }
+        ...ImageFragment
       }
       ... on TextRecord {
-        __typename
-        id
-        structuredText {
-          value
-          blocks {
-            __typename
-            ... on MainHeadingRecord {
-              id
-              title
-              subtitle(markdown: true)
-            }
-          }
-        }
+        ...TextFragment
       }
       ... on TextImageRecord {
-        __typename
-        id
-        structuredText {
-          value
-          blocks {
-            __typename
-            ... on MainHeadingRecord {
-              id
-              title
-              subtitle(markdown: true)
-            }
-          }
-        }
-        imageLocation
-        imageStyle
-        image {
-          responsiveImage(
-            imgixParams: { fit: crop, w: 288, h: 288, auto: format }
-          ) {
-            ...responsiveImageFragment
-          }
-        }
+        ...TextImageFragment
       }
       ... on FeaturedRecord {
-        __typename
-        id
-        posts {
-          id
-          title
-          slug
-        }
+        ...FeaturedFragment
       }
       ... on BlogRecord {
-        __typename
-        id
-        imageBoolean
+        ...BlogFragment
       }
       ... on GridRecord {
-        __typename
-        id
-        title
-        mobileColumns
-        tabletColumns
-        desktopColumns
-        gap
-        height
-        sections {
-          ... on GridImageRecord {
-            __typename
-            id
-            mobilePosition
-            tabletPosition
-            desktopPosition
-            image {
-              responsiveImage(
-                imgixParams: {
-                  fit: crop
-                  crop: focalpoint
-                  ar: "1:1"
-                  minH: 384
-                  auto: format
-                }
-              ) {
-                ...responsiveImageFragment
-              }
-            }
-          }
-          ... on GridTextRecord {
-            __typename
-            id
-            mobilePosition
-            tabletPosition
-            desktopPosition
-            structuredText {
-              value
-            }
-          }
-        }
+        ...GridFragment
       }
     }
   }

@@ -70,6 +70,9 @@ module.exports = {
           900: '#0D0E12',
         },
       },
+      screens: {
+        standalone: { raw: '(display-mode: standalone)' },
+      },
     },
   },
   safelist: [

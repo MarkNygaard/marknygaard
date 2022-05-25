@@ -1,0 +1,9 @@
+fragment FeaturedFragment on FeaturedRecord {
+  __typename
+  id
+  posts {
+    id
+    title
+    slug
+  }
+}
