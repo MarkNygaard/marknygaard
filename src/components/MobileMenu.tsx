@@ -32,7 +32,10 @@ export default function MobileMenu({ allPages }) {
           className={open ? 'fixed w-full left-0 standalone:h-full' : 'visible'}
         >
           <Fragment>
-            <Menu.Button className="justify-center bg-opacity-20 px-4 text-sm font-medium text-black focus:outline-none">
+            <Menu.Button
+              className="justify-center bg-opacity-20 px-4 text-sm font-medium text-black focus:outline-none"
+              aria-label="Menu"
+            >
               {!open ? (
                 <div className="standalone:text-white standalone:hover:text-white">
                   <svg
