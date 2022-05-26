@@ -1,25 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import cn from 'classnames';
 
-function NextLink({ href, text }) {
-  const router = useRouter();
-  const isActive = router.asPath === href;
-
+function NextLink(props) {
+  const { href, children, ...rest } = props;
   return (
     <Link href={href}>
-      <a
-        className={cn(
-          isActive
-            ? 'font-base text-pine-900 dark:text-gray-200'
-            : 'font-light text-pine-800 dark:text-gray-400',
-          'flex p-2 my-1 mx-2 hover:bg-pine-100 dark:hover:bg-gray-900 rounded-md transition-all'
-        )}
-      >
-        <span className="capsize">{text}</span>
-      </a>
+      <a {...rest}>{children}</a>
     </Link>
   );
 }
@@ -93,8 +80,19 @@ export default function MobileMenu({ allPages }) {
                         as={NextLink}
                         key={page.id}
                         href={`/${page.slug}`}
-                        text={page.name}
-                      />
+                      >
+                        {({ active }) => (
+                          <div
+                            className={`${
+                              active
+                                ? 'font-base text-pine-900 dark:text-gray-200'
+                                : 'font-light text-pine-800 dark:text-gray-400'
+                            } 'flex p-2 my-1 rounded-md hover:bg-pine-100 dark:hover:bg-gray-900 transition-all'`}
+                          >
+                            {page.name}
+                          </div>
+                        )}
+                      </Menu.Item>
                     </div>
                   );
                 })}

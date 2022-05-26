@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://marknygaard.dk
-
-# Sitemaps
-Sitemap: https://marknygaard.dk/sitemap.xml

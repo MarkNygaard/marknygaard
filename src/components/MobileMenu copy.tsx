@@ -30,11 +30,7 @@ export default function MobileMenu({ allPages }) {
   return (
     <div className="visible md:hidden -my-6">
       <nav
-        className={
-          isOpen
-            ? 'fixed z-10 w-full left-0 standalone:top-0 standalone:h-full'
-            : 'visible'
-        }
+        className={isOpen ? 'fixed w-full left-0 standalone:h-full' : 'visible'}
       >
         <div className="absolute z-10">
           <button
@@ -59,6 +55,7 @@ export default function MobileMenu({ allPages }) {
                     strokeWidth="2"
                     d="M4 6h16M4 12h16M4 18h16"
                   />
+                  <title>Open Menu</title>
                 </svg>
               </div>
             ) : (
@@ -77,6 +74,7 @@ export default function MobileMenu({ allPages }) {
                     strokeWidth="2"
                     d="M6 18L18 6M6 6l12 12"
                   />
+                  <title>Close Menu</title>
                 </svg>
               </div>
             )}
