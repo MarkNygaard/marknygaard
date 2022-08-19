@@ -75,7 +75,7 @@ export enum AuthorModelOrderBy {
 }
 
 /** Record of type Author (author) */
-export type AuthorRecord = {
+export type AuthorRecord = RecordInterface & {
   __typename?: 'AuthorRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -101,8 +101,8 @@ export type AuthorRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-/** Record of type Blog list (blog) */
-export type BlogRecord = {
+/** Block of type Blog list (blog) */
+export type BlogRecord = RecordInterface & {
   __typename?: 'BlogRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -122,7 +122,7 @@ export type BlogRecord = {
 };
 
 
-/** Record of type Blog list (blog) */
+/** Block of type Blog list (blog) */
 export type BlogRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -178,7 +178,7 @@ export enum CategoryModelOrderBy {
 }
 
 /** Record of type Category (category) */
-export type CategoryRecord = {
+export type CategoryRecord = RecordInterface & {
   __typename?: 'CategoryRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -226,11 +226,11 @@ export enum ColorBucketType {
 
 export type ColorField = {
   __typename?: 'ColorField';
-  alpha?: Maybe<Scalars['IntType']>;
-  blue?: Maybe<Scalars['IntType']>;
-  green?: Maybe<Scalars['IntType']>;
-  hex?: Maybe<Scalars['String']>;
-  red?: Maybe<Scalars['IntType']>;
+  alpha: Scalars['IntType'];
+  blue: Scalars['IntType'];
+  green: Scalars['IntType'];
+  hex: Scalars['String'];
+  red: Scalars['IntType'];
 };
 
 /** Specifies how to filter by creation datetime */
@@ -275,8 +275,8 @@ export enum FaviconType {
   msApplication = 'msApplication'
 }
 
-/** Record of type Featured Posts (featured) */
-export type FeaturedRecord = {
+/** Block of type Featured Posts (featured) */
+export type FeaturedRecord = RecordInterface & {
   __typename?: 'FeaturedRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -296,12 +296,12 @@ export type FeaturedRecord = {
 };
 
 
-/** Record of type Featured Posts (featured) */
+/** Block of type Featured Posts (featured) */
 export type FeaturedRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-export type FileField = {
+export type FileField = FileFieldInterface & {
   __typename?: 'FileField';
   _createdAt: Scalars['DateTime'];
   _updatedAt: Scalars['DateTime'];
@@ -310,10 +310,10 @@ export type FileField = {
   basename: Scalars['String'];
   blurUpThumb?: Maybe<Scalars['String']>;
   blurhash?: Maybe<Scalars['String']>;
-  colors: Array<Maybe<ColorField>>;
+  colors: Array<ColorField>;
   copyright?: Maybe<Scalars['String']>;
-  customData?: Maybe<Scalars['CustomData']>;
-  exifInfo?: Maybe<Scalars['CustomData']>;
+  customData: Scalars['CustomData'];
+  exifInfo: Scalars['CustomData'];
   filename: Scalars['String'];
   focalPoint?: Maybe<focalPoint>;
   format: Scalars['String'];
@@ -324,8 +324,8 @@ export type FileField = {
   notes?: Maybe<Scalars['String']>;
   responsiveImage?: Maybe<ResponsiveImage>;
   size: Scalars['IntType'];
-  smartTags: Array<Maybe<Scalars['String']>>;
-  tags: Array<Maybe<Scalars['String']>>;
+  smartTags: Array<Scalars['String']>;
+  tags: Array<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   url: Scalars['String'];
   video?: Maybe<UploadVideoField>;
@@ -377,6 +377,81 @@ export type FileFieldurlArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
 };
 
+export type FileFieldInterface = {
+  _createdAt: Scalars['DateTime'];
+  _updatedAt: Scalars['DateTime'];
+  alt?: Maybe<Scalars['String']>;
+  author?: Maybe<Scalars['String']>;
+  basename: Scalars['String'];
+  blurUpThumb?: Maybe<Scalars['String']>;
+  blurhash?: Maybe<Scalars['String']>;
+  colors: Array<ColorField>;
+  copyright?: Maybe<Scalars['String']>;
+  customData: Scalars['CustomData'];
+  exifInfo: Scalars['CustomData'];
+  filename: Scalars['String'];
+  focalPoint?: Maybe<focalPoint>;
+  format: Scalars['String'];
+  height?: Maybe<Scalars['IntType']>;
+  id: Scalars['UploadId'];
+  md5: Scalars['String'];
+  mimeType: Scalars['String'];
+  notes?: Maybe<Scalars['String']>;
+  responsiveImage?: Maybe<ResponsiveImage>;
+  size: Scalars['IntType'];
+  smartTags: Array<Scalars['String']>;
+  tags: Array<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  url: Scalars['String'];
+  video?: Maybe<UploadVideoField>;
+  width?: Maybe<Scalars['IntType']>;
+};
+
+
+export type FileFieldInterfacealtArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+export type FileFieldInterfaceblurUpThumbArgs = {
+  imgixParams?: InputMaybe<ImgixParams>;
+  punch?: InputMaybe<Scalars['Float']>;
+  quality?: InputMaybe<Scalars['Int']>;
+  size?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type FileFieldInterfacecustomDataArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+export type FileFieldInterfacefocalPointArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+export type FileFieldInterfaceresponsiveImageArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  imgixParams?: InputMaybe<ImgixParams>;
+  locale?: InputMaybe<SiteLocale>;
+  sizes?: InputMaybe<Scalars['String']>;
+};
+
+
+export type FileFieldInterfacetitleArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+export type FileFieldInterfaceurlArgs = {
+  imgixParams?: InputMaybe<ImgixParams>;
+};
+
 /** Specifies how to filter Single-file/image fields */
 export type FileFilter = {
   /** Search for records with an exact match. The specified value must be an Upload ID */
@@ -400,8 +475,8 @@ export type GlobalSeoField = {
   twitterAccount?: Maybe<Scalars['String']>;
 };
 
-/** Record of type Grid Image (grid_image) */
-export type GridImageRecord = {
+/** Block of type Grid Image (grid_image) */
+export type GridImageRecord = RecordInterface & {
   __typename?: 'GridImageRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -425,15 +500,15 @@ export type GridImageRecord = {
 };
 
 
-/** Record of type Grid Image (grid_image) */
+/** Block of type Grid Image (grid_image) */
 export type GridImageRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
 export type GridModelSectionsField = GridImageRecord | GridTextRecord;
 
-/** Record of type Grid Section (grid) */
-export type GridRecord = {
+/** Block of type Grid Section (grid) */
+export type GridRecord = RecordInterface & {
   __typename?: 'GridRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -459,7 +534,7 @@ export type GridRecord = {
 };
 
 
-/** Record of type Grid Section (grid) */
+/** Block of type Grid Section (grid) */
 export type GridRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -471,8 +546,8 @@ export type GridTextModelStructuredTextField = {
   value: Scalars['JsonField'];
 };
 
-/** Record of type Grid Text (grid_text) */
-export type GridTextRecord = {
+/** Block of type Grid Text (grid_text) */
+export type GridTextRecord = RecordInterface & {
   __typename?: 'GridTextRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -496,13 +571,13 @@ export type GridTextRecord = {
 };
 
 
-/** Record of type Grid Text (grid_text) */
+/** Block of type Grid Text (grid_text) */
 export type GridTextRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-/** Record of type Image (image) */
-export type ImageRecord = {
+/** Block of type Image (image) */
+export type ImageRecord = RecordInterface & {
   __typename?: 'ImageRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -522,7 +597,7 @@ export type ImageRecord = {
 };
 
 
-/** Record of type Image (image) */
+/** Block of type Image (image) */
 export type ImageRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -1657,6 +1732,26 @@ export type ImgixParams = {
    */
   txtWidth?: InputMaybe<Scalars['IntType']>;
   /**
+   * Text X Position
+   *
+   * Sets the horizontal (x) position of the text in pixels relative to the left edge of the base image.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-x)
+   */
+  txtX?: InputMaybe<Scalars['IntType']>;
+  /**
+   * Text Y Position
+   *
+   * Sets the vertical (y) position of the text in pixels relative to the top edge of the base image.
+   *
+   * Depends on: `txt`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-y)
+   */
+  txtY?: InputMaybe<Scalars['IntType']>;
+  /**
    * Unsharp Mask
    *
    * Sharpens the source image using an unsharp mask.
@@ -1877,24 +1972,6 @@ export type InUseFilter = {
   eq?: InputMaybe<Scalars['BooleanType']>;
 };
 
-/** Specifies how to filter Integer fields */
-export type IntegerFilter = {
-  /** Search for records with an exact match */
-  eq?: InputMaybe<Scalars['IntType']>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: InputMaybe<Scalars['BooleanType']>;
-  /** Filter records with a value that's strictly greater than the one specified */
-  gt?: InputMaybe<Scalars['IntType']>;
-  /** Filter records with a value that's greater than or equal to the one specified */
-  gte?: InputMaybe<Scalars['IntType']>;
-  /** Filter records with a value that's less than the one specified */
-  lt?: InputMaybe<Scalars['IntType']>;
-  /** Filter records with a value that's less or equal than the one specified */
-  lte?: InputMaybe<Scalars['IntType']>;
-  /** Exclude records with an exact match */
-  neq?: InputMaybe<Scalars['IntType']>;
-};
-
 /** Specifies how to filter by ID */
 export type ItemIdFilter = {
   /** Search the record with the specified ID */
@@ -1927,8 +2004,8 @@ export type LinkFilter = {
   notIn?: InputMaybe<Array<InputMaybe<Scalars['ItemId']>>>;
 };
 
-/** Record of type Main Heading (main_heading) */
-export type MainHeadingRecord = {
+/** Block of type Main Heading (main_heading) */
+export type MainHeadingRecord = RecordInterface & {
   __typename?: 'MainHeadingRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -1949,13 +2026,13 @@ export type MainHeadingRecord = {
 };
 
 
-/** Record of type Main Heading (main_heading) */
+/** Block of type Main Heading (main_heading) */
 export type MainHeadingRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
 
-/** Record of type Main Heading (main_heading) */
+/** Block of type Main Heading (main_heading) */
 export type MainHeadingRecordsubtitleArgs = {
   markdown?: InputMaybe<Scalars['Boolean']>;
 };
@@ -1989,7 +2066,8 @@ export type PageModelFilter = {
   createdAt?: InputMaybe<CreatedAtFilter>;
   id?: InputMaybe<ItemIdFilter>;
   name?: InputMaybe<StringFilter>;
-  navigationSorting?: InputMaybe<IntegerFilter>;
+  parent?: InputMaybe<ParentFilter>;
+  position?: InputMaybe<PositionFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   updatedAt?: InputMaybe<UpdatedAtFilter>;
@@ -2018,14 +2096,14 @@ export enum PageModelOrderBy {
   id_DESC = 'id_DESC',
   name_ASC = 'name_ASC',
   name_DESC = 'name_DESC',
-  navigationSorting_ASC = 'navigationSorting_ASC',
-  navigationSorting_DESC = 'navigationSorting_DESC',
+  position_ASC = 'position_ASC',
+  position_DESC = 'position_DESC',
   updatedAt_ASC = 'updatedAt_ASC',
   updatedAt_DESC = 'updatedAt_DESC'
 }
 
 /** Record of type Pages (page) */
-export type PageRecord = {
+export type PageRecord = RecordInterface & {
   __typename?: 'PageRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -2038,11 +2116,13 @@ export type PageRecord = {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
+  children?: Maybe<Array<Maybe<PageRecord>>>;
   content: Array<PageModelContentField>;
   createdAt: Scalars['DateTime'];
   id: Scalars['ItemId'];
   name?: Maybe<Scalars['String']>;
-  navigationSorting?: Maybe<Scalars['IntType']>;
+  parent?: Maybe<PageRecord>;
+  position?: Maybe<Scalars['IntType']>;
   seo?: Maybe<SeoField>;
   slug?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
@@ -2052,6 +2132,30 @@ export type PageRecord = {
 /** Record of type Pages (page) */
 export type PageRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
+};
+
+/** Specifies how to filter by parent (tree-like collections only) */
+export type ParentFilter = {
+  /** Filter records children of the specified record. Value must be a Record ID */
+  eq?: InputMaybe<Scalars['ItemId']>;
+  /** Filter records with a parent record or not */
+  exists?: InputMaybe<Scalars['BooleanType']>;
+};
+
+/** Specifies how to filter by position (sorted and tree-like collections) */
+export type PositionFilter = {
+  /** Search for records with an exact match */
+  eq?: InputMaybe<Scalars['IntType']>;
+  /** Filter records with a value that's strictly greater than the one specified */
+  gt?: InputMaybe<Scalars['IntType']>;
+  /** Filter records with a value that's greater than or equal to the one specified */
+  gte?: InputMaybe<Scalars['IntType']>;
+  /** Filter records with a value that's less than the one specified */
+  lt?: InputMaybe<Scalars['IntType']>;
+  /** Filter records with a value that's less or equal than the one specified */
+  lte?: InputMaybe<Scalars['IntType']>;
+  /** Exclude records with an exact match */
+  neq?: InputMaybe<Scalars['IntType']>;
 };
 
 export type PostModelContentField = {
@@ -2117,7 +2221,7 @@ export enum PostModelOrderBy {
 }
 
 /** Record of type Post (post) */
-export type PostRecord = {
+export type PostRecord = RecordInterface & {
   __typename?: 'PostRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -2351,6 +2455,26 @@ export type QueryuploadArgs = {
   orderBy?: InputMaybe<Array<InputMaybe<UploadOrderBy>>>;
 };
 
+export type RecordInterface = {
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  id: Scalars['ItemId'];
+};
+
+
+export type RecordInterface_seoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
 /** Specifies how to filter by upload type */
 export type ResolutionFilter = {
   /** Search uploads with the specified resolution */
@@ -2498,8 +2622,8 @@ export type TextImageModelStructuredTextField = {
   value: Scalars['JsonField'];
 };
 
-/** Record of type Text&Image (text_image) */
-export type TextImageRecord = {
+/** Block of type Text&Image (text_image) */
+export type TextImageRecord = RecordInterface & {
   __typename?: 'TextImageRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -2522,7 +2646,7 @@ export type TextImageRecord = {
 };
 
 
-/** Record of type Text&Image (text_image) */
+/** Block of type Text&Image (text_image) */
 export type TextImageRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2534,8 +2658,8 @@ export type TextModelStructuredTextField = {
   value: Scalars['JsonField'];
 };
 
-/** Record of type Text (text) */
-export type TextRecord = {
+/** Block of type Text (text) */
+export type TextRecord = RecordInterface & {
   __typename?: 'TextRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
@@ -2555,7 +2679,7 @@ export type TextRecord = {
 };
 
 
-/** Record of type Text (text) */
+/** Block of type Text (text) */
 export type TextRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2825,15 +2949,15 @@ export type UploadSizeFilter = {
 /** Specifies how to filter by tags */
 export type UploadTagsFilter = {
   /** Filter uploads linked to all of the specified tags */
-  allIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  allIn?: InputMaybe<Array<Scalars['String']>>;
   /** Filter uploads linked to at least one of the specified tags */
-  anyIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  anyIn?: InputMaybe<Array<Scalars['String']>>;
   /** Filter uploads linked to the specified tag */
   contains?: InputMaybe<Scalars['String']>;
   /** Search for uploads with an exact match */
-  eq?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  eq?: InputMaybe<Array<Scalars['String']>>;
   /** Filter uploads not linked to any of the specified tags */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  notIn?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /** Specifies how to filter by default title */
@@ -2883,8 +3007,8 @@ export type UploadUpdatedAtFilter = {
 
 export type UploadVideoField = {
   __typename?: 'UploadVideoField';
-  duration: Scalars['Int'];
-  framerate: Scalars['Int'];
+  duration?: Maybe<Scalars['Int']>;
+  framerate?: Maybe<Scalars['Int']>;
   mp4Url?: Maybe<Scalars['String']>;
   muxAssetId: Scalars['String'];
   muxPlaybackId: Scalars['String'];
@@ -2927,8 +3051,8 @@ export enum VideoMp4Res {
 
 export type focalPoint = {
   __typename?: 'focalPoint';
-  x?: Maybe<Scalars['FloatType']>;
-  y?: Maybe<Scalars['FloatType']>;
+  x: Scalars['FloatType'];
+  y: Scalars['FloatType'];
 };
 
 export const BlogFragmentFragmentDoc = /*#__PURE__*/ gql`
@@ -3062,7 +3186,7 @@ export const metaTagsFragmentFragmentDoc = /*#__PURE__*/ gql`
     `;
 export const AllPagesSlugsDocument = /*#__PURE__*/ gql`
     query AllPagesSlugs {
-  allPages(orderBy: navigationSorting_ASC, filter: {slug: {neq: ""}}) {
+  allPages(orderBy: position_ASC, filter: {slug: {neq: ""}}) {
     slug
   }
 }
@@ -3160,91 +3284,19 @@ export const PageBySlugDocument = /*#__PURE__*/ gql`
         }
       }
       ... on TextRecord {
-        __typename
-        id
-        structuredText {
-          value
-          blocks {
-            __typename
-            ... on MainHeadingRecord {
-              id
-              title
-              subtitle(markdown: true)
-            }
-          }
-        }
+        ...TextFragment
       }
       ... on TextImageRecord {
-        __typename
-        id
-        structuredText {
-          value
-          blocks {
-            __typename
-            ... on MainHeadingRecord {
-              id
-              title
-              subtitle(markdown: true)
-            }
-          }
-        }
-        imageLocation
-        imageStyle
-        image {
-          responsiveImage(imgixParams: {fit: crop, w: 288, h: 288, auto: format}) {
-            ...responsiveImageFragment
-          }
-        }
+        ...TextImageFragment
       }
       ... on FeaturedRecord {
-        __typename
-        id
-        posts {
-          id
-          title
-          slug
-        }
+        ...FeaturedFragment
       }
       ... on BlogRecord {
-        __typename
-        id
-        imageBoolean
+        ...BlogFragment
       }
       ... on GridRecord {
-        __typename
-        id
-        title
-        mobileColumns
-        tabletColumns
-        desktopColumns
-        gap
-        height
-        sections {
-          ... on GridImageRecord {
-            __typename
-            id
-            mobilePosition
-            tabletPosition
-            desktopPosition
-            image {
-              responsiveImage(
-                imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
-              ) {
-                ...responsiveImageFragment
-              }
-            }
-          }
-          ... on GridTextRecord {
-            __typename
-            id
-            mobilePosition
-            tabletPosition
-            desktopPosition
-            structuredText {
-              value
-            }
-          }
-        }
+        ...GridFragment
       }
     }
   }
@@ -3267,7 +3319,12 @@ export const PageBySlugDocument = /*#__PURE__*/ gql`
   }
 }
     ${metaTagsFragmentFragmentDoc}
-${responsiveImageFragmentFragmentDoc}`;
+${responsiveImageFragmentFragmentDoc}
+${TextFragmentFragmentDoc}
+${TextImageFragmentFragmentDoc}
+${FeaturedFragmentFragmentDoc}
+${BlogFragmentFragmentDoc}
+${GridFragmentFragmentDoc}`;
 export const PostBySlugDocument = /*#__PURE__*/ gql`
     query PostBySlug($slug: String) {
   site: _site {

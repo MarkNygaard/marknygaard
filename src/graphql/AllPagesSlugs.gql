@@ -1,5 +1,5 @@
 query AllPagesSlugs {
-  allPages(orderBy: navigationSorting_ASC, filter: { slug: { neq: "" } }) {
+  allPages(orderBy: position_ASC, filter: { slug: { neq: "" } }) {
     slug
   }
 }
