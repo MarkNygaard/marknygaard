@@ -20,7 +20,7 @@ export default async function handler(
     // Get the slug to revalidate from body
     const slugToRevalidate = body.slugToRevalidate;
     if (slugToRevalidate) {
-      await res.unstable_revalidate(`/blog/${slugToRevalidate}`);
+      await res.revalidate(`/blog/${slugToRevalidate}`);
       return res.json({ revalidated: true });
     }
   } catch (err) {
