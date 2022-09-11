@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Alert = ({ preview }: { preview: boolean }): JSX.Element => {
   return (
     <div
-      className={cn('border-b', {
+      className={cn('border-b bg-pine-300', {
         'bg-accent-7 border-accent-7 text-white': preview,
         'bg-accent-1 border-accent-2': !preview,
       })}

@@ -38,7 +38,7 @@ export const getStaticProps = async ({ preview }: GetStaticPropsContext) => {
         query: HomePageDocument.loc?.source.body!,
         initialData: await sdk.HomePage(),
         token: process.env.DATOCMS_API_TOKEN!,
-        environment: process.env.NEXT_DATOCMS_ENVIRONMENT || undefined,
+        environment: process.env.DATOCMS_ENVIRONMENT || undefined,
       }
     : {
         enabled: false,
