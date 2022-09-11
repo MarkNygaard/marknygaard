@@ -31,7 +31,7 @@ export default function Page({
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout allPages={allPages}>
+    <Layout preview={subscription.enabled ?? false} allPages={allPages}>
       {router.isFallback ? (
         <h1 className="m-12 text-center text-6xl font-semibold leading-tight tracking-tighter dark:text-gray-300 md:text-left md:text-7xl md:leading-none lg:text-8xl">
           Loading…
@@ -60,22 +60,31 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps = async ({
   params,
+  preview,
 }: GetStaticPropsContext<{ slug: string }>) => {
   const graphqlRequest = {
     query: PageBySlugDocument.loc?.source.body!,
     initialData: await sdk.PageBySlug({ slug: params?.slug ?? '' }),
+    preview,
     variables: {
       slug: params?.slug,
     },
   };
 
-  const subscription: QueryListenerOptions<any, any> = {
-    ...graphqlRequest,
-    enabled: false,
-  };
+  const subscription: QueryListenerOptions<any, any> = preview
+    ? {
+        ...graphqlRequest,
+        token: process.env.DATOCMS_API_TOKEN!,
+        enabled: false,
+      }
+    : {
+        ...graphqlRequest,
+        enabled: false,
+      };
 
   return {
     props: {
+      preview,
       subscription,
     },
   };
