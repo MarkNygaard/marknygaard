@@ -60,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps = async ({
   params,
-  preview,
+  preview = false,
 }: GetStaticPropsContext<{ slug: string }>) => {
   const graphqlRequest = {
     query: PageBySlugDocument.loc?.source.body!,
@@ -75,7 +75,7 @@ export const getStaticProps = async ({
     ? {
         ...graphqlRequest,
         token: process.env.DATOCMS_API_TOKEN!,
-        enabled: false,
+        enabled: true,
       }
     : {
         ...graphqlRequest,
@@ -84,7 +84,6 @@ export const getStaticProps = async ({
 
   return {
     props: {
-      preview,
       subscription,
     },
   };

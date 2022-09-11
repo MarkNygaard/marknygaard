@@ -34,11 +34,11 @@ export default function Home({
 export const getStaticProps = async ({ preview }: GetStaticPropsContext) => {
   const subscription: QueryListenerOptions<any, any> = preview
     ? {
-        enabled: true,
         query: HomePageDocument.loc?.source.body!,
         initialData: await sdk.HomePage(),
         token: process.env.DATOCMS_API_TOKEN!,
         environment: process.env.DATOCMS_ENVIRONMENT || undefined,
+        enabled: true,
       }
     : {
         enabled: false,

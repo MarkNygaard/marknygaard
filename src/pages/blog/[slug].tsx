@@ -28,6 +28,7 @@ import { Utterances } from 'utterances-react-component';
 
 export default function Page({
   subscription,
+  preview,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const { data } = useQuerySubscription(subscription);
@@ -44,7 +45,7 @@ export default function Page({
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={subscription.enabled ?? false} allPages={allPages}>
+    <Layout preview={preview} allPages={allPages}>
       {router.isFallback ? (
         <h1 className="m-12 text-center text-6xl font-semibold leading-tight tracking-tighter dark:text-gray-300 md:text-left md:text-7xl md:leading-none lg:text-8xl">
           Loading…
