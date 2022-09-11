@@ -13,16 +13,11 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** Represents `true` or `false` values. */
   BooleanType: any;
   CustomData: any;
-  /** A ISO 8601 compliant date value */
   Date: any;
-  /** A ISO 8601 compliant datetime value */
   DateTime: any;
-  /** Represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). */
   FloatType: any;
-  /** Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. */
   IntType: any;
   ItemId: any;
   JsonField: any;
@@ -2066,7 +2061,6 @@ export type PageModelFilter = {
   createdAt?: InputMaybe<CreatedAtFilter>;
   id?: InputMaybe<ItemIdFilter>;
   name?: InputMaybe<StringFilter>;
-  parent?: InputMaybe<ParentFilter>;
   position?: InputMaybe<PositionFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
@@ -2116,12 +2110,10 @@ export type PageRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
-  children?: Maybe<Array<Maybe<PageRecord>>>;
   content: Array<PageModelContentField>;
   createdAt: Scalars['DateTime'];
   id: Scalars['ItemId'];
   name?: Maybe<Scalars['String']>;
-  parent?: Maybe<PageRecord>;
   position?: Maybe<Scalars['IntType']>;
   seo?: Maybe<SeoField>;
   slug?: Maybe<Scalars['String']>;
@@ -2132,14 +2124,6 @@ export type PageRecord = RecordInterface & {
 /** Record of type Pages (page) */
 export type PageRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
-};
-
-/** Specifies how to filter by parent (tree-like collections only) */
-export type ParentFilter = {
-  /** Filter records children of the specified record. Value must be a Record ID */
-  eq?: InputMaybe<Scalars['ItemId']>;
-  /** Filter records with a parent record or not */
-  exists?: InputMaybe<Scalars['BooleanType']>;
 };
 
 /** Specifies how to filter by position (sorted and tree-like collections) */

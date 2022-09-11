@@ -6,7 +6,7 @@ import PageSection from 'components/PageSection';
 
 import { sdk } from 'lib/datocms';
 import { HomePageDocument } from 'lib/graphql';
-import type { InferGetStaticPropsType } from 'next';
+import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import {
   useQuerySubscription,
   renderMetaTags,
@@ -22,7 +22,7 @@ export default function Home({
   const metaTags = page.seo.concat(site.favicon);
 
   return (
-    <Layout allPages={allPages}>
+    <Layout preview={subscription.enabled ?? false} allPages={allPages}>
       <Head>{renderMetaTags(metaTags)}</Head>
       {page?.content.map((content: any, i: any) => {
         return <PageSection key={i} details={content} posts={allPosts} />;
@@ -31,21 +31,24 @@ export default function Home({
   );
 }
 
-export async function getStaticProps() {
-  const graphqlRequest: QueryListenerOptions<any, any> = {
-    enabled: false,
-    query: HomePageDocument.loc?.source.body!,
-    initialData: await sdk.HomePage(),
-  };
-
-  const subscription: QueryListenerOptions<any, any> = {
-    ...graphqlRequest,
-    enabled: false,
-  };
+export const getStaticProps = async ({ preview }: GetStaticPropsContext) => {
+  const subscription: QueryListenerOptions<any, any> = preview
+    ? {
+        query: HomePageDocument.loc?.source.body!,
+        initialData: await sdk.HomePage(),
+        token: process.env.DATOCMS_API_TOKEN!,
+        environment: process.env.DATOCMS_ENVIRONMENT || undefined,
+        enabled: true,
+      }
+    : {
+        enabled: false,
+        query: HomePageDocument.loc?.source.body!,
+        initialData: await sdk.HomePage(),
+      };
 
   return {
     props: {
       subscription,
     },
   };
-}
+};

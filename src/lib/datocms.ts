@@ -1,17 +1,10 @@
 import { GraphQLClient } from 'graphql-request';
 import { getSdk } from 'lib/graphql';
 
-// let endpoint = "https://graphql.datocms.com";
-
-// if (process.env.NEXT_DATOCMS_ENVIRONMENT) {
-//   endpoint += `/environments/${process.env.NEXT_DATOCMS_ENVIRONMENT}`;
-// }
-
-// if (preview) {
-//   endpoint += `/preview`;
-// }
-
-export const DATOCMS_ENDPOINT = 'https://graphql.datocms.com';
+export const DATOCMS_ENDPOINT =
+  process.env.NODE_ENV == 'production'
+    ? 'https://graphql.datocms.com'
+    : 'https://graphql.datocms.com/preview';
 
 export const DATOCMS_HEADERS = {
   Authorization: process.env.DATOCMS_API_TOKEN!,
