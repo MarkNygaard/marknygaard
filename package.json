@@ -14,7 +14,7 @@
     "@headlessui/react": "^1.6.2",
     "@supabase/supabase-js": "^1.35.3",
     "classnames": "^2.3.1",
-    "date-fns": "^2.28.0",
+    "date-fns": "^2.29.2",
     "datocms-structured-text-utils": "^2.0.4",
     "framer-motion": "^6.3.3",
     "graphql": "^16.4.0",
