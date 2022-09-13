@@ -139,5 +139,8 @@ module.exports = {
     'gap-2',
     'gap-4',
   ],
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+  ],
 };
