@@ -57,7 +57,7 @@ export default function Header({ allPages }) {
             })}
           </div>
           <button
-            className="flex items-center justify-center hover:font-bold transition-all rounded-full text-[#72818b] duration-300 hover:text-pine-700 dark:hover:text-pine-200 p-1 sm:-pr-4 sm:pl-4 sm:mx-1 sm:py-2"
+            className="hidden md:flex items-center justify-center hover:font-bold transition-all rounded-full text-[#72818b] duration-300 hover:text-pine-700 dark:hover:text-pine-200 p-1 sm:-pr-4 sm:pl-4 sm:mx-1 sm:py-2"
             onClick={() => setIsOpen(true)}
           >
             <BsSearch />
