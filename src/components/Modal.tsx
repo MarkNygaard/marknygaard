@@ -14,7 +14,7 @@ export default function Modal({ onClose, children }) {
         className="fixed inset-0 bg-gray-500/75"
         onClick={onClose}
       ></Dialog.Overlay>
-      <Dialog.Panel className="w-full h-full transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl">
+      <Dialog.Panel className="w-full bg-white dark:bg-gray-900 h-full transform overflow-hidden rounded-2xl text-left align-middle shadow-xl">
         <div className="w-full h-full">{children}</div>
       </Dialog.Panel>
     </Dialog>
