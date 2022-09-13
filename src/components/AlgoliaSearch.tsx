@@ -68,7 +68,7 @@ export default function AlgoliaSearch({ onClose }) {
                 }}
               />
             </div>
-            <div className="w-[1px] h-8 bg-gray-300 flex-none"></div>
+            <div className="w-[1px] h-8 bg-gray-300 dark:bg-gray-700 flex-none"></div>
             <button
               onClick={onClose}
               className="px-4 h-full text-gray-500 dark:text-gray-300 hover:text-gray-800 items-center flex"
