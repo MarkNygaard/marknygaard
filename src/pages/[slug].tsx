@@ -39,7 +39,7 @@ export default function Page({
       ) : (
         <>
           <Head>{renderMetaTags(metaTags)}</Head>
-          <div className="text-4xl font-light pb-5">{page.name}</div>
+          <title className="text-4xl font-light pb-5">{page.name}</title>
           {page?.content.map((content: any, i: any) => {
             return <PageSection key={i} details={content} posts={allPosts} />;
           })}
