@@ -1985,6 +1985,12 @@ export enum ItemStatus {
   updated = 'updated'
 }
 
+/** Specifies how to filter JSON fields */
+export type JsonFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars['BooleanType']>;
+};
+
 /** Specifies how to filter Single-link fields */
 export type LinkFilter = {
   /** Search for records with an exact match. The specified value must be a Record ID */
@@ -2167,6 +2173,7 @@ export type PostModelFilter = {
   date?: InputMaybe<DateFilter>;
   excerpt?: InputMaybe<StringFilter>;
   id?: InputMaybe<ItemIdFilter>;
+  preview?: InputMaybe<JsonFilter>;
   seoSettings?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
@@ -2226,6 +2233,7 @@ export type PostRecord = RecordInterface & {
   date?: Maybe<Scalars['Date']>;
   excerpt?: Maybe<Scalars['String']>;
   id: Scalars['ItemId'];
+  preview?: Maybe<Scalars['JsonField']>;
   seoSettings?: Maybe<SeoField>;
   slug?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
@@ -3168,6 +3176,14 @@ export const metaTagsFragmentFragmentDoc = /*#__PURE__*/ gql`
   tag
 }
     `;
+export const AllCategoriesSlugsDocument = /*#__PURE__*/ gql`
+    query AllCategoriesSlugs {
+  allCategories(orderBy: name_ASC, filter: {slug: {neq: ""}}) {
+    slug
+    id
+  }
+}
+    `;
 export const AllPagesSlugsDocument = /*#__PURE__*/ gql`
     query AllPagesSlugs {
   allPages(orderBy: position_ASC, filter: {slug: {neq: ""}}) {
@@ -3309,6 +3325,64 @@ ${TextImageFragmentFragmentDoc}
 ${FeaturedFragmentFragmentDoc}
 ${BlogFragmentFragmentDoc}
 ${GridFragmentFragmentDoc}`;
+export const PostByCategoryDocument = /*#__PURE__*/ gql`
+    query PostByCategory($category: String) {
+  site: _site {
+    favicon: faviconMetaTags {
+      ...metaTagsFragment
+    }
+  }
+  allPosts(filter: {slug: {eq: $category}}) {
+    seo: _seoMetaTags {
+      ...metaTagsFragment
+    }
+    id
+    title
+    slug
+    date
+    excerpt
+    author {
+      name
+      picture {
+        responsiveImage(
+          imgixParams: {fit: crop, w: 48, h: 48, auto: format, mask: "ellipse"}
+        ) {
+          ...responsiveImageFragment
+        }
+      }
+    }
+    category {
+      name
+      slug
+    }
+    coverImage {
+      responsiveImage(imgixParams: {fit: max, w: 2000, h: 1000, auto: format}) {
+        ...responsiveImageFragment
+      }
+    }
+    content {
+      value
+      blocks {
+        __typename
+        ... on ImageRecord {
+          id
+          image {
+            responsiveImage(imgixParams: {fit: clip, auto: format}) {
+              ...responsiveImageFragment
+            }
+          }
+        }
+      }
+    }
+  }
+  allPages {
+    id
+    name
+    slug
+  }
+}
+    ${metaTagsFragmentFragmentDoc}
+${responsiveImageFragmentFragmentDoc}`;
 export const PostBySlugDocument = /*#__PURE__*/ gql`
     query PostBySlug($slug: String) {
   site: _site {
@@ -3375,6 +3449,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    AllCategoriesSlugs(variables?: AllCategoriesSlugsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<AllCategoriesSlugsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<AllCategoriesSlugsQuery>(AllCategoriesSlugsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllCategoriesSlugs', 'query');
+    },
     AllPagesSlugs(variables?: AllPagesSlugsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<AllPagesSlugsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<AllPagesSlugsQuery>(AllPagesSlugsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllPagesSlugs', 'query');
     },
@@ -3386,6 +3463,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     PageBySlug(variables?: PageBySlugQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PageBySlugQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<PageBySlugQuery>(PageBySlugDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'PageBySlug', 'query');
+    },
+    PostByCategory(variables?: PostByCategoryQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PostByCategoryQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PostByCategoryQuery>(PostByCategoryDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'PostByCategory', 'query');
     },
     PostBySlug(variables?: PostBySlugQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PostBySlugQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<PostBySlugQuery>(PostBySlugDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'PostBySlug', 'query');
@@ -3404,6 +3484,11 @@ export type ImageFragmentFragment = { __typename: 'ImageRecord', id: any, image?
 export type TextFragmentFragment = { __typename: 'TextRecord', id: any, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null };
 
 export type TextImageFragmentFragment = { __typename: 'TextImageRecord', id: any, imageLocation?: string | null, imageStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
+
+export type AllCategoriesSlugsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllCategoriesSlugsQuery = { __typename?: 'Query', allCategories: Array<{ __typename?: 'CategoryRecord', slug?: string | null, id: any }> };
 
 export type AllPagesSlugsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3430,6 +3515,13 @@ export type PageBySlugQueryVariables = Exact<{
 
 
 export type PageBySlugQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, content: Array<{ __typename: 'BlogRecord', id: any, imageBoolean?: any | null } | { __typename: 'FeaturedRecord', id: any, posts: Array<{ __typename?: 'PostRecord', id: any, title?: string | null, slug?: string | null }> } | { __typename: 'GridRecord', id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, structuredText?: { __typename?: 'GridTextModelStructuredTextField', value: any } | null }> } | { __typename: 'ImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextImageRecord', id: any, imageLocation?: string | null, imageStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', id: any, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null }> } | null, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }>, allPosts: Array<{ __typename?: 'PostRecord', id: any, slug?: string | null, title?: string | null, date?: any | null, excerpt?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> };
+
+export type PostByCategoryQueryVariables = Exact<{
+  category?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type PostByCategoryQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, allPosts: Array<{ __typename?: 'PostRecord', id: any, title?: string | null, slug?: string | null, date?: any | null, excerpt?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, author?: { __typename?: 'AuthorRecord', name?: string | null, picture?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null } | null, category?: { __typename?: 'CategoryRecord', name?: string | null, slug?: string | null } | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null, content?: { __typename?: 'PostModelContentField', value: any, blocks: Array<{ __typename: 'ImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null }> } | null }>, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }> };
 
 export type PostBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;

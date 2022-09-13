@@ -1,0 +1,6 @@
+query AllCategoriesSlugs {
+  allCategories(orderBy: name_ASC, filter: { slug: { neq: "" } }) {
+    slug
+    id
+  }
+}
