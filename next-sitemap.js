@@ -3,5 +3,12 @@
 module.exports = {
   siteUrl: 'https://marknygaard.dk',
   generateRobotsTxt: true,
-  // ...other options
+  robotsTxtOptions: {
+    policies: [
+      {
+        userAgent: 'Algolia Crawler',
+        disallow: ['/¨', '/about', '/blog'],
+      },
+    ],
+  },
 };
