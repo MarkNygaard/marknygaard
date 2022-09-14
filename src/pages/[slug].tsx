@@ -38,7 +38,10 @@ export default function Page({
         </h1>
       ) : (
         <>
-          <Head>{renderMetaTags(metaTags)}</Head>
+          <Head>
+            {renderMetaTags(metaTags)}
+            <meta name="Algolia crawler" content="noindex" />
+          </Head>
           <title className="text-4xl font-light pb-5">{page.name}</title>
           {page?.content.map((content: any, i: any) => {
             return <PageSection key={i} details={content} posts={allPosts} />;
