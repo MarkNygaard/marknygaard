@@ -7,6 +7,10 @@ module.exports = {
     policies: [
       {
         userAgent: 'Algolia Crawler',
+        allow: ['/blog/*'],
+      },
+      {
+        userAgent: 'Algolia Crawler',
         disallow: ['/', '/about', '/blog'],
       },
     ],
