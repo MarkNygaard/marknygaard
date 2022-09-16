@@ -6,7 +6,7 @@ export default function ImageRecord({ details }) {
   return (
     <div className="py-20 px-10">
       <div className="flex justify-center">
-        <div className="relative aspect-square h-32 w-full overflow-hidden rounded-lg">
+        <div className="relative aspect-square h-32 w-full overflow-hidden rounded-lg translate-z-0">
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image data={(details.image as FileField).responsiveImage as any} />
         </div>
