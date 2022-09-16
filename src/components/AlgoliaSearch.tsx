@@ -22,6 +22,10 @@ const results = ({ hit }) => (
               layout="fixed"
               width={180}
               height={100}
+              placeholder="blur"
+              blurDataURL={`/_next/image?url=${
+                hit.image.split('w=')[0]
+              }w=16&q=1`}
             />
           </div>
           <div className="flex w-full truncate pr-12 items-center">
