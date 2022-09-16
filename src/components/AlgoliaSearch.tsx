@@ -18,7 +18,7 @@ const results = ({ hit }) => (
             <Image
               className="rounded-md"
               alt=""
-              src={hit.image}
+              src={hit.image.split('w=')[0] + 'w=300'}
               layout="fixed"
               width={180}
               height={100}
