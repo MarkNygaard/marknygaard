@@ -42,6 +42,7 @@ export default function MobileMenu({ allPages }) {
   useEffect(() => {
     return function cleanup() {
       document.body.style.overflow = '';
+      document.body.style.position = null;
     };
   }, []);
 
