@@ -14,9 +14,9 @@ const results = ({ hit }) => (
     {hit.image && (
       <div className="flex hover:bg-pine-100 dark:hover:bg-pine-700 rounded-lg text-md m-2 p-2 group max-w-[840px]">
         <a className="flex w-full" href={hit.url}>
-          <div className="relative w-[180px] h-[100px] mr-3">
+          <div className="relative w-[180px] h-[100px] mr-3 placeholder-slate-600 rounded-md">
             <Image
-              className="rounded-md placeholder-slate-600"
+              className="rounded-md"
               alt=""
               src={hit.image.split('w=')[0] + 'w=300'}
               layout="fixed"
