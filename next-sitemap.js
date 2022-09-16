@@ -7,11 +7,11 @@ module.exports = {
     policies: [
       {
         userAgent: 'Algolia Crawler',
-        allow: '/blog/*',
+        allow: ['/sitemap.xml', '/sitemap-0.xml', '/blog/*'],
       },
       {
         userAgent: 'Algolia Crawler',
-        disallow: ['/about', '/blog'],
+        disallow: ['/about', '/blog', '/'],
       },
     ],
   },
