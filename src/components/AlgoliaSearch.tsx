@@ -16,7 +16,7 @@ const results = ({ hit }) => (
         <a className="flex w-full" href={hit.url}>
           <div className="relative w-[180px] h-[100px] mr-3">
             <Image
-              className="rounded-md"
+              className="rounded-md placeholder-slate-600"
               alt=""
               src={hit.image.split('w=')[0] + 'w=300'}
               layout="fixed"
