@@ -18,7 +18,7 @@ export default function BlogRecord({ details, posts }) {
                   boxShadow: '0 2px 10px -1px rgb(0 0 0 / 0.1)',
                   transition: { duration: 0.1, type: 'spring', mass: 0.1 },
                 }}
-                className="group my-6 border-[1px] bg-pine-50 dark:bg-gray-900 dark:border-gray-800 dark:hover:bg-gray-800 border-pine-200 grid grid-cols-5 rounded-lg overflow-hidden"
+                className="group my-6 border-[1px] bg-pine-50 dark:bg-gray-900 dark:border-gray-800 dark:hover:bg-gray-800 border-pine-200 grid grid-cols-5 translate-z-0 rounded-lg overflow-hidden"
               >
                 <div
                   className={classNames('hidden h-44 w-full overflow-hidden', {

@@ -25,7 +25,7 @@ export default function Home({
     <Layout preview={subscription.enabled ?? false} allPages={allPages}>
       <Head>
         {renderMetaTags(metaTags)}
-        <meta name="Algolia crawler" content="noindex" />
+        {/* <meta name="Algolia crawler" content="noindex" /> */}
       </Head>
       {page?.content.map((content: any, i: any) => {
         return <PageSection key={i} details={content} posts={allPosts} />;

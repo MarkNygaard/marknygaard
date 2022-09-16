@@ -30,7 +30,7 @@ export default function TextImageRecord({ details }) {
         <div className="mx-auto md:mb-auto">
           <div
             className={classNames(
-              'relative aspect-square h-44 mb-4 md:mb-0 lg:h-72 w-full overflow-hidden',
+              'relative aspect-square h-44 mb-4 md:mb-0 lg:h-72 w-full overflow-hidden translate-z-0',
               {
                 'rounded-full': details.imageStyle === 'Round',
                 'rounded-xl': details.imageStyle === 'Rounded Corners',
@@ -40,11 +40,7 @@ export default function TextImageRecord({ details }) {
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
               data={(details.image as FileField)?.responsiveImage as any}
-              className={classNames({
-                'rounded-full': details.imageStyle === 'Round',
-                'rounded-xl': details.imageStyle === 'Rounded Corners',
-              })}
-              pictureClassName={classNames({
+              className={classNames('translate-z-0', {
                 'rounded-full': details.imageStyle === 'Round',
                 'rounded-xl': details.imageStyle === 'Rounded Corners',
               })}
