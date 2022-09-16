@@ -10,39 +10,33 @@ const searchClient = algoliasearch(
 );
 
 const results = ({ hit }) => (
-  <>
-    {hit.image && (
-      <div className="flex hover:bg-pine-100 dark:hover:bg-pine-700 rounded-lg text-md m-2 p-2 group max-w-[840px]">
-        <a className="flex w-full" href={hit.url}>
-          <div className="relative w-[180px] h-[100px] mr-3">
-            <Image
-              className="rounded-md"
-              alt=""
-              src={hit.image.split('w=')[0] + 'w=300'}
-              layout="fixed"
-              width={180}
-              height={100}
-              placeholder="blur"
-              blurDataURL={`/_next/image?url=${
-                hit.image.split('w=')[0]
-              }w=16&q=1`}
-            />
-          </div>
-          <div className="flex w-full truncate pr-12 items-center">
-            <div className="flex flex-col w-full">
-              <p className="font-bold">{hit.title}</p>
-              <div className="line-clamp-2 whitespace-normal w-full dark:text-gray-300 text-gray-500">
-                {hit.content}
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center h-full text-gray-500 dark:text-gray-300 text-xl">
-            <BsArrowReturnLeft className="opacity-0 group-hover:opacity-100 fill-current" />
-          </div>
-        </a>
+  <div className="flex hover:bg-pine-100 dark:hover:bg-pine-700 rounded-lg text-md m-2 p-2 group max-w-[840px]">
+    <a className="flex w-full" href={hit.url}>
+      <div className="relative w-[180px] h-[100px] mr-3">
+        <Image
+          className="rounded-md"
+          alt=""
+          src={hit.image.split('w=')[0] + 'w=300'}
+          layout="fixed"
+          width={180}
+          height={100}
+          placeholder="blur"
+          blurDataURL={`/_next/image?url=${hit.image.split('w=')[0]}w=16&q=1`}
+        />
       </div>
-    )}
-  </>
+      <div className="flex w-full truncate pr-12 items-center">
+        <div className="flex flex-col w-full">
+          <p className="font-bold">{hit.title}</p>
+          <div className="line-clamp-2 whitespace-normal w-full dark:text-gray-300 text-gray-500">
+            {hit.content}
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center h-full text-gray-500 dark:text-gray-300 text-xl">
+        <BsArrowReturnLeft className="opacity-0 group-hover:opacity-100 fill-current" />
+      </div>
+    </a>
+  </div>
 );
 
 export default function AlgoliaSearch({ onClose }) {
