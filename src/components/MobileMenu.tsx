@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import { Dialog } from '@headlessui/react';
 import cn from 'classnames';
 
 function NavItem({ href, text, setIsOpen, isOpen }) {
@@ -11,12 +12,7 @@ function NavItem({ href, text, setIsOpen, isOpen }) {
     <NextLink href={href}>
       <a
         onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-          isActive
-            ? 'font-base text-pine-900 dark:text-gray-200'
-            : 'font-light text-pine-800 dark:text-gray-400',
-          'flex p-2 my-1 rounded-md hover:bg-pine-100 dark:hover:bg-gray-900 transition-all'
-        )}
+        className="block w-full py-10 mx-2 text-2xl font-semibold text-center text-gray-800 bg-white rounded-lg shadow-md"
       >
         <span className="capsize">{text}</span>
       </a>
@@ -24,106 +20,69 @@ function NavItem({ href, text, setIsOpen, isOpen }) {
   );
 }
 
-export default function MobileMenu({ allPages }) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function MobileMenu2({ allPages }) {
+  let [isOpen, setIsOpen] = useState(false);
 
-  function toggleMenu() {
-    if (isOpen) {
-      setIsOpen(false);
-      document.body.style.overflow = '';
-      document.body.style.position = null;
-    } else {
-      setIsOpen(true);
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-    }
+  function closeModal() {
+    setIsOpen(false);
   }
 
-  useEffect(() => {
-    return function cleanup() {
-      document.body.style.overflow = '';
-      document.body.style.position = null;
-    };
-  }, []);
+  function openModal() {
+    setIsOpen(true);
+  }
 
   return (
-    <div className="visible md:hidden -my-6">
-      <nav
-        className={isOpen ? 'fixed w-full left-0 standalone:h-full' : 'visible'}
+    <>
+      <button
+        className="md:hidden mobile-menu-button inline-flex items-center justify-center pl-4 text-gray-500 focus:outline-none focus:ring-offset-2"
+        onClick={openModal}
       >
-        <div className="absolute z-10">
+        <svg
+          className="block h-7 w-7"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+          <title>Open Menu</title>
+        </svg>
+      </button>
+
+      <Dialog
+        as="div"
+        className="md:hidden fixed inset-0 top-0 h-screen bg-[#787878]/30 backdrop-blur z-20"
+        open={isOpen}
+        onClose={closeModal}
+      >
+        <Dialog.Panel className="w-full max-w-lg p-4 m-0 mx-auto mt-20">
           <button
-            onClick={toggleMenu}
-            type="button"
-            className="pt-6 mobile-menu-button inline-flex items-center justify-center pl-4 text-gray-500 hover:text-gray-400 focus:outline-none focus:ring-offset-2"
+            onClick={closeModal}
+            className="flex flex-wrap focus:outline-none w-full"
           >
-            <span className="sr-only">Open main menu</span>
-            {!isOpen ? (
-              <div className="standalone:text-white standalone:hover:text-white">
-                <svg
-                  className="block h-7 w-7"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                  <title>Open Menu</title>
-                </svg>
+            {allPages?.map((page, i) => (
+              <div
+                className="flex items-center justify-center w-1/2 mt-6"
+                key={i}
+              >
+                <NavItem
+                  key={page.id}
+                  href={`/${page.slug}`}
+                  text={page.name}
+                  setIsOpen={setIsOpen}
+                  isOpen={isOpen}
+                />
               </div>
-            ) : (
-              <div className="standalone:pt-9 standalone:pl-1 standalone:hover:text-black standalone:text-black dark:standalone:text-white">
-                <svg
-                  className="block h-7 w-7"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                  <title>Close Menu</title>
-                </svg>
-              </div>
-            )}
+            ))}
           </button>
-        </div>
-        {isOpen && (
-          <div className="fixed h-screen w-full flex-col dark:bg-black bg-white standalone:pt-12 pt-4">
-            <div className="w-full space-y-1 dark:bg-black bg-white px-3 pt-12 py-3 flex-col">
-              {allPages?.map((page, i) => {
-                return (
-                  <ul key={i}>
-                    <li
-                      className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-xl font-semibold"
-                      style={{ transitionDelay: '150ms' }}
-                    >
-                      <NavItem
-                        key={page.id}
-                        href={`/${page.slug}`}
-                        text={page.name}
-                        setIsOpen={setIsOpen}
-                        isOpen={isOpen}
-                      />
-                    </li>
-                  </ul>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </nav>
-    </div>
+        </Dialog.Panel>
+      </Dialog>
+    </>
   );
 }

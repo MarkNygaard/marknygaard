@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ['src/**/**/*.{js,ts,jsx,tsx}'],
@@ -75,6 +76,9 @@ module.exports = {
       screens: {
         standalone: { raw: '(display-mode: standalone)' },
       },
+    },
+    fontFamily: {
+      sans: ['Inter', ...defaultTheme.fontFamily.sans],
     },
   },
   safelist: [
