@@ -13,7 +13,10 @@ export default function Layout({
   allPages: any;
 }) {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-black">
+    <div
+      style={{ WebkitTapHighlightColor: 'transparent' }}
+      className="min-h-screen flex flex-col bg-white dark:bg-black"
+    >
       {preview ? <Alert preview={preview} /> : null}
       <Header allPages={allPages} />
       <div className="flex-1 container mx-auto px-4 md:py-10 sm:pb-16 pb-6 standalone:pt-36 standalone:md:pt-6">
