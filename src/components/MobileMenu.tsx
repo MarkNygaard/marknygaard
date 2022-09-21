@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import NextLink from 'next/link';
-import { useRouter } from 'next/router';
 import { Dialog } from '@headlessui/react';
-import cn from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
 
 function NavItem({ href, text, setIsOpen, isOpen }) {
-  const router = useRouter();
-  const isActive = router.asPath === href;
-
   return (
     <NextLink href={href}>
       <a
         onClick={() => setIsOpen(!isOpen)}
-        className="block w-full py-10 mx-2 text-2xl font-semibold text-center text-gray-800 bg-white rounded-lg shadow-md"
+        className="block w-full py-10 mx-2 text-2xl font-semibold text-center text-gray-900 bg-white dark:bg-black dark:text-gray-100 rounded-lg shadow-md"
       >
         <span className="capsize">{text}</span>
       </a>
@@ -55,34 +51,57 @@ export default function MobileMenu2({ allPages }) {
         </svg>
       </button>
 
-      <Dialog
-        as="div"
-        className="md:hidden fixed inset-0 top-0 h-screen bg-[#787878]/30 backdrop-blur z-20"
-        open={isOpen}
-        onClose={closeModal}
-      >
-        <Dialog.Panel className="w-full max-w-lg p-4 m-0 mx-auto mt-20">
-          <button
+      <AnimatePresence>
+        <Dialog
+          as={motion.div}
+          key="modal"
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: { duration: 0.4, ease: [0.36, 0.66, 0.04, 1] },
+          }}
+          exit={{
+            opacity: 0,
+            transition: { duration: 0.3, ease: [0.36, 0.66, 0.04, 1] },
+          }}
+          className="md:hidden fixed inset-0 top-0 h-screen bg-[#787878]/30 backdrop-blur z-20"
+          open={isOpen}
+          onClose={closeModal}
+        >
+          <Dialog.Panel
+            className="w-full h-full max-w-lg p-4 m-0 mx-auto"
             onClick={closeModal}
-            className="flex flex-wrap focus:outline-none w-full"
           >
-            {allPages?.map((page, i) => (
-              <div
-                className="flex items-center justify-center w-1/2 mt-6"
-                key={i}
-              >
-                <NavItem
-                  key={page.id}
-                  href={`/${page.slug}`}
-                  text={page.name}
-                  setIsOpen={setIsOpen}
-                  isOpen={isOpen}
-                />
-              </div>
-            ))}
-          </button>
-        </Dialog.Panel>
-      </Dialog>
+            <button
+              onClick={closeModal}
+              className="flex flex-wrap focus:outline-none w-full mt-20"
+            >
+              {allPages?.map((page, i) => (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  transition={{
+                    duration: 0.2,
+                    delay: 0.1 * i,
+                    type: 'spring',
+                  }}
+                  className="flex items-center justify-center w-full mt-6"
+                  key={i}
+                >
+                  <NavItem
+                    key={page.id}
+                    href={`/${page.slug}`}
+                    text={page.name}
+                    setIsOpen={setIsOpen}
+                    isOpen={isOpen}
+                  />
+                </motion.div>
+              ))}
+            </button>
+          </Dialog.Panel>
+        </Dialog>
+      </AnimatePresence>
     </>
   );
 }
