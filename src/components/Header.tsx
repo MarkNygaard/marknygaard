@@ -18,8 +18,8 @@ function NavItem({ href, text }) {
       <a
         className={cn(
           isActive
-            ? 'text-pine-900 dark:text-gray-200 border-pine-900 dark:bg-gray-900'
-            : 'text-pine-500 dark:text-gray-400 duration-300 hover:text-pine-900 dark:hover:bg-gray-900 hover:ease-in ease-out transition-all',
+            ? 'text-pine-900 dark:text-gray-100 border-pine-900'
+            : 'text-pine-500 dark:text-gray-500 duration-300 hover:text-pine-900 dark:hover:text-gray-100 hover:ease-in ease-out transition-all',
           'hidden font-light md:text-base lg:text-lg md:inline-block p-1 sm:px-4 sm:mx-1 sm:py-3'
         )}
       >
@@ -71,7 +71,7 @@ export default function Header({ allPages }) {
           <button
             aria-label="Toggle Dark Mode"
             type="button"
-            className="flex items-center justify-center hover:font-bold transition-all rounded-full text-[#91a3b0] duration-300 hover:text-[#72818b] p-1 sm:-px-4 sm:mx-1 sm:py-2 dark:text-[#FDB813] dark:hover:text-[#FFD87A]"
+            className="active:bg-gray-200 dark:active:bg-gray-600 px-[6px] flex items-center justify-center hover:font-bold transition-all rounded-full text-[#91a3b0] duration-300 hover:text-[#72818b] p-1 sm:-px-4 sm:mx-1 sm:py-2 dark:text-[#FDB813] dark:hover:text-[#FFD87A]"
             onClick={() =>
               setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
             }

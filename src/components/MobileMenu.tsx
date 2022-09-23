@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NextLink from 'next/link';
+import cn from 'classnames';
 import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -30,7 +31,7 @@ export default function MobileMenu2({ allPages }) {
   return (
     <>
       <button
-        className="md:hidden mobile-menu-button inline-flex items-center justify-center pl-4 text-gray-500 focus:outline-none focus:ring-offset-2"
+        className="md:hidden mobile-menu-button inline-flex items-center justify-center ml-3 p-1 text-gray-500 focus:outline-none focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600  rounded-full"
         onClick={openModal}
       >
         <svg
@@ -86,9 +87,13 @@ export default function MobileMenu2({ allPages }) {
                     delay: 0.1 * i,
                     type: 'spring',
                   }}
-                  className="flex items-center justify-center w-full mt-6"
+                  className={cn(
+                    allPages.length <= 3 ? 'w-full' : 'w-1/2',
+                    'flex items-center justify-center mt-6'
+                  )}
                   key={i}
                 >
+                  {/* {console.log(allPages.length)} */}
                   <NavItem
                     key={page.id}
                     href={`/${page.slug}`}
