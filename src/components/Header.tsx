@@ -38,7 +38,7 @@ export default function Header({ allPages }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="relative z-10 px-4 pb-6 container mx-auto standalone:w-screen dark:standalone:from-gray-900 dark:standalone:via-gray-900 dark:standalone:to-gray-900 standalone:bg-gradient-to-r standalone:from-pine-400 standalone:via-pine-300 standalone:to-pine-200 standalone:pt-10 standalone:md:pt-0 standalone:md:max-w-none standalone:fixed standalone:md:relative">
+    <nav className="relative z-10 px-4 pb-6 standalone:pb-3 standalone:mb-3 container mx-auto standalone:w-screen dark:standalone:from-gray-900 dark:standalone:via-gray-900 dark:standalone:to-gray-900 standalone:bg-gradient-to-r standalone:from-pine-400 standalone:via-pine-300 standalone:to-pine-200 standalone:pt-10 standalone:md:pt-0 standalone:md:max-w-none standalone:fixed standalone:md:relative">
       <div className="py-5 max-w-5xl mx-auto standalone:md:py-2">
         <div className="flex">
           <div className="hidden md:flex flex-1 text-xl sm:py-2 standalone:md:pl-6 standalone:md:font-semibold items-center">
