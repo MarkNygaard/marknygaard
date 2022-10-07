@@ -3,6 +3,7 @@ import { StructuredText, Image } from 'react-datocms';
 import type { FileField } from 'lib/graphql';
 import classNames from 'classnames';
 import MainHeading from 'components/MainHeading';
+import { motion } from 'framer-motion';
 
 export default function TextImageRecord({ details }) {
   return (
@@ -15,7 +16,12 @@ export default function TextImageRecord({ details }) {
         }
       )}
     >
-      <article className="grow prose dark:prose-invert pr-4 prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400">
+      <motion.article
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="grow prose dark:prose-invert pr-4 prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400"
+      >
         <StructuredText
           data={details.structuredText}
           renderBlock={({ record }) => {
@@ -25,9 +31,14 @@ export default function TextImageRecord({ details }) {
             return null;
           }}
         />
-      </article>
+      </motion.article>
       {((details.image as FileField)?.responsiveImage as any) ? (
-        <div className="mx-auto md:mb-auto">
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto md:mb-auto"
+        >
           <div
             className={classNames(
               'relative aspect-square h-44 mb-4 md:mb-0 lg:h-72 w-full overflow-hidden translate-z-0',
@@ -46,7 +57,7 @@ export default function TextImageRecord({ details }) {
               })}
             />
           </div>
-        </div>
+        </motion.div>
       ) : null}
     </div>
   );
