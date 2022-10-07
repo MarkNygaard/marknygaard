@@ -9,6 +9,7 @@ import Layout from 'components/Layout';
 import MainHeading from 'components/MainHeading';
 import SyntaxHighlight from 'components/SyntaxHighlight';
 import ViewCounter from 'components/ViewCounter';
+import Comments from 'components/Comments';
 
 import { sdk } from 'lib/datocms';
 import { PostBySlugDocument } from 'lib/graphql';
@@ -116,11 +117,7 @@ export default function Page({
                   />
                 </div>
                 <div>
-                  <Utterances
-                    repo="MarkNygaard/comments-marknygaard.dk"
-                    theme={mapTheme[theme]}
-                    issueTerm="pathname"
-                  />
+                  <Comments slug={post.slug} />
                 </div>
               </div>
               <aside className="divide-y space-y-2 hidden lg:block w-3/12">
