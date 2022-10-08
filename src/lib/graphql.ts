@@ -2629,6 +2629,8 @@ export type TextImageRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   createdAt: Scalars['DateTime'];
+  fadeInImage?: Maybe<Scalars['BooleanType']>;
+  fadeInText?: Maybe<Scalars['BooleanType']>;
   id: Scalars['ItemId'];
   image?: Maybe<FileField>;
   imageLocation?: Maybe<Scalars['String']>;
@@ -3165,13 +3167,15 @@ export const TextImageFragmentFragmentDoc = /*#__PURE__*/ gql`
       }
     }
   }
-  imageLocation
-  imageStyle
+  fadeInText
   image {
     responsiveImage(imgixParams: {fit: crop, w: 288, h: 288, auto: format}) {
       ...responsiveImageFragment
     }
   }
+  fadeInImage
+  imageLocation
+  imageStyle
 }
     `;
 export const metaTagsFragmentFragmentDoc = /*#__PURE__*/ gql`
@@ -3416,7 +3420,7 @@ export type ImageFragmentFragment = { __typename: 'ImageRecord', id: any, image?
 
 export type TextFragmentFragment = { __typename: 'TextRecord', id: any, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null };
 
-export type TextImageFragmentFragment = { __typename: 'TextImageRecord', id: any, imageLocation?: string | null, imageStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
+export type TextImageFragmentFragment = { __typename: 'TextImageRecord', id: any, fadeInText?: any | null, fadeInImage?: any | null, imageLocation?: string | null, imageStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null, title?: string | null, base64?: string | null } | null } | null };
 
 export type AllPagesSlugsQueryVariables = Exact<{ [key: string]: never; }>;
 
