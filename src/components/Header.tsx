@@ -8,6 +8,7 @@ import MobileMenu from './MobileMenu';
 import AlgoliaSearch from './AlgoliaSearch';
 import { BsSearch } from 'react-icons/bs';
 import Link from 'next/link';
+import { AnimatePresence } from 'framer-motion';
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -67,7 +68,9 @@ export default function Header({ allPages }) {
           >
             <BsSearch />
           </button>
-          {isOpen && <AlgoliaSearch onClose={() => setIsOpen(false)} />}
+          <AnimatePresence>
+            {isOpen && <AlgoliaSearch onClose={() => setIsOpen(false)} />}
+          </AnimatePresence>
           <button
             aria-label="Toggle Dark Mode"
             type="button"
