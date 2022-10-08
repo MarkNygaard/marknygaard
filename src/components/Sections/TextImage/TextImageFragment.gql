@@ -12,11 +12,13 @@ fragment TextImageFragment on TextImageRecord {
       }
     }
   }
-  imageLocation
-  imageStyle
+  fadeInText
   image {
     responsiveImage(imgixParams: { fit: crop, w: 288, h: 288, auto: format }) {
       ...responsiveImageFragment
     }
   }
+  fadeInImage
+  imageLocation
+  imageStyle
 }

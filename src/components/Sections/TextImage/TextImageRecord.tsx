@@ -17,9 +17,9 @@ export default function TextImageRecord({ details }) {
       )}
     >
       <motion.article
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        initial={details.fadeInText ? { y: 20, opacity: 0 } : { opacity: 1 }}
+        animate={details.fadeInText ? { y: 0, opacity: 1 } : { opacity: 1 }}
+        transition={details.fadeInText && { duration: 0.5 }}
         className="grow prose dark:prose-invert pr-4 prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400"
       >
         <StructuredText
@@ -34,9 +34,9 @@ export default function TextImageRecord({ details }) {
       </motion.article>
       {((details.image as FileField)?.responsiveImage as any) ? (
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={details.fadeInImage ? { y: 20, opacity: 0 } : { opacity: 1 }}
+          animate={details.fadeInImage ? { y: 0, opacity: 1 } : { opacity: 1 }}
+          transition={details.fadeInImage && { duration: 0.5, delay: 0.2 }}
           className="mx-auto md:mb-auto"
         >
           <div
