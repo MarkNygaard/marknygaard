@@ -9,7 +9,7 @@ export default function Modal({ onClose, children }) {
     <Dialog
       open={true}
       onClose={onClose}
-      className="fixed z-50 inset-0 p-8 m-12 max-w-[840px] mx-auto min-h-[200px] max-h-[630px] w-full h-full"
+      className="fixed z-50 inset-0 p-4 md:p-8 md:my-12 max-w-[840px] mx-auto min-h-[200px] max-h-[630px] w-full h-full"
     >
       <Dialog.Overlay
         as={motion.div}

@@ -36,7 +36,8 @@ export default function Header({ allPages }) {
 
   useEffect(() => setMounted(true), []);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [searchIsOpen, setSearchIsOpen] = useState(false);
 
   return (
     <nav className="relative z-10 px-4 pb-6 standalone:pb-0 standalone:mb-6 container mx-auto standalone:w-screen dark:standalone:from-gray-900 dark:standalone:via-gray-900 dark:standalone:to-gray-900 standalone:bg-gradient-to-r standalone:from-pine-400 standalone:via-pine-300 standalone:to-pine-200 standalone:pt-10 standalone:md:pt-0 standalone:md:max-w-none standalone:fixed standalone:md:relative">
@@ -51,7 +52,35 @@ export default function Header({ allPages }) {
             </Link>
           </div>
           <div className="flex flex-1 md:flex-initial -ml-3">
-            <MobileMenu allPages={allPages} />
+            <button
+              className="md:hidden mobile-menu-button inline-flex items-center justify-center ml-3 p-1 text-gray-500 focus:outline-none focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600  rounded-full"
+              onClick={() => setMenuIsOpen(true)}
+            >
+              <svg
+                className="block h-7 w-7"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+                <title>Open Menu</title>
+              </svg>
+            </button>
+            <AnimatePresence>
+              {menuIsOpen && (
+                <MobileMenu
+                  allPages={allPages}
+                  onClose={() => setMenuIsOpen(false)}
+                />
+              )}
+            </AnimatePresence>
             {allPages?.map((page) => {
               return (
                 <NavItem
@@ -63,13 +92,15 @@ export default function Header({ allPages }) {
             })}
           </div>
           <button
-            className="hidden md:flex items-center justify-center hover:font-bold transition-all rounded-full text-[#72818b] duration-300 hover:text-pine-700 dark:hover:text-pine-200 p-1 sm:-pr-4 sm:pl-4 sm:mx-1 sm:py-2"
-            onClick={() => setIsOpen(true)}
+            className="flex items-center justify-center hover:font-bold transition-all rounded-full text-[#72818b] duration-300 hover:text-pine-700 dark:hover:text-pine-200 p-1 sm:-pr-4 sm:pl-4 mx-1 sm:py-2"
+            onClick={() => setSearchIsOpen(true)}
           >
             <BsSearch />
           </button>
           <AnimatePresence>
-            {isOpen && <AlgoliaSearch onClose={() => setIsOpen(false)} />}
+            {searchIsOpen && (
+              <AlgoliaSearch onClose={() => setSearchIsOpen(false)} />
+            )}
           </AnimatePresence>
           <button
             aria-label="Toggle Dark Mode"
