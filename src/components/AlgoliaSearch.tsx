@@ -10,9 +10,21 @@ const searchClient = algoliasearch(
 );
 
 const results = ({ hit }) => (
-  <div className="flex hover:bg-pine-100 dark:hover:bg-pine-700 rounded-lg text-md m-2 p-2 group max-w-[840px]">
+  <div className="flex hover:bg-pine-100 dark:hover:bg-pine-700 rounded-lg text-md m-1 p-1 md:m-2 md:p-2 group max-w-[840px]">
     <a className="flex w-full" href={hit.url}>
-      <div className="relative w-[180px] h-[100px] mr-3">
+      <div className="md:hidden relative w-[80px] h-[60px] mr-1">
+        <Image
+          className="rounded-md object-cover"
+          alt=""
+          src={hit.image.split('w=')[0] + 'w=90'}
+          layout="fixed"
+          width={80}
+          height={60}
+          placeholder="blur"
+          blurDataURL={`/_next/image?url=${hit.image.split('w=')[0]}w=16&q=1`}
+        />
+      </div>
+      <div className="hidden md:flex relative w-[180px] h-[100px] mr-3">
         <Image
           className="rounded-md"
           alt=""
@@ -24,15 +36,16 @@ const results = ({ hit }) => (
           blurDataURL={`/_next/image?url=${hit.image.split('w=')[0]}w=16&q=1`}
         />
       </div>
-      <div className="flex w-full truncate pr-12 items-center">
+
+      <div className="flex w-full truncate pr-2 md:pr-12 items-center">
         <div className="flex flex-col w-full">
-          <p className="font-bold">{hit.title}</p>
-          <div className="line-clamp-2 whitespace-normal w-full dark:text-gray-300 text-gray-500">
+          <p className="font-bold text-sm md:text-base">{hit.title}</p>
+          <div className="line-clamp-2 whitespace-normal text-sm md:text-base w-full dark:text-gray-300 text-gray-500">
             {hit.content}
           </div>
         </div>
       </div>
-      <div className="flex items-center h-full text-gray-500 dark:text-gray-300 text-xl">
+      <div className="hidden md:flex items-center h-full text-gray-500 dark:text-gray-300 text-xl">
         <BsArrowReturnLeft className="opacity-0 group-hover:opacity-100 fill-current" />
       </div>
     </a>
@@ -55,7 +68,7 @@ export default function AlgoliaSearch({ onClose }) {
                   root: 'w-full pl-14',
                   form: '',
                   input:
-                    'flex-1 h-full bg-transparent focus:text-gray-900 text-gray-500 dark:text-gray-300 placeholder-gray-500 dark:placeholder-gray-300 shadow-none outline-none truncate text-lg sm:text-3xl leading-normalized w-full appearance-none rounded-none',
+                    'flex-1 h-full bg-transparent focus:text-gray-900 text-gray-500 dark:text-gray-300 placeholder-gray-500 dark:placeholder-gray-300 shadow-none outline-none truncate text-lg sm:text-2xl leading-normalized w-full appearance-none rounded-none',
                   submit: 'text-gray-400 dark:text-gray-300',
                   submitIcon:
                     'absolute left-0 top-0 mt-5 ml-4 w-6 h-6 fill-current',
