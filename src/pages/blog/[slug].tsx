@@ -56,18 +56,19 @@ export default function Page({
           <article>
             <div className="sm:grid sm:grid-rows-1 sm:grid-cols-3 sm:gap-2 pb-4">
               <div className="text-2xl md:text-3xl lg:text-4xl font-light p-5 bg-pine-300 dark:bg-gray-800 dark:border-gray-800 h-full border-[1px] border-pine-300 items-center">
-                {post.title}
+                {post?.title}
               </div>
               <div className="flex sm:col-span-2 relative h-36 sm:h-60 lg:h-96 border-[1px] border-pine-300 dark:border-gray-800">
                 {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image
                   data={{
-                    ...post.coverImage.responsiveImage,
-                    title: post.coverImage.responsiveImage.title || undefined,
-                    base64: post.coverImage.responsiveImage.base64 || undefined,
+                    ...post.coverImage?.responsiveImage,
+                    title: post.coverImage.responsiveImage?.title || undefined,
+                    base64:
+                      post.coverImage.responsiveImage?.base64 || undefined,
                     bgColor:
-                      post.coverImage.responsiveImage.bgColor || undefined,
-                    alt: `Cover Image for ${post.title}`,
+                      post.coverImage.responsiveImage?.bgColor || undefined,
+                    alt: `Cover Image for ${post?.title}`,
                   }}
                   className="object-cover"
                   pictureClassName="object-cover"
@@ -78,7 +79,7 @@ export default function Page({
               <div className="w-full lg:w-9/12 pr-3">
                 <div className="prose prose-img:m-0 dark:prose-invert prose-pre:text-xs max-w-none pb-4">
                   <StructuredText
-                    data={post.content}
+                    data={post?.content}
                     renderBlock={({ record }) => {
                       if (
                         record.__typename === 'ImageRecord' &&
@@ -125,7 +126,7 @@ export default function Page({
               </div>
               <aside className="divide-y space-y-2 hidden lg:block w-3/12">
                 <div className="text-gray-500 text-sm py-5 pl-2">
-                  {format(new Date(post.date), 'MMMM do, yyyy')}
+                  {format(new Date(post?.date), 'MMMM do, yyyy')}
                 </div>
                 <div className="space-y-2 py-5 pl-2">
                   <div className="font-semibold">Author</div>
@@ -133,23 +134,25 @@ export default function Page({
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image
                       data={
-                        (post.author.picture as FileField)
+                        (post.author?.picture as FileField)
                           .responsiveImage as any
                       }
                     />
                     <div className="my-auto px-4 font-light">
-                      {post.author.name}
+                      {post.author?.name}
                     </div>
                   </div>
                 </div>
                 <div className="space-y-2 py-5 pl-2">
                   <div className="font-semibold">Category</div>
-                  <div className="my-auto font-light">{post.category.name}</div>
+                  <div className="my-auto font-light">
+                    {post.category?.name}
+                  </div>
                 </div>
                 <div className="space-y-2 py-5 pl-2">
                   <div className="font-semibold">View Counter</div>
                   <div className="my-auto font-light">
-                    <ViewCounter slug={post.slug} />
+                    <ViewCounter slug={post?.slug} />
                   </div>
                 </div>
               </aside>
