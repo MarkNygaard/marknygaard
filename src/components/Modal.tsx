@@ -36,9 +36,9 @@ export default function Modal({ onClose, children }) {
           opacity: 0,
           transition: { duration: 0.3, ease: [0.36, 0.66, 0.04, 1] },
         }}
-        className="w-full bg-white dark:bg-gray-900 h-full transform overflow-hidden rounded-2xl text-left align-middle shadow-xl"
+        // className="w-full bg-white dark:bg-gray-900 h-full transform overflow-hidden rounded-lg text-left align-middle shadow-xl"
       >
-        <div className="w-full h-full">{children}</div>
+        {children}
       </Dialog.Panel>
     </Dialog>
   );

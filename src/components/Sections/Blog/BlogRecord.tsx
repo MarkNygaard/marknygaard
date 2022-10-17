@@ -2,7 +2,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import NextLink from 'next/link';
 import { Image } from 'react-datocms';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { motion } from 'framer-motion';
 
 export default function BlogRecord({ details, posts }) {
@@ -21,7 +21,7 @@ export default function BlogRecord({ details, posts }) {
                 className="group my-6 border-[1px] bg-pine-50 dark:bg-gray-900 dark:border-gray-800 dark:hover:bg-gray-800 border-pine-200 grid grid-cols-5 translate-z-0 rounded-lg overflow-hidden"
               >
                 <div
-                  className={classNames('hidden h-44 w-full overflow-hidden', {
+                  className={cn('hidden h-44 w-full overflow-hidden', {
                     'sm:flex col-span-2': details.imageBoolean === true,
                   })}
                 >
@@ -40,7 +40,7 @@ export default function BlogRecord({ details, posts }) {
                   />
                 </div>
                 <div
-                  className={classNames(
+                  className={cn(
                     'p-2 col-span-5 font-medium text-black dark:text-white',
                     {
                       'sm:col-span-3': details.imageBoolean === true,

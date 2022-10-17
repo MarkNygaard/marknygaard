@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 import type { FileField } from 'lib/graphql';
 import { Image } from 'react-datocms';
 import TextRecord from '../Text/TextRecord';
@@ -8,7 +8,7 @@ export default function GridRecord({ details }) {
   return (
     <div className="flex justify-center">
       <div
-        className={classNames('grid', {
+        className={cn('grid', {
           [`grid-cols-${details.mobileColumns as String}`]:
             details.mobileColumns,
           [`md:grid-cols-${details.tabletColumns as String}`]:
@@ -22,7 +22,7 @@ export default function GridRecord({ details }) {
           return (
             <div
               key={section.id}
-              className={classNames('relative', {
+              className={cn('relative', {
                 [`order-${section.mobilePosition as String}`]:
                   section.mobilePosition,
                 [`md:order-${section.tabletPosition as String}`]:
@@ -34,7 +34,7 @@ export default function GridRecord({ details }) {
               {section.__typename === 'GridImageRecord' ? (
                 <div
                   key={section.id}
-                  className={classNames(
+                  className={cn(
                     'flex shrink-0 self-center overflow-hidden object-fill',
                     {
                       'h-52': details.height === 'Small',
@@ -51,7 +51,7 @@ export default function GridRecord({ details }) {
                 </div>
               ) : section.__typename === 'GridTextRecord' ? (
                 <div
-                  className={classNames(
+                  className={cn(
                     'bg-gray-300 overflow-hidden justify-center flex p-3',
                     {
                       'h-52': details.height === 'Small',
