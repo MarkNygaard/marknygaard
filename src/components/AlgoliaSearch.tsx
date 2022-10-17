@@ -17,17 +17,17 @@ const results = ({ hit }) => (
     <a className="flex w-full" href={hit.url}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className="md:hidden rounded-md object-cover h-[60px] w-[80px] mr-1"
+        className="md:hidden rounded-md object-cover h-[60px] w-[80px] mr-1 border"
         alt={hit.title}
         src={hit.image.split('w=')[0] + 'w=110'}
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className="hidden md:flex rounded-md object-cover mr-3 w-[180px] h-[100px]"
+        className="hidden md:flex rounded-md object-cover mr-3 w-[180px] h-[100px] border shadow-sm"
         alt={hit.title}
         src={hit.image.split('w=')[0] + 'w=190'}
       />
-      <div className="flex w-full truncate pr-2 md:pr-12 items-center">
+      <div className="flex w-full truncate pr-2 md:pr-4 items-center">
         <div className="flex flex-col w-full">
           <p className="font-bold text-sm md:text-base">{hit.title}</p>
           <div className="line-clamp-2 whitespace-normal text-sm md:text-base w-full dark:text-gray-300 text-gray-500">
@@ -35,7 +35,7 @@ const results = ({ hit }) => (
           </div>
         </div>
       </div>
-      <div className="hidden md:flex items-center h-full text-gray-500 dark:text-gray-300 text-xl">
+      <div className="hidden md:flex items-center h-full text-gray-500 dark:text-gray-300 text-xl md:pr-4">
         <BsArrowReturnLeft className="opacity-0 group-hover:opacity-100 fill-current" />
       </div>
     </a>
