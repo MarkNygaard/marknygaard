@@ -17,7 +17,7 @@ const getViews = async (slug: string): Promise<number> => {
   if (error && error.details.includes(`0 rows`)) {
     const { data, error }: SupabaseResult = await supabase
       .from(`views`)
-      .insert({ slug: slug, count: 1 }, { returning: `representation` })
+      .insert({ slug: slug, count: 1 })
       .single();
     return data?.count;
   }
