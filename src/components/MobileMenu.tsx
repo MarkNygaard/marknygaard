@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NextLink from 'next/link';
 import cn from 'classnames';
-import { Dialog } from '@headlessui/react';
 import { motion } from 'framer-motion';
+import Modal from './Modal';
 
 function NavItem({ href, text, onClose }) {
   return (
@@ -19,26 +19,8 @@ function NavItem({ href, text, onClose }) {
 
 export default function MobileMenu({ allPages, onClose }) {
   return (
-    <Dialog
-      as={motion.div}
-      key="modal"
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { duration: 0.4, ease: [0.36, 0.66, 0.04, 1] },
-      }}
-      exit={{
-        opacity: 0,
-        transition: { duration: 0.3, ease: [0.36, 0.66, 0.04, 1], delay: 0.15 },
-      }}
-      className="md:hidden fixed inset-0 top-0 h-screen bg-[#787878]/30 backdrop-blur z-20"
-      open={true}
-      onClose={onClose}
-    >
-      <Dialog.Panel
-        className="w-full h-full max-w-lg p-4 m-0 mx-auto"
-        onClick={onClose}
-      >
+    <Modal onClose={onClose} type="blur">
+      <div className="w-full h-full max-w-lg p-4 m-0 mx-auto">
         <button
           onClick={onClose}
           className="flex flex-wrap focus:outline-none w-full mt-20"
@@ -60,7 +42,7 @@ export default function MobileMenu({ allPages, onClose }) {
                 scale: 0,
                 transition: {
                   duration: 0.1,
-                  delay: 0.05 * i,
+                  delay: 0.5 * i,
                   type: 'spring',
                 },
               }}
@@ -80,7 +62,7 @@ export default function MobileMenu({ allPages, onClose }) {
             </motion.div>
           ))}
         </button>
-      </Dialog.Panel>
-    </Dialog>
+      </div>
+    </Modal>
   );
 }

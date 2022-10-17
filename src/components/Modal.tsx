@@ -1,30 +1,44 @@
 import React from 'react';
 import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
+import classNames from 'classnames';
 
-export default function Modal({ onClose, children }) {
+export default function Modal(props: {
+  onClose;
+  children;
+  type: 'blur' | 'clear';
+}) {
   if (!open) return null;
+
+  let type = props.type;
+  const onClose = props.onClose;
+  const children = props.children;
 
   return (
     <Dialog
+      as={motion.div}
+      key="modal"
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { duration: 0.4, ease: [0.36, 0.66, 0.04, 1] },
+      }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 0.3,
+          ease: [0.36, 0.66, 0.04, 1],
+          delay: 1.15,
+        },
+      }}
+      className={classNames(
+        type === 'blur' && 'bg-[#787878]/30 backdrop-blur',
+        type === 'clear' && 'bg-gray-500/75',
+        'fixed inset-0 top-0 h-screen z-50'
+      )}
       open={true}
       onClose={onClose}
-      className="fixed z-50 inset-0 p-4 md:p-8 md:my-12 max-w-[840px] mx-auto min-h-[200px] max-h-[630px] w-full h-full"
     >
-      <Dialog.Overlay
-        as={motion.div}
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { duration: 0.4, ease: [0.36, 0.66, 0.04, 1] },
-        }}
-        exit={{
-          opacity: 0,
-          transition: { duration: 0.3, ease: [0.36, 0.66, 0.04, 1] },
-        }}
-        className="fixed inset-0 bg-gray-500/75"
-        onClick={onClose}
-      ></Dialog.Overlay>
       <Dialog.Panel
         as={motion.div}
         initial={{ opacity: 0 }}
@@ -36,9 +50,10 @@ export default function Modal({ onClose, children }) {
           opacity: 0,
           transition: { duration: 0.3, ease: [0.36, 0.66, 0.04, 1] },
         }}
-        className="w-full bg-white dark:bg-gray-900 h-full transform overflow-hidden rounded-2xl text-left align-middle shadow-xl"
+        className="w-full h-full"
+        onClick={onClose}
       >
-        <div className="w-full h-full">{children}</div>
+        <AnimatePresence>{children}</AnimatePresence>
       </Dialog.Panel>
     </Dialog>
   );
