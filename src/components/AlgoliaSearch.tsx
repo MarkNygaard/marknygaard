@@ -23,20 +23,16 @@ const results = ({ hit }) => (
           layout="fixed"
           width={80}
           height={60}
-          placeholder="blur"
-          blurDataURL={`/_next/image?url=${hit.image.split('w=')[0]}w=16&q=1`}
         />
       </div>
       <div className="hidden md:flex relative w-[180px] h-[100px] mr-3">
         <Image
           className="rounded-md"
           alt=""
-          src={hit.image.split('w=')[0] + 'w=300'}
+          src={hit.image.split('w=')[0] + 'w=190'}
           layout="fixed"
           width={180}
           height={100}
-          placeholder="blur"
-          blurDataURL={`/_next/image?url=${hit.image.split('w=')[0]}w=16&q=1`}
         />
       </div>
 
