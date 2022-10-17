@@ -15,25 +15,18 @@ const searchClient = algoliasearch(
 const results = ({ hit }) => (
   <div className="flex hover:bg-pine-100 dark:hover:bg-pine-700 rounded-lg text-md m-1 p-1 md:m-2 md:p-2 group max-w-[840px]">
     <a className="flex w-full" href={hit.url}>
-      <div className="md:hidden relative w-[80px] h-[60px] mr-1">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="rounded-md object-cover"
-          alt={hit.title}
-          src={hit.image.split('w=')[0] + 'w=90'}
-          width={80}
-        />
-      </div>
-      <div className="hidden md:flex relative w-[180px] h-[100px] mr-3">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="rounded-md"
-          alt={hit.title}
-          src={hit.image.split('w=')[0] + 'w=190'}
-          width={180}
-        />
-      </div>
-
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="md:hidden rounded-md object-cover h-[60px] w-[80px] mr-1"
+        alt={hit.title}
+        src={hit.image.split('w=')[0] + 'w=110'}
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="hidden md:flex rounded-md object-cover mr-3 w-[180px] h-[100px]"
+        alt={hit.title}
+        src={hit.image.split('w=')[0] + 'w=190'}
+      />
       <div className="flex w-full truncate pr-2 md:pr-12 items-center">
         <div className="flex flex-col w-full">
           <p className="font-bold text-sm md:text-base">{hit.title}</p>
