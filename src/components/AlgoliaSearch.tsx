@@ -16,23 +16,21 @@ const results = ({ hit }) => (
   <div className="flex hover:bg-pine-100 dark:hover:bg-pine-700 rounded-lg text-md m-1 p-1 md:m-2 md:p-2 group max-w-[840px]">
     <a className="flex w-full" href={hit.url}>
       <div className="md:hidden relative w-[80px] h-[60px] mr-1">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           className="rounded-md object-cover"
-          alt=""
+          alt={hit.title}
           src={hit.image.split('w=')[0] + 'w=90'}
-          layout="fixed"
           width={80}
-          height={60}
         />
       </div>
       <div className="hidden md:flex relative w-[180px] h-[100px] mr-3">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           className="rounded-md"
-          alt=""
+          alt={hit.title}
           src={hit.image.split('w=')[0] + 'w=190'}
-          layout="fixed"
           width={180}
-          height={100}
         />
       </div>
 
