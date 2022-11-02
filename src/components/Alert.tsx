@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import Link from 'next/link';
 
 const Alert = ({ preview }: { preview: boolean }): JSX.Element => {

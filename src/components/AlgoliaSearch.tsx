@@ -1,5 +1,10 @@
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, Hits, SearchBox } from 'react-instantsearch-hooks-web';
+import {
+  InstantSearch,
+  Hits,
+  SearchBox,
+  Snippet,
+} from 'react-instantsearch-hooks-web';
 import { BsArrowReturnLeft } from 'react-icons/bs';
 import { SearchClient } from 'algoliasearch/lite';
 import Image from 'next/image';
@@ -31,7 +36,9 @@ const results = ({ hit }) => (
         <div className="flex flex-col w-full">
           <p className="font-bold text-sm md:text-base">{hit.title}</p>
           <div className="line-clamp-2 whitespace-normal text-sm md:text-base w-full dark:text-gray-300 text-gray-500">
-            {hit.content}
+            <Snippet hit={hit} attribute="content" highlightedTagName="b">
+              {hit.content}
+            </Snippet>
           </div>
         </div>
       </div>
