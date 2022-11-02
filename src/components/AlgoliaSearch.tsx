@@ -92,6 +92,7 @@ export default function AlgoliaSearch({ onClose }) {
                 <div className="w-full h-full flex items-center">
                   <SearchBox
                     placeholder="Search"
+                    autoFocus
                     classNames={{
                       root: 'w-full pl-14',
                       form: '',
