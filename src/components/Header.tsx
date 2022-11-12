@@ -15,17 +15,16 @@ function NavItem({ href, text }) {
   const isActive = router.asPath === href;
 
   return (
-    <NextLink href={href}>
-      <a
-        className={cn(
-          isActive
-            ? 'text-pine-900 dark:text-gray-100 border-pine-900'
-            : 'text-pine-500 dark:text-gray-500 duration-300 hover:text-pine-900 dark:hover:text-gray-100 hover:ease-in ease-out transition-all',
-          'hidden font-light md:text-base lg:text-lg md:inline-block p-1 sm:px-4 sm:mx-1 sm:py-3'
-        )}
-      >
-        <span className="capsize">{text}</span>
-      </a>
+    <NextLink
+      href={href}
+      className={cn(
+        isActive
+          ? 'text-pine-900 dark:text-gray-100 border-pine-900'
+          : 'text-pine-500 dark:text-gray-500 duration-300 hover:text-pine-900 dark:hover:text-gray-100 hover:ease-in ease-out transition-all',
+        'hidden font-light md:text-base lg:text-lg md:inline-block p-1 sm:px-4 sm:mx-1 sm:py-3'
+      )}
+    >
+      <span className="capsize">{text}</span>
     </NextLink>
   );
 }
@@ -44,11 +43,13 @@ export default function Header({ allPages }) {
       <div className="py-5 max-w-5xl mx-auto standalone:md:py-2">
         <div className="flex">
           <div className="hidden md:flex flex-1 text-xl sm:py-2 standalone:md:pl-6 standalone:md:font-semibold items-center">
-            <Link href="/" passHref>
-              <a className="text-sm font-light tracking-tight uppercase md:text-base lg:text-xl">
-                Mark
-                <span className="font-semibold">Nygaard</span>
-              </a>
+            <Link
+              href="/"
+              passHref
+              className="text-sm font-light tracking-tight uppercase md:text-base lg:text-xl"
+            >
+              Mark
+              <span className="font-semibold">Nygaard</span>
             </Link>
           </div>
           <div className="flex flex-1 md:flex-initial -ml-3">

@@ -6,13 +6,12 @@ import { motion } from 'framer-motion';
 
 function NavItem({ href, text, onClose }) {
   return (
-    <NextLink href={href}>
-      <a
-        onClick={onClose}
-        className="block w-full py-10 mx-2 text-2xl font-semibold text-center text-gray-900 bg-white dark:bg-black dark:text-gray-100 rounded-lg shadow-md"
-      >
-        <span className="capsize">{text}</span>
-      </a>
+    <NextLink
+      href={href}
+      onClick={onClose}
+      className="block w-full py-10 mx-2 text-2xl font-semibold text-center text-gray-900 bg-white dark:bg-black dark:text-gray-100 rounded-lg shadow-md"
+    >
+      <span className="capsize">{text}</span>
     </NextLink>
   );
 }
