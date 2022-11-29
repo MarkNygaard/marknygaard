@@ -4539,10 +4539,10 @@ react-copy-to-clipboard@^5.1.0:
     copy-to-clipboard "^3.3.1"
     prop-types "^15.8.1"
 
-react-datocms@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.0.4.tgz#ee9e159dc57b6f4f0387e474cf6a3a268dc04d4a"
-  integrity sha512-9WnaY1aiJOPtlp2Hyh+O8IRxy3e3S4JVx6s9yKzsgqJh9pD9YLOaSmXL/RL189IAdTBfiDCkp8VsmcW9VmuSbw==
+react-datocms@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.0.7.tgz#b7d79c1d1f5ad3cf1b99d643fe69a9a27507222a"
+  integrity sha512-Wie8JpLAtCZBJmzN51efKZEGl2no599Zwoy2ua1TOdLAZ1T+dr5by4yEqI7OYZEuPCr/SgLyf16irzN8iUOOIw==
   dependencies:
     datocms-listen "^0.1.9"
     datocms-structured-text-generic-html-renderer "^2.0.1"
