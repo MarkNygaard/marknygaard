@@ -23,22 +23,24 @@ export default function FeaturedRecord({ details }) {
                 className="rounded-xl w-full h-full"
               >
                 <div className="flex flex-col h-full bg-pine-50 dark:bg-gray-900 rounded-lg translate-z-0 font-light overflow-hidden border-[1px] border-pine-200 dark:border-gray-800 dark:hover:border-gray-700 hover:border-pine-300">
-                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                  <Image
-                    pictureClassName="object-cover"
-                    className="min-h-[110px]"
-                    data={{
-                      ...post.coverImage?.responsiveImage,
-                      title:
-                        post.coverImage?.responsiveImage.title || undefined,
-                      base64:
-                        post.coverImage?.responsiveImage.base64 || undefined,
-                      bgColor:
-                        post.coverImage?.responsiveImage.bgColor || undefined,
-                      alt: `Cover Image for ${post.title}`,
-                    }}
-                  />
-
+                  <div className="relative min-h-[135px] w-[312px]">
+                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="50% 50%"
+                      data={{
+                        ...post.coverImage?.responsiveImage,
+                        title:
+                          post.coverImage?.responsiveImage.title || undefined,
+                        base64:
+                          post.coverImage?.responsiveImage.base64 || undefined,
+                        bgColor:
+                          post.coverImage?.responsiveImage.bgColor || undefined,
+                        alt: `Cover Image for ${post.title}`,
+                      }}
+                    />
+                  </div>
                   <p className="p-4">{post.title}</p>
                 </div>
               </motion.div>
