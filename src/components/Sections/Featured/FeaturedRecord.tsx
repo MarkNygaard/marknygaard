@@ -26,6 +26,7 @@ export default function FeaturedRecord({ details }) {
                   <div className="relative min-h-[135px] w-[312px]">
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image
+                      priority
                       layout="fill"
                       objectFit="cover"
                       objectPosition="50% 50%"
