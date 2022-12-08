@@ -20,7 +20,7 @@ function NavItem({ href, text }) {
       className={cn(
         isActive
           ? 'text-pine-900 dark:text-gray-100 border-pine-900'
-          : 'text-pine-500 dark:text-gray-500 duration-300 hover:text-pine-900 dark:hover:text-gray-100 hover:ease-in ease-out transition-all',
+          : 'text-pine-600 dark:text-gray-500 duration-300 hover:text-pine-900 dark:hover:text-gray-100 hover:ease-in ease-out transition-all',
         'hidden font-light md:text-base lg:text-lg md:inline-block p-1 sm:px-4 sm:mx-1 sm:py-3'
       )}
     >
@@ -54,6 +54,7 @@ export default function Header({ allPages }) {
           </div>
           <div className="flex flex-1 md:flex-initial -ml-3">
             <button
+              aria-label="menu"
               className="md:hidden mobile-menu-button inline-flex items-center justify-center ml-3 p-1 text-gray-500 focus:outline-none focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600  rounded-full"
               onClick={() => setMenuIsOpen(true)}
             >
@@ -93,6 +94,7 @@ export default function Header({ allPages }) {
             })}
           </div>
           <button
+            aria-label="Search"
             className="flex items-center justify-center hover:font-bold transition-all rounded-full text-[#72818b] duration-300 hover:text-pine-700 dark:hover:text-pine-200 p-1 sm:-pr-4 sm:pl-4 mx-1 sm:py-2"
             onClick={() => setSearchIsOpen(true)}
           >
