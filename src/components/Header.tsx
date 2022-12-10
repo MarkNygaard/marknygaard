@@ -96,7 +96,7 @@ export default function Header({ allPages }) {
           <div className="ml-5 flex space-x-3">
             <button
               aria-label="Search"
-              className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-solid border-pine-200 text-[#72818b] transition-all duration-300 hover:border-pine-500 hover:font-bold hover:text-pine-700 dark:border-pine-700 hover:dark:border-gray-500 dark:hover:text-pine-200 sm:h-14 sm:w-14"
+              className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-solid border-pine-200 text-[#72818b] transition-all duration-300 hover:border-pine-500 hover:font-bold hover:text-pine-700 dark:border-gray-700 hover:dark:border-gray-500 dark:hover:text-pine-200 sm:h-14 sm:w-14"
               onClick={() => setSearchIsOpen(true)}
             >
               <BsSearch />
@@ -109,7 +109,7 @@ export default function Header({ allPages }) {
             <button
               aria-label="Toggle Dark Mode"
               type="button"
-              className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-solid border-pine-200 text-[#91a3b0] transition-all duration-300 hover:border-pine-500 hover:font-bold hover:text-[#72818b] active:bg-gray-200 dark:border-pine-700 dark:text-[#FDB813] hover:dark:border-gray-500 dark:hover:text-[#FFD87A] dark:active:bg-gray-600 sm:h-14 sm:w-14"
+              className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-solid border-pine-200 text-[#91a3b0] transition-all duration-300 hover:border-pine-500 hover:font-bold hover:text-[#72818b] active:bg-gray-200 dark:border-gray-700 dark:text-[#FDB813] hover:dark:border-gray-500 dark:hover:text-[#FFD87A] dark:active:bg-gray-600 sm:h-14 sm:w-14"
               onClick={() =>
                 setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
               }
