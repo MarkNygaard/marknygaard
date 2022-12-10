@@ -7,7 +7,6 @@ import {
 } from 'react-instantsearch-hooks-web';
 import { BsArrowReturnLeft } from 'react-icons/bs';
 import { SearchClient } from 'algoliasearch/lite';
-import Image from 'next/image';
 import Modal from './Modal';
 import { useState } from 'react';
 import cn from 'classnames';

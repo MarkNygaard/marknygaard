@@ -6,8 +6,8 @@ import { Image } from 'react-datocms';
 export default function FeaturedRecord({ details }) {
   return (
     <div className="py-4 pt-10">
-      <div className="text-3xl mb-6 font-medium">Featured Posts</div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-10 mb-4">
+      <div className="mb-6 text-3xl font-medium">Featured Posts</div>
+      <div className="mb-4 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-10">
         {details.posts?.map((post) => {
           return (
             <Link
@@ -20,10 +20,10 @@ export default function FeaturedRecord({ details }) {
                   y: -5,
                   boxShadow: '0 5px 10px -1px rgb(0 0 0 / 0.1)',
                 }}
-                className="rounded-xl w-full h-full"
+                className="h-full w-full rounded-xl"
               >
-                <div className="flex flex-col h-full bg-pine-50 dark:bg-gray-900 rounded-lg translate-z-0 font-light overflow-hidden border-[1px] border-pine-200 dark:border-gray-800 dark:hover:border-gray-700 hover:border-pine-300">
-                  <div className="relative min-h-[135px] w-[312px]">
+                <div className="flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700">
+                  <div className="relative min-h-[135px]">
                     {/* eslint-disable-next-line jsx-a11y/alt-text */}
                     <Image
                       priority
@@ -56,7 +56,7 @@ export default function FeaturedRecord({ details }) {
               y: -2,
               boxShadow: '0 5px 10px -1px rgb(0 0 0 / 0.1)',
             }}
-            className="text-gray-500 dark:hover:text-gray-300 hover:text-gray-800 border-[1px] p-3 rounded-md border-pine-200 hover:border-gray-800 dark:hover:border-gray-700 dark:border-gray-800"
+            className="rounded-md border-[1px] border-pine-200 p-3 text-gray-500 hover:border-gray-800 hover:text-gray-800 dark:border-gray-800 dark:hover:border-gray-700 dark:hover:text-gray-300"
           >
             Read all posts -&gt;
           </motion.div>

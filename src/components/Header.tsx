@@ -19,9 +19,9 @@ function NavItem({ href, text }) {
       href={href}
       className={cn(
         isActive
-          ? 'text-pine-900 dark:text-gray-100 border-pine-900'
-          : 'text-pine-600 dark:text-gray-500 duration-300 hover:text-pine-900 dark:hover:text-gray-100 hover:ease-in ease-out transition-all',
-        'hidden font-light md:text-base lg:text-lg md:inline-block p-1 sm:px-4 sm:mx-1 sm:py-3'
+          ? 'border-pine-900 text-pine-900 dark:text-gray-100'
+          : 'text-pine-600 transition-all duration-300 ease-out hover:text-pine-900 hover:ease-in dark:text-gray-500 dark:hover:text-gray-100',
+        'font-base hidden p-1 sm:mx-1 sm:px-4 sm:py-3 md:inline-block md:text-base lg:text-lg'
       )}
     >
       <span className="capsize">{text}</span>
@@ -39,23 +39,23 @@ export default function Header({ allPages }) {
   const [searchIsOpen, setSearchIsOpen] = useState(false);
 
   return (
-    <nav className="relative z-10 px-4 pb-6 standalone:pb-0 standalone:mb-6 container mx-auto standalone:w-screen dark:standalone:from-gray-900 dark:standalone:via-gray-900 dark:standalone:to-gray-900 standalone:bg-gradient-to-r standalone:from-pine-400 standalone:via-pine-300 standalone:to-pine-200 standalone:pt-10 standalone:md:pt-0 standalone:md:max-w-none standalone:fixed standalone:md:relative">
-      <div className="py-5 max-w-5xl mx-auto standalone:md:py-2">
+    <nav className="container relative z-10 mx-auto px-4 pb-6 lg:pt-2 standalone:fixed standalone:mb-6 standalone:w-screen standalone:bg-gradient-to-r standalone:from-pine-400 standalone:via-pine-300 standalone:to-pine-200 standalone:pb-0 standalone:pt-10 dark:standalone:from-gray-900 dark:standalone:via-gray-900 dark:standalone:to-gray-900 standalone:md:relative standalone:md:max-w-none standalone:md:pt-0">
+      <div className="mx-auto max-w-5xl py-5 standalone:md:py-2">
         <div className="flex">
-          <div className="hidden md:flex flex-1 text-xl sm:py-2 standalone:md:pl-6 standalone:md:font-semibold items-center">
+          <div className="hidden flex-1 items-center text-xl sm:py-2 md:flex standalone:md:pl-6 standalone:md:font-semibold">
             <Link
               href="/"
               passHref
-              className="text-sm font-light tracking-tight uppercase md:text-base lg:text-xl"
+              className="text-sm font-light uppercase tracking-tight md:text-base lg:text-xl"
             >
               Mark
               <span className="font-semibold">Nygaard</span>
             </Link>
           </div>
-          <div className="flex flex-1 md:flex-initial -ml-3">
+          <div className="-ml-3 flex flex-1 md:flex-initial">
             <button
               aria-label="menu"
-              className="md:hidden mobile-menu-button inline-flex items-center justify-center ml-3 p-1 text-gray-500 focus:outline-none focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600  rounded-full"
+              className="mobile-menu-button ml-3 inline-flex items-center justify-center rounded-full p-1 text-gray-500 focus:outline-none focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600  md:hidden"
               onClick={() => setMenuIsOpen(true)}
             >
               <svg
@@ -93,36 +93,38 @@ export default function Header({ allPages }) {
               );
             })}
           </div>
-          <button
-            aria-label="Search"
-            className="flex items-center justify-center hover:font-bold transition-all rounded-full text-[#72818b] duration-300 hover:text-pine-700 dark:hover:text-pine-200 p-1 sm:-pr-4 sm:pl-4 mx-1 sm:py-2"
-            onClick={() => setSearchIsOpen(true)}
-          >
-            <BsSearch />
-          </button>
-          <AnimatePresence>
-            {searchIsOpen && (
-              <AlgoliaSearch onClose={() => setSearchIsOpen(false)} />
-            )}
-          </AnimatePresence>
-          <button
-            aria-label="Toggle Dark Mode"
-            type="button"
-            className="active:bg-gray-200 dark:active:bg-gray-600 px-[6px] flex items-center justify-center hover:font-bold transition-all rounded-full text-[#91a3b0] duration-300 hover:text-[#72818b] p-1 sm:-px-4 sm:mx-1 sm:py-2 dark:text-[#FDB813] dark:hover:text-[#FFD87A]"
-            onClick={() =>
-              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-            }
-          >
-            {mounted && (
-              <div>
-                {resolvedTheme === 'dark' ? (
-                  <Icon symbol="sun" />
-                ) : (
-                  <Icon symbol="moon" />
-                )}
-              </div>
-            )}
-          </button>
+          <div className="ml-5 flex space-x-3">
+            <button
+              aria-label="Search"
+              className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-solid border-pine-200 text-[#72818b] transition-all duration-300 hover:border-pine-500 hover:font-bold hover:text-pine-700 dark:border-pine-700 hover:dark:border-gray-500 dark:hover:text-pine-200 sm:h-14 sm:w-14"
+              onClick={() => setSearchIsOpen(true)}
+            >
+              <BsSearch />
+            </button>
+            <AnimatePresence>
+              {searchIsOpen && (
+                <AlgoliaSearch onClose={() => setSearchIsOpen(false)} />
+              )}
+            </AnimatePresence>
+            <button
+              aria-label="Toggle Dark Mode"
+              type="button"
+              className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2 border-solid border-pine-200 text-[#91a3b0] transition-all duration-300 hover:border-pine-500 hover:font-bold hover:text-[#72818b] active:bg-gray-200 dark:border-pine-700 dark:text-[#FDB813] hover:dark:border-gray-500 dark:hover:text-[#FFD87A] dark:active:bg-gray-600 sm:h-14 sm:w-14"
+              onClick={() =>
+                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+              }
+            >
+              {mounted && (
+                <div>
+                  {resolvedTheme === 'dark' ? (
+                    <Icon symbol="sun" />
+                  ) : (
+                    <Icon symbol="moon" />
+                  )}
+                </div>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </nav>
