@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export default function BlogRecord({ details, posts }) {
   return (
-    <div>
+    <div className="mx-auto max-w-5xl">
       {posts.map((post) => {
         return (
           <NextLink key={post.id} href={`/blog/${post.slug}`}>
@@ -17,11 +17,11 @@ export default function BlogRecord({ details, posts }) {
                 boxShadow: '0 2px 10px -1px rgb(0 0 0 / 0.1)',
                 transition: { duration: 0.1, type: 'spring', mass: 0.1 },
               }}
-              className="group my-6 border-[1px] bg-pine-50 dark:bg-gray-900 dark:border-gray-800 dark:hover:bg-gray-800 border-pine-200 grid grid-cols-5 translate-z-0 rounded-lg overflow-hidden"
+              className="group my-6 grid grid-cols-5 overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 translate-z-0 dark:border-gray-800 dark:bg-gray-900 dark:hover:bg-gray-800"
             >
               <div
                 className={cn('hidden h-44 w-full overflow-hidden', {
-                  'sm:flex col-span-2': details.imageBoolean === true,
+                  'col-span-2 sm:flex': details.imageBoolean === true,
                 })}
               >
                 {/* eslint-disable-next-line jsx-a11y/alt-text */}
@@ -39,15 +39,15 @@ export default function BlogRecord({ details, posts }) {
               </div>
               <div
                 className={cn(
-                  'p-2 col-span-5 font-medium text-black dark:text-white',
+                  'col-span-5 p-2 font-medium text-black dark:text-white',
                   {
                     'sm:col-span-3': details.imageBoolean === true,
                   }
                 )}
               >
-                <div className="flex flex-col h-full space-y-2 p-4">
+                <div className="flex h-full flex-col space-y-2 p-4">
                   <div className="text-xl font-semibold">{post.title}</div>
-                  <div className="text-sm font-normal grow">{post.excerpt}</div>
+                  <div className="grow text-sm font-normal">{post.excerpt}</div>
                   <div className="text-xs font-light text-pine-700 dark:text-gray-600">
                     {format(new Date(post.date), 'MMMM do, yyyy')}
                   </div>

@@ -53,19 +53,51 @@ input[type='search']::-webkit-search-cancel-button {
 }
 
 .grid-template {
-  grid-template-areas: 'text text image';
+  grid-template-areas:
+    'image'
+    'text';
+}
+
+@media (min-width: 640px) {
+  .grid-template {
+    grid-template-areas: 'text text image';
+  }
 }
 
 .grid-template-reverse {
-  grid-template-areas: 'image text text';
+  grid-template-areas:
+    'image'
+    'text';
+}
+
+@media (min-width: 640px) {
+  .grid-template-reverse {
+    grid-template-areas: 'image text text';
+  }
 }
 
 .grid-template-1x1 {
-  grid-template-areas: 'text text image image';
+  grid-template-areas:
+    'image'
+    'text';
+}
+
+@media (min-width: 640px) {
+  .grid-template-1x1 {
+    grid-template-areas: 'text text image image';
+  }
 }
 
 .grid-template-1x1-reverse {
-  grid-template-areas: 'image image text text';
+  grid-template-areas:
+    'image'
+    'text';
+}
+
+@media (min-width: 640px) {
+  .grid-template-1x1-reverse {
+    grid-template-areas: 'image image text text';
+  }
 }
 
 .grid-text {

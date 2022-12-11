@@ -10,7 +10,7 @@ export default function TextRecord({ details }) {
       id={details.id}
       className="align-center flex items-center justify-center overflow-hidden p-5"
     >
-      <div className="prose prose-xl prose-gray sm:w-full">
+      <div className="prose prose-lg prose-gray sm:w-full">
         <StructuredText
           data={details.structuredText}
           customNodeRules={[

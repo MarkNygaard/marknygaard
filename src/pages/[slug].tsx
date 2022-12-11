@@ -38,13 +38,13 @@ export default function Page({
         </h1>
       ) : (
         <>
-          <Head>
-            {renderMetaTags(metaTags)}
-          </Head>
-          <title className="text-4xl font-light pb-5">{page.name}</title>
-          {page?.content.map((content: any, i: any) => {
-            return <PageSection key={i} details={content} posts={allPosts} />;
-          })}
+          <Head>{renderMetaTags(metaTags)}</Head>
+          <title className="pb-5 text-4xl font-light">{page.name}</title>
+          <main className="space-y-8">
+            {page?.content.map((content: any, i: any) => {
+              return <PageSection key={i} details={content} posts={allPosts} />;
+            })}
+          </main>
         </>
       )}
     </Layout>
