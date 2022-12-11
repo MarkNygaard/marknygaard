@@ -40,7 +40,7 @@ export default function Header({ allPages }) {
 
   return (
     <nav className="container relative z-10 mx-auto px-4 pb-6 lg:pt-2 standalone:fixed standalone:mb-6 standalone:w-screen standalone:bg-gradient-to-r standalone:from-pine-400 standalone:via-pine-300 standalone:to-pine-200 standalone:pb-0 standalone:pt-10 dark:standalone:from-gray-900 dark:standalone:via-gray-900 dark:standalone:to-gray-900 standalone:md:relative standalone:md:max-w-none standalone:md:pt-0">
-      <div className="mx-auto max-w-5xl py-5 standalone:md:py-2">
+      <div className="mx-auto py-5 standalone:md:py-2">
         <div className="flex">
           <div className="hidden flex-1 items-center text-xl sm:py-2 md:flex standalone:md:pl-6 standalone:md:font-semibold">
             <Link

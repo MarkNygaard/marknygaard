@@ -15,12 +15,12 @@ export default function Layout({
   return (
     <div
       style={{ WebkitTapHighlightColor: 'transparent' }}
-      className="min-h-screen flex flex-col bg-white dark:bg-black"
+      className="flex min-h-screen flex-col bg-white dark:bg-black"
     >
       {preview ? <Alert preview={preview} /> : null}
       <Header allPages={allPages} />
-      <div className="flex-1 container mx-auto px-4 md:py-10 sm:pb-16 pb-6 standalone:pt-36 standalone:md:pt-6">
-        <div className="max-w-5xl mx-auto">{children}</div>
+      <div className="container mx-auto flex-1 px-4 pb-6 sm:pb-16 md:py-10 standalone:pt-36 standalone:md:pt-6">
+        <div className="mx-auto max-w-7xl">{children}</div>
       </div>
       <Footer />
     </div>

@@ -3165,7 +3165,7 @@ export const TextImageFragmentFragmentDoc = /*#__PURE__*/ gql`
   }
   fadeInText
   image {
-    responsiveImage(imgixParams: {fit: crop, w: 288, h: 288, auto: format}) {
+    responsiveImage(imgixParams: {auto: format}) {
       ...responsiveImageFragment
     }
   }

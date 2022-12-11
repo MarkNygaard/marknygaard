@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 export default function TextImageRecord({ details }) {
   return (
     <div
-      className={cn('mx-auto grid max-w-6xl grid-cols-1 md:items-center', {
+      className={cn('mx-auto grid grid-cols-1 md:items-center', {
         'grid-template sm:grid-cols-3':
           details.imageLocation === 'RIGHT' && details.displayStyle === '2x1',
         'grid-template-reverse sm:grid-cols-3':
@@ -23,7 +23,7 @@ export default function TextImageRecord({ details }) {
         initial={details.fadeInText ? { y: 20, opacity: 0 } : { opacity: 1 }}
         animate={details.fadeInText ? { y: 0, opacity: 1 } : { opacity: 1 }}
         transition={details.fadeInText && { duration: 0.5 }}
-        className="grid-text prose prose-xl col-span-2 grow pr-4 prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-invert dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400"
+        className="grid-text prose prose-lg col-span-2 grow pr-4 prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-invert dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400"
       >
         <StructuredText
           data={details.structuredText}
@@ -40,14 +40,14 @@ export default function TextImageRecord({ details }) {
           initial={details.fadeInImage ? { y: 20, opacity: 0 } : { opacity: 1 }}
           animate={details.fadeInImage ? { y: 0, opacity: 1 } : { opacity: 1 }}
           transition={details.fadeInImage && { duration: 0.5, delay: 0.2 }}
-          className={cn('grid-image mx-auto md:mb-auto', {
+          className={cn('grid-image mx-auto my-4 md:mb-auto', {
             'col-span-2': details.displayStyle === '1x1',
             'col-span-1': details.displayStyle === '2x1',
           })}
         >
           <div
             className={cn(
-              'relative mb-4 aspect-square h-44 w-full overflow-hidden translate-z-0 md:mb-0 lg:h-72',
+              'relative mb-4 aspect-square w-full overflow-hidden translate-z-0 md:mb-0',
               {
                 'rounded-full': details.imageStyle === 'Round',
                 'rounded-lg': details.imageStyle === 'Rounded Corners',
