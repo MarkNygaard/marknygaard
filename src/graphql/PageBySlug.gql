@@ -38,6 +38,9 @@ query PageBySlug($slug: String) {
       ... on CardRecord {
         ...CardFragment
       }
+      ... on GridRecord {
+        ...GridFragment
+      }
     }
   }
   allPages {

@@ -30,6 +30,9 @@ query HomePage {
       ... on CardRecord {
         ...CardFragment
       }
+      ... on GridRecord {
+        ...GridFragment
+      }
     }
   }
   allPages {

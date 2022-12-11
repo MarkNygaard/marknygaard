@@ -1,0 +1,20 @@
+fragment GridFragment on GridRecord {
+  __typename
+  id
+  showOnMobile
+  showOnTablet
+  showOnDesktop
+  sections {
+    spanMobile
+    spanTablet
+    spanDesktop
+    content {
+      ... on ImageRecord {
+        ...ImageFragment
+      }
+      ... on TextRecord {
+        ...TextFragment
+      }
+    }
+  }
+}

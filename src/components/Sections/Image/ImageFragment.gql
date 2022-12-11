@@ -1,8 +1,10 @@
 fragment ImageFragment on ImageRecord {
   __typename
   id
+  fadeIn
+  imageStyle
   image {
-    responsiveImage(imgixParams: { fit: crop, w: 288, h: 288, auto: format }) {
+    responsiveImage(imgixParams: { auto: format }) {
       ...responsiveImageFragment
     }
   }
