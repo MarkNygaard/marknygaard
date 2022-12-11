@@ -4,7 +4,7 @@ import type { FileField } from 'lib/graphql';
 import { Image } from 'react-datocms';
 import TextRecord from '../Text/TextRecord';
 
-export default function GridRecord({ details }) {
+export default function CardRecord({ details }) {
   return (
     <div className="flex justify-center">
       <div
@@ -31,7 +31,7 @@ export default function GridRecord({ details }) {
                   section.desktopPosition,
               })}
             >
-              {section.__typename === 'GridImageRecord' ? (
+              {section.__typename === 'CardImageRecord' ? (
                 <div
                   key={section.id}
                   className={cn(
@@ -49,10 +49,10 @@ export default function GridRecord({ details }) {
                     pictureClassName="object-cover"
                   />
                 </div>
-              ) : section.__typename === 'GridTextRecord' ? (
+              ) : section.__typename === 'CardTextRecord' ? (
                 <div
                   className={cn(
-                    'bg-gray-300 overflow-hidden justify-center flex p-3',
+                    'flex justify-center overflow-hidden bg-gray-300 p-3',
                     {
                       'h-52': details.height === 'Small',
                       'h-96': details.height === 'Medium',

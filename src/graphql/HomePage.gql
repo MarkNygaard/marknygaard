@@ -27,8 +27,8 @@ query HomePage {
       ... on BlogRecord {
         ...BlogFragment
       }
-      ... on GridRecord {
-        ...GridFragment
+      ... on CardRecord {
+        ...CardFragment
       }
     }
   }

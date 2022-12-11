@@ -1,4 +1,4 @@
-fragment GridFragment on GridRecord {
+fragment CardFragment on CardRecord {
   __typename
   id
   title
@@ -8,7 +8,7 @@ fragment GridFragment on GridRecord {
   gap
   height
   sections {
-    ... on GridImageRecord {
+    ... on CardImageRecord {
       __typename
       id
       mobilePosition
@@ -28,7 +28,7 @@ fragment GridFragment on GridRecord {
         }
       }
     }
-    ... on GridTextRecord {
+    ... on CardTextRecord {
       __typename
       id
       mobilePosition

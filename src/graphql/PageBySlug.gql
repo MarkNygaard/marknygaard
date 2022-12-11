@@ -35,8 +35,8 @@ query PageBySlug($slug: String) {
       ... on BlogRecord {
         ...BlogFragment
       }
-      ... on GridRecord {
-        ...GridFragment
+      ... on CardRecord {
+        ...CardFragment
       }
     }
   }
