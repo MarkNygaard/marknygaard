@@ -1,6 +1,8 @@
 fragment TextFragment on TextRecord {
   __typename
   id
+  fadeIn
+  centerText
   structuredText {
     value
     blocks {

@@ -1,41 +1,19 @@
 fragment GridFragment on GridRecord {
   __typename
   id
-  title
-  mobileColumns
-  tabletColumns
-  desktopColumns
-  gap
-  height
+  showOnMobile
+  showOnTablet
+  showOnDesktop
   sections {
-    ... on GridImageRecord {
-      __typename
-      id
-      mobilePosition
-      tabletPosition
-      desktopPosition
-      image {
-        responsiveImage(
-          imgixParams: {
-            fit: crop
-            crop: focalpoint
-            ar: "1:1"
-            minH: 384
-            auto: format
-          }
-        ) {
-          ...responsiveImageFragment
-        }
+    spanMobile
+    spanTablet
+    spanDesktop
+    content {
+      ... on ImageRecord {
+        ...ImageFragment
       }
-    }
-    ... on GridTextRecord {
-      __typename
-      id
-      mobilePosition
-      tabletPosition
-      desktopPosition
-      structuredText {
-        value
+      ... on TextRecord {
+        ...TextFragment
       }
     }
   }

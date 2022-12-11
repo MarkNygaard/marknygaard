@@ -128,6 +128,107 @@ export type BooleanFilter = {
   eq?: InputMaybe<Scalars['BooleanType']>;
 };
 
+/** Block of type Card Image (card_image) */
+export type CardImageRecord = RecordInterface & {
+  __typename?: 'CardImageRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  createdAt: Scalars['DateTime'];
+  desktopPosition?: Maybe<Scalars['IntType']>;
+  id: Scalars['ItemId'];
+  image?: Maybe<FileField>;
+  imageTitle?: Maybe<Scalars['String']>;
+  mobilePosition?: Maybe<Scalars['IntType']>;
+  tabletPosition?: Maybe<Scalars['IntType']>;
+  updatedAt: Scalars['DateTime'];
+};
+
+
+/** Block of type Card Image (card_image) */
+export type CardImageRecord_seoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type CardModelSectionsField = CardImageRecord | CardTextRecord;
+
+/** Block of type Card Section (card) */
+export type CardRecord = RecordInterface & {
+  __typename?: 'CardRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  createdAt: Scalars['DateTime'];
+  desktopColumns?: Maybe<Scalars['String']>;
+  gap?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['String']>;
+  id: Scalars['ItemId'];
+  mobileColumns?: Maybe<Scalars['String']>;
+  sections: Array<CardModelSectionsField>;
+  tabletColumns?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+};
+
+
+/** Block of type Card Section (card) */
+export type CardRecord_seoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type CardTextModelStructuredTextField = {
+  __typename?: 'CardTextModelStructuredTextField';
+  blocks: Array<Scalars['String']>;
+  links: Array<Scalars['String']>;
+  value: Scalars['JsonField'];
+};
+
+/** Block of type Card Text (card_text) */
+export type CardTextRecord = RecordInterface & {
+  __typename?: 'CardTextRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  createdAt: Scalars['DateTime'];
+  desktopPosition?: Maybe<Scalars['IntType']>;
+  id: Scalars['ItemId'];
+  mobilePosition?: Maybe<Scalars['IntType']>;
+  structuredText?: Maybe<CardTextModelStructuredTextField>;
+  tabletPosition?: Maybe<Scalars['IntType']>;
+  title?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+};
+
+
+/** Block of type Card Text (card_text) */
+export type CardTextRecord_seoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
 export type CategoryModelFilter = {
   OR?: InputMaybe<Array<InputMaybe<CategoryModelFilter>>>;
   _createdAt?: InputMaybe<CreatedAtFilter>;
@@ -470,39 +571,7 @@ export type GlobalSeoField = {
   twitterAccount?: Maybe<Scalars['String']>;
 };
 
-/** Block of type Grid Image (grid_image) */
-export type GridImageRecord = RecordInterface & {
-  __typename?: 'GridImageRecord';
-  _createdAt: Scalars['DateTime'];
-  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
-  _isValid: Scalars['BooleanType'];
-  _modelApiKey: Scalars['String'];
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
-  _publishedAt?: Maybe<Scalars['DateTime']>;
-  /** SEO meta tags */
-  _seoMetaTags: Array<Tag>;
-  _status: ItemStatus;
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
-  _updatedAt: Scalars['DateTime'];
-  createdAt: Scalars['DateTime'];
-  desktopPosition?: Maybe<Scalars['IntType']>;
-  id: Scalars['ItemId'];
-  image?: Maybe<FileField>;
-  imageTitle?: Maybe<Scalars['String']>;
-  mobilePosition?: Maybe<Scalars['IntType']>;
-  tabletPosition?: Maybe<Scalars['IntType']>;
-  updatedAt: Scalars['DateTime'];
-};
-
-
-/** Block of type Grid Image (grid_image) */
-export type GridImageRecord_seoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>;
-};
-
-export type GridModelSectionsField = GridImageRecord | GridTextRecord;
-
-/** Block of type Grid Section (grid) */
+/** Block of type Grid (grid) */
 export type GridRecord = RecordInterface & {
   __typename?: 'GridRecord';
   _createdAt: Scalars['DateTime'];
@@ -517,33 +586,25 @@ export type GridRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   createdAt: Scalars['DateTime'];
-  desktopColumns?: Maybe<Scalars['String']>;
-  gap?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['String']>;
   id: Scalars['ItemId'];
-  mobileColumns?: Maybe<Scalars['String']>;
-  sections: Array<GridModelSectionsField>;
-  tabletColumns?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
+  sections: Array<GridSpanRecord>;
+  showOnDesktop?: Maybe<Scalars['BooleanType']>;
+  showOnMobile?: Maybe<Scalars['BooleanType']>;
+  showOnTablet?: Maybe<Scalars['BooleanType']>;
   updatedAt: Scalars['DateTime'];
 };
 
 
-/** Block of type Grid Section (grid) */
+/** Block of type Grid (grid) */
 export type GridRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-export type GridTextModelStructuredTextField = {
-  __typename?: 'GridTextModelStructuredTextField';
-  blocks: Array<Scalars['String']>;
-  links: Array<Scalars['String']>;
-  value: Scalars['JsonField'];
-};
+export type GridSpanModelContentField = ImageRecord | TextRecord;
 
-/** Block of type Grid Text (grid_text) */
-export type GridTextRecord = RecordInterface & {
-  __typename?: 'GridTextRecord';
+/** Block of type Grid Span (grid_span) */
+export type GridSpanRecord = RecordInterface & {
+  __typename?: 'GridSpanRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
@@ -555,19 +616,19 @@ export type GridTextRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
+  content: Array<GridSpanModelContentField>;
   createdAt: Scalars['DateTime'];
-  desktopPosition?: Maybe<Scalars['IntType']>;
   id: Scalars['ItemId'];
-  mobilePosition?: Maybe<Scalars['IntType']>;
-  structuredText?: Maybe<GridTextModelStructuredTextField>;
-  tabletPosition?: Maybe<Scalars['IntType']>;
+  spanDesktop?: Maybe<Scalars['IntType']>;
+  spanMobile?: Maybe<Scalars['IntType']>;
+  spanTablet?: Maybe<Scalars['IntType']>;
   title?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
 
 
-/** Block of type Grid Text (grid_text) */
-export type GridTextRecord_seoMetaTagsArgs = {
+/** Block of type Grid Span (grid_span) */
+export type GridSpanRecord_seoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
@@ -586,8 +647,10 @@ export type ImageRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   createdAt: Scalars['DateTime'];
+  fadeIn?: Maybe<Scalars['BooleanType']>;
   id: Scalars['ItemId'];
   image?: Maybe<FileField>;
+  imageStyle?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -2052,7 +2115,7 @@ export type OrientationFilter = {
   neq?: InputMaybe<UploadOrientation>;
 };
 
-export type PageModelContentField = BlogRecord | FeaturedRecord | GridRecord | ImageRecord | TextImageRecord | TextRecord;
+export type PageModelContentField = BlogRecord | CardRecord | FeaturedRecord | GridRecord | ImageRecord | TextImageRecord | TextRecord;
 
 export type PageModelFilter = {
   OR?: InputMaybe<Array<InputMaybe<PageModelFilter>>>;
@@ -2667,7 +2730,9 @@ export type TextRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
+  centerText?: Maybe<Scalars['BooleanType']>;
   createdAt: Scalars['DateTime'];
+  fadeIn?: Maybe<Scalars['BooleanType']>;
   id: Scalars['ItemId'];
   structuredText?: Maybe<TextModelStructuredTextField>;
   updatedAt: Scalars['DateTime'];
@@ -3066,6 +3131,44 @@ export const responsiveImageFragmentFragmentDoc = /*#__PURE__*/ gql`
   base64
 }
     `;
+export const CardFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment CardFragment on CardRecord {
+  __typename
+  id
+  title
+  mobileColumns
+  tabletColumns
+  desktopColumns
+  gap
+  height
+  sections {
+    ... on CardImageRecord {
+      __typename
+      id
+      mobilePosition
+      tabletPosition
+      desktopPosition
+      image {
+        responsiveImage(
+          imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
+        ) {
+          ...responsiveImageFragment
+        }
+      }
+    }
+    ... on CardTextRecord {
+      __typename
+      id
+      mobilePosition
+      tabletPosition
+      desktopPosition
+      structuredText {
+        value
+      }
+    }
+  }
+}
+    `;
 export const FeaturedFragmentFragmentDoc = /*#__PURE__*/ gql`
     fragment FeaturedFragment on FeaturedRecord {
   __typename
@@ -3082,50 +3185,14 @@ export const FeaturedFragmentFragmentDoc = /*#__PURE__*/ gql`
   }
 }
     `;
-export const GridFragmentFragmentDoc = /*#__PURE__*/ gql`
-    fragment GridFragment on GridRecord {
-  __typename
-  id
-  title
-  mobileColumns
-  tabletColumns
-  desktopColumns
-  gap
-  height
-  sections {
-    ... on GridImageRecord {
-      __typename
-      id
-      mobilePosition
-      tabletPosition
-      desktopPosition
-      image {
-        responsiveImage(
-          imgixParams: {fit: crop, crop: focalpoint, ar: "1:1", minH: 384, auto: format}
-        ) {
-          ...responsiveImageFragment
-        }
-      }
-    }
-    ... on GridTextRecord {
-      __typename
-      id
-      mobilePosition
-      tabletPosition
-      desktopPosition
-      structuredText {
-        value
-      }
-    }
-  }
-}
-    `;
 export const ImageFragmentFragmentDoc = /*#__PURE__*/ gql`
     fragment ImageFragment on ImageRecord {
   __typename
   id
+  fadeIn
+  imageStyle
   image {
-    responsiveImage(imgixParams: {fit: crop, w: 288, h: 288, auto: format}) {
+    responsiveImage(imgixParams: {auto: format}) {
       ...responsiveImageFragment
     }
   }
@@ -3135,6 +3202,8 @@ export const TextFragmentFragmentDoc = /*#__PURE__*/ gql`
     fragment TextFragment on TextRecord {
   __typename
   id
+  fadeIn
+  centerText
   structuredText {
     value
     blocks {
@@ -3143,6 +3212,28 @@ export const TextFragmentFragmentDoc = /*#__PURE__*/ gql`
         id
         title
         subtitle(markdown: true)
+      }
+    }
+  }
+}
+    `;
+export const GridFragmentFragmentDoc = /*#__PURE__*/ gql`
+    fragment GridFragment on GridRecord {
+  __typename
+  id
+  showOnMobile
+  showOnTablet
+  showOnDesktop
+  sections {
+    spanMobile
+    spanTablet
+    spanDesktop
+    content {
+      ... on ImageRecord {
+        ...ImageFragment
+      }
+      ... on TextRecord {
+        ...TextFragment
       }
     }
   }
@@ -3226,6 +3317,9 @@ export const HomePageDocument = /*#__PURE__*/ gql`
       ... on BlogRecord {
         ...BlogFragment
       }
+      ... on CardRecord {
+        ...CardFragment
+      }
       ... on GridRecord {
         ...GridFragment
       }
@@ -3256,6 +3350,7 @@ ${TextFragmentFragmentDoc}
 ${TextImageFragmentFragmentDoc}
 ${FeaturedFragmentFragmentDoc}
 ${BlogFragmentFragmentDoc}
+${CardFragmentFragmentDoc}
 ${GridFragmentFragmentDoc}`;
 export const PageBySlugDocument = /*#__PURE__*/ gql`
     query PageBySlug($slug: String) {
@@ -3293,6 +3388,9 @@ export const PageBySlugDocument = /*#__PURE__*/ gql`
       ... on BlogRecord {
         ...BlogFragment
       }
+      ... on CardRecord {
+        ...CardFragment
+      }
       ... on GridRecord {
         ...GridFragment
       }
@@ -3322,7 +3420,9 @@ ${TextFragmentFragmentDoc}
 ${TextImageFragmentFragmentDoc}
 ${FeaturedFragmentFragmentDoc}
 ${BlogFragmentFragmentDoc}
-${GridFragmentFragmentDoc}`;
+${CardFragmentFragmentDoc}
+${GridFragmentFragmentDoc}
+${ImageFragmentFragmentDoc}`;
 export const PostBySlugDocument = /*#__PURE__*/ gql`
     query PostBySlug($slug: String) {
   site: _site {
@@ -3409,13 +3509,15 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
 export type Sdk = ReturnType<typeof getSdk>;
 export type BlogFragmentFragment = { __typename: 'BlogRecord', id: any, imageBoolean?: any | null };
 
+export type CardFragmentFragment = { __typename: 'CardRecord', id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, height?: string | null, sections: Array<{ __typename: 'CardImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'CardTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, structuredText?: { __typename?: 'CardTextModelStructuredTextField', value: any } | null }> };
+
 export type FeaturedFragmentFragment = { __typename: 'FeaturedRecord', id: any, posts: Array<{ __typename?: 'PostRecord', id: any, title?: string | null, slug?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null }> };
 
-export type GridFragmentFragment = { __typename: 'GridRecord', id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, structuredText?: { __typename?: 'GridTextModelStructuredTextField', value: any } | null }> };
+export type GridFragmentFragment = { __typename: 'GridRecord', id: any, showOnMobile?: any | null, showOnTablet?: any | null, showOnDesktop?: any | null, sections: Array<{ __typename?: 'GridSpanRecord', spanMobile?: any | null, spanTablet?: any | null, spanDesktop?: any | null, content: Array<{ __typename: 'ImageRecord', id: any, fadeIn?: any | null, imageStyle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', id: any, fadeIn?: any | null, centerText?: any | null, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null }> }> };
 
-export type ImageFragmentFragment = { __typename: 'ImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null };
+export type ImageFragmentFragment = { __typename: 'ImageRecord', id: any, fadeIn?: any | null, imageStyle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null };
 
-export type TextFragmentFragment = { __typename: 'TextRecord', id: any, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null };
+export type TextFragmentFragment = { __typename: 'TextRecord', id: any, fadeIn?: any | null, centerText?: any | null, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null };
 
 export type TextImageFragmentFragment = { __typename: 'TextImageRecord', id: any, fadeInText?: any | null, fadeInImage?: any | null, imageLocation?: string | null, imageStyle?: string | null, displayStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null };
 
@@ -3436,14 +3538,14 @@ export type responsiveImageFragmentFragment = { __typename?: 'ResponsiveImage', 
 export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomePageQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, content: Array<{ __typename: 'BlogRecord', id: any, imageBoolean?: any | null } | { __typename: 'FeaturedRecord', id: any, posts: Array<{ __typename?: 'PostRecord', id: any, title?: string | null, slug?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null }> } | { __typename: 'GridRecord', id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, structuredText?: { __typename?: 'GridTextModelStructuredTextField', value: any } | null }> } | { __typename: 'ImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextImageRecord', id: any, fadeInText?: any | null, fadeInImage?: any | null, imageLocation?: string | null, imageStyle?: string | null, displayStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', id: any, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null }> } | null, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }>, allPosts: Array<{ __typename?: 'PostRecord', id: any, slug?: string | null, title?: string | null, date?: any | null, excerpt?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null }> };
+export type HomePageQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, content: Array<{ __typename: 'BlogRecord', id: any, imageBoolean?: any | null } | { __typename: 'CardRecord', id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, height?: string | null, sections: Array<{ __typename: 'CardImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'CardTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, structuredText?: { __typename?: 'CardTextModelStructuredTextField', value: any } | null }> } | { __typename: 'FeaturedRecord', id: any, posts: Array<{ __typename?: 'PostRecord', id: any, title?: string | null, slug?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null }> } | { __typename: 'GridRecord', id: any, showOnMobile?: any | null, showOnTablet?: any | null, showOnDesktop?: any | null, sections: Array<{ __typename?: 'GridSpanRecord', spanMobile?: any | null, spanTablet?: any | null, spanDesktop?: any | null, content: Array<{ __typename: 'ImageRecord', id: any, fadeIn?: any | null, imageStyle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', id: any, fadeIn?: any | null, centerText?: any | null, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null }> }> } | { __typename: 'ImageRecord', id: any, fadeIn?: any | null, imageStyle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextImageRecord', id: any, fadeInText?: any | null, fadeInImage?: any | null, imageLocation?: string | null, imageStyle?: string | null, displayStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', id: any, fadeIn?: any | null, centerText?: any | null, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null }> } | null, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }>, allPosts: Array<{ __typename?: 'PostRecord', id: any, slug?: string | null, title?: string | null, date?: any | null, excerpt?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null }> };
 
 export type PageBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type PageBySlugQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, content: Array<{ __typename: 'BlogRecord', id: any, imageBoolean?: any | null } | { __typename: 'FeaturedRecord', id: any, posts: Array<{ __typename?: 'PostRecord', id: any, title?: string | null, slug?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null }> } | { __typename: 'GridRecord', id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, height?: string | null, sections: Array<{ __typename: 'GridImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'GridTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, structuredText?: { __typename?: 'GridTextModelStructuredTextField', value: any } | null }> } | { __typename: 'ImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextImageRecord', id: any, fadeInText?: any | null, fadeInImage?: any | null, imageLocation?: string | null, imageStyle?: string | null, displayStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', id: any, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null }> } | null, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }>, allPosts: Array<{ __typename?: 'PostRecord', id: any, slug?: string | null, title?: string | null, date?: any | null, excerpt?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null }> };
+export type PageBySlugQuery = { __typename?: 'Query', site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }> }, page?: { __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null, seo: Array<{ __typename?: 'Tag', attributes?: any | null, content?: string | null, tag: string }>, content: Array<{ __typename: 'BlogRecord', id: any, imageBoolean?: any | null } | { __typename: 'CardRecord', id: any, title?: string | null, mobileColumns?: string | null, tabletColumns?: string | null, desktopColumns?: string | null, gap?: string | null, height?: string | null, sections: Array<{ __typename: 'CardImageRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'CardTextRecord', id: any, mobilePosition?: any | null, tabletPosition?: any | null, desktopPosition?: any | null, structuredText?: { __typename?: 'CardTextModelStructuredTextField', value: any } | null }> } | { __typename: 'FeaturedRecord', id: any, posts: Array<{ __typename?: 'PostRecord', id: any, title?: string | null, slug?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null }> } | { __typename: 'GridRecord', id: any, showOnMobile?: any | null, showOnTablet?: any | null, showOnDesktop?: any | null, sections: Array<{ __typename?: 'GridSpanRecord', spanMobile?: any | null, spanTablet?: any | null, spanDesktop?: any | null, content: Array<{ __typename: 'ImageRecord', id: any, fadeIn?: any | null, imageStyle?: string | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', id: any, fadeIn?: any | null, centerText?: any | null, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null }> }> } | { __typename: 'ImageRecord', id: any, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextImageRecord', id: any, fadeInText?: any | null, fadeInImage?: any | null, imageLocation?: string | null, imageStyle?: string | null, displayStyle?: string | null, structuredText?: { __typename?: 'TextImageModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null, image?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null } | { __typename: 'TextRecord', id: any, fadeIn?: any | null, centerText?: any | null, structuredText?: { __typename?: 'TextModelStructuredTextField', value: any, blocks: Array<{ __typename: 'MainHeadingRecord', id: any, title?: string | null, subtitle?: string | null }> } | null }> } | null, allPages: Array<{ __typename?: 'PageRecord', id: any, name?: string | null, slug?: string | null }>, allPosts: Array<{ __typename?: 'PostRecord', id: any, slug?: string | null, title?: string | null, date?: any | null, excerpt?: string | null, coverImage?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: any, height: any, alt?: string | null, base64?: string | null } | null } | null }> };
 
 export type PostBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
