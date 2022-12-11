@@ -19,9 +19,9 @@ function NavItem({ href, text }) {
       href={href}
       className={cn(
         isActive
-          ? 'border-pine-900 text-pine-900 dark:text-gray-100'
+          ? 'active border-pine-900 text-pine-900 transition dark:text-gray-100'
           : 'text-pine-600 transition-all duration-300 ease-out hover:text-pine-900 hover:ease-in dark:text-gray-500 dark:hover:text-gray-100',
-        'font-base hidden p-1 sm:mx-1 sm:px-4 sm:py-3 md:inline-block md:text-base lg:text-lg'
+        'font-base underlined hidden p-1 sm:mx-5 sm:my-3 md:inline-block md:text-base lg:text-lg'
       )}
     >
       <span className="capsize">{text}</span>
