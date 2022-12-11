@@ -21,4 +21,5 @@ fragment TextImageFragment on TextImageRecord {
   fadeInImage
   imageLocation
   imageStyle
+  displayStyle
 }
