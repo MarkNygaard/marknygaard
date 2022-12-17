@@ -55,7 +55,7 @@ export default function Header({ allPages }) {
           <div className="-ml-3 flex flex-1 md:flex-initial">
             <button
               aria-label="menu"
-              className="mobile-menu-button ml-3 inline-flex items-center justify-center rounded-full p-1 text-gray-500 focus:outline-none focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600  md:hidden"
+              className="mobile-menu-button ml-3 inline-flex h-12 w-12 items-center justify-center rounded-full text-gray-500 focus:outline-none focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600  md:hidden"
               onClick={() => setMenuIsOpen(true)}
             >
               <svg
