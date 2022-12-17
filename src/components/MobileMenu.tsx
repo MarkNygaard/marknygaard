@@ -9,7 +9,7 @@ function NavItem({ href, text, onClose }) {
     <NextLink
       href={href}
       onClick={onClose}
-      className="block w-full py-10 mx-2 text-2xl font-semibold text-center text-gray-900 bg-white dark:bg-black dark:text-gray-100 rounded-lg shadow-md"
+      className="mx-2 block w-full rounded-lg bg-white py-10 text-center text-2xl font-semibold text-gray-900 shadow-md dark:bg-gray-900 dark:text-gray-100"
     >
       <span className="capsize">{text}</span>
     </NextLink>
@@ -30,17 +30,17 @@ export default function MobileMenu({ allPages, onClose }) {
         opacity: 0,
         transition: { duration: 0.3, ease: [0.36, 0.66, 0.04, 1], delay: 0.15 },
       }}
-      className="md:hidden fixed inset-0 top-0 h-screen bg-[#787878]/30 backdrop-blur z-20"
+      className="fixed inset-0 top-0 z-20 h-screen bg-[#787878]/30 backdrop-blur md:hidden"
       open={true}
       onClose={onClose}
     >
       <Dialog.Panel
-        className="w-full h-full max-w-lg p-4 m-0 mx-auto"
+        className="m-0 mx-auto h-full w-full max-w-lg p-4"
         onClick={onClose}
       >
         <button
           onClick={onClose}
-          className="flex flex-wrap focus:outline-none w-full mt-20"
+          className="mt-20 flex w-full flex-wrap focus:outline-none"
         >
           {allPages?.map((page, i) => (
             <motion.div
@@ -65,7 +65,7 @@ export default function MobileMenu({ allPages, onClose }) {
               }}
               className={cn(
                 allPages.length <= 3 ? 'w-full' : 'w-1/2',
-                'flex items-center justify-center mt-6'
+                'mt-6 flex items-center justify-center'
               )}
               key={i}
             >
