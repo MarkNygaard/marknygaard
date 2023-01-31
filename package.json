@@ -29,7 +29,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-instantsearch-hooks-web": "^6.39.2",
-    "swr": "^2.0.2",
+    "swr": "^2.0.3",
     "utterances-react-component": "^1.0.0"
   },
   "devDependencies": {
