@@ -33,7 +33,7 @@
     "utterances-react-component": "^1.0.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.16.5",
+    "@graphql-codegen/cli": "3.0.0",
     "@graphql-codegen/typescript": "3.0.0",
     "@graphql-codegen/typescript-graphql-request": "^4.5.8",
     "@graphql-codegen/typescript-operations": "3.0.0",
