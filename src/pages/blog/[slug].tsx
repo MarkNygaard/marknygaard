@@ -24,7 +24,7 @@ import {
 } from 'react-datocms';
 import { isCode } from 'datocms-structured-text-utils';
 import { format } from 'date-fns';
-import { Utterances } from 'utterances-react-component';
+import Giscus, { Repo, Theme } from '@giscus/react';
 
 export default function Page({
   subscription,
@@ -54,11 +54,11 @@ export default function Page({
         <>
           <Head>{renderMetaTags(metaTags)}</Head>
           <article>
-            <div className="sm:grid sm:grid-rows-1 sm:grid-cols-3 sm:gap-2 pb-4">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-light p-5 bg-pine-300 dark:bg-gray-800 dark:border-gray-800 h-full border-[1px] border-pine-300 items-center">
+            <div className="pb-4 sm:grid sm:grid-cols-3 sm:grid-rows-1 sm:gap-2">
+              <div className="h-full items-center border-[1px] border-pine-300 bg-pine-300 p-5 text-2xl font-light dark:border-gray-800 dark:bg-gray-800 md:text-3xl lg:text-4xl">
                 {post?.title}
               </div>
-              <div className="flex sm:col-span-2 relative h-36 sm:h-60 lg:h-96 border-[1px] border-pine-300 dark:border-gray-800">
+              <div className="relative flex h-36 border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2 sm:h-60 lg:h-96">
                 {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image
                   data={{
@@ -76,8 +76,8 @@ export default function Page({
               </div>
             </div>
             <div className="flex">
-              <div className="w-full lg:w-9/12 pr-3">
-                <div className="prose prose-img:m-0 dark:prose-invert prose-pre:text-xs max-w-none pb-4">
+              <div className="w-full pr-3 lg:w-9/12">
+                <div className="prose max-w-none pb-4 prose-pre:text-xs prose-img:m-0 dark:prose-invert">
                   <StructuredText
                     data={post?.content}
                     renderBlock={({ record }) => {
@@ -117,15 +117,21 @@ export default function Page({
                   />
                 </div>
                 <div>
-                  <Utterances
-                    repo="MarkNygaard/comments-marknygaard.dk"
-                    theme={mapTheme[theme]}
-                    issueTerm="pathname"
+                  <Giscus
+                    key={theme}
+                    repo={process.env.NEXT_PUBLIC_GISCUS_REPO as Repo}
+                    repoId={process.env.NEXT_PUBLIC_GISCUS_REPO_ID}
+                    category="General"
+                    categoryId="DIC_kwDOHWhC584CUJH4"
+                    mapping="pathname"
+                    reactionsEnabled="0"
+                    emitMetadata="0"
+                    theme={theme as Theme}
                   />
                 </div>
               </div>
-              <aside className="divide-y space-y-2 hidden lg:block w-3/12">
-                <div className="text-gray-500 text-sm py-5 pl-2">
+              <aside className="hidden w-3/12 space-y-2 divide-y lg:block">
+                <div className="py-5 pl-2 text-sm text-gray-500">
                   {format(new Date(post?.date), 'MMMM do, yyyy')}
                 </div>
                 <div className="space-y-2 py-5 pl-2">

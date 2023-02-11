@@ -11,6 +11,7 @@
     "codegen": "graphql-codegen"
   },
   "dependencies": {
+    "@giscus/react": "^2.2.6",
     "@headlessui/react": "^1.7.7",
     "@supabase/supabase-js": "^2.4.0",
     "algoliasearch": "^4.14.3",
@@ -29,8 +30,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-instantsearch-hooks-web": "^6.38.3",
-    "swr": "^2.0.0",
-    "utterances-react-component": "^1.0.0"
+    "swr": "^2.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.16.2",
