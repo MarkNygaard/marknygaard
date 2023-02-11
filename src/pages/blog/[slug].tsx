@@ -24,7 +24,7 @@ import {
 } from 'react-datocms';
 import { isCode } from 'datocms-structured-text-utils';
 import { format } from 'date-fns';
-import Giscus, { Repo, Theme } from '@giscus/react';
+import Comment from 'components/Comment';
 
 export default function Page({
   subscription,
@@ -116,19 +116,7 @@ export default function Page({
                     ]}
                   />
                 </div>
-                <div>
-                  <Giscus
-                    key={theme}
-                    repo={process.env.NEXT_PUBLIC_GISCUS_REPO as Repo}
-                    repoId={process.env.NEXT_PUBLIC_GISCUS_REPO_ID}
-                    category="General"
-                    categoryId="DIC_kwDOHWhC584CUJH4"
-                    mapping="pathname"
-                    reactionsEnabled="0"
-                    emitMetadata="0"
-                    theme={theme as Theme}
-                  />
-                </div>
+                <Comment />
               </div>
               <aside className="hidden w-3/12 space-y-2 divide-y lg:block">
                 <div className="py-5 pl-2 text-sm text-gray-500">

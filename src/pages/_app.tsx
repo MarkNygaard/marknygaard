@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <Head>
         <meta
           name="apple-mobile-web-app-status-bar-style"
