@@ -47,7 +47,7 @@
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.1",
     "graphql-tag": "^2.12.6",
-    "next-sitemap": "^3.1.54",
+    "next-sitemap": "^3.1.55",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.3",
