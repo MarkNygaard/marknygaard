@@ -30,7 +30,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-instantsearch-hooks-web": "^6.40.1",
-    "swr": "^2.0.4",
+    "swr": "^2.1.0",
     "utterances-react-component": "^1.0.0"
   },
   "devDependencies": {
