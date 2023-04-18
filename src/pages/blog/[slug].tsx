@@ -77,7 +77,7 @@ export default function Page({
             </div>
             <div className="flex">
               <div className="w-full pr-3 lg:w-9/12">
-                <div className="prose max-w-none pb-4 prose-pre:text-xs prose-img:m-0 dark:prose-invert">
+                <div className="prose max-w-none pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0">
                   <StructuredText
                     data={post?.content}
                     renderBlock={({ record }) => {
@@ -163,7 +163,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: await sdk
       .AllPostsSlugs()
       .then((data) => data.allPosts.map((post: any) => `/blog/${post.slug}`)),
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
