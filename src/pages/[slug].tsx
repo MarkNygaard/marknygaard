@@ -56,7 +56,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: await sdk
       .AllPagesSlugs()
       .then((data) => data.allPages.map((page: any) => `/${page.slug}`)),
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
