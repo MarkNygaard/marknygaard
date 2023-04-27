@@ -4572,15 +4572,15 @@ react-copy-to-clipboard@^5.1.0:
     copy-to-clipboard "^3.3.1"
     prop-types "^15.8.1"
 
-react-datocms@^4.0.9:
-  version "4.0.9"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.0.9.tgz#ad2a8465cd39ca94772267dc5f86733edaf628c7"
-  integrity sha512-W8bS8KEG/Cjyo9AaSWaXZXN/wGHg753Es7TES173465ma9cQd35nBm4E0yL6s1I2ofcJ0Ww/xtdvuDVWQZwZWg==
+react-datocms@^4.0.13:
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-4.0.13.tgz#edd310a5dbfc7ff0264ab61ed841007da3fa1ee3"
+  integrity sha512-0QBKt8KlUb6UInqnyLDLazVUsjSAGiT6rrfXRqskH7+IwPp87kDtaLiwaKW5rBoi4393X88eJdSj/Ax9TIMotg==
   dependencies:
     datocms-listen "^0.1.9"
     datocms-structured-text-generic-html-renderer "^2.0.1"
     datocms-structured-text-utils "^2.0.1"
-    react-intersection-observer "^8.33.1"
+    react-intersection-observer "^9.4.3"
     react-string-replace "^1.1.0"
     universal-base64 "^2.1.0"
     use-deep-compare-effect "^1.6.1"
@@ -4617,10 +4617,10 @@ react-instantsearch-hooks@6.43.0:
     instantsearch.js "4.55.0"
     use-sync-external-store "^1.0.0"
 
-react-intersection-observer@^8.33.1:
-  version "8.34.0"
-  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.34.0.tgz#6f6e67831c52e6233f6b6cc7eb55814820137c42"
-  integrity sha512-TYKh52Zc0Uptp5/b4N91XydfSGKubEhgZRtcg1rhTKABXijc4Sdr1uTp5lJ8TN27jwUsdXxjHXtHa0kPj704sw==
+react-intersection-observer@^9.4.3:
+  version "9.4.3"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.4.3.tgz#ec84ce0c25cad548075130ea045ac5c7adf908f3"
+  integrity sha512-WNRqMQvKpupr6MzecAQI0Pj0+JQong307knLP4g/nBex7kYfIaZsPpXaIhKHR+oV8z+goUbH9e10j6lGRnTzlQ==
 
 react-is@^16.13.1:
   version "16.13.1"
