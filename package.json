@@ -28,7 +28,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-datocms": "^4.0.15",
     "react-dom": "18.2.0",
-    "react-icons": "^4.8.0",
+    "react-icons": "^4.9.0",
     "react-instantsearch-hooks-web": "^6.44.0",
     "swr": "^2.1.5",
     "utterances-react-component": "^1.0.0"
