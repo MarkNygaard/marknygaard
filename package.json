@@ -37,7 +37,7 @@
     "@graphql-codegen/cli": "4.0.1",
     "@graphql-codegen/typescript": "4.0.0",
     "@graphql-codegen/typescript-graphql-request": "^4.5.9",
-    "@graphql-codegen/typescript-operations": "4.0.0",
+    "@graphql-codegen/typescript-operations": "4.0.1",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.16.18",
