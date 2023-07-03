@@ -11,7 +11,7 @@
     "codegen": "graphql-codegen"
   },
   "dependencies": {
-    "@giscus/react": "^2.2.8",
+    "@giscus/react": "^2.3.0",
     "@headlessui/react": "^1.7.15",
     "@supabase/supabase-js": "^2.26.0",
     "algoliasearch": "^4.18.0",
