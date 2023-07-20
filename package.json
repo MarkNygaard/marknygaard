@@ -14,7 +14,7 @@
     "@giscus/react": "^2.3.0",
     "@headlessui/react": "^1.7.15",
     "@supabase/supabase-js": "^2.26.0",
-    "algoliasearch": "^4.19.0",
+    "algoliasearch": "^4.19.1",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "datocms-structured-text-utils": "^2.0.4",
