@@ -1,14 +1,22 @@
+'use client';
+
 import React from 'react';
 import { format } from 'date-fns';
 import NextLink from 'next/link';
 import { Image } from 'react-datocms';
-import cn from 'classnames';
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-export default function BlogRecord({ details, posts }) {
+export default function BlogRecord({
+  details,
+  posts,
+}: {
+  details: any;
+  posts: any;
+}) {
   return (
     <div className="mx-auto max-w-5xl">
-      {posts.map((post) => {
+      {posts.map((post: any) => {
         return (
           <NextLink key={post.id} href={`/blog/${post.slug}`}>
             <motion.div
@@ -20,7 +28,7 @@ export default function BlogRecord({ details, posts }) {
               className="group my-6 grid grid-cols-5 overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 translate-z-0 dark:border-gray-800 dark:bg-gray-900 dark:hover:bg-gray-800"
             >
               <div
-                className={cn('hidden h-44 w-full overflow-hidden', {
+                className={clsx('hidden h-44 w-full overflow-hidden', {
                   'col-span-2 sm:flex': details.imageBoolean === true,
                 })}
               >
@@ -38,7 +46,7 @@ export default function BlogRecord({ details, posts }) {
                 />
               </div>
               <div
-                className={cn(
+                className={clsx(
                   'col-span-5 p-2 font-medium text-black dark:text-white',
                   {
                     'sm:col-span-3': details.imageBoolean === true,

@@ -1,10 +1,12 @@
+'use client';
+
 import React, { useState } from 'react';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 import nightOwlLight from 'prism-react-renderer/themes/nightOwlLight';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaRegClipboard, FaRegCopy } from 'react-icons/fa';
-import cn from 'classnames';
+import clsx from 'clsx';
 import { useMemo } from 'react';
 import { useTheme } from 'next-themes';
 
@@ -53,7 +55,7 @@ export default function SyntaxHighlight({
               <div
                 key={i}
                 {...lineProps}
-                className={cn(lineProps.className, {
+                className={clsx(lineProps.className, {
                   ['bg-white']: highlightLines.includes(i),
                   [`before:content-[attr(data-line-number)] before:pr-3 before:opacity-20`]:
                     showLineNumbers,

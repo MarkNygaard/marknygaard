@@ -1,11 +1,11 @@
-import PageSection from 'components/PageSection';
+import PageSection from 'Components/PageSection';
 import React from 'react';
-import cn from 'classnames';
+import clsx from 'clsx';
 
-export default function GridRecord({ details }) {
+export default function GridRecord({ details }: any) {
   return (
     <div
-      className={cn(
+      className={clsx(
         'relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 md:grid md:grid-cols-8 lg:mb-48 lg:grid lg:grid-cols-12 lg:gap-x-6',
         {
           hidden: details.showOnMobile === false,

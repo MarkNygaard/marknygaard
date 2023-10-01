@@ -1,41 +1,20 @@
-const plugin = require('tailwindcss/plugin');
-const defaultTheme = require('tailwindcss/defaultTheme');
+import type { Config } from 'tailwindcss';
 
-module.exports = {
-  content: ['src/**/**/*.{js,ts,jsx,tsx}'],
+const plugin = require('tailwindcss/plugin');
+
+const config: Config = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   darkMode: 'class',
   theme: {
     extend: {
-      height: {
-        132: '33rem',
+      screens: {
+        standalone: { raw: '(display-mode: standalone)' },
       },
       colors: {
-        ash: '#e5e7eb',
-        accent: '#e0ce8a',
-        pine5: {
-          50: '#ECF1EC',
-          100: '#DEE5DE',
-          200: '#CED7CE',
-          300: '#B9C4B9',
-          400: '#A1AEA1',
-          500: '#859386',
-          600: '#69786B',
-          700: '#4E5C50',
-          800: '#3A463D',
-          900: '#2A352E',
-        },
-        pine2: {
-          50: '#E0E5E0',
-          100: '#DAE1DA',
-          200: '#CED7CE',
-          300: '#BCC7BC',
-          400: '#8EA28F',
-          500: '#69816B',
-          600: '#526854',
-          700: '#405744',
-          800: '#2A3C2E',
-          900: '#1A2C20',
-        },
         pine: {
           50: '#F9FAF9',
           100: '#F0F5F0',
@@ -47,18 +26,6 @@ module.exports = {
           700: '#363635',
           800: '#181918',
           900: '#121211',
-        },
-        pine6: {
-          50: '#ECF1EC',
-          100: '#DEE5DE',
-          200: '#CDD6CD',
-          300: '#BAC4BA',
-          400: '#A5B0A5',
-          500: '#8E998E',
-          600: '#758075',
-          700: '#5A635A',
-          800: '#3E453E',
-          900: '#202420',
         },
         gray: {
           50: '#F9FAFB',
@@ -73,12 +40,9 @@ module.exports = {
           900: '#0D0E12',
         },
       },
-      screens: {
-        standalone: { raw: '(display-mode: standalone)' },
+      height: {
+        132: '33rem',
       },
-    },
-    fontFamily: {
-      sans: ['Inter', ...defaultTheme.fontFamily.sans],
     },
   },
   safelist: [
@@ -186,10 +150,16 @@ module.exports = {
   ],
   plugins: [
     require('@tailwindcss/typography'),
-    plugin(function ({ matchUtilities, theme }) {
+    plugin(function ({
+      matchUtilities,
+      theme,
+    }: {
+      matchUtilities: any;
+      theme: any;
+    }) {
       matchUtilities(
         {
-          'translate-z': (value) => ({
+          'translate-z': (value: any) => ({
             '--tw-translate-z': value,
             transform: ` translate3d(var(--tw-translate-x), var(--tw-translate-y), var(--tw-translate-z)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))`,
           }), // this is actual CSS
@@ -199,3 +169,4 @@ module.exports = {
     }),
   ],
 };
+export default config;

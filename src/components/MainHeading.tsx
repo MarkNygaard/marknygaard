@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function MainHeading({ record }) {
+export default function MainHeading({ record }: any) {
   return (
     <div>
       <h1 className="font-semibold">{record.title}</h1>

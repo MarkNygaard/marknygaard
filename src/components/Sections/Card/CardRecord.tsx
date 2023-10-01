@@ -1,14 +1,14 @@
 import React from 'react';
-import cn from 'classnames';
-import type { FileField } from 'lib/graphql';
+import clsx from 'clsx';
+import type { FileField } from 'infrastructure/generated/graphql';
 import { Image } from 'react-datocms';
 import TextRecord from '../Text/TextRecord';
 
-export default function CardRecord({ details }) {
+export default function CardRecord({ details }: any) {
   return (
     <div className="flex justify-center">
       <div
-        className={cn('grid', {
+        className={clsx('grid', {
           [`grid-cols-${details.mobileColumns as String}`]:
             details.mobileColumns,
           [`md:grid-cols-${details.tabletColumns as String}`]:
@@ -18,11 +18,11 @@ export default function CardRecord({ details }) {
           [`gap-${details.gap as String}`]: details.gap,
         })}
       >
-        {details.sections.map((section) => {
+        {details.sections.map((section: any) => {
           return (
             <div
               key={section.id}
-              className={cn('relative', {
+              className={clsx('relative', {
                 [`order-${section.mobilePosition as String}`]:
                   section.mobilePosition,
                 [`md:order-${section.tabletPosition as String}`]:
@@ -34,7 +34,7 @@ export default function CardRecord({ details }) {
               {section.__typename === 'CardImageRecord' ? (
                 <div
                   key={section.id}
-                  className={cn(
+                  className={clsx(
                     'flex shrink-0 self-center overflow-hidden object-fill',
                     {
                       'h-52': details.height === 'Small',
@@ -51,7 +51,7 @@ export default function CardRecord({ details }) {
                 </div>
               ) : section.__typename === 'CardTextRecord' ? (
                 <div
-                  className={cn(
+                  className={clsx(
                     'flex justify-center overflow-hidden bg-gray-300 p-3',
                     {
                       'h-52': details.height === 'Small',

@@ -4,7 +4,7 @@ module.exports = {
   schema: {
     'https://graphql.datocms.com': {
       headers: {
-        Authorization: process.env.DATOCMS_API_TOKEN,
+        Authorization: process.env.DATOCMS_READONLY_API_TOKEN,
       },
     },
   },
@@ -13,10 +13,10 @@ module.exports = {
     codegen: {
       overwrite: true,
       generates: {
-        'src/lib/graphql.ts': {
+        'src/infrastructure/genrated/graphql.ts': {
           plugins: [
             'typescript',
-            'typescript-graphql-request',
+            'typed-document-node',
             'typescript-operations',
           ],
           config: {

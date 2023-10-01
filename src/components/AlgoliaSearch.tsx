@@ -9,7 +9,7 @@ import { BsArrowReturnLeft } from 'react-icons/bs';
 import { SearchClient } from 'algoliasearch/lite';
 import Modal from './Modal';
 import { useState } from 'react';
-import cn from 'classnames';
+import clsx from 'clsx';
 
 const searchClient = algoliasearch(
   'WGUS10UMIP',
@@ -121,7 +121,7 @@ export default function AlgoliaSearch({ onClose }) {
                 </div>
               )}
               <div
-                className={cn('relative flex justify-end p-4', {
+                className={clsx('relative flex justify-end p-4', {
                   'border-t border-gray-500-opacity-10 dark:border-gray-700':
                     showResults,
                 })}

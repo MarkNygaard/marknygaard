@@ -2,7 +2,13 @@ import React from 'react';
 import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-export default function Modal({ onClose, children }) {
+export default function Modal({
+  onClose,
+  children,
+}: {
+  onClose: () => void;
+  children: React.ReactNode;
+}) {
   if (!open) return null;
 
   return (
