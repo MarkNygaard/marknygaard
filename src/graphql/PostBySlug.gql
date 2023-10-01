@@ -43,9 +43,9 @@ query PostBySlug($slug: String) {
     content {
       value
       blocks {
-        __typename
         ... on ImageRecord {
           id
+          __typename
           image {
             responsiveImage(imgixParams: { fit: clip, auto: format }) {
               ...responsiveImageFragment
@@ -54,6 +54,7 @@ query PostBySlug($slug: String) {
         }
         ... on MainHeadingRecord {
           id
+          __typename
           title
           subtitle
         }
