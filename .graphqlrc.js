@@ -4,7 +4,7 @@ module.exports = {
   schema: {
     'https://graphql.datocms.com': {
       headers: {
-        Authorization: process.env.DATOCMS_READONLY_API_TOKEN,
+        Authorization: process.env.DATOCMS_API_TOKEN,
       },
     },
   },

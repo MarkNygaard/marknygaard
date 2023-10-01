@@ -4,7 +4,7 @@ import { print } from 'graphql';
 
 export default async function queryDatoCMS<
   TResult = unknown,
-  TVariables = Record<string, any>
+  TVariables = Record<string, any>,
 >(
   document: TypedDocumentNode<TResult, TVariables>,
   variables?: TVariables,
@@ -14,7 +14,7 @@ export default async function queryDatoCMS<
     'Content-Type': 'application/json',
     Accept: 'application/json',
     'X-Exclude-Invalid': 'true',
-    Authorization: `Bearer ${process.env.DATOCMS_READONLY_API_TOKEN}`,
+    Authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}`,
   };
 
   if (isDraft) headers['X-Include-Drafts'] = 'true';
