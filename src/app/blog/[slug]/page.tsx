@@ -16,7 +16,7 @@ import { isCode } from 'datocms-structured-text-utils';
 import { format } from 'date-fns';
 import Comment from 'components/Comment';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
-import { PostBySlugDocument } from 'infrastructure/genrated/graphql';
+import { PostBySlugDocument } from 'infrastructure/generated/graphql';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
@@ -61,7 +61,7 @@ export default async function Page({ params: { slug } }: Params) {
           <div className="w-full pr-3 lg:w-9/12">
             <div className="prose max-w-none pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0">
               <StructuredText
-                data={data?.post.content}
+                data={data.post.content as any}
                 renderBlock={({ record }: any) => {
                   switch (record.__typename) {
                     case 'ImageRecord':

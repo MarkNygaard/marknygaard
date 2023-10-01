@@ -35,11 +35,6 @@ query HomePage {
       }
     }
   }
-  allPages {
-    id
-    name
-    slug
-  }
   allPosts(orderBy: date_DESC) {
     id
     slug

@@ -60,9 +60,4 @@ query PostBySlug($slug: String) {
       }
     }
   }
-  allPages {
-    id
-    name
-    slug
-  }
 }

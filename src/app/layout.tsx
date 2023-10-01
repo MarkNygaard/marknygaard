@@ -5,7 +5,7 @@ import { Providers } from 'components/Providers';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
-import { AllPagesDocument } from 'infrastructure/genrated/graphql';
+import { AllPagesDocument } from 'infrastructure/generated/graphql';
 
 const inter = Inter({ subsets: ['latin'] });
 

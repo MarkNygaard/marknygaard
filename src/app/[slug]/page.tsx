@@ -3,7 +3,7 @@ import PageSection from 'components/PageSection';
 import { toNextMetadata } from 'react-datocms';
 
 import queryDatoCMS from 'infrastructure/queryDatoCms';
-import { PageBySlugDocument } from 'infrastructure/genrated/graphql';
+import { PageBySlugDocument } from 'infrastructure/generated/graphql';
 import { notFound } from 'next/navigation';
 import { draftMode } from 'next/headers';
 import { Metadata } from 'next';
