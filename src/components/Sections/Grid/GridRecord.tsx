@@ -1,4 +1,4 @@
-import PageSection from 'Components/PageSection';
+import PageSection from 'components/PageSection';
 import React from 'react';
 import clsx from 'clsx';
 

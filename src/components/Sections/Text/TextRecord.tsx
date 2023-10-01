@@ -3,8 +3,8 @@
 import React from 'react';
 import { StructuredText, renderNodeRule } from 'react-datocms';
 import { isCode } from 'datocms-structured-text-utils';
-import SyntaxHighlight from 'Components/SyntaxHighlight';
-import MainHeading from 'Components/MainHeading';
+import SyntaxHighlight from 'components/SyntaxHighlight';
+import MainHeading from 'components/MainHeading';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 

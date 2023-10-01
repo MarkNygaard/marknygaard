@@ -4,7 +4,7 @@ import React from 'react';
 import { StructuredText, Image } from 'react-datocms';
 import type { FileField } from 'infrastructure/generated/graphql';
 import clsx from 'clsx';
-import MainHeading from 'Components/MainHeading';
+import MainHeading from 'components/MainHeading';
 import { motion } from 'framer-motion';
 
 export default function TextImageRecord({ details }: any) {
