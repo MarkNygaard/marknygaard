@@ -82,6 +82,8 @@ export default async function Page({ params: { slug } }: Params) {
                       return (
                         <MainHeading record={MainHeadingRecord}></MainHeading>
                       );
+                    default:
+                      return null;
                   }
                 }}
                 customNodeRules={[
