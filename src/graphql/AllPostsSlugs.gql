@@ -1,5 +1,0 @@
-query AllPostsSlugs {
-  allPosts(orderBy: date_DESC, filter: { slug: { neq: "" } }) {
-    slug
-  }
-}

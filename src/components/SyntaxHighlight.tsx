@@ -15,6 +15,11 @@ export default function SyntaxHighlight({
   language,
   showLineNumbers,
   highlightLines = [],
+}: {
+  code: string;
+  language: string;
+  showLineNumbers?: boolean;
+  highlightLines?: number[];
 }) {
   const linesCount = useMemo(() => {
     return code.split(/\r\n|\r|\n/).length;

@@ -52,6 +52,11 @@ query PostBySlug($slug: String) {
             }
           }
         }
+        ... on MainHeadingRecord {
+          id
+          title
+          subtitle
+        }
       }
     }
   }

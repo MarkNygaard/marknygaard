@@ -6,7 +6,11 @@ import SyntaxHighlight from 'components/SyntaxHighlight';
 import ViewCounter from 'components/ViewCounter';
 import { toNextMetadata } from 'react-datocms';
 
-import type { FileField, ImageRecord } from 'infrastructure/generated/graphql';
+import type {
+  FileField,
+  ImageRecord,
+  MainHeadingRecord,
+} from 'infrastructure/generated/graphql';
 import { StructuredText, Image, renderNodeRule } from 'react-datocms';
 import { isCode } from 'datocms-structured-text-utils';
 import { format } from 'date-fns';
@@ -58,24 +62,26 @@ export default async function Page({ params: { slug } }: Params) {
             <div className="prose max-w-none pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0">
               <StructuredText
                 data={data?.post.content}
-                renderBlock={({ record }) => {
-                  if (
-                    record.__typename === 'ImageRecord' &&
-                    (record as ImageRecord).image &&
-                    (record as ImageRecord).image?.responsiveImage
-                  ) {
-                    return (
-                      <div className="flex justify-center">
-                        {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                        <Image
-                          data={
-                            (record.image as FileField).responsiveImage as any
-                          }
-                        />
-                      </div>
-                    );
-                  } else if (record.__typename === 'MainHeadingRecord') {
-                    return <MainHeading record={record}></MainHeading>;
+                renderBlock={({ record }: any) => {
+                  switch (record.__typename) {
+                    case 'ImageRecord':
+                      const ImageRecord = record as ImageRecord;
+                      return (
+                        <div className="flex justify-center">
+                          {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                          <Image
+                            data={
+                              (ImageRecord.image as FileField)
+                                .responsiveImage as any
+                            }
+                          />
+                        </div>
+                      );
+                    case 'MainHeadingRecord':
+                      const MainHeadingRecord = record as MainHeadingRecord;
+                      return (
+                        <MainHeading record={MainHeadingRecord}></MainHeading>
+                      );
                   }
                 }}
                 customNodeRules={[
