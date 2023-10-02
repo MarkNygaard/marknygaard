@@ -43,11 +43,6 @@ query PageBySlug($slug: String) {
       }
     }
   }
-  allPages {
-    id
-    name
-    slug
-  }
   allPosts(orderBy: date_DESC) {
     id
     slug

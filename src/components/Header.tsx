@@ -1,8 +1,10 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
-import cn from 'classnames';
+import clsx from 'clsx';
 import Icon from './Icon';
 import MobileMenu from './MobileMenu';
 import AlgoliaSearch from './AlgoliaSearch';
@@ -10,14 +12,14 @@ import { BsSearch } from 'react-icons/bs';
 import Link from 'next/link';
 import { AnimatePresence } from 'framer-motion';
 
-function NavItem({ href, text }) {
-  const router = useRouter();
-  const isActive = router.asPath === href;
+function NavItem({ href, text }: { href: string; text: string }) {
+  const path = usePathname();
+  const isActive = path === href;
 
   return (
     <NextLink
       href={href}
-      className={cn(
+      className={clsx(
         isActive
           ? 'active border-pine-900 text-pine-900 transition dark:text-gray-100'
           : 'text-pine-600 transition-all duration-300 ease-out hover:text-pine-900 hover:ease-in dark:text-gray-500 dark:hover:text-gray-100',
@@ -29,7 +31,7 @@ function NavItem({ href, text }) {
   );
 }
 
-export default function Header({ allPages }) {
+export default function Header({ allPages }: { allPages: any }) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
@@ -83,7 +85,7 @@ export default function Header({ allPages }) {
                 />
               )}
             </AnimatePresence>
-            {allPages?.map((page) => {
+            {allPages?.map((page: any) => {
               return (
                 <NavItem
                   key={page.id}

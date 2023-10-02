@@ -7,9 +7,15 @@ import ImageRecord from './Sections/Image/ImageRecord';
 import TextImageRecord from './Sections/TextImage/TextImageRecord';
 import TextRecord from './Sections/Text/TextRecord';
 
-export default function PageSection({ details, posts }) {
+export default function PageSection({
+  details,
+  posts,
+}: {
+  details: any;
+  posts: any;
+}) {
   if (details.__typename === 'TextImageRecord') {
-    return <TextImageRecord details={details} />;
+    return <TextImageRecord {...details} />;
   } else if (details.__typename === 'TextRecord') {
     return <TextRecord details={details} />;
   } else if (details.__typename === 'ImageRecord') {
@@ -21,7 +27,7 @@ export default function PageSection({ details, posts }) {
   } else if (details.__typename === 'CardRecord') {
     return <CardRecord details={details} />;
   } else if (details.__typename === 'GridRecord') {
-    return <GridRecord details={details} />;
+    return <GridRecord {...details} />;
   }
   return <></>;
 }

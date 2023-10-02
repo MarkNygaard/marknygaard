@@ -1,16 +1,18 @@
+'use client';
+
 import React from 'react';
 import { StructuredText, renderNodeRule } from 'react-datocms';
 import { isCode } from 'datocms-structured-text-utils';
 import SyntaxHighlight from 'components/SyntaxHighlight';
 import MainHeading from 'components/MainHeading';
-import cn from 'classnames';
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-export default function TextRecord({ details }) {
+export default function TextRecord({ details }: any) {
   return (
     <div
       id={details.id}
-      className={cn('align-center flex items-center overflow-hidden', {
+      className={clsx('align-center flex items-center overflow-hidden', {
         'justify-center': details.centerText,
       })}
     >

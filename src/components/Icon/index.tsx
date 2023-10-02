@@ -6,7 +6,7 @@ import MailIcon from './mail';
 import MoonIcon from './moon';
 import SunIcon from './sun';
 
-function Icon(props) {
+function Icon(props: any) {
   switch (props.symbol) {
     case 'linkedin':
       return <LinkedinIcon />;

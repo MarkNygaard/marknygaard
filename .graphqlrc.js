@@ -13,10 +13,10 @@ module.exports = {
     codegen: {
       overwrite: true,
       generates: {
-        'src/lib/graphql.ts': {
+        'src/infrastructure/generated/graphql.ts': {
           plugins: [
             'typescript',
-            'typescript-graphql-request',
+            'typed-document-node',
             'typescript-operations',
           ],
           config: {

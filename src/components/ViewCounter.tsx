@@ -1,5 +1,7 @@
-import fetcher from 'lib/fetcher';
-import { Views } from 'lib/supabase';
+'use client';
+
+import fetcher from 'infrastructure/fetcher';
+import { Views } from 'infrastructure/supabase';
 import { useEffect } from 'react';
 import useSWR from 'swr';
 
@@ -19,7 +21,7 @@ const ViewCounter = ({ slug }: Props) => {
 
   return (
     <span>{`${
-      (data?.count ?? 0) > 0 ? data.count.toLocaleString() : '–––'
+      (data?.count ?? 0) > 0 ? data?.count.toLocaleString() : '–––'
     } views`}</span>
   );
 };

@@ -1,14 +1,16 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Image } from 'react-datocms';
 
-export default function FeaturedRecord({ details }) {
+export default function FeaturedRecord({ details }: any) {
   return (
     <div className="py-4 pt-10">
       <div className="mb-6 text-3xl font-medium">Featured Posts</div>
       <div className="mb-4 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-10">
-        {details.posts?.map((post) => {
+        {details.posts?.map((post: any) => {
           return (
             <Link
               key={post.id}

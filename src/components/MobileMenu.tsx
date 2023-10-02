@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import NextLink from 'next/link';
-import cn from 'classnames';
+import clsx from 'clsx';
 import { Dialog } from '@headlessui/react';
 import { motion } from 'framer-motion';
+import { PageRecord } from 'infrastructure/generated/graphql';
 
-function NavItem({ href, text, onClose }) {
+function NavItem({
+  href,
+  text,
+  onClose,
+}: {
+  href: string;
+  text: string;
+  onClose: () => void;
+}) {
   return (
     <NextLink
       href={href}
@@ -16,7 +25,13 @@ function NavItem({ href, text, onClose }) {
   );
 }
 
-export default function MobileMenu({ allPages, onClose }) {
+export default function MobileMenu({
+  allPages,
+  onClose,
+}: {
+  allPages: any;
+  onClose: () => void;
+}) {
   return (
     <Dialog
       as={motion.div}
@@ -42,7 +57,7 @@ export default function MobileMenu({ allPages, onClose }) {
           onClick={onClose}
           className="mt-20 flex w-full flex-wrap focus:outline-none"
         >
-          {allPages?.map((page, i) => (
+          {allPages?.map(({ page, i }: { page: PageRecord; i: any }) => (
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={{
@@ -63,7 +78,7 @@ export default function MobileMenu({ allPages, onClose }) {
                   type: 'spring',
                 },
               }}
-              className={cn(
+              className={clsx(
                 allPages.length <= 3 ? 'w-full' : 'w-1/2',
                 'mt-6 flex items-center justify-center'
               )}
@@ -73,7 +88,7 @@ export default function MobileMenu({ allPages, onClose }) {
               <NavItem
                 key={page.id}
                 href={`/${page.slug}`}
-                text={page.name}
+                text={page.name as string}
                 onClose={onClose}
               />
             </motion.div>

@@ -9,14 +9,14 @@ import { BsArrowReturnLeft } from 'react-icons/bs';
 import { SearchClient } from 'algoliasearch/lite';
 import Modal from './Modal';
 import { useState } from 'react';
-import cn from 'classnames';
+import clsx from 'clsx';
 
 const searchClient = algoliasearch(
   'WGUS10UMIP',
   '01851bb5a02f53e334fc56d85eaa9dd3'
 );
 
-const results = ({ hit }) => (
+const results = ({ hit }: any) => (
   <div className="flex hover:bg-pine-100 dark:hover:bg-pine-700 rounded-lg text-md m-1 p-1 md:m-2 md:p-2 group max-w-[840px]">
     <a className="flex w-full" href={hit.url}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -48,7 +48,7 @@ const results = ({ hit }) => (
   </div>
 );
 
-export default function AlgoliaSearch({ onClose }) {
+export default function AlgoliaSearch({ onClose }: { onClose: () => void }) {
   const [showResults, setShowResults] = useState(false);
 
   const instantSearchClient: SearchClient = {
@@ -121,7 +121,7 @@ export default function AlgoliaSearch({ onClose }) {
                 </div>
               )}
               <div
-                className={cn('relative flex justify-end p-4', {
+                className={clsx('relative flex justify-end p-4', {
                   'border-t border-gray-500-opacity-10 dark:border-gray-700':
                     showResults,
                 })}
