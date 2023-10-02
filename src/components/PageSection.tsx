@@ -15,7 +15,7 @@ export default function PageSection({
   posts: any;
 }) {
   if (details.__typename === 'TextImageRecord') {
-    return <TextImageRecord details={details} />;
+    return <TextImageRecord {...details} />;
   } else if (details.__typename === 'TextRecord') {
     return <TextRecord details={details} />;
   } else if (details.__typename === 'ImageRecord') {
@@ -27,7 +27,7 @@ export default function PageSection({
   } else if (details.__typename === 'CardRecord') {
     return <CardRecord details={details} />;
   } else if (details.__typename === 'GridRecord') {
-    return <GridRecord details={details} />;
+    return <GridRecord {...details} />;
   }
   return <></>;
 }

@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import clsx from 'clsx';
 import { Dialog } from '@headlessui/react';
 import { motion } from 'framer-motion';
+import { PageRecord } from 'infrastructure/generated/graphql';
 
 function NavItem({
   href,
@@ -56,7 +57,7 @@ export default function MobileMenu({
           onClick={onClose}
           className="mt-20 flex w-full flex-wrap focus:outline-none"
         >
-          {allPages?.map((page, i) => (
+          {allPages?.map(({ page, i }: { page: PageRecord; i: any }) => (
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={{
@@ -87,7 +88,7 @@ export default function MobileMenu({
               <NavItem
                 key={page.id}
                 href={`/${page.slug}`}
-                text={page.name}
+                text={page.name as string}
                 onClose={onClose}
               />
             </motion.div>
