@@ -6,6 +6,7 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { AllPagesDocument } from 'infrastructure/generated/graphql';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,6 +33,7 @@ export default async function RootLayout({
           </main>
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
