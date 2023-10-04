@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { draftMode } from 'next/headers';
 
 import MainHeading from 'components/MainHeading';
@@ -131,7 +131,9 @@ export default async function Page({ params: { slug } }: Params) {
             <div className="space-y-2 py-5 pl-2">
               <div className="font-semibold">View Counter</div>
               <div className="my-auto font-light">
-                <ViewCounter slug={data?.post.slug as string} />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ViewCounter slug={data?.post.slug as string} />
+                </Suspense>
               </div>
             </div>
           </aside>
