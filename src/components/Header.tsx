@@ -11,6 +11,7 @@ import AlgoliaSearch from './AlgoliaSearch';
 import { BsSearch } from 'react-icons/bs';
 import Link from 'next/link';
 import { AnimatePresence } from 'framer-motion';
+import { PageRecord } from 'infrastructure/generated/graphql';
 
 function NavItem({ href, text }: { href: string; text: string }) {
   const path = usePathname();
@@ -85,7 +86,7 @@ export default function Header({ allPages }: { allPages: any }) {
                 />
               )}
             </AnimatePresence>
-            {allPages?.map((page: any) => {
+            {allPages?.map((page: PageRecord) => {
               return (
                 <NavItem
                   key={page.id}

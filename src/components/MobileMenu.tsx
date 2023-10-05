@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+'use client';
+
+import React from 'react';
 import NextLink from 'next/link';
 import clsx from 'clsx';
 import { Dialog } from '@headlessui/react';
@@ -88,7 +90,7 @@ export default function MobileMenu({
               <NavItem
                 key={page.id}
                 href={`/${page.slug}`}
-                text={page.name as string}
+                text={page.name}
                 onClose={onClose}
               />
             </motion.div>
