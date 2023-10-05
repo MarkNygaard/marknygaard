@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import NextLink from 'next/link';
 import clsx from 'clsx';
