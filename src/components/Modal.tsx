@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 export default function Modal(props: {
   onClose;
@@ -31,7 +31,7 @@ export default function Modal(props: {
           delay: 1.15,
         },
       }}
-      className={classNames(
+      className={clsx(
         type === 'blur' && 'bg-[#787878]/30 backdrop-blur',
         type === 'clear' && 'bg-gray-500/75',
         'fixed inset-0 top-0 h-screen z-50'
