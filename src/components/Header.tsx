@@ -91,7 +91,7 @@ export default function Header({ allPages }: { allPages: any }) {
                 <NavItem
                   key={page.id}
                   href={`/${page.slug}`}
-                  text={page.name}
+                  text={page.name as string}
                 />
               );
             })}
