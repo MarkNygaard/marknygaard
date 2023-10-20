@@ -21,7 +21,8 @@ query PostBySlug($slug: String) {
             fit: crop
             w: 48
             h: 48
-            auto: format
+            auto: compress
+            fm: avif
             mask: "ellipse"
           }
         ) {
@@ -35,7 +36,7 @@ query PostBySlug($slug: String) {
     }
     coverImage {
       responsiveImage(
-        imgixParams: { fit: max, w: 2000, h: 1000, auto: format }
+        imgixParams: { fit: max, w: 2000, h: 1000, auto: compress, fm: avif }
       ) {
         ...responsiveImageFragment
       }
@@ -47,7 +48,9 @@ query PostBySlug($slug: String) {
           id
           __typename
           image {
-            responsiveImage(imgixParams: { fit: clip, auto: format }) {
+            responsiveImage(
+              imgixParams: { fit: clip, auto: compress, fm: avif }
+            ) {
               ...responsiveImageFragment
             }
           }

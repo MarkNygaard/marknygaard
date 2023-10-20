@@ -21,7 +21,8 @@ fragment CardFragment on CardRecord {
             crop: focalpoint
             ar: "1:1"
             minH: 384
-            auto: format
+            auto: compress
+            fm: avif
           }
         ) {
           ...responsiveImageFragment
