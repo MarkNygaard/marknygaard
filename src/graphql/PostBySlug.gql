@@ -49,7 +49,14 @@ query PostBySlug($slug: String) {
           __typename
           image {
             responsiveImage(
-              imgixParams: { fit: clip, auto: compress, fm: avif }
+              imgixParams: {
+                fit: max
+                w: 800
+                h: 800
+                auto: compress
+                q: 60
+                fm: avif
+              }
             ) {
               ...responsiveImageFragment
             }
