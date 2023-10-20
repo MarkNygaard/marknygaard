@@ -14,7 +14,7 @@ fragment TextImageFragment on TextImageRecord {
   }
   fadeInText
   image {
-    responsiveImage(imgixParams: { auto: format }) {
+    responsiveImage(imgixParams: { fit: crop, auto: compress, fm: avif }) {
       ...responsiveImageFragment
     }
   }

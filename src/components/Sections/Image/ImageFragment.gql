@@ -4,7 +4,7 @@ fragment ImageFragment on ImageRecord {
   fadeIn
   imageStyle
   image {
-    responsiveImage(imgixParams: { auto: format }) {
+    responsiveImage(imgixParams: { fit: crop, auto: compress, fm: avif }) {
       ...responsiveImageFragment
     }
   }
