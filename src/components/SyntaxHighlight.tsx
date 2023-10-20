@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Highlight } from 'prism-react-renderer';
+import { Highlight, Language } from 'prism-react-renderer';
 // import { CopyToClipboard } from 'react-copy-to-clipboard';
 // import { FaRegClipboard, FaRegCopy } from 'react-icons/fa';
 import clsx from 'clsx';
@@ -33,7 +33,7 @@ export default function SyntaxHighlight({
   highlightLines = [],
 }: {
   code: string;
-  language: string;
+  language: Language;
   showLineNumbers?: boolean;
   highlightLines?: number[];
 }) {
@@ -47,19 +47,7 @@ export default function SyntaxHighlight({
 
   return (
     <Highlight theme={currentTheme} code={code} language={language}>
-      {({
-        className,
-        style,
-        tokens,
-        getLineProps,
-        getTokenProps,
-      }: {
-        className: any;
-        style: any;
-        tokens: any;
-        getLineProps: any;
-        getTokenProps: any;
-      }) => (
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={`group relative whitespace-pre-wrap ${className}`}
           style={style}
@@ -73,12 +61,11 @@ export default function SyntaxHighlight({
               {isCopied ? <FaRegClipboard /> : <FaRegCopy />}
             </button>
           </CopyToClipboard> */}
-          {tokens.map(({ line, i }: { line: any; i: number }) => {
+          {tokens.map((line, i) => {
             const lineProps = getLineProps({ line, key: i });
             return (
               <div
                 key={i}
-                {...lineProps}
                 className={clsx(lineProps.className, {
                   ['bg-white']: highlightLines.includes(i),
                   [`before:content-[attr(data-line-number)] before:pr-3 before:opacity-20`]:
@@ -90,8 +77,8 @@ export default function SyntaxHighlight({
                   ' '
                 )}
               >
-                {line?.map(({ token, key }: { token: string; key: number }) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token })} />
                 ))}
               </div>
             );
