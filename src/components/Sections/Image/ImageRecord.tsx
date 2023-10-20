@@ -26,6 +26,7 @@ export default function ImageRecord({ details }: any) {
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image
           data={(details.image as FileField)?.responsiveImage as any}
+          objectFit="cover"
           className={clsx('translate-z-0', {
             'rounded-full': details.imageStyle === 'Round',
             'rounded-lg': details.imageStyle === 'Rounded Corners',
