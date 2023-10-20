@@ -1,36 +1,14 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
-import NextLink from 'next/link';
-import clsx from 'clsx';
 import Icon from './Icon';
-import MobileMenu from './MobileMenu';
+import MobileNavigation from './Navigation/MobileNavigation';
 import AlgoliaSearch from './AlgoliaSearch';
 import { BsSearch } from 'react-icons/bs';
 import Link from 'next/link';
 import { AnimatePresence } from 'framer-motion';
-import { PageRecord } from 'infrastructure/generated/graphql';
-
-function NavItem({ href, text }: { href: string; text: string }) {
-  const path = usePathname();
-  const isActive = path === href;
-
-  return (
-    <NextLink
-      href={href}
-      className={clsx(
-        isActive
-          ? 'active border-pine-900 text-pine-900 transition dark:text-gray-100'
-          : 'text-pine-600 transition-all duration-300 ease-out hover:text-pine-900 hover:ease-in dark:text-gray-500 dark:hover:text-gray-100',
-        'font-base underlined hidden p-1 sm:mx-5 sm:my-3 md:inline-block md:text-base lg:text-lg'
-      )}
-    >
-      <span className="capsize">{text}</span>
-    </NextLink>
-  );
-}
+import DesktopNavigation from './Navigation/DesktopNavigation';
 
 export default function Header({ allPages }: { allPages: any }) {
   const [mounted, setMounted] = useState(false);
@@ -38,7 +16,6 @@ export default function Header({ allPages }: { allPages: any }) {
 
   useEffect(() => setMounted(true), []);
 
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [searchIsOpen, setSearchIsOpen] = useState(false);
 
   return (
@@ -55,47 +32,8 @@ export default function Header({ allPages }: { allPages: any }) {
               <span className="font-semibold">Nygaard</span>
             </Link>
           </div>
-          <div className="-ml-3 flex flex-1 md:flex-initial">
-            <button
-              aria-label="menu"
-              className="mobile-menu-button ml-3 inline-flex h-12 w-12 items-center justify-center rounded-full text-gray-500 focus:outline-none focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600  md:hidden"
-              onClick={() => setMenuIsOpen(true)}
-            >
-              <svg
-                className="block h-7 w-7"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-                <title>Open Menu</title>
-              </svg>
-            </button>
-            <AnimatePresence>
-              {menuIsOpen && (
-                <MobileMenu
-                  allPages={allPages}
-                  onClose={() => setMenuIsOpen(false)}
-                />
-              )}
-            </AnimatePresence>
-            {allPages?.map((page: PageRecord) => {
-              return (
-                <NavItem
-                  key={page.id}
-                  href={`/${page.slug}`}
-                  text={page.name as string}
-                />
-              );
-            })}
-          </div>
+          <DesktopNavigation allPages={allPages} />
+          <MobileNavigation allPages={allPages} />
           <div className="ml-5 flex space-x-3">
             <button
               aria-label="Search"

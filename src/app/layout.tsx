@@ -7,6 +7,7 @@ import Header from 'components/Header';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { AllPagesDocument } from 'infrastructure/generated/graphql';
 import { Analytics } from '@vercel/analytics/react';
+import { draftMode } from 'next/headers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,7 +16,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const data = await queryDatoCMS(AllPagesDocument);
+  const { isEnabled } = draftMode();
+  const data = await queryDatoCMS(AllPagesDocument, {}, isEnabled);
 
   return (
     <html lang="en">
