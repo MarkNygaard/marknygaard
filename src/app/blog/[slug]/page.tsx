@@ -132,7 +132,7 @@ export default async function Page({ params: { slug } }: Params) {
               <div className="font-semibold">View Counter</div>
               <div className="my-auto font-light">
                 <Suspense fallback={<div>Loading...</div>}>
-                  <ViewCounter slug={data?.post.slug as string} />
+                  <ViewCounter />
                 </Suspense>
               </div>
             </div>

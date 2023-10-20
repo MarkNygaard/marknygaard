@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { Dialog } from '@headlessui/react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function Modal({
   onClose,

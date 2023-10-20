@@ -1,29 +1,5 @@
-'use client';
-
-import fetcher from 'infrastructure/fetcher';
-import { Views } from 'infrastructure/supabase';
-import { useEffect } from 'react';
-import useSWR from 'swr';
-
-interface Props {
-  slug: string;
-}
-
-const ViewCounter = ({ slug }: Props) => {
-  const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher);
-  useEffect(() => {
-    const registerView = () =>
-      fetch(`/api/views/${slug}`, {
-        method: 'POST',
-      });
-    registerView();
-  }, [slug]);
-
-  return (
-    <span>{`${
-      (data?.count ?? 0) > 0 ? data?.count.toLocaleString() : '–––'
-    } views`}</span>
-  );
+const ViewCounter = () => {
+  return <span>–––</span>;
 };
 
 export default ViewCounter;

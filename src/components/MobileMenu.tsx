@@ -86,11 +86,10 @@ export default function MobileMenu({
               )}
               key={i}
             >
-              {/* {console.log(allPages.length)} */}
               <NavItem
                 key={page.id}
                 href={`/${page.slug}`}
-                text={page.name}
+                text={page.name as string}
                 onClose={onClose}
               />
             </motion.div>
