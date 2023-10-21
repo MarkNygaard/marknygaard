@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-const { withTV } = require('tailwind-variants/transformer')
+const { withTV } = require('tailwind-variants/transformer');
 
 const plugin = require('tailwindcss/plugin');
 
@@ -41,9 +41,16 @@ const config: Config = withTV({
           800: '#10131A',
           900: '#0D0E12',
         },
+        muted: '#F1F5F9',
+        mutedDark: '#1E293B',
       },
       height: {
         132: '33rem',
+        screen: ['100vh /* fallback for Opera, IE and etc. */', '100dvh'],
+        center: [
+          'calc(100vh - 480px) /* fallback for Opera, IE and etc. */',
+          'calc(100dvh - 480px)',
+        ],
       },
     },
   },
