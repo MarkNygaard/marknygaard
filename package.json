@@ -17,7 +17,7 @@
     "@vercel/analytics": "^1.1.1",
     "algoliasearch": "^4.22.0",
     "clsx": "^2.0.0",
-    "date-fns": "^3.0.1",
+    "date-fns": "^3.0.5",
     "datocms-structured-text-utils": "^2.0.4",
     "framer-motion": "^10.16.16",
     "gql": "^1.1.2",
