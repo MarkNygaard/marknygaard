@@ -62,7 +62,7 @@ export default async function Page({ params: { slug } }: Params) {
                 data={data.post.content as any}
                 renderBlock={({ record }: any) => {
                   switch (record.__typename) {
-                    case 'ImageRecord':
+                    case 'ImageRecord': {
                       const ImageRecord = record as ImageRecord;
                       return (
                         <div className="flex justify-center">
@@ -75,11 +75,13 @@ export default async function Page({ params: { slug } }: Params) {
                           />
                         </div>
                       );
-                    case 'MainHeadingRecord':
+                    }
+                    case 'MainHeadingRecord': {
                       const MainHeadingRecord = record as MainHeadingRecord;
                       return (
                         <MainHeading record={MainHeadingRecord}></MainHeading>
                       );
+                    }
                     default:
                       return null;
                   }
