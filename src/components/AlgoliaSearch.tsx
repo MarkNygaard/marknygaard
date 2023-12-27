@@ -1,15 +1,16 @@
-import algoliasearch from 'algoliasearch/lite';
+import { useState } from 'react';
+import { BsArrowReturnLeft } from 'react-icons/bs';
 import {
-  InstantSearch,
   Hits,
+  InstantSearch,
   SearchBox,
   Snippet,
 } from 'react-instantsearch-hooks-web';
-import { BsArrowReturnLeft } from 'react-icons/bs';
+import algoliasearch from 'algoliasearch/lite';
 import { SearchClient } from 'algoliasearch/lite';
-import Modal from './Modal';
-import { useState } from 'react';
 import clsx from 'clsx';
+
+import Modal from './Modal';
 
 const searchClient = algoliasearch(
   'WGUS10UMIP',

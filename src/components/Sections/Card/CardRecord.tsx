@@ -1,7 +1,8 @@
 import React from 'react';
+import { Image } from 'react-datocms';
 import clsx from 'clsx';
 import type { FileField } from 'infrastructure/generated/graphql';
-import { Image } from 'react-datocms';
+
 import TextRecord from '../Text/TextRecord';
 
 export default function CardRecord({ details }: any) {

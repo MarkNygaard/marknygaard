@@ -3,11 +3,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import NextLink from 'next/link';
-import clsx from 'clsx';
 import { Dialog } from '@headlessui/react';
-import { motion, AnimatePresence } from 'framer-motion';
+import clsx from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
 import { PageRecord } from 'infrastructure/generated/graphql';
+import NextLink from 'next/link';
 
 function NavItem({
   href,

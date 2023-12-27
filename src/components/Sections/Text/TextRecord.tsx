@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { StructuredText, renderNodeRule } from 'react-datocms';
-import { isCode } from 'datocms-structured-text-utils';
-import SyntaxHighlight from 'components/SyntaxHighlight';
-import MainHeading from 'components/MainHeading';
+import { renderNodeRule,StructuredText } from 'react-datocms';
 import clsx from 'clsx';
+import MainHeading from 'components/MainHeading';
+import SyntaxHighlight from 'components/SyntaxHighlight';
+import { isCode } from 'datocms-structured-text-utils';
 import { motion } from 'framer-motion';
 
 export default function TextRecord({ details }: any) {

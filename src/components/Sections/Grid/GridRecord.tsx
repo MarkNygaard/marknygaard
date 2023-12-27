@@ -1,6 +1,6 @@
-import PageSection from 'components/PageSection';
 import React from 'react';
 import clsx from 'clsx';
+import PageSection from 'components/PageSection';
 import { GridFragmentFragment } from 'infrastructure/generated/graphql';
 
 export default function GridRecord({

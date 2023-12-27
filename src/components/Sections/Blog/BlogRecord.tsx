@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { format } from 'date-fns';
-import NextLink from 'next/link';
 import { Image } from 'react-datocms';
 import clsx from 'clsx';
+import { format } from 'date-fns';
 import { motion } from 'framer-motion';
+import NextLink from 'next/link';
 
 export default function BlogRecord({
   details,

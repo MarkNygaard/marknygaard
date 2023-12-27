@@ -1,8 +1,8 @@
 import React from 'react';
-import NextLink from 'next/link';
-import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { PageRecord } from 'infrastructure/generated/graphql';
+import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
 
 function NavItem({ href, text }: { href: string; text: string }) {
   const path = usePathname();

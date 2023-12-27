@@ -1,8 +1,7 @@
 import { FC } from 'react';
+import { FiCheck, FiCopy } from 'react-icons/fi';
 import { Button, ButtonProps } from 'components/ui/button';
 import { useClipboard } from 'lib/hooks';
-
-import { FiCheck, FiCopy } from 'react-icons/fi';
 
 export interface CopyButtonProps extends ButtonProps {
   value?: string;

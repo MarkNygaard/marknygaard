@@ -1,12 +1,11 @@
 import React from 'react';
-import PageSection from 'components/PageSection';
 import { toNextMetadata } from 'react-datocms';
-
-import queryDatoCMS from 'infrastructure/queryDatoCms';
+import PageSection from 'components/PageSection';
 import { PageBySlugDocument } from 'infrastructure/generated/graphql';
-import { notFound } from 'next/navigation';
-import { draftMode } from 'next/headers';
+import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
 
 type Params = {
   params: {

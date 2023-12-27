@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { useTheme } from 'next-themes';
 import Giscus, { Repo, Theme } from '@giscus/react';
+import { useTheme } from 'next-themes';
 
 export default function Comment() {
   const { theme } = useTheme();

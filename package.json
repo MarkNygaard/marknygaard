@@ -8,6 +8,7 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "eslint src --fix && yarn format",
     "codegen": "graphql-codegen"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "@headlessui/react": "^1.7.17",
     "@radix-ui/react-slot": "^1.0.2",
     "@vercel/analytics": "^1.1.1",
+    "@vercel/speed-insights": "^1.0.2",
     "algoliasearch": "^4.22.0",
     "clsx": "^2.0.0",
     "date-fns": "^3.0.6",
@@ -48,6 +50,9 @@
     "autoprefixer": "latest",
     "eslint": "8.56.0",
     "eslint-config-next": "14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "next-sitemap": "^4.2.3",
     "postcss": "latest",
     "prettier": "^3.1.1",
