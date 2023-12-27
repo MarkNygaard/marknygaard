@@ -1,13 +1,15 @@
-import '../styles/globals.css';
-import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import clsx from 'clsx';
-import { Providers } from 'components/Providers';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import queryDatoCMS from 'infrastructure/queryDatoCms';
+import { Providers } from 'components/Providers';
 import { AllPagesDocument } from 'infrastructure/generated/graphql';
-import { Analytics } from '@vercel/analytics/react';
+import queryDatoCMS from 'infrastructure/queryDatoCms';
+import { Inter } from 'next/font/google';
 import { draftMode } from 'next/headers';
+
+import '../styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,6 +38,7 @@ export default async function RootLayout({
           <Footer />
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

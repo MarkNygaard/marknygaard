@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import type { FileField } from 'infrastructure/generated/graphql';
 import { Image } from 'react-datocms';
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
+import type { FileField } from 'infrastructure/generated/graphql';
 
 export default function ImageRecord({ details }: any) {
   return (

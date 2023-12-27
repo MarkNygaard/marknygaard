@@ -1,16 +1,15 @@
 'use client';
 
 import React from 'react';
-import { StructuredText, Image } from 'react-datocms';
-import type {
-  FileField,
-  TextImageRecord,
-} from 'infrastructure/generated/graphql';
+import { Image,StructuredText } from 'react-datocms';
 import clsx from 'clsx';
 import MainHeading from 'components/MainHeading';
 import { motion } from 'framer-motion';
+import type {
+  FileField, TextImageRecord
+} from 'infrastructure/generated/graphql';
 
-export default function TextImageRecord({
+export default function TextImage({
   imageLocation,
   displayStyle,
   fadeInText,

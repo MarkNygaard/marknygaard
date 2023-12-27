@@ -1,6 +1,6 @@
 import { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import { GraphQLClientRequestHeaders } from 'graphql-request/build/esm/types';
 import { print } from 'graphql';
+import { GraphQLClientRequestHeaders } from 'graphql-request/build/esm/types';
 
 export default async function queryDatoCMS<
   TResult = unknown,

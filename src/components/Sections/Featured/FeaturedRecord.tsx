@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Image } from 'react-datocms';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function FeaturedRecord({ details }: any) {
   return (

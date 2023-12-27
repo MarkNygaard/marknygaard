@@ -1,24 +1,22 @@
 import React, { Suspense } from 'react';
-import { draftMode } from 'next/headers';
-
+import { toNextMetadata } from 'react-datocms';
+import { Image, renderNodeRule,StructuredText } from 'react-datocms';
+import Comment from 'components/Comment';
 import MainHeading from 'components/MainHeading';
 import SyntaxHighlight from 'components/SyntaxHighlight';
 import ViewCounter from 'components/ViewCounter';
-import { toNextMetadata } from 'react-datocms';
-
+import { format } from 'date-fns';
+import { isCode } from 'datocms-structured-text-utils';
 import type {
   FileField,
   ImageRecord,
   MainHeadingRecord,
 } from 'infrastructure/generated/graphql';
-import { StructuredText, Image, renderNodeRule } from 'react-datocms';
-import { isCode } from 'datocms-structured-text-utils';
-import { format } from 'date-fns';
-import Comment from 'components/Comment';
-import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { PostBySlugDocument } from 'infrastructure/generated/graphql';
-import { notFound } from 'next/navigation';
+import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
 
 type Params = {
   params: {
@@ -64,7 +62,7 @@ export default async function Page({ params: { slug } }: Params) {
                 data={data.post.content as any}
                 renderBlock={({ record }: any) => {
                   switch (record.__typename) {
-                    case 'ImageRecord':
+                    case 'ImageRecord': {
                       const ImageRecord = record as ImageRecord;
                       return (
                         <div className="flex justify-center">
@@ -77,11 +75,13 @@ export default async function Page({ params: { slug } }: Params) {
                           />
                         </div>
                       );
-                    case 'MainHeadingRecord':
+                    }
+                    case 'MainHeadingRecord': {
                       const MainHeadingRecord = record as MainHeadingRecord;
                       return (
                         <MainHeading record={MainHeadingRecord}></MainHeading>
                       );
+                    }
                     default:
                       return null;
                   }

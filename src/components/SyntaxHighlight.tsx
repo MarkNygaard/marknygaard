@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Highlight, Language } from 'prism-react-renderer';
-import clsx from 'clsx';
 import { useMemo } from 'react';
+import clsx from 'clsx';
 import { useTheme } from 'next-themes';
+import { Highlight, Language } from 'prism-react-renderer';
+
 import { CopyButton } from './CopyButton';
 
 function usePrismTheme() {

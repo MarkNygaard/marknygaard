@@ -1,11 +1,12 @@
 import React from 'react';
+
 import BlogRecord from './Sections/Blog/BlogRecord';
-import FeaturedRecord from './Sections/Featured/FeaturedRecord';
 import CardRecord from './Sections/Card/CardRecord';
+import FeaturedRecord from './Sections/Featured/FeaturedRecord';
 import GridRecord from './Sections/Grid/GridRecord';
 import ImageRecord from './Sections/Image/ImageRecord';
-import TextImageRecord from './Sections/TextImage/TextImageRecord';
 import TextRecord from './Sections/Text/TextRecord';
+import TextImageRecord from './Sections/TextImage/TextImageRecord';
 
 export default function PageSection({
   details,

@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
-import Icon from './Icon';
-import MobileNavigation from './Navigation/MobileNavigation';
-import AlgoliaSearch from './AlgoliaSearch';
 import { BsSearch } from 'react-icons/bs';
-import Link from 'next/link';
 import { AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import { useTheme } from 'next-themes';
+
+import AlgoliaSearch from './AlgoliaSearch';
+import Icon from './Icon';
 import DesktopNavigation from './Navigation/DesktopNavigation';
+import MobileNavigation from './Navigation/MobileNavigation';
 
 export default function Header({ allPages }: { allPages: any }) {
   const [mounted, setMounted] = useState(false);
