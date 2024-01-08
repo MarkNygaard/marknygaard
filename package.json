@@ -20,7 +20,7 @@
     "algoliasearch": "^4.22.0",
     "clsx": "^2.1.0",
     "date-fns": "^3.1.0",
-    "datocms-structured-text-utils": "^2.0.4",
+    "datocms-structured-text-utils": "^2.1.12",
     "framer-motion": "^10.17.9",
     "gql": "^1.1.2",
     "graphql": "^16.8.1",

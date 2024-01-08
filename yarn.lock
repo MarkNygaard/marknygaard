@@ -2245,10 +2245,10 @@ datocms-structured-text-generic-html-renderer@^2.0.1:
   dependencies:
     datocms-structured-text-utils "^2.0.4"
 
-datocms-structured-text-utils@^2.0.1, datocms-structured-text-utils@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-2.0.4.tgz#c429e6b74b90fbac228e1d28b8919f9af2c4bfff"
-  integrity sha512-JxDdJaipm3FePOli9s82MRrBDnlPP9GYhqajQJaYEu4V1jwUSZzbVkYVKMfVHUfP0Gh0VSCxPHjAGGAN1nWMJg==
+datocms-structured-text-utils@^2.0.1, datocms-structured-text-utils@^2.0.4, datocms-structured-text-utils@^2.1.12:
+  version "2.1.12"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-2.1.12.tgz#8950a2fdbebcddf1981b526cf013758a737d88fb"
+  integrity sha512-tZtiPN/sEjl+4Z6igojPdap6Miy0Z6VO6Afor3vcyY/8PIwKVGbTsdd5trD+skWPCPRZVNzKpfYoAVziXWTL8Q==
   dependencies:
     array-flatten "^3.0.0"
 
