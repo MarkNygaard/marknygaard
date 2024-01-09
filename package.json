@@ -17,7 +17,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.2",
-    "algoliasearch": "^4.22.0",
+    "algoliasearch": "^4.22.1",
     "clsx": "^2.1.0",
     "date-fns": "^3.1.0",
     "datocms-structured-text-utils": "^3.0.0",
