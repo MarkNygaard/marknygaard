@@ -19,7 +19,7 @@
     "@vercel/speed-insights": "^1.0.7",
     "algoliasearch": "^4.22.1",
     "clsx": "^2.1.0",
-    "date-fns": "^3.2.0",
+    "date-fns": "^3.3.1",
     "datocms-structured-text-utils": "^3.0.0",
     "framer-motion": "^10.18.0",
     "gql": "^1.1.2",
