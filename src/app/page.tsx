@@ -1,5 +1,5 @@
 import { toNextMetadata } from 'react-datocms';
-import PageSection from 'components/PageSection';
+import PageSection from 'components/PageModules';
 import { HomePageDocument } from 'infrastructure/generated/graphql';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { Metadata } from 'next';

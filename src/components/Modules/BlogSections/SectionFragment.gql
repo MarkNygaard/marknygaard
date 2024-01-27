@@ -1,0 +1,73 @@
+fragment SectionFragment on SectionRecord {
+  id
+  name
+  description {
+    value
+    blocks {
+      ... on ImageRecord {
+        id
+        __typename
+        image {
+          responsiveImage(
+            imgixParams: {
+              fit: max
+              w: 800
+              h: 800
+              auto: compress
+              q: 60
+              fm: avif
+            }
+          ) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      ... on MainHeadingRecord {
+        id
+        __typename
+        title
+        subtitle
+      }
+    }
+  }
+  section {
+    id
+    name
+    description {
+      value
+      blocks {
+        ... on ImageRecord {
+          id
+          __typename
+          image {
+            responsiveImage(
+              imgixParams: {
+                fit: max
+                w: 800
+                h: 800
+                auto: compress
+                q: 60
+                fm: avif
+              }
+            ) {
+              ...responsiveImageFragment
+            }
+          }
+        }
+        ... on MainHeadingRecord {
+          id
+          __typename
+          title
+          subtitle
+        }
+      }
+    }
+    section {
+      id
+      name
+      description {
+        value
+      }
+    }
+  }
+}
