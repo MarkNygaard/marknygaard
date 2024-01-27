@@ -8,7 +8,7 @@ export interface UseClipboardProps {
   timeout?: number;
 }
 
-export function useClipboard({ timeout = 2000 }: UseClipboardProps = {}) {
+export default function useClipboard({ timeout = 2000 }: UseClipboardProps = {}) {
   const [error, setError] = useState<Error | null>(null);
   const [copied, setCopied] = useState(false);
   const [copyTimeout, setCopyTimeout] = useState<ReturnType<
