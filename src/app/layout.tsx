@@ -26,7 +26,7 @@ export default async function RootLayout({
       <body
         style={{ WebkitTapHighlightColor: 'transparent' }}
         className={clsx(
-          'flex min-h-screen flex-col dark:text-900 bg-white transition-colors dark:bg-black',
+          'flex min-h-screen flex-col dark:text-gray-200 bg-white transition-colors dark:bg-black',
           inter.className
         )}
       >

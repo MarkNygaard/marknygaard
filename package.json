@@ -59,5 +59,9 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "latest",
     "typescript": "latest"
-  }
+  },
+  "volta": {
+		"node": "18.17.0",
+		"yarn": "1.22.18"
+	}
 }

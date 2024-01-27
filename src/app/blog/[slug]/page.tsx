@@ -1,16 +1,13 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { toNextMetadata } from 'react-datocms';
-import { Image, renderNodeRule,StructuredText } from 'react-datocms';
+import { Image } from 'react-datocms';
+import CategoryMenu from 'components/CategoryMenu';
 import Comment from 'components/Comment';
-import MainHeading from 'components/MainHeading';
-import SyntaxHighlight from 'components/SyntaxHighlight';
-import ViewCounter from 'components/ViewCounter';
+import { Section } from 'components/Modules/BlogSections/Section';
+// import ViewCounter from 'components/ViewCounter';
 import { format } from 'date-fns';
-import { isCode } from 'datocms-structured-text-utils';
 import type {
-  FileField,
-  ImageRecord,
-  MainHeadingRecord,
+  SectionRecord
 } from 'infrastructure/generated/graphql';
 import { PostBySlugDocument } from 'infrastructure/generated/graphql';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
@@ -40,11 +37,16 @@ export default async function Page({ params: { slug } }: Params) {
 
   if (!data?.post) notFound();
   return (
-    <>
       <article>
         <div className="pb-4 sm:grid sm:grid-cols-3 sm:grid-rows-1 sm:gap-2">
-          <div className="h-full items-center border-[1px] border-pine-300 bg-pine-300 p-5 text-2xl font-light dark:border-gray-800 dark:bg-gray-800 md:text-3xl lg:text-4xl">
-            {data?.post.title}
+          <div className="flex flex-col justify-between border-[1px] border-pine-300 bg-pine-300 p-5 text-2xl font-light dark:border-gray-800 dark:bg-gray-800 md:text-3xl lg:text-4xl">
+            <div>
+              {data?.post.title}
+            </div>
+            <div>
+              <div className="text-sm text-gray-500">
+                {format(new Date(data?.post.date), 'MMMM do, yyyy')}
+              </div></div>
           </div>
           <div className="relative flex h-36 border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2 sm:h-60 lg:h-96">
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
@@ -57,88 +59,28 @@ export default async function Page({ params: { slug } }: Params) {
         </div>
         <div className="flex">
           <div className="w-full pr-3 lg:w-9/12">
-            <div className="prose max-w-none pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0">
-              <StructuredText
-                data={data.post.content as any}
-                renderBlock={({ record }: any) => {
-                  switch (record.__typename) {
-                    case 'ImageRecord': {
-                      const ImageRecord = record as ImageRecord;
-                      return (
-                        <div className="flex justify-center">
-                          {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                          <Image
-                            data={
-                              (ImageRecord.image as FileField)
-                                .responsiveImage as any
-                            }
-                          />
-                        </div>
-                      );
-                    }
-                    case 'MainHeadingRecord': {
-                      const MainHeadingRecord = record as MainHeadingRecord;
-                      return (
-                        <MainHeading record={MainHeadingRecord}></MainHeading>
-                      );
-                    }
-                    default:
-                      return null;
-                  }
-                }}
-                customNodeRules={[
-                  renderNodeRule(isCode, ({ node, key }) => {
-                    return (
-                      <SyntaxHighlight
-                        key={key}
-                        code={node.code}
-                        language={node.language || 'unknown'}
-                        highlightLines={node.highlight}
-                        showLineNumbers={node.code.split(/\n/).length > 10}
-                      />
-                    );
-                  }),
-                ]}
-              />
-            </div>
+            {data.post?.section.map((FirstLevel) => {
+            return <Section key={FirstLevel.id} {...FirstLevel as SectionRecord} />;
+            })}
             <Comment />
           </div>
-          <aside className="hidden w-3/12 space-y-2 divide-y lg:block">
-            <div className="py-5 pl-2 text-sm text-gray-500">
-              {format(new Date(data?.post.date), 'MMMM do, yyyy')}
-            </div>
-            <div className="space-y-2 py-5 pl-2">
-              <div className="font-semibold">Author</div>
-              <div className="flex">
-                {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                <Image
-                  data={
-                    (data?.post.author?.picture as FileField)
-                      .responsiveImage as any
-                  }
-                />
-                <div className="my-auto px-4 font-light">
-                  {data?.post.author?.name}
+          <aside className="hidden w-3/12 lg:block">
+            <div className='sticky top-0 space-y-2 divide-y dark:divide-gray-700'>
+              {/* <div className="space-y-2 py-5 pl-2">
+                <div className="font-semibold">View Counter</div>
+                <div className="my-auto font-light">
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <ViewCounter />
+                  </Suspense>
                 </div>
-              </div>
-            </div>
-            <div className="space-y-2 py-5 pl-2">
-              <div className="font-semibold">Category</div>
-              <div className="my-auto font-light">
-                {data?.post.category?.name}
-              </div>
-            </div>
-            <div className="space-y-2 py-5 pl-2">
-              <div className="font-semibold">View Counter</div>
-              <div className="my-auto font-light">
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ViewCounter />
-                </Suspense>
+              </div> */}
+              <div className="text-xl space-y-2 py-5 pl-2">
+                <div className="font-semibold mb-4">Table of Contents</div>
+                <CategoryMenu post={data.post} />
               </div>
             </div>
           </aside>
         </div>
       </article>
-    </>
   );
 }
