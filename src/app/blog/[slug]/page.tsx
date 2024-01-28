@@ -58,28 +58,30 @@ export default async function Page({ params: { slug } }: Params) {
           </div>
         </div>
         <div className="flex">
-          <div className="w-full pr-3 lg:w-9/12">
-            {data.post?.section.map((FirstLevel) => {
-            return <Section key={FirstLevel.id} {...FirstLevel as SectionRecord} />;
-            })}
-            <Comment />
-          </div>
-          <aside className="hidden w-3/12 lg:block">
-            <div className='sticky top-0 space-y-2 divide-y dark:divide-gray-700'>
-              {/* <div className="space-y-2 py-5 pl-2">
-                <div className="font-semibold">View Counter</div>
-                <div className="my-auto font-light">
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <ViewCounter />
-                  </Suspense>
-                </div>
-              </div> */}
-              <div className="text-xl space-y-2 py-5 pl-2">
-                <div className="font-semibold mb-4">Table of Contents</div>
-                <CategoryMenu post={data.post} />
-              </div>
+          <div className='flex mx-auto'>
+            <div className="w-full pr-3 prose">
+                {data.post?.section.map((FirstLevel) => {
+                  return <Section key={FirstLevel.id} {...FirstLevel as SectionRecord} />;
+                })}
+                <Comment />
             </div>
-          </aside>
+            <aside className="hidden w-auto lg:block">
+              <div className='sticky top-0 space-y-2 divide-y dark:divide-gray-700'>
+                {/* <div className="space-y-2 py-5 pl-2">
+                  <div className="font-semibold">View Counter</div>
+                  <div className="my-auto font-light">
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <ViewCounter />
+                    </Suspense>
+                  </div>
+                </div> */}
+                <div className="text-xl space-y-2 py-5 pl-2">
+                  <div className="font-semibold mb-4">Table of Contents</div>
+                  <CategoryMenu post={data.post} />
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </article>
   );
