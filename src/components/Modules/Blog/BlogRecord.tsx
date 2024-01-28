@@ -28,7 +28,7 @@ export default function BlogRecord({
               className="group my-6 grid grid-cols-5 overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 translate-z-0 dark:border-gray-800 dark:bg-gray-900 dark:hover:bg-gray-800"
             >
               <div
-                className={clsx('hidden h-44 w-full overflow-hidden', {
+                className={clsx('hidden w-full overflow-hidden', {
                   'col-span-2 sm:flex': details.imageBoolean === true,
                 })}
               >

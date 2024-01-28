@@ -58,14 +58,13 @@ export default async function Page({ params: { slug } }: Params) {
           </div>
         </div>
         <div className="flex">
-          <div className='flex mx-auto'>
-            <div className="w-full pr-3 prose">
+            <div className="pr-3 w-9/12">
                 {data.post?.section.map((FirstLevel) => {
                   return <Section key={FirstLevel.id} {...FirstLevel as SectionRecord} />;
                 })}
                 <Comment />
             </div>
-            <aside className="hidden w-auto lg:block">
+            <aside className="hidden w-3/12 lg:block">
               <div className='sticky top-0 space-y-2 divide-y dark:divide-gray-700'>
                 {/* <div className="space-y-2 py-5 pl-2">
                   <div className="font-semibold">View Counter</div>
@@ -82,7 +81,6 @@ export default async function Page({ params: { slug } }: Params) {
               </div>
             </aside>
           </div>
-        </div>
       </article>
   );
 }
