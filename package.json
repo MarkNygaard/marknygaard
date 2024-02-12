@@ -51,7 +51,7 @@
     "eslint": "8.56.0",
     "eslint-config-next": "14.1.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-simple-import-sort": "^11.0.0",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
     "next-sitemap": "^4.2.3",
     "postcss": "latest",
