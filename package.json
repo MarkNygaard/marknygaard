@@ -34,7 +34,7 @@
     "react-dom": "latest",
     "react-icons": "^5.0.1",
     "react-instantsearch-hooks-web": "^6.47.3",
-    "tailwind-variants": "^0.2.0"
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.2",
