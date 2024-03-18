@@ -45,7 +45,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "20.11.28",
-    "@types/react": "18.2.66",
+    "@types/react": "18.2.67",
     "@types/react-dom": "18.2.22",
     "autoprefixer": "latest",
     "eslint": "8.57.0",
