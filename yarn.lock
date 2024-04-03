@@ -4628,10 +4628,10 @@ react-copy-to-clipboard@^5.1.0:
     copy-to-clipboard "^3.3.1"
     prop-types "^15.8.1"
 
-react-datocms@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-5.0.3.tgz#bb2eb2ff13994af3c1b5d641534fa7da53f5f0fa"
-  integrity sha512-NzX3jVNuXbrPYzoQVJkhHQ3ldl4fpWylPnC8k723Ncigb3WDKSO7DWEB3ifUp3JJceBe1agKf6HVFYolPZxOjA==
+react-datocms@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-6.0.0.tgz#a5cd0203a73b0296b1c11ccb6d3ce25f0b14a70b"
+  integrity sha512-3uw9wRTwux+XunCBKHiKoJQwVvql26koV0CB0ZFiZM4glDaKxespVzhKvWe71B7PavufXu0cpBl4ezRsTlQY+g==
   dependencies:
     "@mux/mux-player-react" "*"
     datocms-listen "^0.1.9"
@@ -4639,7 +4639,6 @@ react-datocms@^5.0.3:
     datocms-structured-text-utils "^2.0.1"
     react-intersection-observer "^9.4.3"
     react-string-replace "^1.1.0"
-    universal-base64 "^2.1.0"
     use-deep-compare-effect "^1.6.1"
 
 react-dom@latest:
@@ -5410,11 +5409,6 @@ undici-types@~5.26.4:
   version "5.26.5"
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
   integrity sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==
-
-universal-base64@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/universal-base64/-/universal-base64-2.1.0.tgz#511af92b3a07340fc2647036045aadb3bedcc320"
-  integrity sha512-WeOkACVnIXJZr/qlv7++Rl1zuZOHN96v2yS5oleUuv8eJOs5j9M5U3xQEIoWqn1OzIuIcgw0fswxWnUVGDfW6g==
 
 unixify@^1.0.0:
   version "1.0.0"
