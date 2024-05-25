@@ -43,7 +43,7 @@ export default function MobileNavigation({ allPages }: any) {
     <nav className='container relative z-10 mx-auto px-4 md:hidden standalone:fixed standalone:mb-6 standalone:w-screen standalone:bg-gradient-to-r standalone:from-pine-400 standalone:via-pine-300 standalone:to-pine-200 standalone:pb-0 standalone:pt-10 dark:standalone:from-gray-900 dark:standalone:via-gray-900 dark:standalone:to-gray-900 standalone:md:relative standalone:md:max-w-none standalone:md:pt-0'>
       <div className='my-4 -ml-3 flex flex-1 justify-between'>
         <Modal open={menuIsOpen} onOpenChange={setMenuIsOpen}>
-          <ModalTrigger>
+          <ModalTrigger asChild>
             <button
               aria-label='menu'
               className='mobile-menu-button ml-3 inline-flex h-12 w-12 items-center justify-center rounded-full text-gray-500 focus:outline-none focus:ring-offset-2 active:bg-gray-200 dark:active:bg-gray-600'

@@ -55,7 +55,7 @@ export default async function Page({ params: { slug } }: Params) {
         </div>
       </div>
       <div className='flex'>
-        <div className='w-9/12 pr-3'>
+        <div className='w-full md:w-9/12 md:pr-3'>
           {data.post?.section.map((FirstLevel) => {
             return (
               <Section key={FirstLevel.id} {...(FirstLevel as SectionRecord)} />
