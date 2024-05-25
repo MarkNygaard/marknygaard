@@ -1,9 +1,9 @@
 import React from 'react';
 import { toNextMetadata } from 'react-datocms';
 import { Image } from 'react-datocms';
+import { Section } from '@Modules/BlogSections/Section';
 import CategoryMenu from 'components/CategoryMenu';
 import Comment from 'components/Comment';
-import { Section } from '@Modules/BlogSections/Section';
 // import ViewCounter from 'components/ViewCounter';
 import { format } from 'date-fns';
 import type { SectionRecord } from 'infrastructure/generated/graphql';
@@ -64,7 +64,7 @@ export default async function Page({ params: { slug } }: Params) {
           <Comment />
         </div>
         <aside className='hidden w-3/12 lg:block'>
-          <div className='sticky top-0 space-y-2 divide-y dark:divide-gray-700'>
+          <div className='sticky top-20 space-y-2 divide-y dark:divide-gray-700'>
             {/* <div className="space-y-2 py-5 pl-2">
                   <div className="font-semibold">View Counter</div>
                   <div className="my-auto font-light">
