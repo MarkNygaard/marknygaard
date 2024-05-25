@@ -8,7 +8,7 @@ export default async function queryDatoCMS<
 >(
   document: TypedDocumentNode<TResult, TVariables>,
   variables?: TVariables,
-  isDraft?: boolean
+  isDraft?: boolean,
 ): Promise<TResult> {
   const headers: GraphQLClientRequestHeaders = {
     'Content-Type': 'application/json',

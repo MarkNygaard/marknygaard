@@ -58,13 +58,13 @@ export default function SyntaxHighlight({
                 key={i}
                 className={clsx(lineProps.className, {
                   ['bg-white']: highlightLines.includes(i),
-                  [`before:content-[attr(data-line-number)] before:pr-3 before:opacity-20`]:
+                  [`before:pr-3 before:opacity-20 before:content-[attr(data-line-number)]`]:
                     showLineNumbers,
                   showLineNumbers,
                 })}
                 data-line-number={`${i + 1}`.padStart(
                   linesCount.toString().length,
-                  ' '
+                  ' ',
                 )}
               >
                 {line.map((token, key) => (

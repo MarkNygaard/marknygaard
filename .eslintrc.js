@@ -5,12 +5,7 @@ module.exports = {
     node: true,
   },
   plugins: ['simple-import-sort', 'unused-imports'],
-  extends: [
-    'eslint:recommended',
-    'next',
-    'next/core-web-vitals',
-    'prettier',
-  ],
+  extends: ['eslint:recommended', 'next', 'next/core-web-vitals', 'prettier'],
   rules: {
     'no-unused-vars': 'off',
     'no-console': 'warn',
@@ -43,7 +38,7 @@ module.exports = {
       {
         groups: [
           // Packages `react` related packages come first.
-          ["^react", "^@?\\w"],
+          ['^react', '^@?\\w'],
           // ext library & side effect imports
           ['^@?\\w', '^\\u0000'],
           // {s}css files

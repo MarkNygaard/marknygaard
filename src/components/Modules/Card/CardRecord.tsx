@@ -7,7 +7,7 @@ import TextRecord from '../Text/TextRecord';
 
 export default function CardRecord({ details }: any) {
   return (
-    <div className="flex justify-center">
+    <div className='flex justify-center'>
       <div
         className={clsx('grid', {
           [`grid-cols-${details.mobileColumns as String}`]:
@@ -41,13 +41,13 @@ export default function CardRecord({ details }: any) {
                       'h-52': details.height === 'Small',
                       'h-96': details.height === 'Medium',
                       'h-132': details.height === 'Large',
-                    }
+                    },
                   )}
                 >
                   {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image
                     data={(section.image as FileField).responsiveImage as any}
-                    pictureClassName="object-cover"
+                    pictureClassName='object-cover'
                   />
                 </div>
               ) : section.__typename === 'CardTextRecord' ? (
@@ -58,7 +58,7 @@ export default function CardRecord({ details }: any) {
                       'h-52': details.height === 'Small',
                       'h-96': details.height === 'Medium',
                       'h-132': details.height === 'Large',
-                    }
+                    },
                   )}
                 >
                   <TextRecord details={section} />

@@ -11,7 +11,7 @@ export default function CategoryMenuItem({ name, section }: SectionRecord) {
 
   return (
     <ol>
-      <li className="py-1 hover:text-gray-800 dark:hover:text-gray-200">
+      <li className='py-1 hover:text-gray-800 dark:hover:text-gray-200'>
         <Link
           onClick={() => {
             setActiveSection(name as string);
@@ -19,8 +19,7 @@ export default function CategoryMenuItem({ name, section }: SectionRecord) {
           }}
           href={'#' + name}
           className={clsx({
-            'text-gray-800 dark:text-gray-200':
-              activeSection === name,
+            'text-gray-800 dark:text-gray-200': activeSection === name,
           })}
         >
           {name}
@@ -29,8 +28,8 @@ export default function CategoryMenuItem({ name, section }: SectionRecord) {
       <li>
         {section?.map((SecondLevelMenu) => {
           return (
-            <ol key={SecondLevelMenu.id} className="pb-1">
-              <li className="hover:text-gray-800 dark:hover:text-gray-200">
+            <ol key={SecondLevelMenu.id} className='pb-1'>
+              <li className='hover:text-gray-800 dark:hover:text-gray-200'>
                 <Link
                   onClick={() => {
                     setActiveSection(SecondLevelMenu.name as string);
@@ -49,7 +48,7 @@ export default function CategoryMenuItem({ name, section }: SectionRecord) {
                 return (
                   <li
                     key={ThirdLevelMenu.id}
-                    className="hover:text-gray-800 dark:hover:text-gray-200"
+                    className='hover:text-gray-800 dark:hover:text-gray-200'
                   >
                     <Link
                       onClick={() => {

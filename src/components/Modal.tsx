@@ -17,7 +17,7 @@ export default function Modal({
     <Dialog
       open={true}
       onClose={onClose}
-      className="fixed z-50 inset-0 p-4 md:p-8 md:my-12 max-w-[840px] mx-auto min-h-[200px] max-h-[630px] w-full h-full"
+      className='fixed inset-0 z-50 mx-auto h-full max-h-[630px] min-h-[200px] w-full max-w-[840px] p-4 md:my-12 md:p-8'
     >
       <Dialog.Overlay
         as={motion.div}
@@ -30,7 +30,7 @@ export default function Modal({
           opacity: 0,
           transition: { duration: 0.3, ease: [0.36, 0.66, 0.04, 1] },
         }}
-        className="fixed inset-0 bg-gray-500/75"
+        className='fixed inset-0 bg-gray-500/75'
         onClick={onClose}
       ></Dialog.Overlay>
       <Dialog.Panel

@@ -12,12 +12,12 @@ export default function GridRecord({
   return (
     <div
       className={clsx(
-        'relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 md:grid md:grid-cols-8 lg:mb-48 lg:grid lg:grid-cols-12 lg:gap-x-6',
+        'relative mx-auto grid max-w-6xl grid-cols-4 md:grid md:grid-cols-8 lg:mb-48 lg:grid lg:grid-cols-12',
         {
           hidden: showOnMobile === false,
           'md:hidden': showOnTablet === false,
           'lg:hidden': showOnDesktop === false,
-        }
+        },
       )}
     >
       {sections?.map((section, i) => {
