@@ -16,19 +16,19 @@ export const CopyButton: FC<CopyButtonProps> = ({ value, ...buttonProps }) => {
 
   return (
     <Button
-      className="absolute top-0 right-0 m-2 group-hover:border-zinc-500 dark:border-zinc-500 dark:group-hover:border-zinc-400 hover:border-2 group"
-      size="icon"
-      variant="outline"
+      className='group absolute right-0 top-0 m-2 hover:border-2 group-hover:border-zinc-500 dark:border-zinc-500 dark:group-hover:border-zinc-400'
+      size='icon'
+      variant='outline'
       onClick={handleCopy}
       {...buttonProps}
     >
       <FiCheck
-        className="absolute opacity-0 scale-50 text-zinc-300 dark:text-zinc-500 data-[visible=true]:opacity-100 data-[visible=true]:scale-100 transition-transform-opacity"
+        className='transition-transform-opacity absolute scale-50 text-zinc-300 opacity-0 data-[visible=true]:scale-100 data-[visible=true]:opacity-100 dark:text-zinc-500'
         data-visible={copied}
         size={16}
       />
       <FiCopy
-        className="absolute opacity-0 scale-50 text-zinc-300 dark:text-zinc-500 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 data-[visible=true]:opacity-100 data-[visible=true]:scale-100 transition-transform-opacity"
+        className='transition-transform-opacity absolute scale-50 text-zinc-300 opacity-0 group-hover:text-zinc-500 data-[visible=true]:scale-100 data-[visible=true]:opacity-100 dark:text-zinc-500 dark:group-hover:text-zinc-400'
         data-visible={!copied}
         size={16}
       />

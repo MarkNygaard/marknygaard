@@ -1,12 +1,13 @@
 'use client';
 
 import React from 'react';
-import { Image,StructuredText } from 'react-datocms';
+import { Image, StructuredText } from 'react-datocms';
 import clsx from 'clsx';
 import MainHeading from 'components/MainHeading';
 import { motion } from 'framer-motion';
 import type {
-  FileField, TextImageRecord
+  FileField,
+  TextImageRecord,
 } from 'infrastructure/generated/graphql';
 
 export default function TextImage({
@@ -35,7 +36,7 @@ export default function TextImage({
         initial={fadeInText ? { y: 20, opacity: 0 } : { opacity: 1 }}
         animate={fadeInText ? { y: 0, opacity: 1 } : { opacity: 1 }}
         transition={fadeInText && { duration: 0.5 }}
-        className="grid-text prose prose-lg col-span-2 grow pr-4 prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-invert dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400"
+        className='grid-text prose prose-lg col-span-2 grow pr-4 dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400'
       >
         <StructuredText
           data={structuredText as any}
@@ -63,7 +64,7 @@ export default function TextImage({
               {
                 'rounded-full': imageStyle === 'Round',
                 'rounded-lg': imageStyle === 'Rounded Corners',
-              }
+              },
             )}
           >
             {/* eslint-disable-next-line jsx-a11y/alt-text */}

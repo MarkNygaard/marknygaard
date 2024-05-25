@@ -2,7 +2,8 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import clsx from 'clsx';
 import Footer from 'components/Footer';
-import Header from 'components/Header';
+import DesktopNavigation from 'components/Modules/Navigation/DesktopNavigation';
+import MobileNavigation from 'components/Modules/Navigation/MobileNavigation';
 import { Providers } from 'components/Providers';
 import { AllPagesDocument } from 'infrastructure/generated/graphql';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
@@ -19,21 +20,22 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { isEnabled } = draftMode();
-  const data = await queryDatoCMS(AllPagesDocument, {}, isEnabled);
+  const { allPages } = await queryDatoCMS(AllPagesDocument, {}, isEnabled);
 
   return (
-    <html lang="en">
+    <html lang='en'>
       <body
         style={{ WebkitTapHighlightColor: 'transparent' }}
         className={clsx(
-          'flex min-h-screen flex-col dark:text-gray-200 bg-white transition-colors dark:bg-black',
-          inter.className
+          'flex min-h-screen flex-col bg-white transition-colors dark:bg-black dark:text-gray-200',
+          inter.className,
         )}
       >
         <Providers>
-          <Header allPages={data.allPages} />
-          <main className="container mx-auto flex-1 px-4 pb-6 sm:pb-16 md:py-10 standalone:pt-36 standalone:md:pt-6">
-            <div className="mx-auto max-w-5xl">{children}</div>
+          <DesktopNavigation allPages={allPages} />
+          <MobileNavigation allPages={allPages} />
+          <main className='container mx-auto flex-1 px-4 pb-6 sm:pb-16 md:py-10 standalone:pt-36 standalone:md:pt-6'>
+            <div className='mx-auto max-w-5xl'>{children}</div>
           </main>
           <Footer />
         </Providers>

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { renderNodeRule,StructuredText } from 'react-datocms';
+import { renderNodeRule, StructuredText } from 'react-datocms';
 import clsx from 'clsx';
 import MainHeading from 'components/MainHeading';
 import SyntaxHighlight from 'components/SyntaxHighlight';
@@ -21,7 +21,7 @@ export default function TextRecord({ details }: any) {
         initial={details.fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
         animate={details.fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
         transition={details.fadeIn && { duration: 0.5 }}
-        className="prose prose-lg col-span-2 grow pr-4 prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-invert dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400"
+        className='prose prose-lg col-span-2 grow pr-4 dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400'
       >
         <StructuredText
           data={details.structuredText}
