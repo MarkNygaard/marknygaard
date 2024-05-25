@@ -22,7 +22,7 @@ export function ThirdSection({ name, description }: SectionRecord) {
       <div className='pl-4 pt-8 text-lg font-light text-gray-900 dark:text-gray-200'>
         {name}
       </div>
-      <div className='prose max-w-none pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0'>
+      <div className='prose max-w-none break-words pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0'>
         <StructuredText
           data={description as any}
           renderBlock={({ record }: any) => {

@@ -24,7 +24,7 @@ export function SecondSection({ name, description, section }: SectionRecord) {
       <div className='py-2 text-2xl font-medium text-gray-900 dark:text-gray-200'>
         {name}
       </div>
-      <div className='prose max-w-none pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0'>
+      <div className='prose max-w-none break-words pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0'>
         <StructuredText
           data={description as any}
           renderBlock={({ record }: any) => {

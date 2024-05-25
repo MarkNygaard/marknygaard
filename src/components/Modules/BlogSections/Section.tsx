@@ -26,7 +26,7 @@ export function Section({ name, description, section }: SectionRecord) {
           {name}
         </div>
       )}
-      <div className='prose max-w-none pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0'>
+      <div className='prose max-w-none break-words pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0'>
         <StructuredText
           data={description as any}
           renderBlock={({ record }: any) => {
