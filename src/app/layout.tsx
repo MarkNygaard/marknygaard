@@ -1,9 +1,9 @@
+import DesktopNavigation from '@Modules/Navigation/DesktopNavigation';
+import MobileNavigation from '@Modules/Navigation/MobileNavigation';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import clsx from 'clsx';
 import Footer from 'components/Footer';
-import DesktopNavigation from 'components/Modules/Navigation/DesktopNavigation';
-import MobileNavigation from 'components/Modules/Navigation/MobileNavigation';
 import { Providers } from 'components/Providers';
 import { AllPagesDocument } from 'infrastructure/generated/graphql';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
