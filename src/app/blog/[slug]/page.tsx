@@ -3,7 +3,7 @@ import { toNextMetadata } from 'react-datocms';
 import { Image } from 'react-datocms';
 import CategoryMenu from 'components/CategoryMenu';
 import Comment from 'components/Comment';
-import { Section } from 'components/Modules/BlogSections/Section';
+import { Section } from '@Modules/BlogSections/Section';
 // import ViewCounter from 'components/ViewCounter';
 import { format } from 'date-fns';
 import type { SectionRecord } from 'infrastructure/generated/graphql';

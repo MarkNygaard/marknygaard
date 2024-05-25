@@ -1,14 +1,13 @@
 'use client';
 
 import React from 'react';
+import AlgoliaSearch from '@ui/AlgoliaSearch';
+import { DarkMode } from '@ui/DarkMode';
 import clsx from 'clsx';
 import { PageRecord } from 'infrastructure/generated/graphql';
 import NextLink from 'next/link';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-import { DarkMode } from './DarkMode';
-import Search from './Search';
 
 function NavItem({ href, text }: { href: string; text: string }) {
   const path = usePathname();
@@ -58,7 +57,7 @@ export default function DesktopNavigation({ allPages }: any) {
                 })}
               </div>
               <div className='flex items-center space-x-2 pl-3'>
-                <Search />
+                <AlgoliaSearch />
                 <DarkMode />
               </div>
             </div>

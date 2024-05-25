@@ -159,6 +159,7 @@ const config: Config = withTV({
   ],
   plugins: [
     require('@tailwindcss/typography'),
+    require('tailwindcss-animate'),
     plugin(function ({
       matchUtilities,
       theme,
