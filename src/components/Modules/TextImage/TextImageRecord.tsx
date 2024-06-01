@@ -36,7 +36,7 @@ export default function TextImage({
         initial={fadeInText ? { y: 20, opacity: 0 } : { opacity: 1 }}
         animate={fadeInText ? { y: 0, opacity: 1 } : { opacity: 1 }}
         transition={fadeInText && { duration: 0.5 }}
-        className='grid-text prose prose-lg col-span-2 grow pr-4 dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400'
+        className='grid-text prose col-span-2 grow pr-4 dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400'
       >
         <StructuredText
           data={structuredText as any}

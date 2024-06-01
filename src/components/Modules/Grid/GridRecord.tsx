@@ -12,7 +12,7 @@ export default function GridRecord({
   return (
     <div
       className={clsx(
-        'relative mx-auto grid max-w-6xl grid-cols-4 md:grid md:grid-cols-8 lg:mb-48 lg:grid lg:grid-cols-12',
+        'relative mx-auto grid max-w-6xl grid-cols-4 md:grid md:grid-cols-8 lg:grid lg:grid-cols-12',
         {
           hidden: showOnMobile === false,
           'md:hidden': showOnTablet === false,

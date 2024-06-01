@@ -8,7 +8,7 @@ import Icon from './Icon';
 export default function Footer() {
   return (
     <footer className='container mx-auto md:mb-10'>
-      <div className='container mx-auto flex flex-col items-center space-y-4 bg-pine-300/80 pb-10 pt-12 font-extralight dark:bg-slate-900/60 md:max-w-6xl md:rounded-xl'>
+      <div className='container mx-auto flex flex-col items-center space-y-4 bg-pine-300/80 pb-10 pt-12 font-extralight dark:bg-gray-800/60 md:max-w-6xl md:rounded-sm'>
         <ul className='p-4'>
           <motion.li
             className='text-3xl'
