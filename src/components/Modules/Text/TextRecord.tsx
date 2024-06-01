@@ -21,7 +21,7 @@ export default function TextRecord({ details }: any) {
         initial={details.fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
         animate={details.fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
         transition={details.fadeIn && { duration: 0.5 }}
-        className='prose prose-lg col-span-2 grow dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400 md:pr-4'
+        className='prose col-span-2 grow dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400 md:pr-4'
       >
         <StructuredText
           data={details.structuredText}

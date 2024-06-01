@@ -19,12 +19,12 @@ input[type='search']::-webkit-search-cancel-button {
 
 .underlined:after {
   content: '';
-  height: 2px;
+  height: 1.3px;
   transform: scaleX(0);
   transition: transform 0.25s ease;
   transform-origin: left;
   left: 0;
-  bottom: -4px;
+  bottom: -1px;
   width: 100%;
   display: block;
   position: absolute;

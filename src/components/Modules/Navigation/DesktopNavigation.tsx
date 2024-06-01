@@ -4,6 +4,7 @@ import React from 'react';
 import AlgoliaSearch from '@ui/AlgoliaSearch';
 import { DarkMode } from '@ui/DarkMode';
 import clsx from 'clsx';
+import LogoIcon from 'components/Icon/logo';
 import { PageRecord } from 'infrastructure/generated/graphql';
 import NextLink from 'next/link';
 import Link from 'next/link';
@@ -18,9 +19,9 @@ function NavItem({ href, text }: { href: string; text: string }) {
       href={href}
       className={clsx(
         isActive
-          ? 'active border-pine-900 text-pine-900 transition dark:text-gray-100'
+          ? 'active border-red-500 text-pine-900 transition dark:text-gray-200'
           : 'text-pine-600 transition-all duration-300 ease-out hover:text-pine-900 hover:ease-in dark:text-gray-500 dark:hover:text-gray-100',
-        'font-base underlined h-fit text-base lg:text-lg',
+        'underlined h-fit text-base font-light',
       )}
     >
       <span className='capsize'>{text}</span>
@@ -32,16 +33,15 @@ export default function DesktopNavigation({ allPages }: any) {
   return (
     <nav className='container sticky top-0 z-10 mx-auto max-w-6xl'>
       <div className='hidden md:block'>
-        <div className='relative my-4 rounded-xl bg-pine-300/80 shadow-sm backdrop-blur-sm dark:bg-slate-900/60'>
+        <div className='relative my-4 rounded-sm bg-pine-300/80 shadow-sm backdrop-blur-sm dark:bg-gray-800/60'>
           <div className='mx-auto flex max-w-5xl py-4'>
             <div className='flex flex-1 items-center text-xl'>
               <Link
                 href='/'
                 passHref
-                className='text-sm font-light uppercase tracking-tight md:text-base lg:text-xl'
+                className='text-sm font-light uppercase tracking-tight dark:text-gray-200 md:text-base lg:text-xl'
               >
-                Mark
-                <span className='font-semibold'>Nygaard</span>
+                <LogoIcon />
               </Link>
             </div>
             <div className='flex divide-x divide-pine-400'>
