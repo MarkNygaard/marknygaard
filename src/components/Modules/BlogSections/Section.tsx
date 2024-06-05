@@ -1,55 +1,72 @@
 'use client';
 
-import { Image, renderNodeRule, StructuredText } from 'react-datocms';
-import MainHeading from 'components/MainHeading';
+import { renderNodeRule, StructuredText } from 'react-datocms';
+import ImageBlock from '@ui/Image/ImageRecord';
+import MainHeading from '@ui/MainHeading/MainHeading';
 import SyntaxHighlight from 'components/SyntaxHighlight';
 import { isCode } from 'datocms-structured-text-utils';
 import {
-  FileField,
   ImageRecord,
   MainHeadingRecord,
   SectionRecord,
 } from 'infrastructure/generated/graphql';
 import useSectionInView from 'lib/hooks/useSectionInView';
 
-import { SecondSection } from './SecondSection';
+interface SectionProps extends SectionRecord {
+  level?: number;
+}
 
-export function Section({ name, description, section }: SectionRecord) {
+export function Section({
+  name,
+  description,
+  section,
+  level = 0,
+}: SectionProps) {
   const { ref } = useSectionInView({
     sectionId: name as string,
   });
 
+  // Define an indentation style based on the level
+  const indentationStyle = {
+    paddingLeft: `${level > 0 ? 15 : 0}px`,
+  };
+
+  // Define heading size based on the level
+  const headingSizes = [
+    'text-2xl',
+    'text-xl',
+    'text-lg',
+    'text-base',
+    'text-sm',
+  ];
+  const headingSize = headingSizes[level] || 'text-2xl';
+
   return (
-    <div ref={ref} id={name ?? ''} className='scroll-mt-[5vh]'>
+    <div
+      ref={ref}
+      id={name ?? ''}
+      className='scroll-mt-[5vh]'
+      style={indentationStyle}
+    >
       {name && (
-        <div className='mb-4 pt-4 text-2xl font-semibold text-gray-900 dark:border-gray-800 dark:text-gray-100'>
+        <div
+          className={`mb-2 pt-4 font-semibold text-gray-900 dark:border-gray-800 dark:text-gray-100 ${headingSize}`}
+        >
           {name}
         </div>
       )}
-      <div className='prose max-w-none break-words pb-4 dark:prose-invert prose-pre:text-xs prose-img:m-0'>
+      <div className='prose max-w-none break-words pb-2 dark:prose-invert prose-pre:text-xs prose-img:m-0'>
         <StructuredText
           data={description as any}
           renderBlock={({ record }: any) => {
             switch (record.__typename) {
               case 'ImageRecord': {
                 const ImageRecord = record as ImageRecord;
-                return (
-                  <div className='flex justify-center'>
-                    <div className='relative overflow-hidden translate-z-0 dark:rounded-lg'>
-                      {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                      <Image
-                        data={
-                          (ImageRecord.image as FileField)
-                            .responsiveImage as any
-                        }
-                      />
-                    </div>
-                  </div>
-                );
+                return <ImageBlock {...ImageRecord} />;
               }
               case 'MainHeadingRecord': {
                 const MainHeadingRecord = record as MainHeadingRecord;
-                return <MainHeading record={MainHeadingRecord}></MainHeading>;
+                return <MainHeading {...MainHeadingRecord} />;
               }
               default:
                 return null;
@@ -71,12 +88,13 @@ export function Section({ name, description, section }: SectionRecord) {
         />
       </div>
       <div>
-        {section?.map((SecondLevel) => {
+        {section?.map((nestedSection) => {
           return (
-            <SecondSection
-              key={SecondLevel.id}
-              {...SecondLevel}
-            ></SecondSection>
+            <Section
+              key={nestedSection.id}
+              {...nestedSection}
+              level={level + 1}
+            />
           );
         })}
       </div>

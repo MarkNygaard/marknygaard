@@ -1,0 +1,6 @@
+fragment MainHeadingFragment on MainHeadingRecord {
+  id
+  __typename
+  title
+  subtitle(markdown: true)
+}

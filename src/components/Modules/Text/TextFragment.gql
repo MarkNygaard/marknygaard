@@ -6,11 +6,26 @@ fragment TextFragment on TextRecord {
   structuredText {
     value
     blocks {
-      __typename
-      ... on MainHeadingRecord {
+      ... on ImageRecord {
         id
-        title
-        subtitle(markdown: true)
+        __typename
+        image {
+          responsiveImage(
+            imgixParams: {
+              fit: max
+              w: 800
+              h: 800
+              auto: compress
+              q: 60
+              fm: avif
+            }
+          ) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      ... on MainHeadingRecord {
+        ...MainHeadingFragment
       }
     }
   }
