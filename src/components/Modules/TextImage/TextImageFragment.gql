@@ -6,9 +6,7 @@ fragment TextImageFragment on TextImageRecord {
     blocks {
       __typename
       ... on MainHeadingRecord {
-        id
-        title
-        subtitle(markdown: true)
+        ...MainHeadingFragment
       }
     }
   }

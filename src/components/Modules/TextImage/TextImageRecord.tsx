@@ -2,11 +2,14 @@
 
 import React from 'react';
 import { Image, StructuredText } from 'react-datocms';
+import ImageBlock from '@ui/Image/ImageRecord';
+import MainHeading from '@ui/MainHeading/MainHeading';
 import clsx from 'clsx';
-import MainHeading from 'components/MainHeading';
 import { motion } from 'framer-motion';
 import type {
   FileField,
+  ImageRecord,
+  MainHeadingRecord,
   TextImageRecord,
 } from 'infrastructure/generated/graphql';
 
@@ -40,11 +43,19 @@ export default function TextImage({
       >
         <StructuredText
           data={structuredText as any}
-          renderBlock={({ record }) => {
-            if (record.__typename === 'MainHeadingRecord') {
-              return <MainHeading record={record}></MainHeading>;
+          renderBlock={({ record }: any) => {
+            switch (record.__typename) {
+              case 'ImageRecord': {
+                const ImageRecord = record as ImageRecord;
+                return <ImageBlock {...ImageRecord} />;
+              }
+              case 'MainHeadingRecord': {
+                const MainHeadingRecord = record as MainHeadingRecord;
+                return <MainHeading {...MainHeadingRecord} />;
+              }
+              default:
+                return null;
             }
-            return null;
           }}
         />
       </motion.article>

@@ -5,28 +5,10 @@ fragment SectionFragment on SectionRecord {
     value
     blocks {
       ... on ImageRecord {
-        id
-        __typename
-        image {
-          responsiveImage(
-            imgixParams: {
-              fit: max
-              w: 800
-              h: 800
-              auto: compress
-              q: 60
-              fm: avif
-            }
-          ) {
-            ...responsiveImageFragment
-          }
-        }
+        ...ImageFragment
       }
       ... on MainHeadingRecord {
-        id
-        __typename
-        title
-        subtitle
+        ...MainHeadingFragment
       }
     }
   }
