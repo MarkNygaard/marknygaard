@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { Image, StructuredText } from 'react-datocms';
-import ImageBlock from '@ui/Image/ImageRecord';
-import MainHeading from '@ui/MainHeading/MainHeading';
+import ImageBlock from '@Blocks/Image/Image';
 import clsx from 'clsx';
+import MainHeading from 'components/Blocks/MainHeading/MainHeading';
 import { motion } from 'framer-motion';
 import type {
   FileField,
@@ -13,7 +13,7 @@ import type {
   TextImageRecord,
 } from 'infrastructure/generated/graphql';
 
-export default function TextImage({
+export default function TextImageBlock({
   imageLocation,
   displayStyle,
   fadeInText,

@@ -16,7 +16,10 @@
     "baseUrl": "src",
     "paths": {
       "@Modules/*": ["./components/Modules/*"],
-      "@ui/*": ["./components/ui/*"]
+      "@Blocks/*": ["./components/Blocks/*"],
+      "@Primitives/*": ["./components/Primitives/*"],
+      "@Layouts/*": ["./components/Layouts/*"],
+      "@Skeletons/*": ["./components/Skeletons/*"]
     },
     "plugins": [
       {

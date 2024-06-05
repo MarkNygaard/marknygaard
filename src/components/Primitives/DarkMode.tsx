@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Icon from 'components/Icon';
+import Icon from 'components/Icons';
 import { useTheme } from 'next-themes';
 
 export function DarkMode() {

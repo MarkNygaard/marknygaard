@@ -1,4 +1,4 @@
-import { Skeleton } from '@ui/skeleton';
+import { Skeleton } from 'components/Primitives/Skeleton';
 
 export function BlogPageSkeleton() {
   return (

@@ -1,14 +1,14 @@
 import React from 'react';
+import PageBlocks from '@Blocks/PageBlocks';
 import clsx from 'clsx';
-import PageSection from 'components/PageModules';
-import { GridFragmentFragment } from 'infrastructure/generated/graphql';
+import { GridRecord } from 'infrastructure/generated/graphql';
 
-export default function GridRecord({
+export default function GridBlock({
   showOnMobile,
   showOnTablet,
   showOnDesktop,
   sections,
-}: GridFragmentFragment) {
+}: GridRecord) {
   return (
     <div
       className={clsx(
@@ -26,9 +26,10 @@ export default function GridRecord({
             key={i}
             className={`col-span-${section.spanMobile} md:col-span-${section.spanTablet} lg:col-span-${section.spanDesktop}`}
           >
-            {section?.content.map((content, i) => {
-              return <PageSection key={i} details={content} posts={content} />;
-            })}
+            <PageBlocks
+              blocks={section.content}
+              posts={section.content as any}
+            />
           </div>
         );
       })}

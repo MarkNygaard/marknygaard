@@ -1,7 +1,7 @@
 'use client';
 
-import { Spinner } from '@ui/spinner';
-import { BlogPageSkeleton } from 'components/PageSkeletons';
+import { Spinner } from '@Primitives/Spinner';
+import { BlogPageSkeleton } from '@Skeletons/PageSkeletons';
 import { usePathname } from 'next/navigation';
 
 export default function Loading() {

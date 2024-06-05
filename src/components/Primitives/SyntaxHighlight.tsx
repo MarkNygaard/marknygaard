@@ -2,11 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { useMemo } from 'react';
+import { CopyButton } from '@Primitives/CopyButton';
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 import { Highlight, Language } from 'prism-react-renderer';
-
-import { CopyButton } from './CopyButton';
 
 function usePrismTheme() {
   const lightCodeTheme = require('prism-react-renderer').themes.nightOwlLight;

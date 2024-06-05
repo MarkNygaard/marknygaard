@@ -3,6 +3,7 @@ import React from 'react';
 import FacebookIcon from './facebook';
 import GithubIcon from './github';
 import LinkedinIcon from './linkedin';
+import LogoIcon from './logo';
 import MailIcon from './mail';
 import MoonIcon from './moon';
 import SunIcon from './sun';
@@ -21,6 +22,8 @@ function Icon(props: any) {
       return <SunIcon />;
     case 'moon':
       return <MoonIcon />;
+    case 'logo':
+      return <LogoIcon />;
     default:
       return <span>Unknown icon: {props.symbol}</span>;
   }

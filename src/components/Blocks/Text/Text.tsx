@@ -2,34 +2,40 @@
 
 import React from 'react';
 import { renderNodeRule, StructuredText } from 'react-datocms';
-import ImageBlock from '@ui/Image/ImageRecord';
-import MainHeading from '@ui/MainHeading/MainHeading';
+import ImageBlock from '@Blocks/Image/Image';
+import MainHeading from '@Blocks/MainHeading/MainHeading';
+import SyntaxHighlight from '@Primitives/SyntaxHighlight';
 import clsx from 'clsx';
-import SyntaxHighlight from 'components/SyntaxHighlight';
 import { isCode } from 'datocms-structured-text-utils';
 import { motion } from 'framer-motion';
 import {
   ImageRecord,
   MainHeadingRecord,
+  TextRecord,
 } from 'infrastructure/generated/graphql';
 
-export default function TextRecord({ details }: any) {
+export default function TextBlock({
+  id,
+  centerText,
+  fadeIn,
+  structuredText,
+}: TextRecord) {
   return (
     <div
-      id={details.id}
+      id={id}
       className={clsx('align-center flex items-center overflow-hidden', {
-        'justify-center': details.centerText,
+        'justify-center': centerText,
       })}
     >
       <motion.article
-        id={details.id}
-        initial={details.fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
-        animate={details.fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
-        transition={details.fadeIn && { duration: 0.5 }}
+        id={id}
+        initial={fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
+        animate={fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
+        transition={fadeIn && { duration: 0.5 }}
         className='prose col-span-2 grow dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400 md:pr-4'
       >
         <StructuredText
-          data={details.structuredText}
+          data={structuredText as any}
           customNodeRules={[
             renderNodeRule(isCode, ({ node, key }) => {
               return (

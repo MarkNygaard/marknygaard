@@ -3,14 +3,15 @@
 import React from 'react';
 import { Image } from 'react-datocms';
 import { motion } from 'framer-motion';
+import { FeaturedRecord } from 'infrastructure/generated/graphql';
 import Link from 'next/link';
 
-export default function FeaturedRecord({ details }: any) {
+export default function FeaturedBlock({ posts }: FeaturedRecord) {
   return (
     <div className='py-4 pt-10'>
       <div className='mb-6 text-3xl font-medium'>Featured Posts</div>
       <div className='mb-4 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-10'>
-        {details.posts?.map((post: any) => {
+        {posts?.map((post: any) => {
           return (
             <Link
               key={post.id}
