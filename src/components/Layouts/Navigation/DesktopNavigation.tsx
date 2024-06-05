@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import AlgoliaSearch from '@ui/AlgoliaSearch';
-import { DarkMode } from '@ui/DarkMode';
+import AlgoliaSearch from '@Primitives/AlgoliaSearch';
+import { DarkMode } from '@Primitives/DarkMode';
 import clsx from 'clsx';
-import LogoIcon from 'components/Icon/logo';
+import Icon from 'components/Icons';
 import { PageRecord } from 'infrastructure/generated/graphql';
 import NextLink from 'next/link';
 import Link from 'next/link';
@@ -41,7 +41,7 @@ export default function DesktopNavigation({ allPages }: any) {
                 passHref
                 className='text-sm font-light uppercase tracking-tight dark:text-gray-200 md:text-base lg:text-xl'
               >
-                <LogoIcon />
+                <Icon symbol='logo' />
               </Link>
             </div>
             <div className='flex divide-x divide-pine-400'>

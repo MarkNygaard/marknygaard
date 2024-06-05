@@ -1,9 +1,9 @@
 import React from 'react';
 import { toNextMetadata } from 'react-datocms';
 import { Image } from 'react-datocms';
-import { Section } from '@Modules/BlogSections/Section';
-import CategoryMenu from 'components/CategoryMenu';
-import Comment from 'components/Comment';
+import { Section } from '@Blocks/Section/Section';
+import SectionMenu from '@Blocks/Section/SectionMenu';
+import Comment from '@Primitives/Comment';
 // import ViewCounter from 'components/ViewCounter';
 import { format } from 'date-fns';
 import type { SectionRecord } from 'infrastructure/generated/graphql';
@@ -75,7 +75,7 @@ export default async function Page({ params: { slug } }: Params) {
                 </div> */}
             <div className='space-y-2 py-5 pl-2 text-xl'>
               <div className='mb-4 font-semibold'>Table of Contents</div>
-              <CategoryMenu post={data.post} />
+              <SectionMenu post={data.post} />
             </div>
           </div>
         </aside>

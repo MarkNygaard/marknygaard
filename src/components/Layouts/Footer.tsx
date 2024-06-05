@@ -1,9 +1,8 @@
 'use client';
 
 import React from 'react';
+import Icon from 'components/Icons';
 import { motion } from 'framer-motion';
-
-import Icon from './Icon';
 
 export default function Footer() {
   return (

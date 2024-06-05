@@ -1,10 +1,10 @@
-import DesktopNavigation from '@Modules/Navigation/DesktopNavigation';
-import MobileNavigation from '@Modules/Navigation/MobileNavigation';
+import Footer from '@Layouts/Footer';
+import DesktopNavigation from '@Layouts/Navigation/DesktopNavigation';
+import MobileNavigation from '@Layouts/Navigation/MobileNavigation';
+import { Providers } from '@Primitives/Providers';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import clsx from 'clsx';
-import Footer from 'components/Footer';
-import { Providers } from 'components/Providers';
 import { AllPagesDocument } from 'infrastructure/generated/graphql';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { Inter } from 'next/font/google';

@@ -1,7 +1,11 @@
 import React from 'react';
 import { toNextMetadata } from 'react-datocms';
-import PageSection from 'components/PageModules';
-import { PageBySlugDocument } from 'infrastructure/generated/graphql';
+import PageBlocks from '@Blocks/PageBlocks';
+import {
+  PageBySlugDocument,
+  PageModelContentField,
+  PostRecord,
+} from 'infrastructure/generated/graphql';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
@@ -28,10 +32,9 @@ export default async function Page({ params: { slug } }: Params) {
 
   if (!data?.page) notFound();
   return (
-    <>
-      {data?.page.content.map((content: any, i: any) => {
-        return <PageSection key={i} details={content} posts={data.allPosts} />;
-      })}
-    </>
+    <PageBlocks
+      blocks={data.page?.content as Array<PageModelContentField>}
+      posts={data.allPosts as PostRecord[]}
+    />
   );
 }

@@ -1,20 +1,19 @@
 'use client';
 
 import React, { useState } from 'react';
-import AlgoliaSearch from '@ui/AlgoliaSearch';
+import AlgoliaSearch from '@Primitives/AlgoliaSearch';
+import { DarkMode } from '@Primitives/DarkMode';
 import {
   Modal,
   ModalContent,
   ModalOverlay,
   ModalPortal,
   ModalTrigger,
-} from '@ui/Modal';
+} from '@Primitives/Modal';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { PageRecord } from 'infrastructure/generated/graphql';
 import NextLink from 'next/link';
-
-import { DarkMode } from '../../ui/DarkMode';
 
 function NavItem({
   href,

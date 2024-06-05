@@ -5,18 +5,17 @@ import { Image } from 'react-datocms';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
+import { BlogRecord, PostRecord } from 'infrastructure/generated/graphql';
 import NextLink from 'next/link';
 
-export default function BlogRecord({
-  details,
-  posts,
-}: {
-  details: any;
-  posts: any;
-}) {
+interface BlogBlockProps extends BlogRecord {
+  posts: PostRecord[];
+}
+
+export default function BlogBlock({ imageBoolean, posts }: BlogBlockProps) {
   return (
     <div className='mx-auto max-w-5xl'>
-      {posts.map((post: any) => {
+      {posts.map((post: PostRecord) => {
         return (
           <NextLink key={post.id} href={`/blog/${post.slug}`}>
             <motion.div
@@ -29,27 +28,31 @@ export default function BlogRecord({
             >
               <div
                 className={clsx('hidden w-full overflow-hidden', {
-                  'col-span-2 sm:flex': details.imageBoolean === true,
+                  'col-span-2 sm:flex': imageBoolean === true,
                 })}
               >
                 {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                <Image
-                  pictureClassName='object-cover'
-                  data={{
-                    ...post.coverImage.responsiveImage,
-                    title: post.coverImage.responsiveImage.title || undefined,
-                    base64: post.coverImage.responsiveImage.base64 || undefined,
-                    bgColor:
-                      post.coverImage.responsiveImage.bgColor || undefined,
-                    alt: `Cover Image for ${post.title}`,
-                  }}
-                />
+                {post.coverImage && post.coverImage.responsiveImage && (
+                  // eslint-disable-next-line jsx-a11y/alt-text
+                  <Image
+                    pictureClassName='object-cover'
+                    data={{
+                      ...post.coverImage.responsiveImage,
+                      title: post.coverImage.responsiveImage.title || undefined,
+                      base64:
+                        post.coverImage.responsiveImage.base64 || undefined,
+                      bgColor:
+                        post.coverImage.responsiveImage.bgColor || undefined,
+                      alt: `Cover Image for ${post.title}`,
+                    }}
+                  />
+                )}
               </div>
               <div
                 className={clsx(
                   'col-span-5 p-2 font-medium text-black dark:text-white',
                   {
-                    'sm:col-span-3': details.imageBoolean === true,
+                    'sm:col-span-3': imageBoolean === true,
                   },
                 )}
               >

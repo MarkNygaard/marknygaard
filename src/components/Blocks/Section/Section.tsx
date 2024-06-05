@@ -1,9 +1,9 @@
 'use client';
 
 import { renderNodeRule, StructuredText } from 'react-datocms';
-import ImageBlock from '@ui/Image/ImageRecord';
-import MainHeading from '@ui/MainHeading/MainHeading';
-import SyntaxHighlight from 'components/SyntaxHighlight';
+import ImageBlock from '@Blocks/Image/Image';
+import MainHeading from '@Blocks/MainHeading/MainHeading';
+import SyntaxHighlight from '@Primitives/SyntaxHighlight';
 import { isCode } from 'datocms-structured-text-utils';
 import {
   ImageRecord,

@@ -1,25 +1,28 @@
 import React from 'react';
 import { Image } from 'react-datocms';
+import TextBlock from '@Blocks/Text/Text';
 import clsx from 'clsx';
-import type { FileField } from 'infrastructure/generated/graphql';
+import type { CardRecord, FileField } from 'infrastructure/generated/graphql';
 
-import TextRecord from '../Text/TextRecord';
-
-export default function CardRecord({ details }: any) {
+export default function CardBlock({
+  mobileColumns,
+  tabletColumns,
+  desktopColumns,
+  gap,
+  sections,
+  height,
+}: CardRecord) {
   return (
     <div className='flex justify-center'>
       <div
         className={clsx('grid', {
-          [`grid-cols-${details.mobileColumns as String}`]:
-            details.mobileColumns,
-          [`md:grid-cols-${details.tabletColumns as String}`]:
-            details.tabletColumns,
-          [`xl:grid-cols-${details.desktopColumns as String}`]:
-            details.desktopColumns,
-          [`gap-${details.gap as String}`]: details.gap,
+          [`grid-cols-${mobileColumns as String}`]: mobileColumns,
+          [`md:grid-cols-${tabletColumns as String}`]: tabletColumns,
+          [`xl:grid-cols-${desktopColumns as String}`]: desktopColumns,
+          [`gap-${gap as String}`]: gap,
         })}
       >
-        {details.sections.map((section: any) => {
+        {sections.map((section: any) => {
           return (
             <div
               key={section.id}
@@ -38,9 +41,9 @@ export default function CardRecord({ details }: any) {
                   className={clsx(
                     'flex shrink-0 self-center overflow-hidden object-fill',
                     {
-                      'h-52': details.height === 'Small',
-                      'h-96': details.height === 'Medium',
-                      'h-132': details.height === 'Large',
+                      'h-52': height === 'Small',
+                      'h-96': height === 'Medium',
+                      'h-132': height === 'Large',
                     },
                   )}
                 >
@@ -55,13 +58,13 @@ export default function CardRecord({ details }: any) {
                   className={clsx(
                     'flex justify-center overflow-hidden bg-gray-300 p-3',
                     {
-                      'h-52': details.height === 'Small',
-                      'h-96': details.height === 'Medium',
-                      'h-132': details.height === 'Large',
+                      'h-52': height === 'Small',
+                      'h-96': height === 'Medium',
+                      'h-132': height === 'Large',
                     },
                   )}
                 >
-                  <TextRecord details={section} />
+                  <TextBlock {...section} />
                 </div>
               ) : (
                 <></>
