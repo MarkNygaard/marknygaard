@@ -1,10 +1,8 @@
-'use client';
-
 import React from 'react';
 import { Image } from 'react-datocms';
+import CardSpotlight from '@Primitives/CardSpotlight';
 import clsx from 'clsx';
 import { format } from 'date-fns';
-import { motion } from 'framer-motion';
 import { BlogRecord, PostRecord } from 'infrastructure/generated/graphql';
 import NextLink from 'next/link';
 
@@ -18,14 +16,7 @@ export default function BlogBlock({ imageBoolean, posts }: BlogBlockProps) {
       {posts.map((post: PostRecord) => {
         return (
           <NextLink key={post.id} href={`/blog/${post.slug}`}>
-            <motion.div
-              whileHover={{
-                y: -5,
-                boxShadow: '0 2px 10px -1px rgb(0 0 0 / 0.1)',
-                transition: { duration: 0.1, type: 'spring', mass: 0.1 },
-              }}
-              className='group my-6 grid grid-cols-5 overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 translate-z-0 dark:border-gray-800 dark:bg-gray-900 dark:hover:bg-gray-800'
-            >
+            <CardSpotlight>
               <div
                 className={clsx('hidden w-full overflow-hidden', {
                   'col-span-2 sm:flex': imageBoolean === true,
@@ -35,6 +26,7 @@ export default function BlogBlock({ imageBoolean, posts }: BlogBlockProps) {
                 {post.coverImage && post.coverImage.responsiveImage && (
                   // eslint-disable-next-line jsx-a11y/alt-text
                   <Image
+                    className='dark:opacity-90'
                     pictureClassName='object-cover'
                     data={{
                       ...post.coverImage.responsiveImage,
@@ -64,7 +56,7 @@ export default function BlogBlock({ imageBoolean, posts }: BlogBlockProps) {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </CardSpotlight>
           </NextLink>
         );
       })}

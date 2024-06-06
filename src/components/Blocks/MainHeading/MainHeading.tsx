@@ -1,9 +1,13 @@
 import React from 'react';
 import { MainHeadingRecord } from 'infrastructure/generated/graphql';
 
-export default function MainHeading({ title, subtitle }: MainHeadingRecord) {
+export default function MainHeading({
+  id,
+  title,
+  subtitle,
+}: MainHeadingRecord) {
   return (
-    <div>
+    <div key={id}>
       <h1 className='text-4xl font-medium'>{title}</h1>
       {subtitle && (
         <div

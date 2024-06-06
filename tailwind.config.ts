@@ -52,6 +52,21 @@ const config: Config = withTV({
           'calc(100dvh - 480px)',
         ],
       },
+      animation: {
+        'border-width': 'border-width 3s infinite alternate',
+      },
+      keyframes: {
+        'border-width': {
+          from: {
+            width: '200px',
+            opacity: '0',
+          },
+          to: {
+            width: '400px',
+            opacity: '1',
+          },
+        },
+      },
     },
   },
   safelist: [
