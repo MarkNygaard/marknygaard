@@ -45,7 +45,7 @@ export function Section({
     <div
       ref={ref}
       id={name ?? ''}
-      className='scroll-mt-[5vh]'
+      className='scroll-mt-[9vh]'
       style={indentationStyle}
     >
       {name && (
