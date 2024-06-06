@@ -17,6 +17,7 @@ interface SectionProps extends SectionRecord {
 }
 
 export function Section({
+  id,
   name,
   description,
   section,
@@ -43,6 +44,7 @@ export function Section({
 
   return (
     <div
+      key={id}
       ref={ref}
       id={name ?? ''}
       className='scroll-mt-[9vh]'

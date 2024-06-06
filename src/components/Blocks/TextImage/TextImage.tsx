@@ -14,6 +14,7 @@ import type {
 } from 'infrastructure/generated/graphql';
 
 export default function TextImageBlock({
+  id,
   imageLocation,
   displayStyle,
   fadeInText,
@@ -24,6 +25,7 @@ export default function TextImageBlock({
 }: TextImageRecord) {
   return (
     <div
+      key={id}
       className={clsx('mx-auto grid grid-cols-1 md:items-center', {
         'grid-template sm:grid-cols-3':
           imageLocation === 'RIGHT' && displayStyle === '2x1',
