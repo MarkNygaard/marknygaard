@@ -66,72 +66,76 @@ export default function MobileNavigation({ allPages }: any) {
             </button>
           </ModalTrigger>
           <AnimatePresence>
-            <ModalPortal>
-              <ModalOverlay asChild className='bg-[#787878]/30 backdrop-blur'>
-                <motion.div
-                  key='modal'
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: 1,
-                    transition: { duration: 0.4, ease: [0.36, 0.66, 0.04, 1] },
-                  }}
-                  exit={{
-                    opacity: 0,
-                    transition: {
-                      duration: 0.3,
-                      ease: [0.36, 0.66, 0.04, 1],
-                      delay: 0.15,
-                    },
-                  }}
-                ></motion.div>
-              </ModalOverlay>
-
-              <ModalContent
-                className='m-0 mx-auto w-full max-w-lg p-4 shadow-none'
-                onClick={() => setMenuIsOpen(false)}
-              >
-                <button
+            {menuIsOpen && (
+              <ModalPortal forceMount>
+                <ModalOverlay asChild className='bg-[#787878]/30 backdrop-blur'>
+                  <motion.div
+                    key='modal'
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: {
+                        duration: 0.4,
+                        ease: [0.36, 0.66, 0.04, 1],
+                      },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      transition: {
+                        duration: 0.3,
+                        ease: [0.36, 0.66, 0.04, 1],
+                        delay: 0.15,
+                      },
+                    }}
+                  ></motion.div>
+                </ModalOverlay>
+                <ModalContent
+                  className='m-0 mx-auto w-full max-w-lg p-4 shadow-none'
                   onClick={() => setMenuIsOpen(false)}
-                  className='mt-20 flex w-full flex-wrap focus:outline-none'
                 >
-                  {allPages?.map((page: PageRecord, i: any) => (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{
-                        opacity: 1,
-                        scale: 1,
-                        transition: {
-                          duration: 0.2,
-                          delay: 0.1 * i,
-                          type: 'spring',
-                        },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        scale: 0,
-                        transition: {
-                          duration: 0.1,
-                          delay: 0.05 * i,
-                          type: 'spring',
-                        },
-                      }}
-                      className={clsx(
-                        allPages.length <= 3 ? 'w-full' : 'w-1/2',
-                        'mt-6 flex items-center justify-center',
-                      )}
-                      key={i}
-                    >
-                      <NavItem
-                        key={page.id}
-                        href={`/${page.slug}`}
-                        text={page.name as string}
-                        onClose={() => setMenuIsOpen(false)}
-                      />
-                    </motion.div>
-                  ))}
-                </button>
-              </ModalContent>
-            </ModalPortal>
+                  <button
+                    onClick={() => setMenuIsOpen(false)}
+                    className='mt-20 flex w-full flex-wrap focus:outline-none'
+                  >
+                    {allPages?.map((page: PageRecord, i: any) => (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{
+                          opacity: 1,
+                          scale: 1,
+                          transition: {
+                            duration: 0.2,
+                            delay: 0.1 * i,
+                            type: 'spring',
+                          },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          scale: 0,
+                          transition: {
+                            duration: 0.1,
+                            delay: 0.05 * i,
+                            type: 'spring',
+                          },
+                        }}
+                        className={clsx(
+                          allPages.length <= 3 ? 'w-full' : 'w-1/2',
+                          'mt-6 flex items-center justify-center',
+                        )}
+                        key={i}
+                      >
+                        <NavItem
+                          key={page.id}
+                          href={`/${page.slug}`}
+                          text={page.name as string}
+                          onClose={() => setMenuIsOpen(false)}
+                        />
+                      </motion.div>
+                    ))}
+                  </button>
+                </ModalContent>
+              </ModalPortal>
+            )}
           </AnimatePresence>
         </Modal>
         <div className='ml-5 flex space-x-3'>
