@@ -2508,10 +2508,10 @@ datocms-structured-text-utils@^2.0.1, datocms-structured-text-utils@^2.0.4:
   dependencies:
     array-flatten "^3.0.0"
 
-datocms-structured-text-utils@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-4.0.0.tgz#c4d98ab0c499d705d3e14ecebef173765e1488ec"
-  integrity sha512-czKk2unabAjtL1MLc2o73yX1MWRv/8fUnHGpNJxXUdZ88r6cV6JQFbfXLnc7Cs+7lom/kOs3Ira+rlsBQ3egXA==
+datocms-structured-text-utils@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-4.0.1.tgz#616f6c76c133adae256a5793df8148be2d5f3297"
+  integrity sha512-2rK4bZfzKpdKw2AZhnnD043QkGOUaJDOUGPrQHo5w4hvU4jTBGGxoaTg4KIb3Q5Yo+XUFvreb+U0+86xdh7I+Q==
   dependencies:
     array-flatten "^3.0.0"
 
