@@ -23,7 +23,7 @@ export default async function RootLayout({
   const { allPages } = await queryDatoCMS(AllPagesDocument, {}, isEnabled);
 
   return (
-    <html lang='en'>
+    <html lang='en' className='scroll-smooth'>
       <body
         style={{ WebkitTapHighlightColor: 'transparent' }}
         className={clsx(

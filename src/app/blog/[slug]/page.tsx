@@ -4,6 +4,7 @@ import { Image } from 'react-datocms';
 import { Section } from '@Blocks/Section/Section';
 import SectionMenu from '@Blocks/Section/SectionMenu';
 import Comment from '@Primitives/Comment';
+import ProgressBar from '@Primitives/ProgressBar';
 // import ViewCounter from 'components/ViewCounter';
 import { format } from 'date-fns';
 import type { SectionRecord } from 'infrastructure/generated/graphql';
@@ -36,6 +37,7 @@ export default async function Page({ params: { slug } }: Params) {
   if (!data?.post) notFound();
   return (
     <article>
+      {/* <ProgressBar /> */}
       <div className='pb-4 sm:grid sm:grid-cols-3 sm:grid-rows-1 sm:gap-2'>
         <div className='flex flex-col justify-between border-[1px] border-pine-300 bg-pine-300 p-5 text-2xl font-light dark:border-gray-800 dark:bg-gray-800 md:text-3xl lg:text-4xl'>
           <div>{data?.post.title}</div>
@@ -64,7 +66,7 @@ export default async function Page({ params: { slug } }: Params) {
           <Comment />
         </div>
         <aside className='hidden w-3/12 lg:block'>
-          <div className='sticky top-20 space-y-2 divide-y dark:divide-gray-700'>
+          <div className='sticky top-24 space-y-2 divide-y dark:divide-gray-700'>
             {/* <div className="space-y-2 py-5 pl-2">
                   <div className="font-semibold">View Counter</div>
                   <div className="my-auto font-light">
@@ -73,8 +75,8 @@ export default async function Page({ params: { slug } }: Params) {
                     </Suspense>
                   </div>
                 </div> */}
-            <div className='space-y-2 py-5 pl-2 text-xl'>
-              <div className='mb-4 font-semibold'>Table of Contents</div>
+            <div className='py-5 pl-2 text-xl'>
+              <div className='my-1 font-semibold'>Table of Contents</div>
               <SectionMenu post={data.post} />
             </div>
           </div>
