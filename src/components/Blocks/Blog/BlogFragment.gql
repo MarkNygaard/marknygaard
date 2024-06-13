@@ -1,5 +1,6 @@
 fragment BlogFragment on BlogRecord {
   __typename
   id
+  fadeIn
   imageBoolean
 }

@@ -9,6 +9,7 @@ import type { FileField, ImageRecord } from 'infrastructure/generated/graphql';
 export default function ImageBlock({
   id,
   fadeIn,
+  fadeInDelay,
   imageStyle,
   image,
 }: ImageRecord) {
@@ -17,7 +18,7 @@ export default function ImageBlock({
       key={id}
       initial={fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
       animate={fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
-      transition={fadeIn && { duration: 0.5, delay: 0.2 }}
+      transition={fadeIn && { duration: 0.5, delay: fadeInDelay ?? 0 }}
       className='mx-auto md:mb-auto'
     >
       <div

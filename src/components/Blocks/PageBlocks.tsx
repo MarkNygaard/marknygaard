@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogRecord from '@Blocks/Blog/Blog';
+import BlogBlock from '@Blocks/Blog/Blog';
 import CardBlock from '@Blocks/Card/Card';
 import FeaturedBlock from '@Blocks/Featured/Featured';
 import GridBlock from '@Blocks/Grid/Grid';
@@ -28,7 +28,7 @@ export default function PageBlocks({ blocks, posts }: Readonly<Props>) {
           case 'ImageRecord':
             return <ImageBlock {...block} />;
           case 'BlogRecord':
-            return <BlogRecord {...block} posts={posts} />;
+            return <BlogBlock {...block} posts={posts} />;
           case 'FeaturedRecord':
             return <FeaturedBlock {...block} />;
           case 'CardRecord':

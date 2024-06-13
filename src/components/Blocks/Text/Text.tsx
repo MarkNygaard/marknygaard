@@ -18,6 +18,7 @@ export default function TextBlock({
   id,
   centerText,
   fadeIn,
+  fadeInDelay,
   structuredText,
 }: TextRecord) {
   return (
@@ -31,7 +32,7 @@ export default function TextBlock({
         id={id}
         initial={fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
         animate={fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
-        transition={fadeIn && { duration: 0.5 }}
+        transition={fadeIn && { duration: 0.5, delay: fadeInDelay ?? 0 }}
         className='prose col-span-2 grow dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400 md:pr-4'
       >
         <StructuredText

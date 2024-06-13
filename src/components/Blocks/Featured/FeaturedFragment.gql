@@ -1,5 +1,7 @@
 fragment FeaturedFragment on FeaturedRecord {
   __typename
+  fadeIn
+  fadeInDelay
   id
   posts {
     id

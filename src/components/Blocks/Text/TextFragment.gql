@@ -2,10 +2,14 @@ fragment TextFragment on TextRecord {
   __typename
   id
   fadeIn
+  fadeInDelay
   centerText
   structuredText {
     value
     blocks {
+      ... on MainHeadingRecord {
+        ...MainHeadingFragment
+      }
       ... on ImageRecord {
         id
         __typename
@@ -23,9 +27,6 @@ fragment TextFragment on TextRecord {
             ...responsiveImageFragment
           }
         }
-      }
-      ... on MainHeadingRecord {
-        ...MainHeadingFragment
       }
     }
   }
