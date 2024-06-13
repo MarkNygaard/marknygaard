@@ -6,9 +6,20 @@ import { motion } from 'framer-motion';
 import { FeaturedRecord } from 'infrastructure/generated/graphql';
 import Link from 'next/link';
 
-export default function FeaturedBlock({ id, posts }: FeaturedRecord) {
+export default function FeaturedBlock({
+  id,
+  fadeIn,
+  fadeInDelay,
+  posts,
+}: FeaturedRecord) {
   return (
-    <div key={id} className='py-4 pt-10'>
+    <motion.div
+      key={id}
+      className='py-4 pt-10'
+      initial={fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
+      animate={fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
+      transition={fadeIn && { duration: 0.5, delay: fadeInDelay ?? 0 }}
+    >
       <div className='mb-6 text-3xl font-medium'>Featured Posts</div>
       <div className='mb-4 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-10'>
         {posts?.map((post: any) => {
@@ -65,6 +76,6 @@ export default function FeaturedBlock({ id, posts }: FeaturedRecord) {
           </motion.div>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -11,6 +11,7 @@ fragment TextImageFragment on TextImageRecord {
     }
   }
   fadeInText
+  fadeInTextDelay
   image {
     responsiveImage(
       imgixParams: { fit: max, w: 800, h: 800, auto: compress, q: 60, fm: avif }
@@ -19,6 +20,7 @@ fragment TextImageFragment on TextImageRecord {
     }
   }
   fadeInImage
+  fadeInImageDelay
   imageLocation
   imageStyle
   displayStyle

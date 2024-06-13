@@ -13,6 +13,14 @@ export default function CardBlock({
   sections,
   height,
 }: CardRecord) {
+  const heightClass = height
+    ? {
+        Small: 'h-52',
+        Medium: 'h-96',
+        Large: 'h-132',
+      }[height]
+    : '';
+
   return (
     <div key={id} className='flex justify-center'>
       <div
@@ -24,52 +32,46 @@ export default function CardBlock({
         })}
       >
         {sections.map((section: any) => {
-          return (
-            <div
-              key={section.id}
-              className={clsx('relative', {
-                [`order-${section.mobilePosition as String}`]:
-                  section.mobilePosition,
-                [`md:order-${section.tabletPosition as String}`]:
-                  section.tabletPosition,
-                [`xl:order-${section.desktopPosition as String}`]:
-                  section.desktopPosition,
-              })}
-            >
-              {section.__typename === 'CardImageRecord' ? (
-                <div
-                  key={section.id}
-                  className={clsx(
-                    'flex shrink-0 self-center overflow-hidden object-fill',
-                    {
-                      'h-52': height === 'Small',
-                      'h-96': height === 'Medium',
-                      'h-132': height === 'Large',
-                    },
-                  )}
-                >
-                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
+          const commonClasses = clsx('relative', {
+            [`order-${section.mobilePosition as String}`]:
+              section.mobilePosition,
+            [`md:order-${section.tabletPosition as String}`]:
+              section.tabletPosition,
+            [`xl:order-${section.desktopPosition as String}`]:
+              section.desktopPosition,
+          });
+
+          const renderContent = (section: any) => {
+            switch (section.__typename) {
+              case 'CardImageRecord':
+                return (
                   <Image
                     data={(section.image as FileField).responsiveImage as any}
                     pictureClassName='object-cover'
                   />
-                </div>
-              ) : section.__typename === 'CardTextRecord' ? (
-                <div
-                  className={clsx(
-                    'flex justify-center overflow-hidden bg-gray-300 p-3',
-                    {
-                      'h-52': height === 'Small',
-                      'h-96': height === 'Medium',
-                      'h-132': height === 'Large',
-                    },
-                  )}
-                >
-                  <TextBlock {...section} />
-                </div>
-              ) : (
-                <></>
+                );
+              case 'CardTextRecord':
+                return <TextBlock {...section} />;
+              default:
+                return null;
+            }
+          };
+
+          return (
+            <div
+              key={section.id}
+              className={clsx(
+                commonClasses,
+                {
+                  'flex shrink-0 self-center overflow-hidden object-fill':
+                    section.__typename === 'CardImageRecord',
+                  'flex justify-center overflow-hidden bg-gray-300 p-3':
+                    section.__typename === 'CardTextRecord',
+                },
+                heightClass,
               )}
+            >
+              {renderContent(section)}
             </div>
           );
         })}

@@ -2,6 +2,7 @@ fragment ImageFragment on ImageRecord {
   __typename
   id
   fadeIn
+  fadeInDelay
   imageStyle
   image {
     responsiveImage(
