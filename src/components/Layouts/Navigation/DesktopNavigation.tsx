@@ -31,38 +31,40 @@ function NavItem({ href, text }: { href: string; text: string }) {
 
 export default function DesktopNavigation({ allPages }: any) {
   return (
-    <nav className='container sticky top-0 z-10 mx-auto max-w-6xl'>
-      <div className='hidden md:block'>
-        <div className='relative w-full'>
-          <div className='absolute top-0 flex w-full justify-center'>
-            <div className='animate-border-width duration-[2000] left-0 h-[1px] rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white/50 to-[rgba(17,17,17,0)] transition-all' />
-          </div>
-          <div className='my-3 items-center justify-center rounded-sm border-gray-700/80 bg-gradient-to-b from-pine-300 to-pine-300/80 dark:border dark:from-gray-900 dark:to-black/70'>
-            <div className='mx-auto flex max-w-5xl py-4'>
-              <div className='flex flex-1 items-center text-xl'>
-                <Link
-                  href='/'
-                  passHref
-                  className='text-sm font-light uppercase tracking-tight dark:text-gray-200 md:text-base lg:text-xl'
-                >
-                  <Icon symbol='logo' />
-                </Link>
-              </div>
-              <div className='flex divide-x divide-pine-400 dark:divide-pine-500'>
-                <div className='flex items-center space-x-8 pr-5'>
-                  {allPages?.map((page: PageRecord) => {
-                    return (
-                      <NavItem
-                        key={page.id}
-                        href={`/${page.slug}`}
-                        text={page.name as string}
-                      />
-                    );
-                  })}
+    <nav className='container sticky top-0 z-10 mx-auto'>
+      <div className='mx-auto max-w-6xl'>
+        <div className='hidden md:block'>
+          <div className='relative w-full'>
+            <div className='absolute top-0 flex w-full justify-center'>
+              <div className='duration-2000 left-0 h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white/50 to-[rgba(17,17,17,0)] transition-all' />
+            </div>
+            <div className='my-3 items-center justify-center rounded-sm border-gray-700/80 bg-gradient-to-b from-pine-300 to-pine-300/80 px-3 dark:border dark:from-gray-900 dark:to-black/70'>
+              <div className='mx-auto flex max-w-5xl py-4'>
+                <div className='flex flex-1 items-center text-xl'>
+                  <Link
+                    href='/'
+                    passHref
+                    className='text-sm font-light uppercase tracking-tight dark:text-gray-200 md:text-base lg:text-xl'
+                  >
+                    <Icon symbol='logo' />
+                  </Link>
                 </div>
-                <div className='flex items-center space-x-2 pl-3'>
-                  <AlgoliaSearch />
-                  <DarkMode />
+                <div className='flex divide-x divide-pine-400 dark:divide-pine-500'>
+                  <div className='flex items-center space-x-8 pr-5'>
+                    {allPages?.map((page: PageRecord) => {
+                      return (
+                        <NavItem
+                          key={page.id}
+                          href={`/${page.slug}`}
+                          text={page.name as string}
+                        />
+                      );
+                    })}
+                  </div>
+                  <div className='flex items-center space-x-2 pl-3'>
+                    <AlgoliaSearch />
+                    <DarkMode />
+                  </div>
                 </div>
               </div>
             </div>

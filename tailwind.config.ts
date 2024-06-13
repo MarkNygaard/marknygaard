@@ -67,6 +67,9 @@ const config: Config = withTV({
           },
         },
       },
+      transitionDuration: {
+        '2000': '2000ms',
+      },
     },
   },
   safelist: [
