@@ -4,8 +4,19 @@ import { VideoPlayer } from 'react-datocms';
 
 export default function VideoBlock({ id, video }: VideoRecord) {
   return (
-    <div className='relative mx-auto aspect-square max-h-56 md:max-h-72'>
-      <VideoPlayer key={id} data={video?.video as any} />
+    <div
+      className='mx-auto h-full max-h-[500px] max-w-full md:max-h-[800px] lg:max-h-[1000px]'
+      style={{ aspectRatio: video?.video?.width / video?.video?.height }}
+    >
+      <div className='h-full max-h-full'>
+        <VideoPlayer
+          key={id}
+          data={video?.video as any}
+          style={{
+            height: '100%',
+          }}
+        />
+      </div>
     </div>
   );
 }
