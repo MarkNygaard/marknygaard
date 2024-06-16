@@ -6,11 +6,17 @@ import MainHeading from '@Blocks/MainHeading/MainHeading';
 import SyntaxHighlight from '@Primitives/SyntaxHighlight';
 import { isCode } from 'datocms-structured-text-utils';
 import {
+  ColumnRecord,
   ImageRecord,
   MainHeadingRecord,
   SectionRecord,
+  TextImageRecord,
+  VideoRecord,
 } from 'infrastructure/generated/graphql';
 import useSectionInView from 'lib/hooks/useSectionInView';
+import TextImageBlock from '@Blocks/TextImage/TextImage';
+import VideoBlock from '@Blocks/Video/Video';
+import ColumnBlock from '@Blocks/Column/Column';
 
 interface SectionProps extends SectionRecord {
   level?: number;
@@ -69,6 +75,18 @@ export function Section({
               case 'MainHeadingRecord': {
                 const MainHeadingRecord = record as MainHeadingRecord;
                 return <MainHeading {...MainHeadingRecord} />;
+              }
+              case 'TextImageRecord': {
+                const TextImageRecord = record as TextImageRecord;
+                return <TextImageBlock {...TextImageRecord} />;
+              }
+              case 'VideoRecord': {
+                const VideoRecord = record as VideoRecord;
+                return <VideoBlock {...VideoRecord} />;
+              }
+              case 'ColumnRecord': {
+                const ColumnRecord = record as ColumnRecord;
+                return <ColumnBlock {...ColumnRecord} />;
               }
               default:
                 return null;
