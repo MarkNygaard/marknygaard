@@ -10,6 +10,15 @@ fragment SectionFragment on SectionRecord {
       ... on MainHeadingRecord {
         ...MainHeadingFragment
       }
+      ... on TextImageRecord {
+        ...TextImageFragment
+      }
+      ... on VideoRecord {
+        ...VideoFragment
+      }
+      ... on ColumnRecord {
+        ...ColumnFragment
+      }
     }
   }
   section {

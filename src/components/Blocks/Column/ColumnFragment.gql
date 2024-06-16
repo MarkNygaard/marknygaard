@@ -1,0 +1,26 @@
+fragment ColumnFragment on ColumnRecord {
+  __typename
+  id
+  column1 {
+    ... on TextRecord {
+      ...TextFragment
+    }
+    ... on ImageRecord {
+      ...ImageFragment
+    }
+    ... on VideoRecord {
+      ...VideoFragment
+    }
+  }
+  column2 {
+    ... on TextRecord {
+      ...TextFragment
+    }
+    ... on ImageRecord {
+      ...ImageFragment
+    }
+    ... on VideoRecord {
+      ...VideoFragment
+    }
+  }
+}

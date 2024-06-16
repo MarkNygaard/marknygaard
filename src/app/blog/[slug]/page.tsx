@@ -48,12 +48,18 @@ export default async function Page({ params: { slug } }: Params) {
           </div>
         </div>
         <div className='relative flex h-36 border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2 sm:h-60 lg:h-96'>
-          {/* eslint-disable-next-line jsx-a11y/alt-text */}
-          <Image
-            data={data.post.coverImage?.responsiveImage as any}
-            className='object-cover'
-            pictureClassName='object-cover'
-          />
+          {data.post.coverImage && data.post.coverImage.responsiveImage && (
+            <Image
+              data={{
+                ...data.post.coverImage.responsiveImage,
+                base64:
+                  data.post.coverImage.responsiveImage.base64 || undefined,
+                alt: `Cover Image for ${data.post.title}`,
+              }}
+              className='object-cover'
+              pictureClassName='object-cover'
+            />
+          )}
         </div>
       </div>
       <div className='flex'>

@@ -22,9 +22,8 @@ export default function BlogBlock({ id, imageBoolean, posts }: BlogBlockProps) {
               })}
             >
               {post.coverImage && post.coverImage.responsiveImage && (
-                // eslint-disable-next-line jsx-a11y/alt-text
                 <Image
-                  className='dark:opacity-90'
+                  className='object-cover dark:opacity-90'
                   pictureClassName='object-cover'
                   data={{
                     ...post.coverImage.responsiveImage,

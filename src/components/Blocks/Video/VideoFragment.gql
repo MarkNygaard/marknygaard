@@ -1,0 +1,13 @@
+fragment VideoFragment on VideoRecord {
+  __typename
+  id
+  video {
+    video {
+      muxPlaybackId
+      title
+      width
+      height
+      blurUpThumb
+    }
+  }
+}
