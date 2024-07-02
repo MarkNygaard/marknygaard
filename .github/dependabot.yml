@@ -4,6 +4,10 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    ignore:
+      - dependency-name: 'graphql-request'
+        # For graphql-request, ignore all Dependabot updates for version 6 and 7
+        versions: ['6.x', '7.x']
   - package-ecosystem: 'github-actions'
     directory: '/'
     open-pull-requests-limit: 25
