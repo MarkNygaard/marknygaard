@@ -1233,40 +1233,40 @@
   dependencies:
     "@lit-labs/ssr-dom-shim" "^1.2.0"
 
-"@mux/mux-player-react@*", "@mux/mux-player-react@^2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-2.7.0.tgz#93d052a4329d47579ce990c1022594c83f959cdf"
-  integrity sha512-QPPNowWVWXeg4vXwLzrqhCrQxLaUvR8je9ZPTtKpHzDwv705c7fiNLUlC7Dk0jF/eYTCQoGn3dBSjF9Yv1a0zQ==
+"@mux/mux-player-react@*", "@mux/mux-player-react@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-2.8.0.tgz#9df04a5f58d96da1a65ec6fa7e4ec0eddb0651c7"
+  integrity sha512-uN+/Tr/9OYwI77ytmMI+u104LCf70O3sHRqZCJQV9BKdMIzsEsuHNxQqY+0EtU39tHrUHdgYmLXD7G2khgwUSw==
   dependencies:
-    "@mux/mux-player" "2.7.0"
-    "@mux/playback-core" "0.24.0"
+    "@mux/mux-player" "2.8.0"
+    "@mux/playback-core" "0.25.0"
     prop-types "^15.7.2"
 
-"@mux/mux-player@2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-2.7.0.tgz#c7ea7601aa12d20534235a9304455bdc2e9a06a9"
-  integrity sha512-qml+HZGCcRjQoI+IlesmG8NvL87BQt/Tbcjnbm7xn9/Tas7cV21w8dOecsRCJxggB4YDbROHJzTKIjsvvtDW9g==
+"@mux/mux-player@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-2.8.0.tgz#d77920e89fbd327dd8f607bda8c886afd94d1e14"
+  integrity sha512-qVuLRIFx5IquyBohKbGc8YU7eccRiYeaWBlfbhQcEWI5fSIrn5Lf8YOwlJN0k3TAEWCvX3PXBBr+X77HHH/2wg==
   dependencies:
-    "@mux/mux-video" "0.19.0"
-    "@mux/playback-core" "0.24.0"
-    media-chrome "~3.2.1"
+    "@mux/mux-video" "0.20.0"
+    "@mux/playback-core" "0.25.0"
+    media-chrome "~3.2.3"
 
-"@mux/mux-video@0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.19.0.tgz#7a73fe546ffd3d83ff81d8296be2daa7df34e570"
-  integrity sha512-PVFOd5ZZ9uWjiKpNveQv9yIzTFLsztVxFcH9ysw6/hsJOSrj0gHGu7J5VFnXxB20yjZ5Dk3EYanYdIMARYFsyw==
+"@mux/mux-video@0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.20.0.tgz#54d5b85749556525bf7ca8568973489ab9e97efe"
+  integrity sha512-KFfsy3MVwd3QiTdkm65JTUA+XZ3OKqaEp5FLAiHYHnl+3fffZhM14Kqd8HhDFVoDEtGAOiMmXV0DPa3/f/IFlg==
   dependencies:
-    "@mux/playback-core" "0.24.0"
-    castable-video "~1.0.6"
-    custom-media-element "~1.2.3"
-    media-tracks "~0.3.0"
+    "@mux/playback-core" "0.25.0"
+    castable-video "~1.0.9"
+    custom-media-element "~1.3.1"
+    media-tracks "~0.3.2"
 
-"@mux/playback-core@0.24.0":
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/@mux/playback-core/-/playback-core-0.24.0.tgz#3561ee4a572af92d795a0ae6e26c74af4b6c13b4"
-  integrity sha512-OFBSlBwCvwb8fhOVLXwydbY/HQNMbp/pz9w/gGJxntt7ugup65UNrJlwuYzRs0wILnSmms6Oav4bWkjDKwYHIA==
+"@mux/playback-core@0.25.0":
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/@mux/playback-core/-/playback-core-0.25.0.tgz#df0d7c1b8552168391b4e3acc2aa3842a87f65ba"
+  integrity sha512-4sqHZ6uKrt8WC6hywHDQihgU0oyy84PTKe9LVzLUI6WXx7nFUeS9nMUPgkGRzlW5xZOXxKiZVAOSMx9AhzMouQ==
   dependencies:
-    hls.js "~1.5.8"
+    hls.js "~1.5.11"
     mux-embed "~5.2.0"
 
 "@next/env@14.2.5":
@@ -2200,7 +2200,7 @@ capital-case@^1.0.4:
     tslib "^2.0.3"
     upper-case-first "^2.0.2"
 
-castable-video@~1.0.6:
+castable-video@~1.0.9:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/castable-video/-/castable-video-1.0.10.tgz#503cba7927e3bedb2b1c38707cc194aee1ae3e22"
   integrity sha512-tJgUv+8/zE191y8EKojvB0eKIyKA9obIttd6Wpdm6x2qBmuwZ7wDgzVCSmf5cN2v9jBiuu0s7O5poz8a8cFX/w==
@@ -2449,12 +2449,7 @@ csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.3.tgz#d80ff294d114fb0e6ac500fbf85b60137d7eff81"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
 
-custom-media-element@~1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/custom-media-element/-/custom-media-element-1.2.3.tgz#43ea828bea7d6b334530da1d031739250bab900c"
-  integrity sha512-xr9Hbrslkjm1fapJP5hL98pySeZmNepBSefQS/XTxynamqPTfRBK5MnhReMOiAj8xvJApVPrVnlYxIrknay8jg==
-
-custom-media-element@~1.3.2:
+custom-media-element@~1.3.1, custom-media-element@~1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/custom-media-element/-/custom-media-element-1.3.2.tgz#392c8e2910ebaa3c405c49a49ca51586329946bd"
   integrity sha512-nDyMobZgoAVqz7mA8rsn7i1/6bjH6N9ab2Ge7LyyNxrvxAq7zQJPg8i3u2VH7wEB+Y1T1+C3/h1G774/D+ZLag==
@@ -3473,10 +3468,10 @@ header-case@^2.0.4:
     capital-case "^1.0.4"
     tslib "^2.0.3"
 
-hls.js@~1.5.8:
-  version "1.5.11"
-  resolved "https://registry.yarnpkg.com/hls.js/-/hls.js-1.5.11.tgz#3941347df454983859ae8c75fe19e8818719a826"
-  integrity sha512-q3We1izi2+qkOO+TvZdHv+dx6aFzdtk3xc1/Qesrvto4thLTT/x/1FK85c5h1qZE4MmMBNgKg+MIW8nxQfxwBw==
+hls.js@~1.5.11:
+  version "1.5.13"
+  resolved "https://registry.yarnpkg.com/hls.js/-/hls.js-1.5.13.tgz#27bf1c9b91c433e25e7a84635fe7491bb5988d93"
+  integrity sha512-xRgKo84nsC7clEvSfIdgn/Tc0NOT+d7vdiL/wvkLO+0k0juc26NRBPPG1SfB8pd5bHXIjMW/F5VM8VYYkOYYdw==
 
 hogan.js@^3.0.2:
   version "3.0.2"
@@ -4161,12 +4156,12 @@ map-cache@^0.2.0:
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
   integrity sha512-8y/eV9QQZCiyn1SprXSrCmqJN0yNRATe+PO8ztwqrvrbdRLA3eYJF0yaR0YayLWkMbsQSKWS9N2gPcGEc4UsZg==
 
-media-chrome@~3.2.1:
+media-chrome@~3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/media-chrome/-/media-chrome-3.2.3.tgz#581d3cc0ea4994838884ac3d769b95cc50954c1e"
   integrity sha512-DlOlyciT5YgOn5cwGvLWz+OVUVgvyxsRLtfpIQJ11F10+Ix7tDjEqMWsnkL81be9iD3uh/SN35TIk2pRvvEAig==
 
-media-tracks@~0.3.0:
+media-tracks@~0.3.2:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/media-tracks/-/media-tracks-0.3.3.tgz#cca72bd791dcb76cd6427dfa6b2baa25601ea192"
   integrity sha512-9P2FuUHnZZ3iji+2RQk7Zkh5AmZTnOG5fODACnjhCVveX1McY3jmCRHofIEI+yTBqplz7LXy48c7fQ3Uigp88w==
