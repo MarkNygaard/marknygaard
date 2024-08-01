@@ -1233,23 +1233,23 @@
   dependencies:
     "@lit-labs/ssr-dom-shim" "^1.2.0"
 
-"@mux/mux-player-react@*", "@mux/mux-player-react@^2.8.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-2.8.0.tgz#9df04a5f58d96da1a65ec6fa7e4ec0eddb0651c7"
-  integrity sha512-uN+/Tr/9OYwI77ytmMI+u104LCf70O3sHRqZCJQV9BKdMIzsEsuHNxQqY+0EtU39tHrUHdgYmLXD7G2khgwUSw==
+"@mux/mux-player-react@*", "@mux/mux-player-react@^2.8.1":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-2.8.1.tgz#93cac31c7b9cb58ac8e51a6d657aa889c8501b68"
+  integrity sha512-J8JHzcaWCvZOZjcxTL0nQvR6F1a8L592vREImix82vCk0en8BycMF0iAM2ApSBhImAAl9o5n5jGnkq54fV0nbg==
   dependencies:
-    "@mux/mux-player" "2.8.0"
+    "@mux/mux-player" "2.8.1"
     "@mux/playback-core" "0.25.0"
     prop-types "^15.7.2"
 
-"@mux/mux-player@2.8.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-2.8.0.tgz#d77920e89fbd327dd8f607bda8c886afd94d1e14"
-  integrity sha512-qVuLRIFx5IquyBohKbGc8YU7eccRiYeaWBlfbhQcEWI5fSIrn5Lf8YOwlJN0k3TAEWCvX3PXBBr+X77HHH/2wg==
+"@mux/mux-player@2.8.1":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-2.8.1.tgz#89f21caf27b4c659307403760ec5220da55de0c8"
+  integrity sha512-k92o6170+MtJBnMMy07E/QZjFDJoMyEErWlVza8odt8igdKQSjlpmE9zU2hynB04x9F9XT1KqdP9oP4LasJlZg==
   dependencies:
     "@mux/mux-video" "0.20.0"
     "@mux/playback-core" "0.25.0"
-    media-chrome "~3.2.3"
+    media-chrome "~3.2.5"
 
 "@mux/mux-video@0.20.0":
   version "0.20.0"
@@ -4156,10 +4156,10 @@ map-cache@^0.2.0:
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
   integrity sha512-8y/eV9QQZCiyn1SprXSrCmqJN0yNRATe+PO8ztwqrvrbdRLA3eYJF0yaR0YayLWkMbsQSKWS9N2gPcGEc4UsZg==
 
-media-chrome@~3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/media-chrome/-/media-chrome-3.2.3.tgz#581d3cc0ea4994838884ac3d769b95cc50954c1e"
-  integrity sha512-DlOlyciT5YgOn5cwGvLWz+OVUVgvyxsRLtfpIQJ11F10+Ix7tDjEqMWsnkL81be9iD3uh/SN35TIk2pRvvEAig==
+media-chrome@~3.2.5:
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/media-chrome/-/media-chrome-3.2.5.tgz#657722a216e3c0f877d9522fce7425e25da7e137"
+  integrity sha512-tTsgS7x77Bn4p/wca/Si/7A+Q3z9DzKq0SOkroQvrNMXBVyQasMayDcsKg5Ur5NGsymZfttnJi7tXvVr/tPj8g==
 
 media-tracks@~0.3.2:
   version "0.3.3"
