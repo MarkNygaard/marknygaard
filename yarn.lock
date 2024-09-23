@@ -4841,10 +4841,10 @@ react-copy-to-clipboard@^5.1.0:
     copy-to-clipboard "^3.3.1"
     prop-types "^15.8.1"
 
-react-datocms@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.0.1.tgz#443f903fbc6afc2b519d969ec29f3a05e594c946"
-  integrity sha512-qyVZ/36DDoBrRcG8As/U5OaH833M+M7Xkg44B6/t7EbG+YXs4bHwV3c0rUREzvnkNtHeUxhkB4NkZ8Epp4/hUg==
+react-datocms@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.0.3.tgz#72b5fbf2cc1e74f9c8f1b8eb94978e2ce9f8436d"
+  integrity sha512-SMKmwAs/kAZP5qa4G9Ja7S19Nmv8AfK3gkW+elW0QWTR8iHWNoqhDNabsrcJUCRyKb3ahjLqzPpSe/yvcEIBMQ==
   dependencies:
     "@mux/mux-player-react" "*"
     datocms-listen "^0.1.9"
