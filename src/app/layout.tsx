@@ -19,7 +19,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const { allPages } = await queryDatoCMS(AllPagesDocument, {}, isEnabled);
 
   return (
