@@ -12,22 +12,22 @@ import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 
 type Params = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({
-  params: { slug },
-}: Params): Promise<Metadata> {
-  const { isEnabled } = draftMode();
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const slug = (await params).slug;
+  const { isEnabled } = await draftMode();
   const data = await queryDatoCMS(PageBySlugDocument, { slug }, isEnabled);
 
   return toNextMetadata(data?.page?.seo || []);
 }
 
-export default async function Page({ params: { slug } }: Params) {
-  const { isEnabled } = draftMode();
+export default async function Page({ params }: Params) {
+  const slug = (await params).slug;
+  const { isEnabled } = await draftMode();
   const data = await queryDatoCMS(PageBySlugDocument, { slug }, isEnabled);
 
   if (!data?.page) notFound();

@@ -11,14 +11,14 @@ import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
   const data = await queryDatoCMS(HomePageDocument, {}, isEnabled);
 
   return toNextMetadata(data?.page?.seo || []);
 }
 
 export default async function Home() {
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
 
   const data = await queryDatoCMS(HomePageDocument, {}, isEnabled);
 

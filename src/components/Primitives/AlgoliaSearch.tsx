@@ -1,15 +1,7 @@
-import { useState } from 'react';
 import { BsArrowReturnLeft, BsSearch } from 'react-icons/bs';
-import {
-  Hits,
-  InstantSearch,
-  SearchBox,
-  Snippet,
-} from 'react-instantsearch-hooks-web';
-import algoliasearch from 'algoliasearch/lite';
-import { SearchClient } from 'algoliasearch/lite';
+import { Hits, InstantSearch, SearchBox, Snippet } from 'react-instantsearch';
+import { liteClient as algoliasearch } from 'algoliasearch/lite';
 import clsx from 'clsx';
-
 import {
   Modal,
   ModalClose,
@@ -57,34 +49,7 @@ const results = ({ hit }: any) => (
 );
 
 export default function AlgoliaSearch() {
-  const [showResults, setShowResults] = useState(false);
-
-  const instantSearchClient: SearchClient = {
-    ...searchClient,
-    search(queries) {
-      const queriesHasQuery = queries.filter((query) => {
-        return query.params?.query;
-      });
-      if (queriesHasQuery.length === 0) {
-        if (showResults) setShowResults(false);
-        return Promise.resolve({
-          results: queries.map(() => ({
-            hits: [],
-            nbHits: 0,
-            nbPages: 0,
-            page: 0,
-            processingTimeMS: 0,
-            hitsPerPage: 0,
-            exhaustiveNbHits: false,
-            query: '',
-            params: '',
-          })),
-        });
-      }
-      if (!showResults) setShowResults(true);
-      return searchClient.search(queries);
-    },
-  };
+  const showResults = true;
 
   return (
     <Modal>
@@ -96,7 +61,7 @@ export default function AlgoliaSearch() {
         <ModalContent className='mt-4 rounded-lg bg-white dark:bg-gray-900 md:mt-20'>
           <div className='h-full w-full'>
             <InstantSearch
-              searchClient={instantSearchClient}
+              searchClient={searchClient}
               indexName='netlify_381a28a9-55d8-4c31-a82b-3f57df562e98_main_all'
             >
               <div className='relative flex h-full w-full flex-col justify-between shadow-md xl:rounded-lg'>
