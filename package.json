@@ -36,7 +36,7 @@
     "react-dom": "latest",
     "react-icons": "^5.4.0",
     "react-instantsearch": "^7.13.9",
-    "react-intersection-observer": "^9.13.1",
+    "react-intersection-observer": "^9.14.0",
     "tailwind-variants": "^0.3.0"
   },
   "devDependencies": {
