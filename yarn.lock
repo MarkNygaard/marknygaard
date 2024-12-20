@@ -1321,29 +1321,29 @@
   dependencies:
     "@lit-labs/ssr-dom-shim" "^1.2.0"
 
-"@mux/mux-player-react@*", "@mux/mux-player-react@^3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-3.2.1.tgz#8c9d815caa00cbc79e84927e04ce5431e2b0d107"
-  integrity sha512-qfg8A6EgrpAZsYe9bPY+PPcU7Fp9kT8K0aIxveV9o1AUSnjHw06zQuiejNRkiGdcwnC7jt7ckKad8QEQBCEDgQ==
+"@mux/mux-player-react@*", "@mux/mux-player-react@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-3.2.3.tgz#e98eb98f45b306b47127a2edd5187d3358a29234"
+  integrity sha512-CysElGR1VnxYzwp8Msxu8x6D3aBCYjQ8KIz2fJHZv0QgJPx9LR1M8VpJBFFp2XvbAEKSu9lwzpQpYSXWqHAjNA==
   dependencies:
-    "@mux/mux-player" "3.2.1"
+    "@mux/mux-player" "3.2.3"
     "@mux/playback-core" "0.28.1"
     prop-types "^15.7.2"
 
-"@mux/mux-player@3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-3.2.1.tgz#f5b1a6b25aa35dab5c25779edcdb19d10b9d789d"
-  integrity sha512-zNXjBQrpRVOosY6CbJNg33TxdvJsYLbxhIUAA2gVRHUG4LkO7yVMIaYlBGmlYi/bwZqSU3r2WfphJR779MiSpQ==
+"@mux/mux-player@3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-3.2.3.tgz#ee5acb0ca6a75f9d720a329398700eb2e5483f10"
+  integrity sha512-OK8i/Njfg6c6fJT98jAF4GPBW0UcDpIT40KAlGdoI4iYt1/oP0ewUCy/pTm/ysyr+ikcEOaJhyQ4le/9jdT0fw==
   dependencies:
-    "@mux/mux-video" "0.23.1"
+    "@mux/mux-video" "0.24.1"
     "@mux/playback-core" "0.28.1"
     media-chrome "~4.3.0"
     player.style "^0.1.0"
 
-"@mux/mux-video@0.23.1":
-  version "0.23.1"
-  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.23.1.tgz#97a63193fc63b7283e45f5cd717f153eb556cb14"
-  integrity sha512-BLt8XijPk8FVFCFuT5XNVqyD/tCjKmtAeAR4O8tuwe6W3ot13TFskXdQDCmkSfebdthF8SWVyzNkr1TGR/C7xQ==
+"@mux/mux-video@0.24.1":
+  version "0.24.1"
+  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.24.1.tgz#4c139377bf9b82915774a0b5fb344b006a1b82ef"
+  integrity sha512-A0+RRcikPz7T5MwqNU5p4YzfU/WyLDVMsmEI0JH7W+zdx7Vbs3o1vh4i98OItxA1rv0KIZ427mCHWUjojCYxPQ==
   dependencies:
     "@mux/playback-core" "0.28.1"
     castable-video "~1.1.3"
