@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export default function Footer() {
   return (
     <footer className='container mx-auto md:mb-10'>
-      <div className='container mx-auto flex flex-col items-center space-y-4 bg-pine-300/80 pb-10 pt-12 font-extralight dark:border dark:border-gray-700/80 dark:bg-gray-800/60 md:max-w-6xl md:rounded-sm'>
+      <div className='container mx-auto flex flex-col items-center space-y-4 bg-pine-300/80 pb-10 pt-12 font-extralight dark:border dark:border-gray-700/50 dark:bg-zinc-950/90 md:max-w-6xl md:rounded-sm'>
         <ul className='p-4'>
           <motion.li
             className='text-3xl'
