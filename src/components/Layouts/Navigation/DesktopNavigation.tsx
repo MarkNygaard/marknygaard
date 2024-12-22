@@ -35,10 +35,10 @@ export default function DesktopNavigation({ allPages }: any) {
       <div className='mx-auto max-w-6xl'>
         <div className='hidden md:block'>
           <div className='relative w-full'>
-            <div className='absolute top-0 flex w-full justify-center'>
-              <div className='duration-2000 left-0 h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white/50 to-[rgba(17,17,17,0)] transition-all' />
-            </div>
-            <div className='my-3 items-center justify-center rounded-sm border-gray-700/80 bg-gradient-to-b from-pine-300 to-pine-300/80 px-3 dark:border dark:from-gray-900 dark:to-black/70'>
+            {/* <div className='absolute top-0 flex w-full justify-center'>
+              <div className='left-0 h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white/50 to-[rgba(17,17,17,0)] transition-all duration-2000' />
+            </div> */}
+            <div className='my-3 items-center justify-center rounded-sm border-gray-700/80 bg-gradient-to-b from-pine-300 to-pine-300/80 px-3 dark:border dark:border-gray-700/50 dark:from-zinc-950/90 dark:to-zinc-950/90'>
               <div className='mx-auto flex max-w-5xl py-4'>
                 <div className='flex flex-1 items-center text-xl'>
                   <Link
