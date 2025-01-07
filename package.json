@@ -35,7 +35,7 @@
     "react-datocms": "^7.1.0",
     "react-dom": "latest",
     "react-icons": "^5.4.0",
-    "react-instantsearch": "^7.13.9",
+    "react-instantsearch": "^7.13.10",
     "react-intersection-observer": "^9.14.1",
     "tailwind-variants": "^0.3.0"
   },
