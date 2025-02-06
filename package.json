@@ -15,7 +15,7 @@
     "@giscus/react": "^3.1.0",
     "@mux/mux-player-react": "^3.2.4",
     "@radix-ui/react-dialog": "^1.1.5",
-    "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-slot": "^1.1.2",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "algoliasearch": "^5.20.1",
