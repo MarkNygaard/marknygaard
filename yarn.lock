@@ -2617,14 +2617,14 @@ datocms-listen@^0.1.9:
   dependencies:
     "@0no-co/graphql.web" "^1.0.1"
 
-datocms-structured-text-generic-html-renderer@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/datocms-structured-text-generic-html-renderer/-/datocms-structured-text-generic-html-renderer-4.0.1.tgz#618fb80e099eb0db4af064b49489eb33cd4a5ee4"
-  integrity sha512-umEWXyBHP3fo1YsOL7AhFxWrmb2LNxiRV26+C8NMkwoBZ/RbF9+dBaGIBv1D/NeasCjq560hBdm7jqChxxIi/A==
+datocms-structured-text-generic-html-renderer@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-generic-html-renderer/-/datocms-structured-text-generic-html-renderer-4.1.2.tgz#df92052ea0ace3a0ab3b1da09f21b2e0bf90e37c"
+  integrity sha512-VsyVnqG/5iio3LHGd09Pk27n3hu2YcAujgTcgtv8CXapYd13r7OkfMkrsbiuJCO+xYBzPNHhI62PL6QOoI6BGA==
   dependencies:
-    datocms-structured-text-utils "^4.0.1"
+    datocms-structured-text-utils "^4.1.2"
 
-datocms-structured-text-utils@^4.0.1, datocms-structured-text-utils@^4.1.2:
+datocms-structured-text-utils@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-4.1.2.tgz#aac1e4b28e5fbea1b9d8ebf0d5e717cad7d39a26"
   integrity sha512-xyBG7ZAXedv8wytTR1JqfHx8uuUogg6I9brQmK1uR3y14gQqTRLvAeoY3unp5xcBDm8YXYHdS2W+Bg9AWgdhLQ==
@@ -4908,15 +4908,15 @@ react-copy-to-clipboard@^5.1.0:
     copy-to-clipboard "^3.3.1"
     prop-types "^15.8.1"
 
-react-datocms@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.1.0.tgz#fcd0531c0996017eca415c6760a5499beb5a3059"
-  integrity sha512-cVMactlxnrd/BhiEjRKJ+AOD0gM0DFYKa7ziF3RzT6KHiiWpMvSF5dPRfKr+1C+Hg7thE49KGFMSODhu7CEzgA==
+react-datocms@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.2.0.tgz#6ce4eaec799c706c594867f177896c99a833fc00"
+  integrity sha512-W85uGkFNTlemdMq9CoE0i4w9aNU8b5Lh5CSwK9ANVeYiKKaXrJ32LPMod6wVN+xdPpCibtfLbTZX+B/RIuZ8BA==
   dependencies:
     "@mux/mux-player-react" ">=2.5.0 <3"
     datocms-listen "^0.1.9"
-    datocms-structured-text-generic-html-renderer "^4.0.1"
-    datocms-structured-text-utils "^4.0.1"
+    datocms-structured-text-generic-html-renderer "^4.1.2"
+    datocms-structured-text-utils "^4.1.2"
     react-intersection-observer "^9.4.3"
     react-string-replace "^1.1.0"
     use-deep-compare-effect "^1.6.1"
