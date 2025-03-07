@@ -74,18 +74,25 @@ async function fetchBlogPosts() {
   });
 }
 
-export async function GET(req: Request) {
-  const url = new URL(req.url);
-  const providedSecret = url.searchParams.get('secret');
-
-  if (providedSecret !== process.env.ALGOLIA_SYNC_SECRET) {
-    return NextResponse.json(
-      { success: false, error: 'Unauthorized' },
-      { status: 401 },
-    );
-  }
-
+export async function POST(req: Request) {
   try {
+    const url = new URL(req.url);
+    const providedSecret =
+      url.searchParams.get('secret') || req.headers.get('x-webhook-secret');
+
+    if (providedSecret !== process.env.ALGOLIA_SYNC_SECRET) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized' },
+        { status: 401 },
+      );
+    }
+
+    const body = await req.json();
+
+    if (body.event_type !== 'publish') {
+      return NextResponse.json({ success: false, message: 'Ignored event' });
+    }
+
     const blogPosts = await fetchBlogPosts();
 
     const response = await client.saveObjects({
