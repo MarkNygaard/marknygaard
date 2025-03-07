@@ -46,7 +46,7 @@ export default async function Page({ params }: Params) {
             </div>
           </div>
         </div>
-        <div className='relative flex h-36 border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2 sm:h-60 lg:h-96'>
+        <div className='relative flex aspect-[2/1] border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2'>
           {data.post.coverImage && data.post.coverImage.responsiveImage && (
             <DatoImage
               data={{
@@ -55,8 +55,6 @@ export default async function Page({ params }: Params) {
                   data.post.coverImage.responsiveImage.base64 || undefined,
                 alt: `Cover Image for ${data.post.title}`,
               }}
-              className='object-cover'
-              pictureClassName='object-cover'
             />
           )}
         </div>

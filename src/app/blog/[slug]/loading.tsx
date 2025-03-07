@@ -5,7 +5,7 @@ export default function Loading() {
     <div>
       <div className='pb-4 sm:grid sm:grid-cols-3 sm:grid-rows-1 sm:gap-2'>
         <Skeleton className='h-16 bg-pine-300 p-5 md:h-full' />
-        <Skeleton className='h-36 sm:col-span-2 sm:h-60 lg:h-96' />
+        <Skeleton className='aspect-[2/1] sm:col-span-2' />
       </div>
       <div className='flex'>
         <div className='w-full space-y-2 pr-3 lg:w-9/12'>

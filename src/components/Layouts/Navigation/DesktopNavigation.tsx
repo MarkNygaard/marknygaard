@@ -2,7 +2,7 @@
 
 import React from 'react';
 import AlgoliaSearch from '@Primitives/AlgoliaSearch';
-import { DarkMode } from '@Primitives/DarkMode';
+import { ThemeToggle } from '@Primitives/ThemeProvider';
 import clsx from 'clsx';
 import Icon from 'components/Icons';
 import { PageRecord } from 'infrastructure/generated/graphql';
@@ -63,7 +63,7 @@ export default function DesktopNavigation({ allPages }: any) {
                   </div>
                   <div className='flex items-center space-x-2 pl-3'>
                     <AlgoliaSearch />
-                    <DarkMode />
+                    <ThemeToggle />
                   </div>
                 </div>
               </div>

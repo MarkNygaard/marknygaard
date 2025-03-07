@@ -23,7 +23,6 @@ export default function TextBlock({
 }: TextRecord) {
   return (
     <div
-      id={id}
       className={clsx('align-center flex items-center overflow-hidden', {
         'justify-center': centerText,
       })}

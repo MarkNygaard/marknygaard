@@ -12,7 +12,7 @@ export default function SectionMenu(props: any) {
 
   const renderMenuItems = (menu: SectionRecord, level: number = 0) => {
     return (
-      <>
+      <div key={menu.id}>
         <ProgressBar />
         <ol key={menu.id} className={level > 0 ? `pl-2` : ''}>
           <li className='py-1 hover:text-gray-800 dark:hover:text-gray-200'>
@@ -31,7 +31,7 @@ export default function SectionMenu(props: any) {
           </li>
           {menu.section?.map((subMenu) => renderMenuItems(subMenu, level + 1))}
         </ol>
-      </>
+      </div>
     );
   };
 

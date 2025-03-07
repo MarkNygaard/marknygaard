@@ -9,6 +9,8 @@ const buttonVariants = tv({
     variant: {
       default: 'dark:text-white text-black',
       outline: 'border border-input',
+      theme:
+        'flex aspect-square text-[#72818b] hover:bg-pine-300 hover:font-bold hover:text-pine-700 dark:hover:bg-slate-800 dark:hover:text-pine-200',
     },
     size: {
       default: 'h-10 px-4 py-2',

@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { GridRecord } from 'infrastructure/generated/graphql';
 
 export default function GridBlock({
-  id,
   showOnMobile,
   showOnTablet,
   showOnDesktop,
@@ -12,7 +11,6 @@ export default function GridBlock({
 }: GridRecord) {
   return (
     <div
-      key={id}
       className={clsx(
         'relative mx-auto grid max-w-6xl grid-cols-4 md:grid md:grid-cols-8 lg:grid lg:grid-cols-12',
         {
