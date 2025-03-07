@@ -5,9 +5,9 @@ updates:
     schedule:
       interval: 'daily'
     ignore:
-      - dependency-name: 'graphql-request'
+      - dependency-name: 'tailwindcss'
         # For graphql-request, ignore all Dependabot updates for version 6 and 7
-        versions: ['6.x', '7.x']
+        versions: ['4.x']
   - package-ecosystem: 'github-actions'
     directory: '/'
     open-pull-requests-limit: 25
