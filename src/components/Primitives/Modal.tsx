@@ -33,6 +33,7 @@ const ModalContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <ModalPrimitive.Content
     ref={ref}
+    aria-describedby={undefined}
     className={cn(
       'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       'fixed left-[50%] z-50 grid w-11/12 max-w-[780px] translate-x-[-50%] md:w-full',

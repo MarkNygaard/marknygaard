@@ -1,7 +1,7 @@
 import { BsArrowReturnLeft, BsSearch } from 'react-icons/bs';
 import { Hits, InstantSearch, SearchBox, Snippet } from 'react-instantsearch';
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
-import clsx from 'clsx';
+import { cn } from 'lib/utils';
 
 import {
   Modal,
@@ -13,8 +13,8 @@ import {
 } from './Modal';
 
 const searchClient = algoliasearch(
-  'WGUS10UMIP',
-  '01851bb5a02f53e334fc56d85eaa9dd3',
+  process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID ?? '',
+  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_ONLY_API_KEY ?? '',
 );
 
 const results = ({ hit }: any) => (
@@ -22,16 +22,17 @@ const results = ({ hit }: any) => (
     <a className='flex w-full' href={hit.url}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className='mr-1 h-[60px] w-[80px] rounded-md border object-cover md:hidden'
+        className='mr-1 h-[60px] w-[80px] rounded-md border object-cover dark:border-gray-900 md:hidden'
         alt={hit.title}
         src={hit.image.split('w=')[0] + 'w=110'}
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className='mr-3 hidden h-[100px] w-[180px] rounded-md border object-cover shadow-sm md:flex'
+        className='mr-3 hidden h-[100px] w-[180px] rounded-md border object-cover shadow-sm dark:border-gray-600 md:flex'
         alt={hit.title}
         src={hit.image.split('w=')[0] + 'w=190'}
       />
+
       <div className='flex w-full items-center truncate pr-2 md:pr-4'>
         <div className='flex w-full flex-col'>
           <p className='text-sm font-bold md:text-base'>{hit.title}</p>
@@ -61,12 +62,9 @@ export default function AlgoliaSearch() {
         <ModalOverlay />
         <ModalContent className='mt-4 rounded-lg bg-white dark:bg-gray-900 md:mt-20'>
           <div className='h-full w-full'>
-            <InstantSearch
-              searchClient={searchClient}
-              indexName='netlify_381a28a9-55d8-4c31-a82b-3f57df562e98_main_all'
-            >
+            <InstantSearch searchClient={searchClient} indexName='blog_posts'>
               <div className='relative flex h-full w-full flex-col justify-between shadow-md xl:rounded-lg'>
-                <div className='border-gray-500-opacity-10 flex h-16 flex-none items-center border-b dark:border-gray-700'>
+                <div className='flex h-16 flex-none items-center border-b border-gray-500/10 dark:border-gray-700'>
                   <div className='flex h-full w-full items-center'>
                     <SearchBox
                       placeholder='Search'
@@ -98,7 +96,7 @@ export default function AlgoliaSearch() {
                   </div>
                 )}
                 <div
-                  className={clsx('relative flex justify-end p-4', {
+                  className={cn('relative flex justify-end p-4', {
                     'border-gray-500-opacity-10 border-t dark:border-gray-700':
                       showResults,
                   })}

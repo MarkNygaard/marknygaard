@@ -1,0 +1,33 @@
+query AllPosts {
+  allPosts {
+    id
+    title
+    slug
+    date
+    coverImage {
+      responsiveImage(
+        imgixParams: { fit: crop, w: 176, h: 100, auto: compress, fm: avif }
+      ) {
+        ...responsiveImageFragment
+      }
+    }
+    seoSettings {
+      description
+    }
+    section {
+      description {
+        value
+      }
+      section {
+        description {
+          value
+        }
+        section {
+          description {
+            value
+          }
+        }
+      }
+    }
+  }
+}
