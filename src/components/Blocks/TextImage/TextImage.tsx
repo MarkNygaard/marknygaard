@@ -27,7 +27,6 @@ export default function TextImageBlock({
 }: TextImageRecord) {
   return (
     <div
-      key={id}
       className={clsx('mx-auto grid grid-cols-1 md:items-center', {
         'grid-template sm:grid-cols-3':
           imageLocation === 'RIGHT' && displayStyle === '2x1',
@@ -65,7 +64,7 @@ export default function TextImageBlock({
           }}
         />
       </motion.article>
-      {((image as FileField)?.responsiveImage as any) ? (
+      {((image as FileField)?.responsiveImage as any) && (
         <motion.div
           initial={fadeInImage ? { y: 20, opacity: 0 } : { opacity: 1 }}
           animate={fadeInImage ? { y: 0, opacity: 1 } : { opacity: 1 }}
@@ -96,7 +95,7 @@ export default function TextImageBlock({
             />
           </div>
         </motion.div>
-      ) : null}
+      )}
     </div>
   );
 }

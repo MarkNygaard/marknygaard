@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { useMemo } from 'react';
+import React, { useEffect, useMemo,useState } from 'react';
 import { CopyButton } from '@Primitives/CopyButton';
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
@@ -16,7 +15,7 @@ function usePrismTheme() {
   const darkModeTheme = darkCodeTheme || lightModeTheme;
   const prismTheme = theme === 'light' ? lightModeTheme : darkModeTheme;
 
-  const [finalTheme, setFinalTheme] = useState(prismTheme);
+  const [finalTheme, setFinalTheme] = useState<typeof prismTheme | null>(null);
 
   useEffect(() => {
     setFinalTheme(prismTheme);
@@ -36,18 +35,28 @@ export default function SyntaxHighlight({
   showLineNumbers?: boolean;
   highlightLines?: number[];
 }) {
-  const linesCount = useMemo(() => {
-    return code.split(/\r\n|\r|\n/).length;
-  }, [code]);
+  const linesCount = useMemo(() => code.split(/\r\n|\r|\n/).length, [code]);
 
   const currentTheme = usePrismTheme();
+  const [hydratedStyle, setHydratedStyle] =
+    useState<React.CSSProperties | null>(null);
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydratedStyle(currentTheme?.plain ?? {});
+    setIsHydrated(true);
+  }, [currentTheme]);
 
   return (
-    <Highlight theme={currentTheme} code={code} language={language}>
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+    <Highlight
+      theme={currentTheme || { plain: {}, styles: [] }}
+      code={code}
+      language={language}
+    >
+      {({ className, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={`group relative whitespace-pre-wrap ${className}`}
-          style={style}
+          style={hydratedStyle ?? {}}
         >
           <CopyButton value={code} />
           {tokens.map((line, i) => {
@@ -67,7 +76,11 @@ export default function SyntaxHighlight({
                 )}
               >
                 {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
+                  <span
+                    key={key}
+                    {...getTokenProps({ token })}
+                    style={isHydrated ? getTokenProps({ token }).style : {}} // Avoid mismatch
+                  />
                 ))}
               </div>
             );

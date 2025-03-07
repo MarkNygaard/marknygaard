@@ -12,7 +12,6 @@ export default function GridBlock({
 }: GridRecord) {
   return (
     <div
-      key={id}
       className={clsx(
         'relative mx-auto grid max-w-6xl grid-cols-4 md:grid md:grid-cols-8 lg:grid lg:grid-cols-12',
         {

@@ -12,7 +12,7 @@ interface BlogBlockProps extends BlogRecord {
 
 export default function BlogBlock({ id, imageBoolean, posts }: BlogBlockProps) {
   return (
-    <div key={id} className='mx-auto max-w-5xl'>
+    <div className='mx-auto max-w-5xl'>
       {posts?.map((post: PostRecord) => (
         <NextLink key={post.id} href={`/blog/${post.slug}`}>
           <CardSpotlight>

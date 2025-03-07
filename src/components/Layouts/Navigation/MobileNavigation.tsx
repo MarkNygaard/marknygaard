@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import AlgoliaSearch from '@Primitives/AlgoliaSearch';
-import { DarkMode } from '@Primitives/DarkMode';
 import {
   Modal,
   ModalContent,
@@ -10,6 +9,7 @@ import {
   ModalPortal,
   ModalTrigger,
 } from '@Primitives/Modal';
+import { ThemeToggle } from '@Primitives/ThemeProvider';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { PageRecord } from 'infrastructure/generated/graphql';
@@ -140,7 +140,7 @@ export default function MobileNavigation({ allPages }: any) {
         </Modal>
         <div className='ml-5 flex space-x-3'>
           <AlgoliaSearch />
-          <DarkMode />
+          <ThemeToggle />
         </div>
       </div>
     </nav>

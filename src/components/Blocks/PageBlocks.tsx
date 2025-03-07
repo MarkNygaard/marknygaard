@@ -22,19 +22,19 @@ export default function PageBlocks({ blocks, posts }: Readonly<Props>) {
       {blocks?.map((block) => {
         switch (block.__typename) {
           case 'TextImageRecord':
-            return <TextImageBlock {...block} />;
+            return <TextImageBlock key={block.id} {...block} />;
           case 'TextRecord':
-            return <TextBlock {...block} />;
+            return <TextBlock key={block.id} {...block} />;
           case 'ImageRecord':
-            return <ImageBlock {...block} />;
+            return <ImageBlock key={block.id} {...block} />;
           case 'BlogRecord':
-            return <BlogBlock {...block} posts={posts} />;
+            return <BlogBlock key={block.id} {...block} posts={posts} />;
           case 'FeaturedRecord':
-            return <FeaturedBlock {...block} />;
+            return <FeaturedBlock key={block.id} {...block} />;
           case 'CardRecord':
-            return <CardBlock {...block} />;
+            return <CardBlock key={block.id} {...block} />;
           case 'GridRecord':
-            return <GridBlock {...block} />;
+            return <GridBlock key={block.id} {...block} />;
           default:
             return <></>;
         }

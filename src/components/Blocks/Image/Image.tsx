@@ -15,7 +15,6 @@ export default function ImageBlock({
 }: ImageRecord) {
   return (
     <motion.div
-      key={id}
       initial={fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
       animate={fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
       transition={fadeIn && { duration: 0.5, delay: fadeInDelay ?? 0 }}

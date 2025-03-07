@@ -14,7 +14,6 @@ export default function FeaturedBlock({
 }: FeaturedRecord) {
   return (
     <motion.div
-      key={id}
       className='py-4 pt-10'
       initial={fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
       animate={fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}

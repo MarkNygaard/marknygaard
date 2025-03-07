@@ -22,7 +22,7 @@ export default function CardBlock({
     : '';
 
   return (
-    <div key={id} className='flex justify-center'>
+    <div className='flex justify-center'>
       <div
         className={clsx('grid', {
           [`grid-cols-${mobileColumns as String}`]: mobileColumns,
