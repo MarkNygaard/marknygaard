@@ -2,6 +2,7 @@ import { BsArrowReturnLeft, BsSearch } from 'react-icons/bs';
 import { Hits, InstantSearch, SearchBox, Snippet } from 'react-instantsearch';
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
 import clsx from 'clsx';
+
 import {
   Modal,
   ModalClose,

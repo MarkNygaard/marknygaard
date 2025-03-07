@@ -1,10 +1,9 @@
 import React from 'react';
 import { toNextMetadata } from 'react-datocms';
-import { Image } from 'react-datocms';
+import { Image as DatoImage } from 'react-datocms';
 import { Section } from '@Blocks/Section/Section';
 import SectionMenu from '@Blocks/Section/SectionMenu';
 import Comment from '@Primitives/Comment';
-import ProgressBar from '@Primitives/ProgressBar';
 // import ViewCounter from 'components/ViewCounter';
 import { format } from 'date-fns';
 import type { SectionRecord } from 'infrastructure/generated/graphql';
@@ -49,7 +48,7 @@ export default async function Page({ params }: Params) {
         </div>
         <div className='relative flex h-36 border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2 sm:h-60 lg:h-96'>
           {data.post.coverImage && data.post.coverImage.responsiveImage && (
-            <Image
+            <DatoImage
               data={{
                 ...data.post.coverImage.responsiveImage,
                 base64:

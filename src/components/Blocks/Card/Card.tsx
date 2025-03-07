@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-datocms';
+import { Image as DatoImage } from 'react-datocms';
 import TextBlock from '@Blocks/Text/Text';
 import clsx from 'clsx';
 import type { CardRecord, FileField } from 'infrastructure/generated/graphql';
@@ -45,7 +45,7 @@ export default function CardBlock({
             switch (section.__typename) {
               case 'CardImageRecord':
                 return (
-                  <Image
+                  <DatoImage
                     data={(section.image as FileField).responsiveImage as any}
                     pictureClassName='object-cover'
                   />

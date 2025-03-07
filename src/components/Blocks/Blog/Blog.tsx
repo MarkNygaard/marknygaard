@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-datocms';
+import { Image as DatoImage } from 'react-datocms';
 import CardSpotlight from '@Primitives/CardSpotlight';
 import clsx from 'clsx';
 import { format } from 'date-fns';
@@ -22,7 +22,7 @@ export default function BlogBlock({ id, imageBoolean, posts }: BlogBlockProps) {
               })}
             >
               {post.coverImage && post.coverImage.responsiveImage && (
-                <Image
+                <DatoImage
                   className='object-cover dark:opacity-90'
                   pictureClassName='object-cover'
                   data={{
