@@ -1,6 +1,6 @@
-import { VideoRecord } from 'infrastructure/generated/graphql';
 import React from 'react';
 import { VideoPlayer } from 'react-datocms';
+import { VideoRecord } from 'infrastructure/generated/graphql';
 
 export default function VideoBlock({ id, video }: VideoRecord) {
   return (

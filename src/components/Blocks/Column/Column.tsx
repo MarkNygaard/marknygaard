@@ -1,3 +1,4 @@
+import React from 'react';
 import ImageBlock from '@Blocks/Image/Image';
 import TextBlock from '@Blocks/Text/Text';
 import VideoBlock from '@Blocks/Video/Video';
@@ -6,7 +7,6 @@ import {
   ImageRecord,
   VideoRecord,
 } from 'infrastructure/generated/graphql';
-import React from 'react';
 
 export default function ColumnBlock({ id, column1, column2 }: ColumnRecord) {
   let column1Content;

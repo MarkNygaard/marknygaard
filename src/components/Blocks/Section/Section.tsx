@@ -1,8 +1,11 @@
 'use client';
 
 import { renderNodeRule, StructuredText } from 'react-datocms';
+import ColumnBlock from '@Blocks/Column/Column';
 import ImageBlock from '@Blocks/Image/Image';
 import MainHeading from '@Blocks/MainHeading/MainHeading';
+import TextImageBlock from '@Blocks/TextImage/TextImage';
+import VideoBlock from '@Blocks/Video/Video';
 import SyntaxHighlight from '@Primitives/SyntaxHighlight';
 import { isCode } from 'datocms-structured-text-utils';
 import {
@@ -14,9 +17,6 @@ import {
   VideoRecord,
 } from 'infrastructure/generated/graphql';
 import useSectionInView from 'lib/hooks/useSectionInView';
-import TextImageBlock from '@Blocks/TextImage/TextImage';
-import VideoBlock from '@Blocks/Video/Video';
-import ColumnBlock from '@Blocks/Column/Column';
 
 interface SectionProps extends SectionRecord {
   level?: number;
