@@ -10,7 +10,7 @@ interface BlogBlockProps extends BlogRecord {
   posts: PostRecord[];
 }
 
-export default function BlogBlock({ id, imageBoolean, posts }: BlogBlockProps) {
+export default function BlogBlock({ imageBoolean, posts }: BlogBlockProps) {
   return (
     <div className='mx-auto max-w-5xl'>
       {posts?.map((post: PostRecord) => (

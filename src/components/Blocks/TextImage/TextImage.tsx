@@ -14,7 +14,6 @@ import type {
 } from 'infrastructure/generated/graphql';
 
 export default function TextImageBlock({
-  id,
   imageLocation,
   displayStyle,
   fadeInText,

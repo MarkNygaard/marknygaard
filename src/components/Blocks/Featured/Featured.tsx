@@ -7,7 +7,6 @@ import { FeaturedRecord } from 'infrastructure/generated/graphql';
 import Link from 'next/link';
 
 export default function FeaturedBlock({
-  id,
   fadeIn,
   fadeInDelay,
   posts,

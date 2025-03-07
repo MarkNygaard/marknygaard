@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { GridRecord } from 'infrastructure/generated/graphql';
 
 export default function GridBlock({
-  id,
   showOnMobile,
   showOnTablet,
   showOnDesktop,

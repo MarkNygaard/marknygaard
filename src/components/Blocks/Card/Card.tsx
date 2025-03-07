@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import type { CardRecord, FileField } from 'infrastructure/generated/graphql';
 
 export default function CardBlock({
-  id,
   mobileColumns,
   tabletColumns,
   desktopColumns,

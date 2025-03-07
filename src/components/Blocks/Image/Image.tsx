@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import type { FileField, ImageRecord } from 'infrastructure/generated/graphql';
 
 export default function ImageBlock({
-  id,
   fadeIn,
   fadeInDelay,
   imageStyle,
