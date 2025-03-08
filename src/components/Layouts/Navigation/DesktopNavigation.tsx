@@ -23,6 +23,7 @@ export default function DesktopNavigation({
                   <Link
                     href='/'
                     passHref
+                    aria-label='Home'
                     className='text-sm font-light uppercase tracking-tight dark:text-gray-200 md:text-base lg:text-xl'
                   >
                     <Icon symbol='logo' />
