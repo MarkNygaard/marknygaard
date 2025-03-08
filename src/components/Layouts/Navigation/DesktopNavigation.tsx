@@ -7,7 +7,11 @@ import Link from 'next/link';
 
 import NavItemDesktop from './NavItemDesktop';
 
-export default function DesktopNavigation({ allPages }: any) {
+export default function DesktopNavigation({
+  allPages,
+}: {
+  allPages: PageRecord[];
+}) {
   return (
     <nav className='container sticky top-0 z-10 mx-auto'>
       <div className='mx-auto max-w-6xl'>
