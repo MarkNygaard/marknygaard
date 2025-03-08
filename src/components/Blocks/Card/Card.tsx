@@ -1,8 +1,8 @@
 import React from 'react';
-import { Image as DatoImage } from 'react-datocms';
+import { SRCImage } from 'react-datocms';
 import TextBlock from '@Blocks/Text/Text';
-import clsx from 'clsx';
 import type { CardRecord, FileField } from 'infrastructure/generated/graphql';
+import { cn } from 'lib/utils';
 
 export default function CardBlock({
   mobileColumns,
@@ -23,15 +23,15 @@ export default function CardBlock({
   return (
     <div className='flex justify-center'>
       <div
-        className={clsx('grid', {
+        className={cn('grid', {
           [`grid-cols-${mobileColumns as String}`]: mobileColumns,
           [`md:grid-cols-${tabletColumns as String}`]: tabletColumns,
           [`xl:grid-cols-${desktopColumns as String}`]: desktopColumns,
           [`gap-${gap as String}`]: gap,
         })}
       >
-        {sections.map((section: any) => {
-          const commonClasses = clsx('relative', {
+        {sections.map((section) => {
+          const commonClasses = cn('relative', {
             [`order-${section.mobilePosition as String}`]:
               section.mobilePosition,
             [`md:order-${section.tabletPosition as String}`]:
@@ -44,9 +44,8 @@ export default function CardBlock({
             switch (section.__typename) {
               case 'CardImageRecord':
                 return (
-                  <DatoImage
+                  <SRCImage
                     data={(section.image as FileField).responsiveImage as any}
-                    pictureClassName='object-cover'
                   />
                 );
               case 'CardTextRecord':
@@ -59,7 +58,7 @@ export default function CardBlock({
           return (
             <div
               key={section.id}
-              className={clsx(
+              className={cn(
                 commonClasses,
                 {
                   'flex shrink-0 self-center overflow-hidden object-fill':

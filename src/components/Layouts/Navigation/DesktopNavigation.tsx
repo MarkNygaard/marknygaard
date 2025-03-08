@@ -3,9 +3,9 @@
 import React from 'react';
 import AlgoliaSearch from '@Primitives/AlgoliaSearch';
 import { ThemeToggle } from '@Primitives/ThemeProvider';
-import clsx from 'clsx';
 import Icon from 'components/Icons';
 import { PageRecord } from 'infrastructure/generated/graphql';
+import { cn } from 'lib/utils';
 import NextLink from 'next/link';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,7 +17,7 @@ function NavItem({ href, text }: { href: string; text: string }) {
   return (
     <NextLink
       href={href}
-      className={clsx(
+      className={cn(
         isActive
           ? 'active border-red-500 text-pine-900 transition dark:text-gray-200'
           : 'text-pine-600 transition-all duration-300 ease-out hover:text-pine-900 hover:ease-in dark:text-gray-500 dark:hover:text-gray-100',

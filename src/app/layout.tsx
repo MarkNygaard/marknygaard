@@ -4,9 +4,9 @@ import MobileNavigation from '@Layouts/Navigation/MobileNavigation';
 import { Providers } from '@Primitives/Providers';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import clsx from 'clsx';
 import { AllPagesDocument } from 'infrastructure/generated/graphql';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
+import { cn } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { draftMode } from 'next/headers';
 
@@ -26,7 +26,7 @@ export default async function RootLayout({
     <html lang='en' className='scroll-smooth' suppressHydrationWarning>
       <body
         style={{ WebkitTapHighlightColor: 'transparent' }}
-        className={clsx(
+        className={cn(
           'flex min-h-screen flex-col bg-white transition-colors dark:bg-black dark:text-gray-200',
           inter.className,
         )}

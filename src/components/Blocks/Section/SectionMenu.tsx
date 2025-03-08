@@ -1,9 +1,9 @@
 'use client';
 
 import ProgressBar from '@Primitives/ProgressBar';
-import clsx from 'clsx';
 import { useActiveSectionContext } from 'context/ActiveSectionContext';
 import { SectionRecord } from 'infrastructure/generated/graphql';
+import { cn } from 'lib/utils';
 import Link from 'next/link';
 
 export default function SectionMenu(props: any) {
@@ -22,7 +22,7 @@ export default function SectionMenu(props: any) {
                 setTimeOfLastClick(Date.now());
               }}
               href={'#' + menu.name}
-              className={clsx({
+              className={cn({
                 'text-gray-800 dark:text-gray-200': activeSection === menu.name,
               })}
             >

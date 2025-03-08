@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useMemo,useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { CopyButton } from '@Primitives/CopyButton';
-import clsx from 'clsx';
+import { cn } from 'lib/utils';
 import { useTheme } from 'next-themes';
 import { Highlight, Language } from 'prism-react-renderer';
 
@@ -64,7 +64,7 @@ export default function SyntaxHighlight({
             return (
               <div
                 key={i}
-                className={clsx(lineProps.className, {
+                className={cn(lineProps.className, {
                   ['bg-white']: highlightLines.includes(i),
                   [`before:pr-3 before:opacity-20 before:content-[attr(data-line-number)]`]:
                     showLineNumbers,
