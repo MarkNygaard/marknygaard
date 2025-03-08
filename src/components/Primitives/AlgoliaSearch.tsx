@@ -57,7 +57,10 @@ export default function AlgoliaSearch() {
 
   return (
     <Modal>
-      <ModalTrigger className='duration-400 flex aspect-square h-fit items-center justify-center rounded-md p-3 text-[#72818b] transition-all hover:bg-pine-300 hover:font-bold hover:text-pine-700 dark:hover:bg-slate-800 dark:hover:text-pine-200'>
+      <ModalTrigger
+        aria-label='Search'
+        className='duration-400 flex aspect-square h-fit items-center justify-center rounded-md p-3 text-[#72818b] transition-all hover:bg-pine-300 hover:font-bold hover:text-pine-700 dark:hover:bg-slate-800 dark:hover:text-pine-200'
+      >
         <BsSearch />
       </ModalTrigger>
       <ModalPortal>
