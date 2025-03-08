@@ -1,6 +1,6 @@
 import React from 'react';
 import { toNextMetadata } from 'react-datocms';
-import { Image as DatoImage } from 'react-datocms';
+import { SRCImage } from 'react-datocms';
 import { Section } from '@Blocks/Section/Section';
 import SectionMenu from '@Blocks/Section/SectionMenu';
 import Comment from '@Primitives/Comment';
@@ -48,7 +48,7 @@ export default async function Page({ params }: Params) {
         </div>
         <div className='relative flex aspect-[2/1] border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2'>
           {data.post.coverImage && data.post.coverImage.responsiveImage && (
-            <DatoImage
+            <SRCImage
               data={{
                 ...data.post.coverImage.responsiveImage,
                 base64:

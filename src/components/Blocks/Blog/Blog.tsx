@@ -1,9 +1,9 @@
 import React from 'react';
-import { Image as DatoImage } from 'react-datocms';
+import { SRCImage } from 'react-datocms';
 import CardSpotlight from '@Primitives/CardSpotlight';
-import clsx from 'clsx';
 import { format } from 'date-fns';
 import { BlogRecord, PostRecord } from 'infrastructure/generated/graphql';
+import { cn } from 'lib/utils';
 import NextLink from 'next/link';
 
 interface BlogBlockProps extends BlogRecord {
@@ -17,14 +17,12 @@ export default function BlogBlock({ imageBoolean, posts }: BlogBlockProps) {
         <NextLink key={post.id} href={`/blog/${post.slug}`}>
           <CardSpotlight>
             <div
-              className={clsx('hidden w-full overflow-hidden', {
+              className={cn('hidden w-full overflow-hidden', {
                 'col-span-2 sm:flex': imageBoolean === true,
               })}
             >
               {post.coverImage && post.coverImage.responsiveImage && (
-                <DatoImage
-                  className='object-cover dark:opacity-90'
-                  pictureClassName='object-cover'
+                <SRCImage
                   data={{
                     ...post.coverImage.responsiveImage,
                     title: post.coverImage.responsiveImage.title || undefined,
@@ -37,7 +35,7 @@ export default function BlogBlock({ imageBoolean, posts }: BlogBlockProps) {
               )}
             </div>
             <div
-              className={clsx(
+              className={cn(
                 'col-span-5 p-2 font-medium text-black dark:text-white',
                 {
                   'sm:col-span-3': imageBoolean === true,

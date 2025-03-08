@@ -10,9 +10,9 @@ import {
   ModalTrigger,
 } from '@Primitives/Modal';
 import { ThemeToggle } from '@Primitives/ThemeProvider';
-import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { PageRecord } from 'infrastructure/generated/graphql';
+import { cn } from 'lib/utils';
 import NextLink from 'next/link';
 
 function NavItem({
@@ -118,7 +118,7 @@ export default function MobileNavigation({ allPages }: any) {
                             type: 'spring',
                           },
                         }}
-                        className={clsx(
+                        className={cn(
                           allPages.length <= 3 ? 'w-full' : 'w-1/2',
                           'mt-6 flex items-center justify-center',
                         )}

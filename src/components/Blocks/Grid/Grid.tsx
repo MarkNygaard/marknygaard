@@ -1,7 +1,7 @@
 import React from 'react';
 import PageBlocks from '@Blocks/PageBlocks';
-import clsx from 'clsx';
 import { GridRecord } from 'infrastructure/generated/graphql';
+import { cn } from 'lib/utils';
 
 export default function GridBlock({
   showOnMobile,
@@ -11,7 +11,7 @@ export default function GridBlock({
 }: GridRecord) {
   return (
     <div
-      className={clsx(
+      className={cn(
         'relative mx-auto grid max-w-6xl grid-cols-4 md:grid md:grid-cols-8 lg:grid lg:grid-cols-12',
         {
           hidden: showOnMobile === false,

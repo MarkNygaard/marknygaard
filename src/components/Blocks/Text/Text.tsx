@@ -5,7 +5,6 @@ import { renderNodeRule, StructuredText } from 'react-datocms';
 import ImageBlock from '@Blocks/Image/Image';
 import MainHeading from '@Blocks/MainHeading/MainHeading';
 import SyntaxHighlight from '@Primitives/SyntaxHighlight';
-import clsx from 'clsx';
 import { isCode } from 'datocms-structured-text-utils';
 import { motion } from 'framer-motion';
 import {
@@ -13,6 +12,7 @@ import {
   MainHeadingRecord,
   TextRecord,
 } from 'infrastructure/generated/graphql';
+import { cn } from 'lib/utils';
 
 export default function TextBlock({
   id,
@@ -23,7 +23,7 @@ export default function TextBlock({
 }: TextRecord) {
   return (
     <div
-      className={clsx('align-center flex items-center overflow-hidden', {
+      className={cn('align-center flex items-center overflow-hidden', {
         'justify-center': centerText,
       })}
     >

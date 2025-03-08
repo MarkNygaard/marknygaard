@@ -3,7 +3,6 @@
 import React from 'react';
 import { Image, StructuredText } from 'react-datocms';
 import ImageBlock from '@Blocks/Image/Image';
-import clsx from 'clsx';
 import MainHeading from 'components/Blocks/MainHeading/MainHeading';
 import { motion } from 'framer-motion';
 import type {
@@ -12,6 +11,7 @@ import type {
   MainHeadingRecord,
   TextImageRecord,
 } from 'infrastructure/generated/graphql';
+import { cn } from 'lib/utils';
 
 export default function TextImageBlock({
   imageLocation,
@@ -26,7 +26,7 @@ export default function TextImageBlock({
 }: TextImageRecord) {
   return (
     <div
-      className={clsx('mx-auto grid grid-cols-1 md:items-center', {
+      className={cn('mx-auto grid grid-cols-1 md:items-center', {
         'grid-template sm:grid-cols-3':
           imageLocation === 'RIGHT' && displayStyle === '2x1',
         'grid-template-reverse sm:grid-cols-3':
@@ -70,13 +70,13 @@ export default function TextImageBlock({
           transition={
             fadeInImage && { duration: 0.5, delay: fadeInImageDelay ?? 0 }
           }
-          className={clsx('grid-image mx-auto my-4 md:mb-auto', {
+          className={cn('grid-image mx-auto my-4 md:mb-auto', {
             'col-span-2': displayStyle === '1x1',
             'col-span-1': displayStyle === '2x1',
           })}
         >
           <div
-            className={clsx(
+            className={cn(
               'relative mb-4 aspect-square w-full overflow-hidden translate-z-0 md:mb-0',
               {
                 'rounded-full': imageStyle === 'Round',
@@ -87,7 +87,7 @@ export default function TextImageBlock({
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
               data={(image as FileField)?.responsiveImage as any}
-              className={clsx('translate-z-0', {
+              className={cn('translate-z-0', {
                 'rounded-full': imageStyle === 'Round',
                 'rounded-lg': imageStyle === 'Rounded Corners',
               })}

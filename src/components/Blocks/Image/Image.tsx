@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Image as DatoImage } from 'react-datocms';
-import clsx from 'clsx';
+import { SRCImage } from 'react-datocms';
 import { motion } from 'framer-motion';
-import type { FileField, ImageRecord } from 'infrastructure/generated/graphql';
+import type { ImageRecord } from 'infrastructure/generated/graphql';
+import { cn } from 'lib/utils';
 
 export default function ImageBlock({
   fadeIn,
@@ -20,7 +20,7 @@ export default function ImageBlock({
       className='mx-auto md:mb-auto'
     >
       <div
-        className={clsx(
+        className={cn(
           'relative mb-4 w-full overflow-hidden translate-z-0 md:mb-0',
           {
             'rounded-full': imageStyle === 'Round',
@@ -28,13 +28,7 @@ export default function ImageBlock({
           },
         )}
       >
-        <DatoImage
-          data={(image as FileField)?.responsiveImage as any}
-          className={clsx('mx-auto translate-z-0', {
-            'rounded-full': imageStyle === 'Round',
-            'rounded-lg': imageStyle === 'Rounded Corners',
-          })}
-        />
+        {image?.responsiveImage && <SRCImage data={image.responsiveImage} />}
       </div>
     </motion.div>
   );
