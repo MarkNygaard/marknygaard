@@ -1,4 +1,4 @@
-import Footer from '@Layouts/Footer';
+import Footer from '@Layouts/Footer/Footer';
 import DesktopNavigation from '@Layouts/Navigation/DesktopNavigation';
 import MobileNavigation from '@Layouts/Navigation/MobileNavigation';
 import { Providers } from '@Primitives/Providers';

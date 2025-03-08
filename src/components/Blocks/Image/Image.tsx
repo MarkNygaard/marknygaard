@@ -1,10 +1,9 @@
-'use client';
-
 import React from 'react';
 import { SRCImage } from 'react-datocms';
-import { motion } from 'framer-motion';
 import type { ImageRecord } from 'infrastructure/generated/graphql';
 import { cn } from 'lib/utils';
+
+import ImageAnimation from './ImageAnimation';
 
 export default function ImageBlock({
   fadeIn,
@@ -13,10 +12,9 @@ export default function ImageBlock({
   image,
 }: ImageRecord) {
   return (
-    <motion.div
-      initial={fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
-      animate={fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
-      transition={fadeIn && { duration: 0.5, delay: fadeInDelay ?? 0 }}
+    <ImageAnimation
+      fadeIn={fadeIn}
+      fadeInDelay={fadeInDelay}
       className='mx-auto md:mb-auto'
     >
       <div
@@ -30,6 +28,6 @@ export default function ImageBlock({
       >
         {image?.responsiveImage && <SRCImage data={image.responsiveImage} />}
       </div>
-    </motion.div>
+    </ImageAnimation>
   );
 }

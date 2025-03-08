@@ -1,3 +1,5 @@
+'use client';
+
 import { BsArrowReturnLeft, BsSearch } from 'react-icons/bs';
 import { Hits, InstantSearch, SearchBox, Snippet } from 'react-instantsearch';
 import { liteClient as algoliasearch } from 'algoliasearch/lite';
