@@ -1,5 +1,4 @@
-'use client';
-
+import React from 'react';
 import { renderNodeRule, StructuredText } from 'react-datocms';
 import ColumnBlock from '@Blocks/Column/Column';
 import ImageBlock from '@Blocks/Image/Image';
@@ -16,7 +15,8 @@ import {
   TextImageRecord,
   VideoRecord,
 } from 'infrastructure/generated/graphql';
-import useSectionInView from 'lib/hooks/useSectionInView';
+
+import SectionClient from './SectionClient';
 
 interface SectionProps extends SectionRecord {
   level?: number;
@@ -29,10 +29,6 @@ export function Section({
   section,
   level = 0,
 }: SectionProps) {
-  const { ref } = useSectionInView({
-    sectionId: name as string,
-  });
-
   // Define an indentation style based on the level
   const indentationStyle = {
     paddingLeft: `${level > 0 ? 15 : 0}px`,
@@ -49,12 +45,11 @@ export function Section({
   const headingSize = headingSizes[level] || 'text-2xl';
 
   return (
-    <div
-      key={id}
-      ref={ref}
-      id={name ?? ''}
-      className='scroll-mt-[9vh]'
-      style={indentationStyle}
+    <SectionClient
+      id={id}
+      name={name}
+      level={level}
+      indentationStyle={indentationStyle}
     >
       {name && (
         <div
@@ -68,56 +63,42 @@ export function Section({
           data={description as any}
           renderBlock={({ record }: any) => {
             switch (record.__typename) {
-              case 'ImageRecord': {
-                const ImageRecord = record as ImageRecord;
-                return <ImageBlock {...ImageRecord} />;
-              }
-              case 'MainHeadingRecord': {
-                const MainHeadingRecord = record as MainHeadingRecord;
-                return <MainHeading {...MainHeadingRecord} />;
-              }
-              case 'TextImageRecord': {
-                const TextImageRecord = record as TextImageRecord;
-                return <TextImageBlock {...TextImageRecord} />;
-              }
-              case 'VideoRecord': {
-                const VideoRecord = record as VideoRecord;
-                return <VideoBlock {...VideoRecord} />;
-              }
-              case 'ColumnRecord': {
-                const ColumnRecord = record as ColumnRecord;
-                return <ColumnBlock {...ColumnRecord} />;
-              }
+              case 'ImageRecord':
+                return <ImageBlock {...(record as ImageRecord)} />;
+              case 'MainHeadingRecord':
+                return <MainHeading {...(record as MainHeadingRecord)} />;
+              case 'TextImageRecord':
+                return <TextImageBlock {...(record as TextImageRecord)} />;
+              case 'VideoRecord':
+                return <VideoBlock {...(record as VideoRecord)} />;
+              case 'ColumnRecord':
+                return <ColumnBlock {...(record as ColumnRecord)} />;
               default:
                 return null;
             }
           }}
           customNodeRules={[
-            renderNodeRule(isCode, ({ node, key }) => {
-              return (
-                <SyntaxHighlight
-                  key={key}
-                  code={node.code}
-                  language={node.language || 'unknown'}
-                  highlightLines={node.highlight}
-                  showLineNumbers={node.code.split(/\n/).length > 10}
-                />
-              );
-            }),
+            renderNodeRule(isCode, ({ node, key }) => (
+              <SyntaxHighlight
+                key={key}
+                code={node.code}
+                language={node.language || 'unknown'}
+                highlightLines={node.highlight}
+                showLineNumbers={node.code.split(/\n/).length > 10}
+              />
+            )),
           ]}
         />
       </div>
       <div>
-        {section?.map((nestedSection) => {
-          return (
-            <Section
-              key={nestedSection.id}
-              {...nestedSection}
-              level={level + 1}
-            />
-          );
-        })}
+        {section?.map((nestedSection) => (
+          <Section
+            key={nestedSection.id}
+            {...nestedSection}
+            level={level + 1}
+          />
+        ))}
       </div>
-    </div>
+    </SectionClient>
   );
 }
