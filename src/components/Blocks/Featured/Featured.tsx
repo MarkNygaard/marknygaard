@@ -33,19 +33,7 @@ export default function FeaturedBlock({
             >
               <div className='flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700'>
                 <div className='relative'>
-                  <SRCImage
-                    priority
-                    data={{
-                      ...post.coverImage?.responsiveImage,
-                      title:
-                        post.coverImage?.responsiveImage.title || undefined,
-                      base64:
-                        post.coverImage?.responsiveImage.base64 || undefined,
-                      bgColor:
-                        post.coverImage?.responsiveImage.bgColor || undefined,
-                      alt: `Cover Image for ${post.title}`,
-                    }}
-                  />
+                  <SRCImage priority data={post.coverImage?.responsiveImage} />
                 </div>
                 <p className='p-4'>{post.title}</p>
               </div>
