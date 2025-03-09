@@ -35,7 +35,15 @@ query PostBySlug($slug: String) {
       slug
     }
     coverImage {
-      responsiveImage(imgixParams: { fit: crop, auto: compress, fm: avif }) {
+      responsiveImage(
+        imgixParams: {
+          fit: crop
+          maxW: 2034
+          maxH: 1017
+          auto: compress
+          fm: avif
+        }
+      ) {
         ...responsiveImageFragment
       }
     }
