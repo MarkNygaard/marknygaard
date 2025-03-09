@@ -1,5 +1,5 @@
 import React from 'react';
-import { SRCImage } from 'react-datocms';
+import { Image as DatoImage } from 'react-datocms';
 import CardSpotlight from '@Primitives/CardSpotlight';
 import { format } from 'date-fns';
 import { BlogRecord, PostRecord } from 'infrastructure/generated/graphql';
@@ -22,7 +22,7 @@ export default function BlogBlock({ imageBoolean, posts }: BlogBlockProps) {
               })}
             >
               {post.coverImage?.responsiveImage && (
-                <SRCImage data={post.coverImage.responsiveImage} />
+                <DatoImage data={post.coverImage.responsiveImage} />
               )}
             </div>
             <div
