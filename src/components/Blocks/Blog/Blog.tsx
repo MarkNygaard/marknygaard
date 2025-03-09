@@ -21,17 +21,8 @@ export default function BlogBlock({ imageBoolean, posts }: BlogBlockProps) {
                 'col-span-2 sm:flex': imageBoolean === true,
               })}
             >
-              {post.coverImage && post.coverImage.responsiveImage && (
-                <SRCImage
-                  data={{
-                    ...post.coverImage.responsiveImage,
-                    title: post.coverImage.responsiveImage.title || undefined,
-                    base64: post.coverImage.responsiveImage.base64 || undefined,
-                    bgColor:
-                      post.coverImage.responsiveImage.bgColor || undefined,
-                    alt: `Cover Image for ${post.title}`,
-                  }}
-                />
+              {post.coverImage?.responsiveImage && (
+                <SRCImage data={post.coverImage.responsiveImage} />
               )}
             </div>
             <div

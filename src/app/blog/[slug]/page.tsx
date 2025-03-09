@@ -47,15 +47,8 @@ export default async function Page({ params }: Params) {
           </div>
         </div>
         <div className='relative flex aspect-[2/1] border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2'>
-          {data.post.coverImage && data.post.coverImage.responsiveImage && (
-            <SRCImage
-              data={{
-                ...data.post.coverImage.responsiveImage,
-                base64:
-                  data.post.coverImage.responsiveImage.base64 || undefined,
-                alt: `Cover Image for ${data.post.title}`,
-              }}
-            />
+          {data.post.coverImage?.responsiveImage && (
+            <SRCImage data={data.post.coverImage.responsiveImage} />
           )}
         </div>
       </div>

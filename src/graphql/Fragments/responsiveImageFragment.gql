@@ -1,8 +1,11 @@
 # See: https://www.datocms.com/blog/offer-responsive-progressive-lqip-images-in-2020
 fragment responsiveImageFragment on ResponsiveImage {
+  title
   src
   width
   height
   alt
   base64
+  sizes
+  bgColor
 }
