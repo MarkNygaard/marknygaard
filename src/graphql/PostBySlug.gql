@@ -21,8 +21,7 @@ query PostBySlug($slug: String) {
             fit: crop
             w: 48
             h: 48
-            auto: compress
-            fm: avif
+            auto: format
             mask: "ellipse"
           }
         ) {

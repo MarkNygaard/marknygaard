@@ -6,7 +6,7 @@ query AllPosts {
     date
     coverImage {
       responsiveImage(
-        imgixParams: { fit: crop, w: 176, h: 100, auto: compress, fm: avif }
+        imgixParams: { fit: crop, w: 176, h: 100, auto: format }
       ) {
         ...responsiveImageFragment
       }
