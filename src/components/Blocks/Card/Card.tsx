@@ -1,7 +1,7 @@
 import React from 'react';
 import { SRCImage } from 'react-datocms';
 import TextBlock from '@Blocks/Text/Text';
-import type { CardRecord, FileField } from 'infrastructure/generated/graphql';
+import type { CardRecord } from 'infrastructure/generated/graphql';
 import { cn } from 'lib/utils';
 
 export default function CardBlock({
@@ -43,11 +43,7 @@ export default function CardBlock({
           const renderContent = (section: any) => {
             switch (section.__typename) {
               case 'CardImageRecord':
-                return (
-                  <SRCImage
-                    data={(section.image as FileField).responsiveImage as any}
-                  />
-                );
+                return <SRCImage data={section.image.responsiveImage} />;
               case 'CardTextRecord':
                 return <TextBlock {...section} />;
               default:

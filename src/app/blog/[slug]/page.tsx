@@ -36,7 +36,6 @@ export default async function Page({ params }: Params) {
   if (!data?.post) notFound();
   return (
     <article>
-      {/* <ProgressBar /> */}
       <div className='pb-4 sm:grid sm:grid-cols-3 sm:grid-rows-1 sm:gap-2'>
         <div className='flex flex-col justify-between border-[1px] border-pine-300 bg-pine-300 p-5 text-2xl font-light dark:border-gray-800 dark:bg-gray-800 md:text-3xl lg:text-4xl'>
           <div>{data?.post.title}</div>
@@ -46,16 +45,9 @@ export default async function Page({ params }: Params) {
             </div>
           </div>
         </div>
-        <div className='relative flex aspect-[2/1] border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2'>
-          {data.post.coverImage && data.post.coverImage.responsiveImage && (
-            <SRCImage
-              data={{
-                ...data.post.coverImage.responsiveImage,
-                base64:
-                  data.post.coverImage.responsiveImage.base64 || undefined,
-                alt: `Cover Image for ${data.post.title}`,
-              }}
-            />
+        <div className='relative flex aspect-[2/1.004] border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2'>
+          {data.post.coverImage?.responsiveImage && (
+            <SRCImage data={data.post.coverImage.responsiveImage} />
           )}
         </div>
       </div>

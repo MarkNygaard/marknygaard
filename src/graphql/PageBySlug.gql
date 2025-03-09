@@ -17,7 +17,7 @@ query PageBySlug($slug: String) {
         id
         image {
           responsiveImage(
-            imgixParams: { fit: crop, w: 288, h: 288, auto: compress, fm: avif }
+            imgixParams: { fit: crop, w: 288, h: 288, auto: format }
           ) {
             ...responsiveImageFragment
           }
@@ -51,7 +51,7 @@ query PageBySlug($slug: String) {
     excerpt
     coverImage {
       responsiveImage(
-        imgixParams: { fit: crop, w: 410, h: 178, auto: compress, fm: avif }
+        imgixParams: { fit: crop, w: 410, h: 178, auto: format }
       ) {
         ...responsiveImageFragment
       }

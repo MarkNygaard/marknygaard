@@ -9,7 +9,7 @@ fragment FeaturedFragment on FeaturedRecord {
     slug
     coverImage {
       responsiveImage(
-        imgixParams: { fit: crop, w: 608, h: 264, auto: compress, fm: avif }
+        imgixParams: { fit: crop, w: 608, h: 264, auto: format }
       ) {
         ...responsiveImageFragment
       }
