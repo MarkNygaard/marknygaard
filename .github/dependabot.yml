@@ -9,6 +9,8 @@ updates:
         versions: ['4.x']
       - dependency-name: 'eslint'
         versions: ['9.x']
+      - dependency-name: 'tailwind-variants'
+        versions: ['1.x']
   - package-ecosystem: 'github-actions'
     directory: '/'
     open-pull-requests-limit: 25
