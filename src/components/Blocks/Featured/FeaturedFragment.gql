@@ -8,10 +8,41 @@ fragment FeaturedFragment on FeaturedRecord {
     title
     slug
     coverImage {
-      responsiveImage(
-        imgixParams: { fit: crop, w: 608, h: 264, auto: format }
+      mobile390: responsiveImage(
+        imgixParams: { fit: crop, auto: format, w: 356, h: 178 }
       ) {
-        ...responsiveImageFragment
+        src
+        srcSet
+        width
+        height
+        sizes
+      }
+      mobile430: responsiveImage(
+        imgixParams: { fit: crop, auto: format, w: 396, h: 198 }
+      ) {
+        src
+        srcSet
+        width
+        height
+        sizes
+      }
+      tablet: responsiveImage(
+        imgixParams: { fit: crop, auto: format, w: 217, h: 95 }
+      ) {
+        src
+        srcSet
+        width
+        height
+        sizes
+      }
+      desktop: responsiveImage(
+        imgixParams: { fit: crop, auto: format, w: 313, h: 136 }
+      ) {
+        src
+        srcSet
+        width
+        height
+        sizes
       }
     }
   }
