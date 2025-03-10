@@ -8,6 +8,7 @@ type ResponsiveImageProps = {
   mobile430: any;
   tablet: any;
   desktop: any;
+  priority?: boolean;
 };
 
 export default function ResponsiveImage({
@@ -15,6 +16,7 @@ export default function ResponsiveImage({
   mobile430,
   tablet,
   desktop,
+  priority = false,
 }: ResponsiveImageProps) {
   const [imageData, setImageData] = useState(mobile390);
 
@@ -36,5 +38,5 @@ export default function ResponsiveImage({
     return () => window.removeEventListener('resize', updateImage);
   }, [mobile390, mobile430, tablet, desktop]);
 
-  return <SRCImage data={imageData} />;
+  return <SRCImage priority={priority} data={imageData} />;
 }
