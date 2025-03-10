@@ -38,6 +38,7 @@ export default function FeaturedBlock({
                     mobile430={post.coverImage.mobile430}
                     tablet={post.coverImage.tablet}
                     desktop={post.coverImage.desktop}
+                    priority
                   />
                 </div>
                 <p className='p-4'>{post.title}</p>
