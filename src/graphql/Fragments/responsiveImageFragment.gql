@@ -1,4 +1,3 @@
-# See: https://www.datocms.com/blog/offer-responsive-progressive-lqip-images-in-2020
 fragment responsiveImageFragment on ResponsiveImage {
   src
   srcSet
