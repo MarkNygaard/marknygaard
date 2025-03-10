@@ -4,39 +4,38 @@ import { useEffect, useState } from 'react';
 import { SRCImage } from 'react-datocms';
 
 type ResponsiveImageProps = {
-  mobile390: any;
-  mobile430: any;
-  tablet: any;
-  desktop: any;
+  coverImage: any;
   priority?: boolean;
 };
 
 export default function ResponsiveImage({
-  mobile390,
-  mobile430,
-  tablet,
-  desktop,
+  coverImage,
   priority = false,
 }: ResponsiveImageProps) {
-  const [imageData, setImageData] = useState(mobile390);
+  const [imageData, setImageData] = useState(coverImage.mobile390);
 
   useEffect(() => {
     const updateImage = () => {
       if (window.innerWidth <= 390) {
-        setImageData(mobile390);
+        setImageData(coverImage.mobile390);
       } else if (window.innerWidth <= 430) {
-        setImageData(mobile430);
+        setImageData(coverImage.mobile430);
       } else if (window.innerWidth <= 820) {
-        setImageData(tablet);
+        setImageData(coverImage.tablet);
       } else {
-        setImageData(desktop);
+        setImageData(coverImage.desktop);
       }
     };
 
     updateImage();
     window.addEventListener('resize', updateImage);
     return () => window.removeEventListener('resize', updateImage);
-  }, [mobile390, mobile430, tablet, desktop]);
+  }, [
+    coverImage.mobile390,
+    coverImage.mobile430,
+    coverImage.tablet,
+    coverImage.desktop,
+  ]);
 
   return <SRCImage priority={priority} data={imageData} />;
 }

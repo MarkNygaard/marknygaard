@@ -46,17 +46,9 @@ export default async function Page({ params }: Params) {
           </div>
         </div>
         <div className='relative flex aspect-[2/1.004] border-[1px] border-pine-300 dark:border-gray-800 sm:col-span-2'>
-          {data.post.coverImage?.mobile390 &&
-            data.post.coverImage?.mobile430 &&
-            data.post.coverImage.tablet &&
-            data.post.coverImage.desktop && (
-              <ResponsiveImage
-                mobile390={data.post.coverImage.mobile390}
-                mobile430={data.post.coverImage.mobile430}
-                tablet={data.post.coverImage.tablet}
-                desktop={data.post.coverImage.desktop}
-              />
-            )}
+          {data.post.coverImage && (
+            <ResponsiveImage coverImage={data.post.coverImage} />
+          )}
         </div>
       </div>
       <div className='flex'>
