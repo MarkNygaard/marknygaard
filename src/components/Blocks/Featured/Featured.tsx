@@ -1,6 +1,7 @@
 import React from 'react';
 import ResponsiveImage from '@Primitives/ResponsiveImage';
 import { FeaturedRecord } from 'infrastructure/generated/graphql';
+import { useIsMobile } from 'lib/hooks/useIsMobile';
 import Link from 'next/link';
 
 import FeaturedAnimation from './FeaturedAnimation';
@@ -10,6 +11,7 @@ export default function FeaturedBlock({
   fadeInDelay,
   posts,
 }: FeaturedRecord) {
+  const isMobile = useIsMobile();
   return (
     <FeaturedAnimation
       fadeIn={fadeIn}
@@ -18,7 +20,7 @@ export default function FeaturedBlock({
     >
       <div className='mb-6 text-3xl font-medium'>Featured Posts</div>
       <div className='mb-4 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-10'>
-        {posts?.map((post: any) => (
+        {posts?.map((post: any, index: number) => (
           <Link
             key={post.id}
             href={`/blog/${post.slug}`}
@@ -38,7 +40,7 @@ export default function FeaturedBlock({
                     mobile430={post.coverImage.mobile430}
                     tablet={post.coverImage.tablet}
                     desktop={post.coverImage.desktop}
-                    priority
+                    priority={isMobile ? index === 0 : true}
                   />
                 </div>
                 <p className='p-4'>{post.title}</p>
