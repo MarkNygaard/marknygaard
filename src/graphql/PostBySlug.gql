@@ -37,38 +37,22 @@ query PostBySlug($slug: String) {
       mobile390: responsiveImage(
         imgixParams: { fit: crop, auto: format, w: 356, h: 178 }
       ) {
-        src
-        srcSet
-        width
-        height
-        sizes
+        ...responsiveImageFragment
       }
       mobile430: responsiveImage(
         imgixParams: { fit: crop, auto: format, w: 396, h: 198 }
       ) {
-        src
-        srcSet
-        width
-        height
-        sizes
+        ...responsiveImageFragment
       }
       tablet: responsiveImage(
         imgixParams: { fit: crop, auto: format, w: 486, h: 243 }
       ) {
-        src
-        srcSet
-        width
-        height
-        sizes
+        ...responsiveImageFragment
       }
       desktop: responsiveImage(
         imgixParams: { fit: crop, auto: format, w: 678, h: 339 }
       ) {
-        src
-        srcSet
-        width
-        height
-        sizes
+        ...responsiveImageFragment
       }
     }
     section {

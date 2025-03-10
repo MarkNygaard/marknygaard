@@ -11,38 +11,22 @@ fragment FeaturedFragment on FeaturedRecord {
       mobile390: responsiveImage(
         imgixParams: { fit: crop, auto: format, w: 356, h: 178 }
       ) {
-        src
-        srcSet
-        width
-        height
-        sizes
+        ...responsiveImageFragment
       }
       mobile430: responsiveImage(
         imgixParams: { fit: crop, auto: format, w: 396, h: 198 }
       ) {
-        src
-        srcSet
-        width
-        height
-        sizes
+        ...responsiveImageFragment
       }
       tablet: responsiveImage(
         imgixParams: { fit: crop, auto: format, w: 217, h: 95 }
       ) {
-        src
-        srcSet
-        width
-        height
-        sizes
+        ...responsiveImageFragment
       }
       desktop: responsiveImage(
         imgixParams: { fit: crop, auto: format, w: 313, h: 136 }
       ) {
-        src
-        srcSet
-        width
-        height
-        sizes
+        ...responsiveImageFragment
       }
     }
   }
