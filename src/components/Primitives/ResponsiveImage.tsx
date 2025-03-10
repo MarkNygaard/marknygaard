@@ -10,7 +10,7 @@ type ResponsiveImageProps = {
   desktop: any;
 };
 
-export default function ResponsiveImages({
+export default function ResponsiveImage({
   mobile390,
   mobile430,
   tablet,

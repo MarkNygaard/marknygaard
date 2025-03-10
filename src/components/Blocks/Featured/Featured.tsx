@@ -1,5 +1,5 @@
 import React from 'react';
-import { SRCImage } from 'react-datocms';
+import ResponsiveImage from '@Primitives/ResponsiveImage';
 import { FeaturedRecord } from 'infrastructure/generated/graphql';
 import Link from 'next/link';
 
@@ -33,7 +33,12 @@ export default function FeaturedBlock({
             >
               <div className='flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700'>
                 <div className='relative'>
-                  <SRCImage priority data={post.coverImage?.responsiveImage} />
+                  <ResponsiveImage
+                    mobile390={post.coverImage.mobile390}
+                    mobile430={post.coverImage.mobile430}
+                    tablet={post.coverImage.tablet}
+                    desktop={post.coverImage.desktop}
+                  />
                 </div>
                 <p className='p-4'>{post.title}</p>
               </div>
