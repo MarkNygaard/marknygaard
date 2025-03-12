@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ResponsiveImage from '@Primitives/ResponsiveImage';
 import { FeaturedRecord } from 'infrastructure/generated/graphql';
 import Link from 'next/link';
@@ -33,7 +33,9 @@ export default function FeaturedBlock({
             >
               <div className='flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700'>
                 <div className='relative'>
-                  <ResponsiveImage coverImage={post.coverImage} priority />
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <ResponsiveImage coverImage={post.coverImage} priority />
+                  </Suspense>
                 </div>
                 <p className='p-4'>{post.title}</p>
               </div>
