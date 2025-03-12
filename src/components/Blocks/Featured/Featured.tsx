@@ -3,7 +3,7 @@ import { FeaturedRecord } from 'infrastructure/generated/graphql';
 import Link from 'next/link';
 
 import FeaturedAnimation from './FeaturedAnimation';
-import { SRCImage } from 'react-datocms';
+import { Image as DatoImage } from 'react-datocms';
 
 export default function FeaturedBlock({
   fadeIn,
@@ -33,7 +33,7 @@ export default function FeaturedBlock({
             >
               <div className='flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700'>
                 <div className='relative'>
-                  <SRCImage
+                  <DatoImage
                     priority={index === 0}
                     data={{
                       ...post.coverImage.mobile390,
