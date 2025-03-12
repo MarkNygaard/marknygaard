@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { FeaturedRecord } from 'infrastructure/generated/graphql';
 import Link from 'next/link';
 
@@ -24,37 +24,35 @@ export default function FeaturedBlock({
             href={`/blog/${post.slug}`}
             className='h-full pb-2 md:pb-0'
           >
-            <Suspense fallback={<div>Loading...</div>}>
-              <FeaturedAnimation
-                whileHover={{
-                  y: -5,
-                  boxShadow: '0 5px 10px -1px rgb(0 0 0 / 0.1)',
-                }}
-                className='h-full w-full rounded-xl'
-              >
-                <div className='flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700'>
-                  <div className='relative'>
-                    <SRCImage
-                      priority
-                      data={{
-                        ...post.coverImage.mobile390,
-                        srcSet: `
+            <FeaturedAnimation
+              whileHover={{
+                y: -5,
+                boxShadow: '0 5px 10px -1px rgb(0 0 0 / 0.1)',
+              }}
+              className='h-full w-full rounded-xl'
+            >
+              <div className='flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700'>
+                <div className='relative'>
+                  <SRCImage
+                    priority
+                    data={{
+                      ...post.coverImage.mobile390,
+                      srcSet: `
                             ${post.coverImage.mobile390.srcSet},
                             ${post.coverImage.mobile430.srcSet},
                             ${post.coverImage.tablet.srcSet},
                             ${post.coverImage.desktop.srcSet}
                           `,
-                        sizes: `${post.coverImage.mobile390.sizes},
+                      sizes: `${post.coverImage.mobile390.sizes},
                             ${post.coverImage.mobile430.sizes},
                             ${post.coverImage.tablet.sizes},
                             ${post.coverImage.desktop.sizes}`,
-                      }}
-                    />
-                  </div>
-                  <p className='p-4'>{post.title}</p>
+                    }}
+                  />
                 </div>
-              </FeaturedAnimation>
-            </Suspense>
+                <p className='p-4'>{post.title}</p>
+              </div>
+            </FeaturedAnimation>
           </Link>
         ))}
       </div>
