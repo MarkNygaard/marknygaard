@@ -34,7 +34,7 @@
     "prism-react-renderer": "^2.4.1",
     "react": "latest",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-datocms": "^7.2.0",
+    "react-datocms": "^7.2.1",
     "react-dom": "latest",
     "react-icons": "^5.5.0",
     "react-instantsearch": "^7.15.4",
