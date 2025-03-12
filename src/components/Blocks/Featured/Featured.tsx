@@ -3,7 +3,7 @@ import { FeaturedRecord } from 'infrastructure/generated/graphql';
 import Link from 'next/link';
 
 import FeaturedAnimation from './FeaturedAnimation';
-import { SRCImage } from 'react-datocms/*';
+import { SRCImage } from 'react-datocms';
 
 export default function FeaturedBlock({
   fadeIn,
