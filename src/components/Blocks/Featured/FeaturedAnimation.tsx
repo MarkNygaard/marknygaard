@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from 'lib/utils';
-import { useIsMobile } from 'lib/hooks/useIsMobile';
 
 type Props = {
   fadeIn?: boolean;
@@ -22,12 +21,6 @@ export default function FeaturedAnimation({
   className,
   children,
 }: Props) {
-  const isMobile = useIsMobile();
-
-  if (isMobile) {
-    return <>{children}</>;
-  }
-
   return (
     <motion.div
       initial={fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
