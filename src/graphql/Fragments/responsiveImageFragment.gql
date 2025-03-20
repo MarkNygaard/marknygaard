@@ -6,5 +6,4 @@ fragment responsiveImageFragment on ResponsiveImage {
   alt
   title
   sizes
-  bgColor
 }
