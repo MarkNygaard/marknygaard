@@ -50,7 +50,7 @@ export default async function Page({ params }: Params) {
         <div className='flex flex-col justify-between border-[1px] border-pine-300 bg-pine-300 p-5 text-2xl font-light dark:border-gray-800 dark:bg-gray-800 md:text-3xl lg:text-4xl'>
           <div>{data?.post.title}</div>
           <div>
-            <div className='text-sm text-gray-500'>
+            <div className='text-sm text-gray-600 dark:text-gray-500'>
               {format(new Date(data?.post.date), 'MMMM do, yyyy')}
             </div>
           </div>
