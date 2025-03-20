@@ -11,6 +11,8 @@ import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-static';
+
 type Params = {
   params: Promise<{
     slug: string;
@@ -22,7 +24,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { isEnabled } = await draftMode();
   const data = await queryDatoCMS(PageBySlugDocument, { slug }, isEnabled);
 
-  return toNextMetadata(data?.page?.seo || []);
+  const seoMetadata = toNextMetadata(data?.page?.seo || []);
+  const canonicalUrl = `https://www.marknygaard.dk/${slug}`;
+
+  return {
+    ...seoMetadata,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+  };
 }
 
 export default async function Page({ params }: Params) {
