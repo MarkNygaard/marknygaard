@@ -6,7 +6,7 @@ updates:
       interval: 'daily'
     ignore:
       - dependency-name: 'tailwindcss'
-        versions: ['4.x']
+        versions: ['4.x.x']
       - dependency-name: 'eslint'
         versions: ['9.x']
       - dependency-name: 'tailwind-variants'
