@@ -36,7 +36,7 @@ export default function SectionMenu(props: any) {
   };
 
   return (
-    <div className='flex flex-col text-sm text-gray-400 dark:text-gray-500'>
+    <div className='flex flex-col text-sm text-gray-500 dark:text-gray-500'>
       {props?.post?.section?.map((Section: SectionRecord) =>
         renderMenuItems(Section),
       )}
