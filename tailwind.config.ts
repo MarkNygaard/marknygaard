@@ -15,6 +15,7 @@ const config: Config = withTV({
     extend: {
       screens: {
         standalone: { raw: '(display-mode: standalone)' },
+        xs: '390px',
       },
       colors: {
         pine: {

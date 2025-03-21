@@ -1,6 +1,3 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import { SRCImage } from 'react-datocms';
 
 type ResponsiveImageProps = {
@@ -12,30 +9,24 @@ export default function ResponsiveImage({
   coverImage,
   priority = false,
 }: ResponsiveImageProps) {
-  const [imageData, setImageData] = useState(coverImage.mobile390);
-
-  useEffect(() => {
-    const updateImage = () => {
-      if (window.innerWidth <= 390) {
-        setImageData(coverImage.mobile390);
-      } else if (window.innerWidth <= 430) {
-        setImageData(coverImage.mobile430);
-      } else if (window.innerWidth <= 820) {
-        setImageData(coverImage.tablet);
-      } else {
-        setImageData(coverImage.desktop);
-      }
-    };
-
-    updateImage();
-    window.addEventListener('resize', updateImage);
-    return () => window.removeEventListener('resize', updateImage);
-  }, [
-    coverImage.mobile390,
-    coverImage.mobile430,
-    coverImage.tablet,
-    coverImage.desktop,
-  ]);
-
-  return <SRCImage priority={priority} data={imageData} />;
+  return (
+    <>
+      {/* Desktop Image */}
+      <div className='hidden lg:block'>
+        <SRCImage data={coverImage.desktop} priority={priority} />
+      </div>
+      {/* Tablet Image */}
+      <div className='hidden md:block lg:hidden'>
+        <SRCImage data={coverImage.tablet} priority={priority} />
+      </div>
+      {/* Mobile Image */}
+      <div className='hidden sm:block md:hidden'>
+        <SRCImage data={coverImage.mobile430} priority={priority} />
+      </div>
+      {/* Small Mobile Image */}
+      <div className='sm:hidden'>
+        <SRCImage data={coverImage.mobile390} priority={priority} />
+      </div>
+    </>
+  );
 }
