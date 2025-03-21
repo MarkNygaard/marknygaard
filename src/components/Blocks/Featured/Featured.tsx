@@ -22,7 +22,7 @@ export default function FeaturedBlock({
           <Link
             key={post.id}
             href={`/blog/${post.slug}`}
-            className='h-full pb-2 md:pb-0'
+            className='mx-auto h-full w-fit pb-2 md:pb-0'
           >
             <FeaturedAnimation
               whileHover={{
@@ -32,9 +32,7 @@ export default function FeaturedBlock({
               className='h-full w-full rounded-xl'
             >
               <div className='flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700'>
-                <div className='relative'>
-                  <ResponsiveImage coverImage={post.coverImage} priority />
-                </div>
+                <ResponsiveImage coverImage={post.coverImage} />
                 <p className='p-4'>{post.title}</p>
               </div>
             </FeaturedAnimation>

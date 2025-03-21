@@ -25,7 +25,7 @@ export default function TextImageBlock({
   return (
     <div
       className={cn('mx-auto grid grid-cols-1 md:items-center', {
-        'grid-template sm:grid-cols-3':
+        'grid-template md:grid-cols-3':
           imageLocation === 'RIGHT' && displayStyle === '2x1',
         'grid-template-reverse sm:grid-cols-3':
           imageLocation === 'LEFT' && displayStyle === '2x1',
