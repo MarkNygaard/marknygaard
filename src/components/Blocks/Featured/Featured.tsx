@@ -32,7 +32,7 @@ export default function FeaturedBlock({
               className='h-full w-full rounded-xl'
             >
               <div className='flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700'>
-                <ResponsiveImage coverImage={post.coverImage} />
+                <ResponsiveImage coverImage={post.coverImage} priority />
                 <p className='p-4'>{post.title}</p>
               </div>
             </FeaturedAnimation>
