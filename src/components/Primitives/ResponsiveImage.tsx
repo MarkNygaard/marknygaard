@@ -5,10 +5,7 @@ type ResponsiveImageProps = {
   priority?: boolean;
 };
 
-export default function ResponsiveImage({
-  coverImage,
-  priority = false,
-}: ResponsiveImageProps) {
+export default function ResponsiveImage({ coverImage }: ResponsiveImageProps) {
   return (
     <>
       {/* Desktop Image */}
@@ -25,7 +22,7 @@ export default function ResponsiveImage({
       </div>
       {/* Small Mobile Image */}
       <div className='sm:hidden'>
-        <SRCImage data={coverImage.mobile390} priority={priority} />
+        <SRCImage data={coverImage.mobile390} />
       </div>
     </>
   );

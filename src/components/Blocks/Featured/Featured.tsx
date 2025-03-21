@@ -18,7 +18,7 @@ export default function FeaturedBlock({
     >
       <div className='mb-6 text-3xl font-medium'>Featured Posts</div>
       <div className='mb-4 grid grid-cols-1 gap-1 md:grid-cols-3 md:gap-10'>
-        {posts?.map((post: any, index: number) => (
+        {posts?.map((post) => (
           <Link
             key={post.id}
             href={`/blog/${post.slug}`}
@@ -32,10 +32,7 @@ export default function FeaturedBlock({
               className='h-full w-full rounded-xl'
             >
               <div className='flex h-full flex-col overflow-hidden rounded-lg border-[1px] border-pine-200 bg-pine-50 font-light translate-z-0 hover:border-pine-300 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700'>
-                <ResponsiveImage
-                  coverImage={post.coverImage}
-                  priority={index <= 1}
-                />
+                <ResponsiveImage coverImage={post.coverImage} />
                 <p className='p-4'>{post.title}</p>
               </div>
             </FeaturedAnimation>
