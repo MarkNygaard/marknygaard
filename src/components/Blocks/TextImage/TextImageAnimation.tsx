@@ -1,7 +1,3 @@
-'use client';
-
-import React from 'react';
-import { motion } from 'framer-motion';
 import { cn } from 'lib/utils';
 
 type Props = {
@@ -18,15 +14,11 @@ export default function TextImageAnimation({
   children,
 }: Props) {
   return (
-    <motion.div
-      initial={fadeIn ? { y: 20, opacity: 0 } : { opacity: 1 }}
-      animate={fadeIn ? { y: 0, opacity: 1 } : { opacity: 1 }}
-      transition={
-        fadeIn ? { duration: 0.5, delay: fadeInDelay ?? 0 } : undefined
-      }
-      className={cn(className)}
+    <div
+      className={cn(className, fadeIn && 'animate-fade-in-up', className)}
+      style={fadeInDelay ? { animationDelay: `${fadeInDelay}ms` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
