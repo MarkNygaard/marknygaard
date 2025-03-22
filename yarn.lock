@@ -2729,6 +2729,13 @@ datocms-structured-text-utils@^4.1.2:
   dependencies:
     array-flatten "^3.0.0"
 
+datocms-structured-text-utils@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-5.0.0.tgz#25721aee50383af27cee07a8b061c91d13c0bc77"
+  integrity sha512-orMYif1+D/5zTkZ/LgQpgm0yCF/JSyy8ANVrCLGaOib/xSLOSM5PEcbkYgaky/cjzgsF70fMZnUlcDdIWY00og==
+  dependencies:
+    array-flatten "^3.0.0"
+
 debounce@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.1.tgz#38881d8f4166a5c5848020c11827b834bcb3e0a5"
