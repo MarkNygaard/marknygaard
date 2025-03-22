@@ -15,8 +15,7 @@ export default function MobileNavigation({
     <nav
       className={cn(
         'container relative z-50 mx-auto px-4 md:hidden',
-        'standalone:pt-safe-top standalone:fixed standalone:left-0 standalone:right-0 standalone:top-0 standalone:z-50 standalone:w-screen',
-        'standalone:bg-pine-300/90 dark:standalone:bg-gray-950/90',
+        'standalone:pt-safe-top standalone:w-screen',
       )}
     >
       <div className='-ml-3 mb-3 mt-1 flex flex-1 justify-between standalone:my-1'>
