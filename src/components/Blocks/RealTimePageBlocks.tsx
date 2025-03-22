@@ -27,7 +27,7 @@ export default function RealTimePageBlocks({
     token,
     initialData,
     preview: true,
-    variables: { slug },
+    ...(slug && { variables: { slug } }),
   });
 
   if (!data?.page) return <></>;
