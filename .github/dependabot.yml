@@ -6,11 +6,11 @@ updates:
       interval: 'daily'
     ignore:
       - dependency-name: 'tailwindcss'
-        versions: ['4.x.x']
+        versions: ['>=4.0.0']
       - dependency-name: 'eslint'
-        versions: ['9.x']
+        versions: ['>=9.0.0']
       - dependency-name: 'tailwind-variants'
-        versions: ['1.x']
+        versions: ['>=1.0.0']
   - package-ecosystem: 'github-actions'
     directory: '/'
     open-pull-requests-limit: 25
