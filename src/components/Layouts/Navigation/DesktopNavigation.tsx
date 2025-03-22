@@ -18,7 +18,7 @@ export default function DesktopNavigation({
         <div className='hidden md:block'>
           <div className='relative w-full'>
             <div className='my-3 items-center justify-center rounded-sm border-gray-700/80 bg-gradient-to-b from-pine-300 to-pine-300/80 px-3 dark:border dark:border-gray-700/50 dark:from-zinc-950/90 dark:to-zinc-950/90'>
-              <div className='mx-auto flex max-w-5xl py-4'>
+              <div className='mx-auto flex max-w-5xl p-4'>
                 <div className='flex flex-1 items-center text-xl'>
                   <Link
                     href='/'
