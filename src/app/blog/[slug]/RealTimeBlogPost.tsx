@@ -15,10 +15,10 @@ export default function RealTimeBlogPost({
   token,
   query,
 }: {
-  slug: string;
-  initialData: PostBySlugQuery;
-  token: string;
-  query: TypedDocumentNode<PostBySlugQuery, PostBySlugQueryVariables>;
+  readonly slug: string;
+  readonly initialData: PostBySlugQuery;
+  readonly token: string;
+  readonly query: TypedDocumentNode<PostBySlugQuery, PostBySlugQueryVariables>;
 }) {
   const { data } = useQuerySubscription({
     query,

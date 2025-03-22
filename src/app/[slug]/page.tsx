@@ -58,6 +58,7 @@ export default async function Page({ params }: Params) {
 
   return isEnabled ? (
     <RealTimePageBlocks
+      slug={slug}
       initialData={data}
       token={process.env.DATOCMS_API_TOKEN || ''}
       query={PageBySlugDocument}
