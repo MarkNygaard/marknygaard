@@ -13,6 +13,8 @@ import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 
+export const dynamicParams = true;
+
 type Params = {
   params: Promise<{
     slug: string;
@@ -54,21 +56,16 @@ export default async function Page({ params }: Params) {
 
   if (!data?.page) notFound();
 
-  return (
-    <>
-      {!isEnabled && (
-        <PageBlocks
-          blocks={data.page?.content as Array<PageModelContentField>}
-          posts={data.allPosts as PostRecord[]}
-        />
-      )}
-      {isEnabled && (
-        <RealTimePageBlocks
-          initialData={data}
-          token={process.env.DATOCMS_API_TOKEN || ''}
-          query={PageBySlugDocument}
-        />
-      )}
-    </>
+  return isEnabled ? (
+    <RealTimePageBlocks
+      initialData={data}
+      token={process.env.DATOCMS_API_TOKEN || ''}
+      query={PageBySlugDocument}
+    />
+  ) : (
+    <PageBlocks
+      blocks={data.page?.content as Array<PageModelContentField>}
+      posts={data.allPosts as PostRecord[]}
+    />
   );
 }

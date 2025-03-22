@@ -45,21 +45,16 @@ export default async function Page({ params }: Params) {
 
   if (!data?.page) notFound();
 
-  return (
-    <>
-      {!isEnabled && (
-        <PageBlocks
-          blocks={data.page?.content as Array<PageModelContentField>}
-          posts={data.allPosts as PostRecord[]}
-        />
-      )}
-      {isEnabled && (
-        <RealTimePageBlocks
-          initialData={data}
-          token={process.env.DATOCMS_API_TOKEN || ''}
-          query={PageBySlugDocument}
-        />
-      )}
-    </>
+  return isEnabled ? (
+    <PageBlocks
+      blocks={data.page?.content as Array<PageModelContentField>}
+      posts={data.allPosts as PostRecord[]}
+    />
+  ) : (
+    <RealTimePageBlocks
+      initialData={data}
+      token={process.env.DATOCMS_API_TOKEN || ''}
+      query={PageBySlugDocument}
+    />
   );
 }
