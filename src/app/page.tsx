@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function Page({ params }: Params) {
   const { isEnabled } = await draftMode();
-  const slug = (await params).slug;
+  const slug = (await params).slug ?? '';
   const data = await queryDatoCMS(PageBySlugDocument, { slug }, isEnabled);
 
   if (!data?.page) notFound();
