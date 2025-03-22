@@ -1,6 +1,6 @@
 import { algoliasearch } from 'algoliasearch';
 import { AllPostsDocument } from 'infrastructure/generated/graphql';
-import queryDatoCMS from 'infrastructure/queryDatoCMS';
+import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { NextResponse } from 'next/server';
 
 const client = algoliasearch(

@@ -5,7 +5,7 @@ import { Providers } from '@Primitives/Providers';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AllPagesDocument, PageRecord } from 'infrastructure/generated/graphql';
-import queryDatoCMS from 'infrastructure/queryDatoCMS';
+import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { cn } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { draftMode } from 'next/headers';

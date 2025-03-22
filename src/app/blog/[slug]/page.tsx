@@ -4,7 +4,7 @@ import {
   AllPostsDocument,
   PostBySlugDocument,
 } from 'infrastructure/generated/graphql';
-import queryDatoCMS from 'infrastructure/queryDatoCMS';
+import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
