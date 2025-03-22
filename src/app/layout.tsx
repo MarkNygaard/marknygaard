@@ -37,7 +37,7 @@ export default async function RootLayout({
         <Providers>
           <DesktopNavigation allPages={allPages as PageRecord[]} />
           <MobileNavigation allPages={allPages as PageRecord[]} />
-          <main className='container mx-auto flex-1 px-4 pb-6 sm:pb-16 md:py-10 standalone:pt-36 standalone:md:pt-6'>
+          <main className='container mx-auto flex-1 px-4 pb-6 sm:pb-16 md:py-10 standalone:pt-28 standalone:md:pt-6'>
             <div className='mx-auto max-w-5xl'>{children}</div>
           </main>
           <Footer />
