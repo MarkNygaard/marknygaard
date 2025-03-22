@@ -1,6 +1,7 @@
 import React from 'react';
 import { toNextMetadata } from 'react-datocms';
 import PageBlocks from '@Blocks/PageBlocks';
+import RealTimePageBlocks from '@Blocks/RealTimePageBlocks';
 import {
   PageBySlugDocument,
   PageModelContentField,
@@ -11,8 +12,6 @@ import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 
-export const dynamic = 'force-static';
-
 type Params = {
   params: Promise<{
     slug: string;
@@ -21,8 +20,7 @@ type Params = {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const slug = (await params).slug;
-  const { isEnabled } = await draftMode();
-  const data = await queryDatoCMS(PageBySlugDocument, { slug }, isEnabled);
+  const data = await queryDatoCMS(PageBySlugDocument, { slug });
 
   const seoMetadata = toNextMetadata(data?.page?.seo || []);
   const canonicalUrl = `https://www.marknygaard.dk/${slug}`;
@@ -41,15 +39,27 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Params) {
-  const slug = (await params).slug;
   const { isEnabled } = await draftMode();
+  const slug = (await params).slug;
   const data = await queryDatoCMS(PageBySlugDocument, { slug }, isEnabled);
 
   if (!data?.page) notFound();
+
   return (
-    <PageBlocks
-      blocks={data.page?.content as Array<PageModelContentField>}
-      posts={data.allPosts as PostRecord[]}
-    />
+    <>
+      {!isEnabled && (
+        <PageBlocks
+          blocks={data.page?.content as Array<PageModelContentField>}
+          posts={data.allPosts as PostRecord[]}
+        />
+      )}
+      {isEnabled && (
+        <RealTimePageBlocks
+          initialData={data}
+          token={process.env.DATOCMS_API_TOKEN || ''}
+          query={PageBySlugDocument}
+        />
+      )}
+    </>
   );
 }

@@ -23,8 +23,7 @@ type Params = {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const slug = (await params).slug;
-  const { isEnabled } = await draftMode();
-  const data = await queryDatoCMS(PostBySlugDocument, { slug }, isEnabled);
+  const data = await queryDatoCMS(PostBySlugDocument, { slug });
 
   const seoMetadata = toNextMetadata(data?.post?.seo || []);
   const canonicalUrl = `https://www.marknygaard.dk/blog/${slug}`;
