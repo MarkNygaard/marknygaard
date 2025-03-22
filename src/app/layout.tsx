@@ -2,6 +2,7 @@ import Footer from '@Layouts/Footer/Footer';
 import DesktopNavigation from '@Layouts/Navigation/DesktopNavigation';
 import MobileNavigation from '@Layouts/Navigation/MobileNavigation';
 import { Providers } from '@Primitives/Providers';
+import { ThemeColorUpdater } from '@Primitives/ThemeColorUpdater';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AllPagesDocument, PageRecord } from 'infrastructure/generated/graphql';
@@ -35,6 +36,7 @@ export default async function RootLayout({
         )}
       >
         <Providers>
+          <ThemeColorUpdater />
           <DesktopNavigation allPages={allPages as PageRecord[]} />
           <MobileNavigation allPages={allPages as PageRecord[]} />
           <main className='standalone:pt-safe-top container mx-auto flex-1 px-4 pb-6 sm:pb-16 md:py-10 standalone:md:mt-0 standalone:md:pt-6'>
