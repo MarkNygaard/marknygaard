@@ -13,6 +13,10 @@ const config: Config = withTV({
   darkMode: 'class',
   theme: {
     extend: {
+      spacing: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+      },
       screens: {
         standalone: { raw: '(display-mode: standalone)' },
         xs: '390px',
