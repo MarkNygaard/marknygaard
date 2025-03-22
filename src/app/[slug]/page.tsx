@@ -8,7 +8,7 @@ import {
   PageModelContentField,
   PostRecord,
 } from 'infrastructure/generated/graphql';
-import queryDatoCMS from 'infrastructure/queryDatoCms';
+import queryDatoCMS from 'infrastructure/queryDatoCMS';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -58,6 +58,7 @@ export default async function Page({ params }: Params) {
 
   return isEnabled ? (
     <RealTimePageBlocks
+      slug={slug}
       initialData={data}
       token={process.env.DATOCMS_API_TOKEN || ''}
       query={PageBySlugDocument}

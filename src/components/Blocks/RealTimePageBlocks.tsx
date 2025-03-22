@@ -12,10 +12,12 @@ import {
 import PageBlocks from './PageBlocks';
 
 export default function RealTimePageBlocks({
+  slug,
   initialData,
   token,
   query,
 }: {
+  readonly slug: string;
   readonly initialData: PageBySlugQuery;
   readonly query: TypedDocumentNode<PageBySlugQuery, PageBySlugQueryVariables>;
   readonly token: string;
@@ -25,6 +27,7 @@ export default function RealTimePageBlocks({
     token,
     initialData,
     preview: true,
+    variables: { slug },
   });
 
   if (!data?.page) return <></>;
