@@ -12,6 +12,8 @@ import { draftMode } from 'next/headers';
 
 import '../styles/globals.css';
 
+import Head from './head';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export default async function RootLayout({
@@ -24,6 +26,7 @@ export default async function RootLayout({
 
   return (
     <html lang='en' className='scroll-smooth' suppressHydrationWarning>
+      <Head />
       <body
         style={{ WebkitTapHighlightColor: 'transparent' }}
         className={cn(
