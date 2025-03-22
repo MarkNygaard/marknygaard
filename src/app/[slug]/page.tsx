@@ -3,6 +3,7 @@ import { toNextMetadata } from 'react-datocms';
 import PageBlocks from '@Blocks/PageBlocks';
 import RealTimePageBlocks from '@Blocks/RealTimePageBlocks';
 import {
+  AllPagesDocument,
   PageBySlugDocument,
   PageModelContentField,
   PostRecord,
@@ -17,6 +18,14 @@ type Params = {
     slug: string;
   }>;
 };
+
+export async function generateStaticParams() {
+  const data = await queryDatoCMS(AllPagesDocument);
+
+  return data.allPages.map((page) => ({
+    slug: page.slug,
+  }));
+}
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const slug = (await params).slug;
