@@ -1,6 +1,7 @@
 import { algoliasearch } from 'algoliasearch';
 import { AllPostsDocument } from 'infrastructure/generated/graphql';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
+import { logError } from 'lib/logError';
 import { NextResponse } from 'next/server';
 
 const client = algoliasearch(
@@ -57,9 +58,14 @@ function extractFullText(sectionArray: any[]): string {
 }
 
 async function fetchBlogPosts() {
-  const { allPosts } = await queryDatoCMS(AllPostsDocument);
+  const [data, error] = await queryDatoCMS(AllPostsDocument);
 
-  return allPosts.map((post) => {
+  if (error || !data?.allPosts) {
+    logError('Failed to fetch blog posts from DatoCMS', error);
+    return []; // or throw new Error(...) if failure should halt
+  }
+
+  return data.allPosts.map((post) => {
     const content = extractFullText(post.section);
 
     return {

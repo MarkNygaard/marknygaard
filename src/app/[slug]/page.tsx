@@ -9,6 +9,7 @@ import {
   PostRecord,
 } from 'infrastructure/generated/graphql';
 import queryDatoCMS from 'infrastructure/queryDatoCms';
+import { logError } from 'lib/logError';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -22,16 +23,23 @@ type Params = {
 };
 
 export async function generateStaticParams() {
-  const data = await queryDatoCMS(AllPagesDocument);
+  const [data, error] = await queryDatoCMS(AllPagesDocument);
 
-  return data.allPages.map((page) => ({
+  if (error) {
+    logError('Failed to generate static blog slugs from DatoCMS', error);
+    return [];
+  }
+
+  return (data?.allPages || []).map((page) => ({
     slug: page.slug,
   }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const slug = (await params).slug;
-  const data = await queryDatoCMS(PageBySlugDocument, { slug });
+  const [data, error] = await queryDatoCMS(PageBySlugDocument, { slug });
+
+  if (error || !data?.page) notFound();
 
   const seoMetadata = toNextMetadata(data?.page?.seo || []);
   const canonicalUrl = `https://www.marknygaard.dk/${slug}`;
@@ -52,9 +60,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Page({ params }: Params) {
   const { isEnabled } = await draftMode();
   const slug = (await params).slug;
-  const data = await queryDatoCMS(PageBySlugDocument, { slug }, isEnabled);
+  const [data, error] = await queryDatoCMS(PageBySlugDocument, { slug });
 
-  if (!data?.page) notFound();
+  if (error || !data?.page) notFound();
 
   return isEnabled ? (
     <RealTimePageBlocks

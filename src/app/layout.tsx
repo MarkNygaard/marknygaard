@@ -10,6 +10,7 @@ import queryDatoCMS from 'infrastructure/queryDatoCms';
 import { cn } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
 
 import '../styles/globals.css';
 
@@ -23,7 +24,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { isEnabled } = await draftMode();
-  const { allPages } = await queryDatoCMS(AllPagesDocument, {}, isEnabled);
+  const [data, error] = await queryDatoCMS(AllPagesDocument, {}, isEnabled);
+
+  if (error || !data?.allPages) notFound();
 
   return (
     <html lang='en' className='scroll-smooth' suppressHydrationWarning>
@@ -37,9 +40,9 @@ export default async function RootLayout({
       >
         <Providers>
           <ThemeColorUpdater />
-          <DesktopNavigation allPages={allPages as PageRecord[]} />
-          <MobileNavigation allPages={allPages as PageRecord[]} />
-          <main className='standalone:pt-safe-top container mx-auto flex-1 px-4 pb-6 sm:pb-16 md:py-10 standalone:md:mt-0 standalone:md:pt-6'>
+          <DesktopNavigation allPages={data.allPages as PageRecord[]} />
+          <MobileNavigation allPages={data.allPages as PageRecord[]} />
+          <main className='container mx-auto flex-1 px-4 pb-6 sm:pb-16 md:py-10 standalone:pt-safe-top standalone:md:mt-0 standalone:md:pt-6'>
             <div className='mx-auto max-w-5xl'>{children}</div>
           </main>
           <Footer />
