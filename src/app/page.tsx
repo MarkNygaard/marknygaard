@@ -20,7 +20,9 @@ type Params = {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const slug = (await params).slug;
-  const data = await queryDatoCMS(PageBySlugDocument, { slug });
+  const [data, error] = await queryDatoCMS(PageBySlugDocument, { slug });
+
+  if (error || !data?.page) notFound();
 
   const seoMetadata = toNextMetadata(data?.page?.seo || []);
   const canonicalUrl = `https://www.marknygaard.dk/`;
@@ -41,9 +43,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Page({ params }: Params) {
   const { isEnabled } = await draftMode();
   const slug = (await params).slug;
-  const data = await queryDatoCMS(PageBySlugDocument, { slug }, isEnabled);
-
-  if (!data?.page) notFound();
+  const [data, error] = await queryDatoCMS(
+    PageBySlugDocument,
+    { slug },
+    isEnabled,
+  );
+  if (error || !data?.page) notFound();
 
   return isEnabled ? (
     <PageBlocks
