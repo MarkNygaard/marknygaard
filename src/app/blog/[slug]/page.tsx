@@ -23,7 +23,7 @@ export async function generateStaticParams() {
     return [];
   }
 
-  return data?.allPosts.map((page) => ({
+  return (data?.allPosts || []).map((page) => ({
     slug: page.slug,
   }));
 }

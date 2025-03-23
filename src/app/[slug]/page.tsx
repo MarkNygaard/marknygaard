@@ -30,7 +30,7 @@ export async function generateStaticParams() {
     return [];
   }
 
-  return data?.allPages.map((page) => ({
+  return (data?.allPages || []).map((page) => ({
     slug: page.slug,
   }));
 }
