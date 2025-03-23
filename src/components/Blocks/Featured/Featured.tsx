@@ -35,7 +35,7 @@ export default function FeaturedBlock({
 
       <div className='w-40'>
         <Link href='/blog/'>
-          <div className='rounded-md border-[1px] border-pine-200 p-3 text-gray-500 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-gray-800 hover:text-gray-800 hover:shadow-md dark:border-gray-800 dark:hover:border-gray-700 dark:hover:text-gray-300'>
+          <div className='rounded-md border-[1px] border-pine-200 p-3 text-gray-500 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-gray-300 hover:text-gray-700 hover:shadow-md dark:border-gray-700 dark:text-gray-500 dark:hover:border-gray-600 dark:hover:text-gray-300'>
             Read all posts -&gt;
           </div>
         </Link>
