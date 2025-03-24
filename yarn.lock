@@ -2715,19 +2715,12 @@ datocms-listen@^0.1.9:
   dependencies:
     "@0no-co/graphql.web" "^1.0.1"
 
-datocms-structured-text-generic-html-renderer@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/datocms-structured-text-generic-html-renderer/-/datocms-structured-text-generic-html-renderer-4.1.2.tgz#df92052ea0ace3a0ab3b1da09f21b2e0bf90e37c"
-  integrity sha512-VsyVnqG/5iio3LHGd09Pk27n3hu2YcAujgTcgtv8CXapYd13r7OkfMkrsbiuJCO+xYBzPNHhI62PL6QOoI6BGA==
+datocms-structured-text-generic-html-renderer@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/datocms-structured-text-generic-html-renderer/-/datocms-structured-text-generic-html-renderer-5.0.0.tgz#12d367820f5b209b07d8b747ad705f8c025add98"
+  integrity sha512-WVVWFO2dMx9ILmZKKV22QTbuV4bjoms9PqdUSSWCcGpJmWnVIiZhSzqsXZ41ijvyGYNBtUo35N1y5hB9ROl6bw==
   dependencies:
-    datocms-structured-text-utils "^4.1.2"
-
-datocms-structured-text-utils@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/datocms-structured-text-utils/-/datocms-structured-text-utils-4.1.2.tgz#aac1e4b28e5fbea1b9d8ebf0d5e717cad7d39a26"
-  integrity sha512-xyBG7ZAXedv8wytTR1JqfHx8uuUogg6I9brQmK1uR3y14gQqTRLvAeoY3unp5xcBDm8YXYHdS2W+Bg9AWgdhLQ==
-  dependencies:
-    array-flatten "^3.0.0"
+    datocms-structured-text-utils "^5.0.0"
 
 datocms-structured-text-utils@^5.0.0:
   version "5.0.0"
@@ -5034,15 +5027,15 @@ react-copy-to-clipboard@^5.1.0:
     copy-to-clipboard "^3.3.1"
     prop-types "^15.8.1"
 
-react-datocms@^7.2.1:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.2.1.tgz#994a1c5251035cd6a910b2b28d5cdda93d154c89"
-  integrity sha512-byASx51aOAkV8Sa9EPkOk7LyY7V01y+5ZtIWVNTysgybE0mQLwDowwrS2fUWVB5AWJMpwbLEm6ZfZ5VGlXBVjg==
+react-datocms@^7.2.2:
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-7.2.2.tgz#f87ce6f29fca1ef8eb438f5774c57ee97402999c"
+  integrity sha512-7iSpj7au6LRCDCwCyJEnaoTFHa/jyTKZ20WhabTXfUJganowulSFIJ6Pu1He9eCwcYyvkUO4hSQtcVYnn1Ay8g==
   dependencies:
     "@mux/mux-player-react" ">=2.5.0 <3"
     datocms-listen "^0.1.9"
-    datocms-structured-text-generic-html-renderer "^4.1.2"
-    datocms-structured-text-utils "^4.1.2"
+    datocms-structured-text-generic-html-renderer "^5.0.0"
+    datocms-structured-text-utils "^5.0.0"
     react-intersection-observer "^9.4.3"
     react-string-replace "^1.1.0"
     use-deep-compare-effect "^1.6.1"
