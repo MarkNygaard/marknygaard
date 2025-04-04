@@ -1338,13 +1338,13 @@
     "@mux/playback-core" "0.25.2"
     prop-types "^15.7.2"
 
-"@mux/mux-player-react@^3.3.2":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-3.3.2.tgz#59e7686d3903eb89429c5d768b2c7a1e8bda3234"
-  integrity sha512-sPztgGNshxtFg0Vt79W28TG0BGBgJzLQFoeTjPKtc+r8yghQxLSPfDJdgtbGDbUpDGmipEpETNX9FYGdVo2ucg==
+"@mux/mux-player-react@^3.3.3":
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-3.3.3.tgz#9b8eed2d6218ffb7248bf18d0f6346a32092bb19"
+  integrity sha512-NkYg2WgyjzV+Yz1tDjz9K1KgBq+cDdf9P5TCt13J+7SHZTY4MCDbkAofv+JFd2zKchGaHHYf23XtjSblgNpkxw==
   dependencies:
-    "@mux/mux-player" "3.3.2"
-    "@mux/playback-core" "0.28.5"
+    "@mux/mux-player" "3.3.3"
+    "@mux/playback-core" "0.28.6"
     prop-types "^15.8.1"
 
 "@mux/mux-player@2.9.1":
@@ -1356,15 +1356,15 @@
     "@mux/playback-core" "0.25.2"
     media-chrome "~3.2.5"
 
-"@mux/mux-player@3.3.2":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-3.3.2.tgz#34bb3c78224b876851ca24d47d4c1af1266fa618"
-  integrity sha512-R+eeIhItEGeMAFfGrDFJbUQ3H14PqRPFVcjg8wm8WJUXScAJlNLyVxGwHPwpaGdDlSFYsIBZYyBsVx0mUoJ0MQ==
+"@mux/mux-player@3.3.3":
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player/-/mux-player-3.3.3.tgz#fb1ceeaa7934779bf1b89a3ebd0ed02b561fc766"
+  integrity sha512-BabJHSJKa+KTl9pXlnxg1tbTUj1xMnUOiALNHfgWwXR7tiU5nSDnjY4CkMCvevU9FhEEdBw8t6ImPN7g4FfM2Q==
   dependencies:
-    "@mux/mux-video" "0.24.5"
-    "@mux/playback-core" "0.28.5"
+    "@mux/mux-video" "0.25.0"
+    "@mux/playback-core" "0.28.6"
     media-chrome "~4.9.0"
-    player.style "^0.1.6"
+    player.style "^0.1.7"
 
 "@mux/mux-video@0.20.2":
   version "0.20.2"
@@ -1376,12 +1376,12 @@
     custom-media-element "~1.3.1"
     media-tracks "~0.3.2"
 
-"@mux/mux-video@0.24.5":
-  version "0.24.5"
-  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.24.5.tgz#13a34f1319c3726086830ee0ba39a251afbc0cf8"
-  integrity sha512-yY14oDVeELXtTvWh1R7KK0gWBjq6dDuPD2xTxcuxZL9nitXIT2Y4YhpMnP/g0oHEUcOK/bvpQQaYSjE7FIe+Tg==
+"@mux/mux-video@0.25.0":
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/@mux/mux-video/-/mux-video-0.25.0.tgz#8ce48f852391253edc81302c20777b8bfcc5f0c1"
+  integrity sha512-22S990FXEbipca9wZbs8BSMMd3wVSxl/CP8jWS6QhY3L6yUi/dCW41DaCx7WCTbudO0IK566XuCROA1mIDi79g==
   dependencies:
-    "@mux/playback-core" "0.28.5"
+    "@mux/playback-core" "0.28.6"
     castable-video "~1.1.5"
     custom-media-element "~1.4.2"
     media-tracks "~0.3.3"
@@ -1394,10 +1394,10 @@
     hls.js "~1.5.11"
     mux-embed "~5.2.0"
 
-"@mux/playback-core@0.28.5":
-  version "0.28.5"
-  resolved "https://registry.yarnpkg.com/@mux/playback-core/-/playback-core-0.28.5.tgz#8498516b57d2d9b5144de1cf9575e568d5d8b608"
-  integrity sha512-URiE0H3wdJA1v2tJ9x1mGT4t6d53M1bSz8DZFy12bDvwQjDTtzuUlWK7+O1zPKEP21+Fl74kkJIc2XHo2NCWeA==
+"@mux/playback-core@0.28.6":
+  version "0.28.6"
+  resolved "https://registry.yarnpkg.com/@mux/playback-core/-/playback-core-0.28.6.tgz#0a185dd85ddca4ac1fd7b2614f88caca85d22863"
+  integrity sha512-XB9FCfqA93MB20DQ2zOVS7NxEcQb8nAGoReEwCLvndjBkd3xDbUHsn2R9aPyGLUpJHm/Zqz3kNSaF8gOMpTIXQ==
   dependencies:
     hls.js "~1.5.19"
     mux-embed "^5.8.3"
@@ -4421,13 +4421,6 @@ media-chrome@~3.2.5:
   resolved "https://registry.yarnpkg.com/media-chrome/-/media-chrome-3.2.5.tgz#657722a216e3c0f877d9522fce7425e25da7e137"
   integrity sha512-tTsgS7x77Bn4p/wca/Si/7A+Q3z9DzKq0SOkroQvrNMXBVyQasMayDcsKg5Ur5NGsymZfttnJi7tXvVr/tPj8g==
 
-media-chrome@~4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/media-chrome/-/media-chrome-4.8.0.tgz#ff881a5466fe02ad07344a370a8a1106988ca245"
-  integrity sha512-oioEGlluW+1RqknqsszrKHDs3NZ9AaatEaE2kYYOSWxnwvVmhRTfDWT4JeMgtUr5r3i2dAI3e/qbeb1j+a0MhA==
-  dependencies:
-    ce-la-react "^0.1.3"
-
 media-chrome@~4.9.0:
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/media-chrome/-/media-chrome-4.9.0.tgz#05f692781234dfb02baf1bdbc578af62b7edeeb7"
@@ -4908,12 +4901,12 @@ pirates@^4.0.1:
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.6.tgz#3018ae32ecfcff6c29ba2267cbf21166ac1f36b9"
   integrity sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==
 
-player.style@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/player.style/-/player.style-0.1.6.tgz#0393e5f7b9f6887f61f471d537ae33bb50f4fe06"
-  integrity sha512-QuWz8vaXo+g476TSK4dU+fN5Y+t5ok9UhPrX9DkxG7y9SvA2GbltiWemoz6k9JiCzdiHwS4TKX4HFtVFFzJUnQ==
+player.style@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/player.style/-/player.style-0.1.7.tgz#eaf363f2f0b6013e489a0b222730bb0ac73f29b7"
+  integrity sha512-e8yhtsVu78ZUkuuxIp8PWfa0V3eG8Nzp/LhHd6HCYCiRbr7xBa0G3Xd9Vi7AsPbTVqZ4z2ESsO+vSSbCwNzJjg==
   dependencies:
-    media-chrome "~4.8.0"
+    media-chrome "~4.9.0"
 
 possible-typed-array-names@^1.0.0:
   version "1.0.0"
