@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'monthly'
     ignore:
       - dependency-name: 'tailwindcss'
         versions: ['>=4.0.0']
@@ -15,4 +15,4 @@ updates:
     directory: '/'
     open-pull-requests-limit: 25
     schedule:
-      interval: 'daily'
+      interval: 'monthly'
