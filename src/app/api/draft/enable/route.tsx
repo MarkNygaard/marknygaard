@@ -26,6 +26,7 @@ export async function GET(request: NextRequest) {
     path: '/',
     secure: true,
     sameSite: 'none',
+    partitioned: true,
   });
 
   redirect(url);
