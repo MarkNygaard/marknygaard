@@ -51,16 +51,16 @@ export default async function Page({ params }: Params) {
   if (error || !data?.page) notFound();
 
   return isEnabled ? (
-    <PageBlocks
-      blocks={data.page?.content as Array<PageModelContentField>}
-      posts={data.allPosts as PostRecord[]}
-    />
-  ) : (
     <RealTimePageBlocks
       slug={slug}
       initialData={data}
       token={process.env.DATOCMS_API_TOKEN || ''}
       query={PageBySlugDocument}
+    />
+  ) : (
+    <PageBlocks
+      blocks={data.page?.content as Array<PageModelContentField>}
+      posts={data.allPosts as PostRecord[]}
     />
   );
 }
