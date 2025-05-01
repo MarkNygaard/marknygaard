@@ -24,7 +24,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "datocms-structured-text-utils": "^5.0.0",
-    "framer-motion": "^12.7.4",
+    "framer-motion": "^12.9.4",
     "gql": "^1.1.2",
     "graphql": "^16.11.0",
     "graphql-request": "^7.1.2",
