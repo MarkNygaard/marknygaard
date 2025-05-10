@@ -39,7 +39,13 @@ const results = ({ hit }: any) => (
         <div className='flex w-full flex-col'>
           <p className='text-sm font-bold md:text-base'>{hit.title}</p>
           <div className='line-clamp-2 w-full whitespace-normal text-sm text-gray-500 dark:text-gray-300 md:text-base'>
-            <Snippet hit={hit} attribute='content' highlightedTagName='b'>
+            <Snippet
+              {...({
+                hit,
+                attribute: 'content',
+                highlightedTagName: 'b',
+              } as any)}
+            >
               {hit.content}
             </Snippet>
           </div>
