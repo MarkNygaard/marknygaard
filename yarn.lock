@@ -457,17 +457,17 @@
     "@graphql-codegen/plugin-helpers" "^5.0.3"
     tslib "~2.6.0"
 
-"@graphql-codegen/cli@^5.0.5":
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-5.0.6.tgz#586bd45ef7620406950687d0ed080ff383340e0a"
-  integrity sha512-1r5dtZ2l1jiCF/4qLMTcT7mEoWWWeqQlmn7HcPHgnV/OXIEodwox7XRGAmOKUygoabRjFF3S0jd0TWbkq5Otsw==
+"@graphql-codegen/cli@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-5.0.7.tgz#5c8f843fb12e2d69692bee55b2846afa05e7999b"
+  integrity sha512-h/sxYvSaWtxZxo8GtaA8SvcHTyViaaPd7dweF/hmRDpaQU1o3iU3EZxlcJ+oLTunU0tSMFsnrIXm/mhXxI11Cw==
   dependencies:
     "@babel/generator" "^7.18.13"
     "@babel/template" "^7.18.10"
     "@babel/types" "^7.18.13"
-    "@graphql-codegen/client-preset" "^4.8.1"
+    "@graphql-codegen/client-preset" "^4.8.2"
     "@graphql-codegen/core" "^4.0.2"
-    "@graphql-codegen/plugin-helpers" "^5.0.3"
+    "@graphql-codegen/plugin-helpers" "^5.1.1"
     "@graphql-tools/apollo-engine-loader" "^8.0.0"
     "@graphql-tools/code-file-loader" "^8.0.0"
     "@graphql-tools/git-loader" "^8.0.0"
@@ -498,17 +498,17 @@
     yaml "^2.3.1"
     yargs "^17.0.0"
 
-"@graphql-codegen/client-preset@^4.8.1":
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/client-preset/-/client-preset-4.8.1.tgz#2743875bb4884f9936c875d903f507c6aa77a5e6"
-  integrity sha512-XLF2V7WKLnepvrGE44JP+AvjS+Oz9AT0oYgTl/6d9btQ+2VYFcmwQPjNAuMVHipqE9I6h8hSEfH9hUrzUptB1g==
+"@graphql-codegen/client-preset@^4.8.2":
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/client-preset/-/client-preset-4.8.3.tgz#af77784809a530b2e91be16d9cff642e150813a0"
+  integrity sha512-QpEsPSO9fnRxA6Z66AmBuGcwHjZ6dYSxYo5ycMlYgSPzAbyG8gn/kWljofjJfWqSY+T/lRn+r8IXTH14ml24vQ==
   dependencies:
     "@babel/helper-plugin-utils" "^7.20.2"
     "@babel/template" "^7.20.7"
     "@graphql-codegen/add" "^5.0.3"
     "@graphql-codegen/gql-tag-operations" "4.0.17"
-    "@graphql-codegen/plugin-helpers" "^5.1.0"
-    "@graphql-codegen/typed-document-node" "^5.1.1"
+    "@graphql-codegen/plugin-helpers" "^5.1.1"
+    "@graphql-codegen/typed-document-node" "^5.1.2"
     "@graphql-codegen/typescript" "^4.1.6"
     "@graphql-codegen/typescript-operations" "^4.6.1"
     "@graphql-codegen/visitor-plugin-common" "^5.8.0"
@@ -538,10 +538,10 @@
     auto-bind "~4.0.0"
     tslib "~2.6.0"
 
-"@graphql-codegen/plugin-helpers@^5.0.3", "@graphql-codegen/plugin-helpers@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-5.1.0.tgz#5c4ace748b9761d082ec1a0c19a82047bacce553"
-  integrity sha512-Y7cwEAkprbTKzVIe436TIw4w03jorsMruvCvu0HJkavaKMQbWY+lQ1RIuROgszDbxAyM35twB5/sUvYG5oW+yg==
+"@graphql-codegen/plugin-helpers@^5.0.3", "@graphql-codegen/plugin-helpers@^5.1.0", "@graphql-codegen/plugin-helpers@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-5.1.1.tgz#b7c744c8826367c3002c346112de3cd1b0f99b16"
+  integrity sha512-28GHODK2HY1NhdyRcPP3sCz0Kqxyfiz7boIZ8qIxFYmpLYnlDgiYok5fhFLVSZihyOpCs4Fa37gVHf/Q4I2FEg==
   dependencies:
     "@graphql-tools/utils" "^10.0.0"
     change-case-all "1.0.15"
@@ -563,6 +563,17 @@
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/typed-document-node/-/typed-document-node-5.1.1.tgz#454f2cd717c895d1471807d0731af03f48d9dd51"
   integrity sha512-Bp/BrMZDKRwzuVeLv+pSljneqONM7gqu57ZaV34Jbncu2hZWMRDMfizTKghoEwwZbRCYYfJO9tA0sYVVIfI1kg==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "^5.1.0"
+    "@graphql-codegen/visitor-plugin-common" "5.8.0"
+    auto-bind "~4.0.0"
+    change-case-all "1.0.15"
+    tslib "~2.6.0"
+
+"@graphql-codegen/typed-document-node@^5.1.2":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typed-document-node/-/typed-document-node-5.1.2.tgz#a1a3da2d9fe1847831ada6e41e09c5bb81dd6b3c"
+  integrity sha512-jaxfViDqFRbNQmfKwUY8hDyjnLTw2Z7DhGutxoOiiAI0gE/LfPe0LYaVFKVmVOOD7M3bWxoWfu4slrkbWbUbEw==
   dependencies:
     "@graphql-codegen/plugin-helpers" "^5.1.0"
     "@graphql-codegen/visitor-plugin-common" "5.8.0"
