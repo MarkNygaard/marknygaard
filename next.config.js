@@ -4,9 +4,6 @@ const nextConfig = {
   images: {
     domains: ['www.datocms-assets.com'],
   },
-  experimental: {
-    viewTransition: true,
-  },
 };
 
 module.exports = nextConfig;
