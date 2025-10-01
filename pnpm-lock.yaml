@@ -75,8 +75,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(react@19.1.1)
       react-datocms:
-        specifier: ^7.2.2
-        version: 7.2.2(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(graphql@16.11.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ^7.2.3
+        version: 7.2.3(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(graphql@16.11.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react-dom:
         specifier: latest
         version: 19.1.1(react@19.1.1)
@@ -1985,11 +1985,14 @@ packages:
   datocms-listen@0.1.15:
     resolution: {integrity: sha512-0LcdKYW/ilWdyrRzQ+YbkAk4r2dge63vzHtfv19L8pfbfYurQgXP9/ck703QZL//YqBoc0OKBS4BP4WUQ6JDKA==}
 
-  datocms-structured-text-generic-html-renderer@5.1.0:
-    resolution: {integrity: sha512-VKXoaMDbAQQnVLtaXl10mbMQzA8I9uLibbhoYvJd9grEga7FiSiin5HFkFwzKhallmS7T/VDHOtSS3GCDqTk9g==}
+  datocms-structured-text-generic-html-renderer@5.1.6:
+    resolution: {integrity: sha512-1qaxEoyPKhFm+P4kbV0XuKUbTMxrgMILCW6+3xJKeIaufrnqQwSh+qL1//0LtNo7eXxv3Sc8gKCGqw5aF6JTFQ==}
 
   datocms-structured-text-utils@5.1.0:
     resolution: {integrity: sha512-Sf8UvdD+h7HANyStrvlsuliYWLcAPwaMc2O9kBGXsste3GHUV99UcGj5QxogHrWkxbwMVVBD59X/Nh36RU9xjA==}
+
+  datocms-structured-text-utils@5.1.6:
+    resolution: {integrity: sha512-LDk8R5byWmBmK5dIWiTvfPe7pBn9xkZ3VMxevsoNuiffVsz2T3SgtdqNBnGIKaEmxJ3dln/IvxSbkvULf1Y9Eg==}
 
   debounce@2.2.0:
     resolution: {integrity: sha512-Xks6RUDLZFdz8LIdR6q0MTH44k7FikOmnh5xkSjMig6ch45afc8sjTjRQf3P6ax8dMgcQrYO/AR2RGWURrruqw==}
@@ -3363,8 +3366,8 @@ packages:
     peerDependencies:
       react: ^15.3.0 || 16 || 17 || 18
 
-  react-datocms@7.2.2:
-    resolution: {integrity: sha512-7iSpj7au6LRCDCwCyJEnaoTFHa/jyTKZ20WhabTXfUJganowulSFIJ6Pu1He9eCwcYyvkUO4hSQtcVYnn1Ay8g==}
+  react-datocms@7.2.3:
+    resolution: {integrity: sha512-gUJJD5J2Dq/VmF3Fi83p8aIqVXoNc5zC1Ikyhs59bygQlaHxPqoHMFcplQ5fFzjCLktOE0CnunVDyfbk/gbtRw==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
       react: '>= 16.12.0 || ^19.0.0-rc'
@@ -6053,11 +6056,15 @@ snapshots:
     transitivePeerDependencies:
       - graphql
 
-  datocms-structured-text-generic-html-renderer@5.1.0:
+  datocms-structured-text-generic-html-renderer@5.1.6:
     dependencies:
-      datocms-structured-text-utils: 5.1.0
+      datocms-structured-text-utils: 5.1.6
 
   datocms-structured-text-utils@5.1.0:
+    dependencies:
+      array-flatten: 3.0.0
+
+  datocms-structured-text-utils@5.1.6:
     dependencies:
       array-flatten: 3.0.0
 
@@ -7487,12 +7494,12 @@ snapshots:
       prop-types: 15.8.1
       react: 19.1.1
 
-  react-datocms@7.2.2(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(graphql@16.11.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  react-datocms@7.2.3(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(graphql@16.11.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
       '@mux/mux-player-react': 3.5.3(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       datocms-listen: 0.1.15(graphql@16.11.0)
-      datocms-structured-text-generic-html-renderer: 5.1.0
-      datocms-structured-text-utils: 5.1.0
+      datocms-structured-text-generic-html-renderer: 5.1.6
+      datocms-structured-text-utils: 5.1.6
       react: 19.1.1
       react-intersection-observer: 9.16.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react-string-replace: 1.1.1
