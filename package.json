@@ -43,7 +43,7 @@
     "tailwind-variants": "^0.3.1"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^5.0.5",
+    "@graphql-codegen/cli": "^6.0.0",
     "@graphql-codegen/typed-document-node": "^6.0.1",
     "@graphql-codegen/typescript": "^4.1.6",
     "@graphql-codegen/typescript-operations": "^5.0.1",
