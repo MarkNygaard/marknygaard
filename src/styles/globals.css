@@ -1,6 +1,95 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "tw-animate-css";
+
+/* Safelist - dynamically generated classes */
+@source inline('{,md:,xl:}grid-cols-{1,2,3,4}');
+@source inline('{,md:,xl:}order-{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}');
+@source inline('gap-{2,4}');
+@source inline('{,md:,lg:}col-span-{1,2,3,4,5,6,7,8,9,10,11,12}');
+@source inline('{,md:,lg:}hidden');
+
+@theme {
+  /* Colors */
+  --color-pine-50: #f9faf9;
+  --color-pine-100: #f0f5f0;
+  --color-pine-200: #e3eae3;
+  --color-pine-300: #d0d6d0;
+  --color-pine-400: #a6aba5;
+  --color-pine-500: #7c807b;
+  --color-pine-600: #585a57;
+  --color-pine-700: #363635;
+  --color-pine-800: #181918;
+  --color-pine-900: #121211;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #a2a7af;
+  --color-gray-500: #717680;
+  --color-gray-600: #4f5560;
+  --color-gray-700: #292d37;
+  --color-gray-800: #10131a;
+  --color-gray-900: #0d0e12;
+
+  --color-muted: #f1f5f9;
+  --color-mutedDark: #1e293b;
+
+  /* Spacing */
+  --spacing-safe-top: env(safe-area-inset-top);
+  --spacing-safe-bottom: env(safe-area-inset-bottom);
+
+  /* Height */
+  --height-132: 33rem;
+
+  /* Breakpoints */
+  --breakpoint-xs: 390px;
+
+  /* Animations */
+  --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
+  --animate-border-width: border-width 3s infinite alternate;
+
+  /* Transition Duration */
+  --transition-duration-2000: 2000ms;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes border-width {
+  from {
+    width: 200px;
+    opacity: 0;
+  }
+  to {
+    width: 400px;
+    opacity: 1;
+  }
+}
+
+@utility tab-4 {
+  tab-size: 4;
+}
+
+@utility translate-z-* {
+  --tw-translate-z: *;
+  transform: translate3d(var(--tw-translate-x), var(--tw-translate-y), var(--tw-translate-z)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@variant standalone {
+  @media (display-mode: standalone) {
+    @slot;
+  }
+}
 
 input[type='search']::-webkit-search-cancel-button {
   display: none;

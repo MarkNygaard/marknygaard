@@ -38,7 +38,7 @@ export default function TextImageBlock({
       <TextImageAnimation
         fadeIn={fadeInText}
         fadeInDelay={fadeInTextDelay}
-        className='grid-text prose col-span-2 grow pr-4 dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400'
+        className='grid-text prose dark:prose-invert prose-h1:mb-1 prose-a:text-pine-600 hover:prose-a:text-pine-700 dark:prose-a:text-gray-500 dark:hover:prose-a:text-gray-400 col-span-2 grow pr-4'
       >
         <StructuredText
           data={structuredText as any}
@@ -70,7 +70,7 @@ export default function TextImageBlock({
         >
           <div
             className={cn(
-              'relative mb-4 aspect-square w-full overflow-hidden translate-z-0 md:mb-0',
+              'relative mb-4 aspect-square w-full translate-z-0 overflow-hidden md:mb-0',
               {
                 'rounded-full': imageStyle === 'Round',
                 'rounded-lg': imageStyle === 'Rounded Corners',
