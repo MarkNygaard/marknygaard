@@ -4,14 +4,14 @@ import { cn } from 'lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'ring-offset-background focus-visible:ring-ring inline-flex cursor-pointer items-center justify-center rounded-md text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: 'dark:text-white text-black',
-        outline: 'border border-input',
+        default: 'text-black dark:text-white',
+        outline: 'border-input border',
         theme:
-          'flex aspect-square text-[#72818b] hover:bg-pine-300 hover:font-bold hover:text-pine-700 dark:hover:bg-slate-800 dark:hover:text-pine-200',
+          'hover:bg-pine-300 hover:text-pine-700 dark:hover:text-pine-200 flex aspect-square text-[#72818b] hover:font-bold dark:hover:bg-slate-800',
       },
       size: {
         default: 'h-10 px-4 py-2',
@@ -24,7 +24,7 @@ const buttonVariants = cva(
       variant: 'default',
       size: 'default',
     },
-  }
+  },
 );
 
 export interface ButtonProps
