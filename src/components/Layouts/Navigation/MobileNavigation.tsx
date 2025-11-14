@@ -1,4 +1,3 @@
-import React from 'react';
 import AlgoliaSearch from '@Primitives/AlgoliaSearch';
 import { ThemeToggle } from '@Primitives/ThemeProvider';
 import { PageRecord } from 'infrastructure/generated/graphql';
@@ -14,11 +13,11 @@ export default function MobileNavigation({
   return (
     <nav
       className={cn(
-        'container relative z-50 mx-auto px-4 md:hidden',
+        'relative z-50 container mx-auto px-4 md:hidden',
         'standalone:pt-safe-top standalone:w-screen',
       )}
     >
-      <div className='-ml-3 mb-3 mt-1 flex flex-1 justify-between standalone:my-1'>
+      <div className='standalone:my-1 mt-1 mb-3 -ml-3 flex flex-1 justify-between'>
         <MobileNavigationMenu allPages={allPages} />
         <div className='ml-5 flex space-x-3'>
           <AlgoliaSearch />
